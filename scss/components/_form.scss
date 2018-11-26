@@ -1,0 +1,29 @@
+.form{
+    font-family: 'Poppins', sans-serif;
+    padding: 2rem 3rem;
+    width: 45rem;
+    text-align: center;
+    box-shadow: 1px 1px 20px rgba($color-grey-dark,.4);
+    border-radius: 7px;
+    
+
+    input,select{
+        // font-family: 'Poppins', sans-serif;
+        display: block;
+        padding: .5rem .4rem;
+        width: 80%;
+        
+        border: none;
+        border-bottom: 1px solid rgba(black,.2);
+        padding-bottom: 1rem;
+        margin: 1.4rem auto ;
+
+    }
+    button{
+        margin: 2rem 0;
+    }
+    .form-text{
+        font-size: 1.2rem;
+    
+    }
+}

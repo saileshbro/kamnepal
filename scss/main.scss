@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins');
 // abstracts
 @import 'abstract/variables';
 @import 'abstract/mixins';
@@ -6,13 +7,17 @@
 
 // base
 @import 'base/base';
+@import 'base/typography';
 
-// components
-@import 'components/card';
 // layouts
 @import 'layout/navbar';
 
+// components
+@import 'components/card';
+@import 'components/form';
+@import 'components/slider';
 
+@import 'utilities/buttons';
 
-// font awesome colors
-@import 'fonts/fonts';
+// pages
+@import 'pages/register';

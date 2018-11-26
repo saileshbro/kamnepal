@@ -1,0 +1,20 @@
+.heading-primary{
+    font-size: 3.5rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    background: linear-gradient(to right, $color-primary-light, $color-primary-dark);
+    display: inline-block;
+    background-clip: text;
+    color: transparent;
+    letter-spacing: .2rem;
+}
+.heading-secondary{
+    font-size: 2rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    background: linear-gradient(to right, $color-primary-light, $color-primary-dark);
+    display: inline-block;
+    background-clip: text;
+    color: transparent;
+    letter-spacing: .1rem;
+}

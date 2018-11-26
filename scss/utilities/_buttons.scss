@@ -1,0 +1,21 @@
+.button-primary{
+    background: $color-primary-dark;
+    color: white;
+    padding: 1.2rem 3rem;
+    border-radius: 10rem;
+    border: none;
+    transition: all .2s;
+    font-size: 1.4em;
+    &:hover{
+        background: $color-primary;
+    }
+}
+.links{
+    color: $color-primary;
+    text-decoration: none;
+    text-transform: capitalize;
+    text-shadow: 2px 2px 20px $color-grey-dark;
+    &:hover{
+        color: $color-primary-dark-2;
+    }
+}
