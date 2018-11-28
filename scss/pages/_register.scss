@@ -1,7 +1,23 @@
+.register-bg-1{
+    background-image: linear-gradient(105deg, rgba($color-primary,.2) 0%, rgba($color-primary,.2) 50%, transparent 50%),url('../img/bg/job-bg-1.jpg');
+    background-attachment: fixed;
+    background-position: center center;
+    background-size: cover;
+}
+.register-bg-2{
+    background-image: linear-gradient(105deg, rgba($color-primary,.2) 0%, rgba($color-primary,.2) 50%, transparent 50%),url('../img/bg/job-bg-2.jpg');
+    background-attachment: fixed;
+    background-position: center center;
+    background-size: cover;
+}
 .register{
-    position: absolute;
-    top:50%;
-    left: 50%;
-    display: inline-block;
-    transform: translate(-50%,-50%);
+    text-align: center;
+    height: 100vh;
+    .register-body{
+        border-radius: 5px;
+        display: inline-block;
+        margin: 8rem auto;
+        background: rgba($color-white,.9);
+        box-shadow: 1px 1px 20px $color-grey-dark;
+    }
 }

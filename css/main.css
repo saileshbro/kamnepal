@@ -44,6 +44,8 @@ body {
   background: linear-gradient(to right, #8b9df8, #4665fd);
   display: inline-block;
   background-clip: text;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
   color: transparent;
   letter-spacing: .1rem;
 }
@@ -56,15 +58,20 @@ body {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  padding: 1.3rem 3.5rem 1.3rem 3rem;
-  -webkit-box-shadow: 0 1px 8px #eee;
-          box-shadow: 0 1px 8px #eee;
+  padding: .5rem 3.5rem .5rem 3rem;
+  -webkit-box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.4);
+          box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.4);
   color: #5d78ff;
+  border-radius: 0 0 10px 10px;
+}
+
+.navbar--left {
+  margin-top: .2rem;
 }
 
 .navbar--left .brand-logo {
   font-size: 2rem;
-  margin-right: .9rem;
+  margin: .5rem 1.3rem;
 }
 
 .navbar--left .brand-header {
@@ -73,7 +80,7 @@ body {
 }
 
 .navbar--right {
-  padding-top: 1rem;
+  margin-top: .2rem;
 }
 
 .navbar--right .navbar-links {
@@ -103,10 +110,7 @@ body {
 
 .navbar--right .navbar-links ul li a img {
   display: inline-block;
-  -webkit-clip-path: circle(50% at 50% 50%);
-          clip-path: circle(50% at 50% 50%);
-  -webkit-transform: scale(1.2);
-          transform: scale(1.2);
+  border-radius: 50%;
 }
 
 .navbar--right .navbar-links ul li:hover:not(:last-child) {
@@ -140,12 +144,43 @@ body {
   margin: 1.4rem auto;
 }
 
+.form select {
+  color: #777;
+}
+
+.form input {
+  color: #3859fc;
+}
+
+.form input::-webkit-input-placeholder {
+  color: #777;
+}
+
+.form input:-ms-input-placeholder {
+  color: #777;
+}
+
+.form input::-ms-input-placeholder {
+  color: #777;
+}
+
+.form input::placeholder {
+  color: #777;
+}
+
 .form button {
   margin: 2rem 0;
 }
 
 .form .form-text {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
+  color: #777;
+}
+
+.form hr {
+  color: rgba(119, 119, 119, 0.3);
+  width: 80%;
+  margin: 1.2rem auto;
 }
 
 .slider {
@@ -200,37 +235,177 @@ body {
           transform: translateX(100%);
 }
 
-.button-primary {
-  background: #4665fd;
-  color: white;
-  padding: 1.2rem 3rem;
-  border-radius: 10rem;
-  border: none;
+.button-primary, .button-primary:link, .button-primary:visited, .button-secondary, .button-secondary:link, .button-secondary:visited, .button-tertiary, .button-tertiary:link, .button-tertiary:visited {
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 1.0rem 3.0rem;
+  display: inline-block;
+  border-radius: 10.0rem;
   -webkit-transition: all .2s;
   transition: all .2s;
-  font-size: 1.4em;
-}
-
-.button-primary:hover {
+  position: relative;
+  font-size: 1.2rem;
   background: #5d78ff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
 }
 
-.links {
+.button-primary:hover, .button-secondary:hover, .button-tertiary:hover {
+  -webkit-transform: translateY(-0.3rem);
+          transform: translateY(-0.3rem);
+  -webkit-box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+          box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+}
+
+.button-primary:hover::after, .button-secondary:hover::after, .button-tertiary:hover::after {
+  -webkit-transform: scaleX(1.5) scaleY(1.6);
+          transform: scaleX(1.5) scaleY(1.6);
+  opacity: 0;
+}
+
+.button-primary:active, .button-primary:focus, .button-secondary:active, .button-secondary:focus, .button-tertiary:active, .button-tertiary:focus {
+  outline: none;
+  -webkit-transform: translateY(-0.1rem);
+          transform: translateY(-0.1rem);
+  -webkit-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+          box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+}
+
+.button-primary::after, .button-secondary::after, .button-tertiary::after {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  border-radius: 10rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+.button-primary {
+  background: #4665fd;
+  color: #fff;
+}
+
+.button-primary::after {
+  background: #8b9df8;
+}
+
+.button-secondary {
+  background: #ff7730;
+  color: #fff;
+}
+
+.button-secondary::after {
+  background: #ffb900;
+}
+
+.button-tertiary {
+  background: #0fe456;
+  color: #fff;
+}
+
+.button-tertiary::after {
+  background: #42e678;
+}
+
+.links:link, .links:visited {
+  font-size: 1.6rem;
   color: #5d78ff;
+  display: inline-block;
   text-decoration: none;
-  text-transform: capitalize;
-  text-shadow: 2px 2px 20px #777;
+  border-bottom: 1px solid #5d78ff;
+  padding: 3px 5px;
+  -webkit-transition: all .2s;
+  transition: all .2s;
 }
 
 .links:hover {
-  color: #3859fc;
+  background: #5d78ff;
+  color: #fff;
+  -webkit-box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+          box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+  -webkit-transform: translateY(-2px);
+          transform: translateY(-2px);
+}
+
+.links:active {
+  -webkit-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+          box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+}
+
+.register-bg-1 {
+  background-image: linear-gradient(105deg, rgba(93, 120, 255, 0.2) 0%, rgba(93, 120, 255, 0.2) 50%, transparent 50%), url("../img/bg/job-bg-1.jpg");
+  background-attachment: fixed;
+  background-position: center center;
+  background-size: cover;
+}
+
+.register-bg-2 {
+  background-image: linear-gradient(105deg, rgba(93, 120, 255, 0.2) 0%, rgba(93, 120, 255, 0.2) 50%, transparent 50%), url("../img/bg/job-bg-2.jpg");
+  background-attachment: fixed;
+  background-position: center center;
+  background-size: cover;
 }
 
 .register {
-  position: absolute;
-  top: 50%;
-  left: 50%;
+  text-align: center;
+  height: 100vh;
+}
+
+.register .register-body {
+  border-radius: 5px;
   display: inline-block;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  margin: 8rem auto;
+  background: rgba(255, 255, 255, 0.9);
+  -webkit-box-shadow: 1px 1px 20px #777;
+          box-shadow: 1px 1px 20px #777;
+}
+
+.login {
+  text-align: center;
+  background-image: linear-gradient(105deg, rgba(93, 120, 255, 0.2) 0%, rgba(93, 120, 255, 0.2) 50%, transparent 50%), url("../img/bg/job-bg-3.jpg");
+  background-attachment: fixed;
+  background-position: center center;
+  background-size: cover;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.login .login-body {
+  border-radius: 5px;
+  display: inline-block;
+  margin: 15rem auto;
+  background: white;
+  -webkit-box-shadow: 1px 1px 20px #777;
+          box-shadow: 1px 1px 20px #777;
+}
+
+.login .login-body form a {
+  display: inline-block;
+  font-size: 1.2rem;
+  margin-bottom: -1.2rem;
+}
+
+.login .login-body form button {
+  margin: 1.2rem auto;
+  display: inline-block;
+}
+
+.login .login-body form .social-login button:not(:last-child) {
+  margin-right: .8rem;
+}
+
+.login .login-body form input {
+  margin: 2rem auto;
+}
+
+.login .login-body form p {
+  margin: 1.2rem auto;
 }

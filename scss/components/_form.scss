@@ -6,24 +6,45 @@
     box-shadow: 1px 1px 20px rgba($color-grey-dark,.4);
     border-radius: 7px;
     
-
+    
     input,select{
         // font-family: 'Poppins', sans-serif;
         display: block;
         padding: .5rem .4rem;
         width: 80%;
-        
         border: none;
         border-bottom: 1px solid rgba(black,.2);
         padding-bottom: 1rem;
         margin: 1.4rem auto ;
 
     }
+    select {
+        // appearance: none;
+        color: $color-grey-dark;
+        // background-image: url('../img/logo/drop-down-arrow.svg');
+        // background-repeat: no-repeat;
+        // background-position-x: 100%;
+        // background-position-y: 5px;
+        // -webkit-appearance: scrollbarbutton-right;
+        // -moz-appearance: button-arrow-down;
+    }
+    input{
+        color: $color-primary-dark-2;
+    }
+    input::placeholder{
+        color: $color-grey-dark;
+    }
     button{
         margin: 2rem 0;
     }
     .form-text{
-        font-size: 1.2rem;
+        font-size: 1.4rem;
+        color: $color-grey-dark;
     
+    }
+    hr{
+        color: rgba($color-grey-dark,.3);
+        width: 80%;
+        margin: 1.2rem auto;
     }
 }

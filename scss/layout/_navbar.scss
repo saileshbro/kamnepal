@@ -2,21 +2,25 @@
     font-size: 1.6rem;
     display: flex;
     justify-content: space-between;
-    padding: 1.3rem 3.5rem 1.3rem 3rem;
-    box-shadow: 0 1px 8px $color-grey-light-2;
+    padding: .5rem 3.5rem .5rem 3rem;
+    box-shadow: 1px 1px 10px rgba($color-black,.4);
     color: $color-primary;
+    border-radius: 0 0 10px 10px;
     &--left{
+        margin-top: .2rem;
         .brand-logo{
             font-size: 2rem;
-            margin-right: .9rem;
+            margin: .5rem 1.3rem;
+            
         }
         .brand-header{
             display: inline-block;
             font-size: 2.4rem;
+            
         }
     }
     &--right{
-        padding-top: 1rem;
+        margin-top: .2rem;
         .navbar-links{
             font-size: 1.6rem;
             ul{
@@ -37,8 +41,9 @@
                         color: $color-grey-dark;
                         img{
                             display: inline-block;
-                            clip-path: circle(50% at 50% 50%);
-                            transform: scale(1.2);
+                            // clip-path: circle(50% at 50% 50%);
+                            border-radius: 50%;
+                            // transform: scale(1);
                         }
                     }
                     &:hover{
