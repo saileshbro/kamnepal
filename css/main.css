@@ -24,6 +24,11 @@ body {
           box-sizing: border-box;
 }
 
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
 .heading-primary {
   font-size: 3.5rem;
   text-transform: uppercase;
@@ -122,6 +127,104 @@ body {
 .navbar--right .navbar-links ul li:hover a .far {
   color: #6a82ff;
   text-shadow: 1px 1px rgba(119, 119, 119, 0.8);
+}
+
+.navbar-landing {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.navbar-landing .navbar-links {
+  margin: 1.2rem 1.4rem;
+  text-transform: uppercase;
+  width: 80%;
+}
+
+.navbar-landing .navbar-links ul {
+  list-style: none;
+}
+
+.navbar-landing .navbar-links li {
+  display: inline-block;
+  margin: 0 2rem;
+}
+
+.navbar-landing .navbar-links li a {
+  color: white;
+}
+
+.navbar-landing .navbar-left {
+  background-image: linear-gradient(-21deg, rgba(139, 157, 248, 0.7) 0%, rgba(93, 120, 255, 0.7) 50%, rgba(70, 101, 253, 0.7) 100%);
+  width: 43%;
+  height: 20rem;
+  margin-top: -8rem;
+  -webkit-transform: skewY(11deg);
+          transform: skewY(11deg);
+  border-radius: 0 0 15rem 5rem;
+}
+
+.navbar-landing .navbar-left .navbar-links ul {
+  -webkit-transform: skewY(-11deg);
+          transform: skewY(-11deg);
+}
+
+.navbar-landing .navbar-right {
+  background-image: linear-gradient(21deg, rgba(139, 157, 248, 0.7) 0%, rgba(93, 120, 255, 0.7) 50%, rgba(70, 101, 253, 0.7) 100%);
+  width: 43%;
+  height: 20rem;
+  margin-top: -8rem;
+  -webkit-transform: skewY(169deg);
+          transform: skewY(169deg);
+  border-radius: 0 0 5rem 15rem;
+}
+
+.navbar-landing .navbar-right .navbar-links ul {
+  -webkit-transform: skewY(-169deg);
+          transform: skewY(-169deg);
+}
+
+.navbar-landing .brand-logo {
+  border-radius: 50%;
+  -webkit-box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.4);
+          box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.4);
+  margin-top: 2rem;
+  background: white;
+}
+
+.navbar-landing .navbar-left {
+  position: relative;
+}
+
+.navbar-landing .navbar-left .navbar-links {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.navbar-landing .navbar-right {
+  position: relative;
+}
+
+.navbar-landing .navbar-right .navbar-links {
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  -webkit-transform: translate(50%, -50%);
+          transform: translate(50%, -50%);
+}
+
+.landing-body {
+  background: url("../img/bg/job-bg-8.jpg");
+  height: 100vh;
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
 }
 
 .form {
@@ -235,6 +338,44 @@ body {
           transform: translateX(100%);
 }
 
+.dropdown {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.9);
+  margin-top: 2rem;
+  margin-left: -8rem;
+  display: none;
+}
+
+.dropdown-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.dropdown-content .dropdown-title {
+  color: #5d78ff;
+  text-align: center;
+  margin: .4rem  .6rem;
+}
+
+.dropdown-content img {
+  width: 30%;
+  display: block;
+  margin: 1.4rem auto;
+}
+
+.dropdown-content a {
+  margin: .6rem 3rem;
+  display: inline;
+}
+
+.show {
+  display: block;
+}
+
 .button-primary, .button-primary:link, .button-primary:visited, .button-secondary, .button-secondary:link, .button-secondary:visited, .button-tertiary, .button-tertiary:link, .button-tertiary:visited {
   text-transform: uppercase;
   text-decoration: none;
@@ -327,10 +468,10 @@ body {
 .links:hover {
   background: #5d78ff;
   color: #fff;
-  -webkit-box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
-          box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
-  -webkit-transform: translateY(-2px);
-          transform: translateY(-2px);
+  -webkit-box-shadow: 0px 37px 20px -20px rgba(0, 0, 0, 0.2);
+          box-shadow: 0px 37px 20px -20px rgba(0, 0, 0, 0.2);
+  -webkit-transform: translate(0px, -5px) scale(1.05);
+          transform: translate(0px, -5px) scale(1.05);
 }
 
 .links:active {

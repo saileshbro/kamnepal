@@ -1,0 +1,31 @@
+.dropdown{
+    position: absolute;
+    // height: 30rem;
+    background: rgba($color-white,.9);
+    margin-top: 2rem;
+    margin-left: -8rem;
+    // width: 35rem;
+    display: none;
+    &-content{
+        display: flex;
+        justify-content: flex-start;
+        .dropdown-title{
+            color: $color-primary;
+            text-align: center;
+            margin: .4rem  .6rem;
+        }
+        img{
+            width: 30%;
+            // text-align: center;
+            display: block;
+            margin: 1.4rem auto;
+        }
+        a{
+            margin: .6rem 3rem;
+            display: inline;
+        }
+    }
+}
+.show{
+    display: block;
+}
