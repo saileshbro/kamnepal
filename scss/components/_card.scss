@@ -1,0 +1,25 @@
+.card{
+    display: inline-block;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    width: 20%;
+    margin: .6rem .5rem;
+    &-title{
+        h4{
+            text-align: center;
+            text-transform: uppercase;
+        }
+    }
+    &-body{
+        p{
+            text-align: justify;
+            margin: .4rem .8rem;
+            padding: .2rem .3rem;
+        }
+    }
+    &-footer{
+        a{
+            display: inline-block;
+            text-align: right;
+        }
+    }
+}

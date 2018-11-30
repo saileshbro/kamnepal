@@ -18,23 +18,27 @@
             <a class='links' href="./jobseeker.php">Signup as Jobseeker</a>
         </div>
 </nav>
-<div class="register register-bg-1">
-    <div class="register-body">
-        <form class='form' action="">
-            <h1 class="heading-secondary">Create your free Employer Account</h1>
-            <input type='text' name='full-name' placeholder='Organisation Name' autocapitalize="words">
-            <select name="categories" id="">
-                <option value="1">Jobs</option>
-            </select>
-            <input type="text" name='mobile' placeholder='Organisation Contact Number'>
-            <input type="email" name="email" id="" placeholder='Office Email'>
-            <input type="password" name="password" id="" placeholder='Password'>
-            <input type="password" name='password-confirm' placeholder='Confirm Password'>
-            <button type="submit" class='button-primary'>Create a Employer Account</button>
-            <p class='form-text'>Already have a Employer account? <a class='links'href="">Login</a></p>
-        </form>
-    </div>
-</div>
+ <div class="register register-bg-2">
+            <div class="register-body">
+                <form class='form' id='regForm' action="" onsubmit="completeRegistration();return false;">
+                    <h1 class="heading-secondary">Create your free Employer Account</h1>
+                    <div class="error">
+                        <h2 id="error"></h2>
+                    </div>
+                    <input type='text' name='fname' placeholder='Organisation Name' required autocapitalize="words">
+                    <select name="category" id="">
+                        <option value="Jobs">Jobs</option>
+                    </select>
+                    <input type="text" name='phone' placeholder='Organisational Phone Number' required>
+                    <input type="hidden" name='type' value='Employer' required>
+                    <input type="email" name="email" id="" placeholder='Office Email' required>
+                    <input type="password" name="password" id="" placeholder='Password' required>
+                    <input type="password" name='password2' placeholder='Confirm Password' required>
+                    <button type="submit" class='button-primary'>Create a Employer Account</button>
+                    <p class='form-text'>Already have a Employer account? <a class='links'href="">Login</a></p>
+                </form>
+            </div>
+        </div>
     
 
 
@@ -63,6 +67,28 @@
         item.classList.add('on');
         elem.classList.toggle('on');
     }
+</script>
+<script
+			  src="http://code.jquery.com/jquery-3.3.1.min.js"
+			  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+			  crossorigin="anonymous"></script>
+
+<script>
+function completeRegistration(){
+    $('#error').html('<img src="/img/gif/loading.gif" alt="" srcset="" style="width:72px;">');
+
+    $.ajax({
+        url: 'posts/register.php',
+        method: 'post',
+        data: $('#regForm').serializeArray(),
+        success: function(data){
+            $('#error').html(data);
+        },
+        error: function(){
+            $('#error').html('Unable to connect to server.');
+        }
+    });
+}
 </script>
 </body>
 </html>

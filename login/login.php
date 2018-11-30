@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="../css/main.css">
     
     <title>Kam Nepal | Login</title>
 </head>
@@ -21,16 +21,13 @@
         <section>
         <div class="login">
             <div class="login-body">
-                <form class='form' action="">
+                <form class='form'id='loginForm' action="" onsubmit='login();return false;'>
                     <h1 class="heading-secondary">Sign in to your account</h1>
-                    <!-- <input type='text' name='full-name' placeholder='Full Name' required autocapitalize="words">
-                    <select name="categories" id="">
-                        <option value="1">Jobs</option>
-                    </select>
-                    <input type="text" name='mobile' placeholder='Mobile Number' required> -->
+                    <div class="error">
+                        <h2 id="error"></h2>
+                    </div>
                     <input type="email" name="email" id="" placeholder='Email' required>
                     <input type="password" name="password" id="" placeholder='Password' required>
-                    <!-- <input type="password" name='password-confirm' placeholder='Confirm Password' required> -->
                     <a class='links'href="">Forgot Password?</a></p>
                     <button type="submit" class='button-primary'>Login</button>
                     <hr>
@@ -44,5 +41,27 @@
             </div>
         </div>
         </section>
+        <script
+			  src="http://code.jquery.com/jquery-3.3.1.min.js"
+			  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+			  crossorigin="anonymous"></script>
+        <script>
+function login(){
+    $('#error').html('<img src="/img/gif/loading.gif" alt="" srcset="" style="width:72px;">');
+
+    $.ajax({
+        url: 'posts/login.php',
+        method: 'post',
+        data: $('#loginForm').serializeArray(),
+        success: function(data){
+            $('#error').html(data);
+        },
+        error: function(){
+            $('#error').html('Unable to connect to server.');
+        }
+    });
+}
+        </script>
     </body>
+    
 </html>

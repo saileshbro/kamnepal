@@ -25,7 +25,7 @@ body {
 }
 
 .container {
-  width: 80%;
+  width: 85%;
   margin: 0 auto;
 }
 
@@ -227,6 +227,35 @@ body {
   background-size: cover;
 }
 
+.landing-search {
+  display: inline-block;
+  margin: 0 auto;
+}
+
+.card {
+  display: inline-block;
+  -webkit-box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+          box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  width: 20%;
+  margin: .6rem .5rem;
+}
+
+.card-title h4 {
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.card-body p {
+  text-align: justify;
+  margin: .4rem .8rem;
+  padding: .2rem .3rem;
+}
+
+.card-footer a {
+  display: inline-block;
+  text-align: right;
+}
+
 .form {
   font-family: 'Poppins', sans-serif;
   padding: 2rem 3rem;
@@ -346,34 +375,72 @@ body {
   display: none;
 }
 
-.dropdown-content {
+.dropdown-content .dropdown-nav {
+  margin: .6rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  gap: 2rem;
+  border-bottom: 1px solid rgba(119, 119, 119, 0.5);
 }
 
-.dropdown-content .dropdown-title {
-  color: #5d78ff;
-  text-align: center;
-  margin: .4rem  .6rem;
+.dropdown-content .dropdown-nav p {
+  padding: .3rem 1.1rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1.3rem;
+  color: #000;
+  margin-bottom: .1rem;
 }
 
-.dropdown-content img {
-  width: 30%;
+.dropdown-content .dropdown-nav p:hover {
+  color: #3859fc;
+  cursor: pointer;
+}
+
+.dropdown-content .dropdown-body .employer, .dropdown-content .dropdown-body .jobseeker {
+  display: none;
+}
+
+.dropdown-content .dropdown-body img {
   display: block;
-  margin: 1.4rem auto;
+  margin: 2rem auto;
 }
 
-.dropdown-content a {
-  margin: .6rem 3rem;
-  display: inline;
+.dropdown-content .dropdown-body button {
+  display: block;
+  margin: 2rem auto;
+}
+
+.dropdown-content .dropdown-body hr {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.dropdown-content .dropdown-body .heading-secondary {
+  display: block;
+  text-align: center;
+}
+
+.dropdown-content .dropdown-body p {
+  text-align: center;
+  text-transform: none;
+  padding: .4rem .6rem;
+  margin: 0 auto;
+  width: 80%;
+}
+
+.active {
+  background: #8b9df8;
+  color: white !important;
 }
 
 .show {
-  display: block;
+  display: block !important;
 }
 
 .button-primary, .button-primary:link, .button-primary:visited, .button-secondary, .button-secondary:link, .button-secondary:visited, .button-tertiary, .button-tertiary:link, .button-tertiary:visited {

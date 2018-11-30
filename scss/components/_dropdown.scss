@@ -1,31 +1,67 @@
 .dropdown{
     position: absolute;
-    // height: 30rem;
     background: rgba($color-white,.9);
     margin-top: 2rem;
     margin-left: -8rem;
-    // width: 35rem;
     display: none;
+
     &-content{
-        display: flex;
-        justify-content: flex-start;
-        .dropdown-title{
-            color: $color-primary;
-            text-align: center;
-            margin: .4rem  .6rem;
+        .dropdown-nav{
+            margin: .6rem;
+            display: flex;
+            justify-content: space-evenly;
+            gap: 2rem;
+            border-bottom: 1px solid rgba($color-grey-dark,.5) ;
+            p{
+                padding: .3rem 1.1rem;
+                text-transform: uppercase;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 1.3rem;
+                color: $color-black ;
+                margin-bottom: .1rem;
+                &:hover{
+                    // background: $color-grey-ark;
+                    color: $color-primary-dark-2;
+                    cursor: pointer;
+                }
+            }
         }
-        img{
-            width: 30%;
-            // text-align: center;
-            display: block;
-            margin: 1.4rem auto;
-        }
-        a{
-            margin: .6rem 3rem;
-            display: inline;
+        .dropdown-body{
+            .employer,.jobseeker{
+                display: none;
+            }
+            img{
+                display: block;
+                margin: 2rem auto;
+            }
+            button{
+                display: block;
+                margin: 2rem auto;
+            }
+            hr{
+                width: 80%;
+                margin: 0 auto;
+            }
+            .heading-secondary{
+                display: block;
+                text-align: center;
+            }
+            p{
+                text-align: center;
+                text-transform: none;
+                padding: .4rem .6rem;
+                margin: 0 auto;
+                width: 80%;
+                // margin
+            }
         }
     }
 }
+.active{
+    background: $color-primary-light;
+    color: white !important;
+}
 .show{
-    display: block;
+    display: block !important;
 }
