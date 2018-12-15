@@ -19,14 +19,14 @@
                     </ul>
                 </div>    
             </div>
-            <div class="navbar-center">
-                <img class='brand-logo' src="img/logo/kamnepal.svg" alt="" width='150rem' height='150rem' href='./index.php'>
-            </div>
+            <!-- <div class="navbar-center">
+                <img class='brand-logo' src="img/logo/kamnepal.svg" alt="" width='90rem' height='90rem' href='./index.php'>
+            </div> -->
             <div class="navbar-right">
                 <div class="navbar-links">
                     <ul>
                         <li><a href="#" class="links">Create a CV</a></li>
-                        <li><a href="#"  class="links" >Login</a>
+                        <li><a href="/login/login.php"  class="links" >Login</a>
                         </li>
                         <li><a href="#" id='register' onclick='toggleDropdown()' class="links">Register</a>
                         <div class="dropdown">
@@ -38,14 +38,18 @@
                                     <div class="dropdown-body">
                                         <div class='jobseeker drop-active show '>
                                             <img src="../img/logo/user-regular.svg" alt="" width='60px'>
-                                            <button class="button-primary">Register</button>
+                                            <div class="btn-dp button-primary">
+                                            <a  href='/register/jobseeker.php'>Register</a>
+                                            </div>
                                             <hr>
                                             <h3 class="heading-secondary">Jobseeker</h3>
                                             <p>Create a free account to apply for jobs</p>
                                         </div>
                                         <div class='employer drop-active '>
                                             <img src="../img/logo/building-regular.svg" alt="" width='60px'>
-                                            <button class="button-secondary">Register</button>
+                                            <div class="btn-dp button-secondary">
+                                            <a  href='/register/employer.php'>Register</a>
+                                            </div>
                                             <hr>
                                             <h3 class="heading-secondary">Employer</h3>
                                             <p>Create a free acount to post vacancy.</p>
@@ -58,10 +62,12 @@
                 </div>
             </div>
         </nav>
+        
         <div class="landing-search">
-            <input type="text">
-            <a href="" class='links'><i class="fa fa-bell"></i></a>
+            <input type="text" placeholder='Search here...'>
+            <a href="#"><img src="/img/logo/search-solid.svg" width='30px' alt=""></a>
         </div>
+       
     </div>
     <br>
     <div class="container" style='height:400px;'>

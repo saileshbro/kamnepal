@@ -4,6 +4,7 @@
     margin-top: 2rem;
     margin-left: -8rem;
     display: none;
+    border-radius: 5px;
 
     &-content{
         .dropdown-nav{
@@ -35,9 +36,19 @@
                 display: block;
                 margin: 2rem auto;
             }
-            button{
-                display: block;
-                margin: 2rem auto;
+            .btn-dp{
+                display: inline-block;
+                // margin: 2rem auto;
+                // width: 50%;
+                text-align: center;
+                margin-right: 50%;
+                margin-bottom: 1.2rem;
+                transform: translate(40%);
+                a{
+                    text-decoration: none;
+                    text-transform: uppercase;
+                    text-align: center;
+                }
             }
             hr{
                 width: 80%;

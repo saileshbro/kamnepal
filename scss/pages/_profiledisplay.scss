@@ -1,0 +1,231 @@
+.profilebody {
+  // background: url("../img/pic.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 2rem;
+
+  &__header {
+    padding: 1rem auto;
+    line-height: 2rem;
+    margin: 1rem auto;
+    width: 100%;
+    box-sizing: border-box;
+    // background: url("../img/stone.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: 0.2rem solid #f5c3c2;
+    border-radius: 1rem;
+    &--image {
+      margin-top: 2rem;
+      align-content: center;
+      display:block;
+      padding: 2rem 3rem;
+      float: left;
+      img {
+        border-radius: 50%;
+        border: 0.3rem #f5c3c2 solid;
+        width: 22rem;
+        height: 22rem;
+      }
+    }
+
+    .text1 {
+      height: 100%;
+      margin: 1rem auto;
+      display: inline-block;
+      width: 70%;
+
+      .brief{
+        padding: 1.2rem 1rem;
+        #age,
+        #gender,
+        #address {
+          color: #364380;
+          display: inline-block;
+          margin-right: 1.3rem;
+          // padding: 0.5rem;
+        }
+      }
+
+      #name {
+        color: rgb(17, 30, 108);
+        margin: 1.2rem auto;
+        .heading-primary{
+          padding: 1.2rem 1rem;
+        }
+      }
+
+      #bio {
+        color: #800000;
+        padding: 1.2rem 1rem;
+        margin-top: -1.1rem;
+        // margin: 2rem auto;
+        // width: 80%;
+        font-style: italic;
+
+      }
+
+      #employ_details {
+        color: black;
+        padding: 1rem;
+
+      }
+    }
+
+    .text2 {
+      background-color: rgba(247, 152, 98, 0.6);
+      border-radius: 1rem;
+      padding: 1rem;
+      margin: .5rem;
+      .links1 {
+        margin: auto;
+        width: 90%;
+        padding-right: .9rem;          
+        .imp-link{
+          text-transform: uppercase;
+          // color: #7e191b;
+          color: $color-primary-dark;
+          font-weight: 900;
+          display: inline-block;
+          padding: 1rem;
+          margin: auto;
+          margin-right: 1.2rem;
+          text-decoration: none;
+          position: relative;
+          text-decoration: none;
+          font-size: 2rem;
+          &:hover{
+            color: white;
+          }
+          &::after{
+            content: '';
+            background: #605052;
+            position: absolute; 
+            top: 50%; 
+            right: 0; 
+            height: 50%; 
+            width: 1px;
+            transform: translateY(-50%);
+          }
+        }
+      }
+    }
+  }
+  .middle-section {
+    width: 100%;
+  }
+
+
+  &__leftpart {
+    padding: 1rem;
+    line-height: 2rem;
+    text-align: center;
+    margin: 1rem auto;
+    // height: 100%;
+    float: left;
+    width: 25%;
+    ul hr{
+      width: 70%;
+      color: rgba($color-grey-dark,.5);
+      margin: 0 auto;
+    }
+    .elements {
+      color: #303030;
+      margin: 1rem;
+      padding: 1rem;
+      list-style: none;
+
+    }
+
+    .answer {
+      color: #003399;
+      font-size: 1.3rem;
+    }
+  }
+  &__rightpart {
+    color: blue;
+    padding: 1rem;
+    line-height: 2rem;
+    text-align: center;
+    margin: 2rem auto;
+    height: 78rem;
+    background: white;
+    border: 0.5rem solid #f5c3c2;
+    float: right;
+    display: block;
+    width: 70%;
+    overflow: auto;
+    .posts{
+      margin: 2rem;
+      padding: .9rem;
+      background: $color-grey-light-2;
+      &:not(:last-child){
+        margin-bottom: 1.2rem;
+      }
+      .post-title{
+        display: inline-block;
+        text-align: left;
+      }
+      .post-body{
+        margin: 1.2rem 0;
+        :not(:last-child){
+          margin-bottom: .9rem;
+        }
+      }
+    }
+  }
+  .layer2 {
+    // background-color: rgba(115, 254, 191, 0.3);
+    background-color: rgba(218, 218, 218, 0.5);
+    border-radius: 1rem;
+    margin: 2rem auto;
+    padding: 3rem;
+    width: 100%;
+    height: 100%;
+  }
+  .clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+}
+
+
+@media only screen and (max-width: 50rem) {
+
+
+  .profilebody__leftpart {
+    padding: 1rem;
+    line-height: 2rem;
+    text-align: center;
+    margin: 1rem auto;
+    height: 100%;
+    width: 100%;
+
+    .elements {
+      color: #303030;
+      margin: 1rem;
+      padding: 1rem;
+      list-style: none;
+    }
+
+    .answer {
+      color: #003399;
+    }
+  }
+
+  .profilebody__rightpart {
+    color: blue;
+    padding: 1rem;
+    line-height: 2rem;
+    text-align: center;
+    margin: 2rem auto;
+    height: 80rem;
+    background: white;
+    border: 0.5rem solid #f5c3c2;
+    width: 100%;
+    overflow: scroll;
+    border-radius: 2rem;
+  }
+
+}

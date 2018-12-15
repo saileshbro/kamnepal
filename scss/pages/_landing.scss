@@ -1,14 +1,33 @@
 .landing-body{
-    background: url('../img/bg/job-bg-8.jpg');
+    background:linear-gradient(rgba(0,0,0,.7)),url('../img/bg/job-bg-8.jpg');
     height: 100vh;
     background-position: center center;
     background-attachment: fixed;
     background-size: cover;
+    
 }
 .landing-search{
-    display: inline-block;
-    margin: 0 auto;
-    a img{
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    // width: 70rem;
+    // display: block;
+    input{
+        height: 6rem;
+        width: 80rem;
+        display: inline-block;
+        position: relative;
+        border-radius: 5px;
+        box-shadow: 3px -6px 46px 3px rgba($color-grey-dark-2,0.36);
+        padding: 0 0 0 1.2rem;
 
     }
+    a{
+        position: absolute;
+        top: 50%;
+        right: 1.5rem;
+        transform: translateY(-50%);
+    }
+
 }

@@ -12,10 +12,10 @@
     <nav class="navbar">
             <div class="navbar--left">
                 <i class="fa fa-graduation-cap brand-logo"></i>
-                <a href='./index.php' class='brand-header links'>Kam Nepal</a>
+                <a href='../index.php' class='brand-header links'>Kam Nepal</a>
             </div>
             <div class="navbar--right">
-                <a class='links' href="#">Sign up</a>
+                <a class='links' href="/register/jobseeker.php">Sign up</a>
             </div>
     </nav>
         <section>
@@ -34,8 +34,8 @@
                     <p class="form-text">Or Sign in with</p>
                     <div class="social-login">
                         <button class="button-secondary">Google</button>
-                        <button class="button-primary">Facebook</button>
-                        <button class="button-tertiary">Twitter</button>
+                        <!-- <button class="button-primary">Facebook</button>
+                        <button class="button-tertiary">Twitter</button> -->
                     </div>
                 </form>
             </div>

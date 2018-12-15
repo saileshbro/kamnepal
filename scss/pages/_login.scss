@@ -1,6 +1,6 @@
 .login{
     text-align: center;
-    background-image: linear-gradient(105deg, rgba($color-primary,.2) 0%, rgba($color-primary,.2) 50%, transparent 50%),url('../img/bg/job-bg-3.jpg');
+    background-image: linear-gradient(rgba(0,0,0,.7)),url('../img/bg/job-bg-3.jpg');
     background-attachment: fixed;
     background-position: center center;
     background-size: cover;
@@ -11,7 +11,7 @@
         display: inline-block;
         margin: 15rem auto;
         background: white;
-        box-shadow: 1px 1px 20px $color-grey-dark;
+        box-shadow: 1px 1px 20px $color-black;
         form {
             
             a{ 
