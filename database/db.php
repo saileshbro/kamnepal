@@ -4,6 +4,19 @@ function cleanse($str){
     return mysqli_real_escape_string($con, strip_tags(stripslashes($str)));
 }
 
+function getColumn($sql, $col){
+    global $con;
+
+    $r = "";
+
+    $result = mysqli_query($con, $sql);
+    while($row=mysqli_fetch_array($result)){
+        $r = $row[$col];
+    }
+    
+    return $r;
+}
+
 class Database {
     public $con;
 

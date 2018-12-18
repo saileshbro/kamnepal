@@ -1,7 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins');
+@import url('https://fonts.googleapis.com/css?family=PT+Sans');
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans');
 // abstracts
 @import 'abstract/variables';
 @import 'abstract/mixins';
+@import 'abstract/animations';
 
 // layouts
 
@@ -15,6 +18,7 @@
 @import 'pages/landing';
 @import 'pages/profiledisplay';
 @import 'pages/profileupdate';
+@import 'pages/footer';
 
 // components
 @import 'components/card';
@@ -23,7 +27,7 @@
 @import 'components/dropdown';
 
 @import 'utilities/buttons';
-
+@import 'utilities/badge';
 // pages
 @import 'pages/register';
 @import 'pages/login';

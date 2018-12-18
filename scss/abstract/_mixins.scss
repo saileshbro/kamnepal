@@ -12,3 +12,15 @@
     left : 50%;
     transform: translate(-50%,-50%);
 }
+@mixin underTag {
+    &::after{
+        content: '';
+        display: block;
+        position: absolute;
+        top: 90%;
+        width: 2.5rem;
+        left: 50%;
+        transform: translateX(-50%);
+        border-top: 3px solid $color-tertiary-dark;
+    }
+}

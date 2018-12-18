@@ -4,8 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+    <script
+			  src="http://code.jquery.com/jquery-3.3.1.min.js"
+			  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+			  crossorigin="anonymous"></script>
     <title>Kam Nepal</title>
 </head>
 <body>
@@ -62,62 +66,57 @@
                 </div>
             </div>
         </nav>
-        
         <div class="landing-search">
             <input type="text" placeholder='Search here...'>
-            <a href="#"><img src="/img/logo/search-solid.svg" width='30px' alt=""></a>
+            <a href="#"><img src="img/logo/search-solid.svg" width='30px' alt=""></a>
         </div>
-       
+        <div class='scroll' href="#landing-main">
+            <div class="scroll-arr">
+            </div>
+        </div>
     </div>
-    <br>
-    <div class="container" style='height:400px;'>
-        <div class="landing-jobs">
-            <h1 class='heading-primary'>Vacancies</h1>
-            <br>
-            <?php
-                for($i=0;$i<10;$i++){
-                    echo '<div class="card">
-                    <div class="card-title">
-                        <h4>Job name</h4>
-                    </div>
-                    <div class="card-body">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus, praesentium.</p>
-                    </div>
-                    <div class="card-footer">
-                        <a>Company name</a>
-                    </div>
-                </div>';
-                }
-            ?>
-            <div class="card">
-                    <div class="card-title">
-                        <h4>Job name</h4>
-                    </div>
-                    <div class="card-body">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus, praesentium.</p>
-                    </div>
-                    <div class="card-footer">
-                        <a>Company name</a>
-                    </div>
+    <div class="container">
+       <div class="landing-main" id='landing-main'>
+           <div class="landing-left">
+        <h2 class="landing-heading"> Top Vacancies</h2>
+        <div class='landing-scroll'>
+        <?php
+            for($i=1;$i<=10;$i++){
+                echo '<div class="job">
+                <div class="job-title"><a href="" class="links"><h2>Post #'.$i.'</h2></a></div>
+                <div class="job-body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem iure assumenda officiis sapiente voluptatibus aperiam alias dignissimos cupiditate, facilis dolore adipisci odio, dolorum quasi veniam molestiae repellat voluptatem libero doloribus?</div>
+                <div class="job-by">
+                    <span class="job-name"><a href="">ABC Company</a></span>
+                    <span class="job-date">2012/06/01</span>
                 </div>
+        </div>';
+            }
+        ?> 
+        </div>
+       </div>
+       <div class="landing-right">
+            <h2 class="landing-heading">Top companies</h2>
+            <div class='company-list'>
+                <?php for($i=1;$i<=5;$i++){
+                    // echo('<li class="company-name"><span class="badge">'.$i.'</span><a href="">Company '.$i.'</a></li>');
+                    if ($i<10) {
+                        echo('<div class="company-name"><span class="badge">0'.$i.'</span><a href="">Company ABC</a>
+                        <p class="company-bio">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem iure assumenda officiis sapiente voluptatibus aperiam alias dignissimos cupiditate, facilis dolore adipisci odio, dolorum quasi veniam molestiae repellat voluptatem libero doloribus?</p>
+                        </div>');
+                    }
+                    else{
+                        echo('<div class="company-name"><span class="badge">'.$i.'</span><a href="">Company ABC</a>
+                        <p class="company-bio">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem iure assumenda officiis sapiente voluptatibus aperiam alias dignissimos cupiditate, facilis dolore adipisci odio, dolorum quasi veniam molestiae repellat voluptatem libero doloribus?</p>
+                        </div>');
+                    }
+                }?>
+            </div>
         </div>
     </div>
-    <script>
-        function toggleDropdown(){
-            let element = document.querySelector('#register');
-            document.querySelector('.dropdown').classList.toggle("show");
-        }
-        function toggleRegistration(){
-            let element = document.querySelectorAll('#drop-nav');
-            let element2 = document.querySelectorAll('.drop-active');
-            for(let i =0;i<element.length;i++){
-                element[i].classList.toggle('active');
-            }
-            for(let i =0;i<element2.length;i++){
-                element2[i].classList.toggle('show');
-            }
-            
-        }
-    </script>
+</div>
+<?php
+    require('footer.php');
+?>
+    <script src="js/app.js"></script>
 </body>
 </html>

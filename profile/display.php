@@ -1,3 +1,30 @@
+<?php
+  require('../database/db.php');
+  $db = new Database();
+  $con = $db->con;
+  $user_id = cleanse($_GET['user_id'])??'';
+
+  $sql = "select profile.*,user.v_status from profile,user where profile.user_id='$user_id' AND user.id=profile.user_id";
+  $res = mysqli_query($con,$sql);
+  while($row=mysqli_fetch_array($res)){
+    $fname = $row['fname'];
+    $gender = $row['gender'];
+    $dob=$row['dob'];
+    $address=$row['address'];
+    $phone=$row['phone'];
+    $profile_img=$row['profile_img'];
+    $study=$row['study'];
+    $employ_status=$row['employ_status'];
+    $experience=$row['experience'];
+    $skills=$row['skills'];
+    $employ_details=$row['employ_details'];
+    $interest=$row['interest'];
+    $category=$row['category'];
+    $bio=$row['bio'];
+    $updated_at = $row['updated_at'];
+    $v_status = $row['v_status'];
+  }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -37,24 +64,21 @@
         <div class="text1">
           <div class="layer2">
             <div id="name">
-              <h1 class='heading-primary'>Sarayu Gautam</h1>
+              <h1 class='heading-primary'><?php echo $fname; ?></h1>
             </div>
             <div id="bio">
-              <h3>Lover of reading novels. Wants to roam the world and have fun.</h3>
+              <h3><?php echo $bio; ?></h3>
             </div>
            <div class="brief">
-            <span id="age">
-                <h2>19</h2>
-              </span>
               <span id="gender">
-                <h2>Female </h2>
+                <h2><?php echo $gender; ?> </h2>
               </span>
               <span id="address">
-                <h3>Naikap, Chandragiri, kathmandu </h3>
+                <h3><?php echo $address; ?></h3>
            </div>
             </span>
             <div id="employ_details">
-              <h2>Works at kathmandu University</h2>
+              <h2><?php echo $employ_details; ?></h2>
             </div>
           </div>
         </div>
@@ -93,63 +117,64 @@
         <div class="profilebody__leftpart part">
           <ul>
             <li class="elements">
-              <h2>Verification status</h2><span class="answer" id="verify_status">Verified</span>
+              <h2>Verification status</h2><span class="answer" id="verify_status"><?php echo ($v_status == "no") ? "Not Verified" : "Verified";?></span>
             </li>
             <hr>
             <li class="elements">
-              <h2>Employment status</h2><span class="answer" id="employ_status">Employed</span>
+              <h2>Employment status</h2><span class="answer" id="employ_status"><?php echo $employ_status; ?></span>
             </li>
             <hr>
             <li class="elements">
-              <h2>Study</h2><span class="answer" id="study">Bachelor 2nd year in Computer
-                Engineering</span>
+              <h2>Study</h2><span class="answer" id="study"><?php echo $study; ?></span>
             </li>
             <hr>
             <li class="elements">
-              <h2>Experiences</h2><span class="answer" id="experiences">5 years of teaching at
-                pulchok campus.</span>
+              <h2>Experiences</h2><span class="answer" id="experiences"><?php echo $experience; ?></span>
             </li>
             <hr>
             <li class="elements">
-              <h2>Interest</h2><span class="answer" id="interest">Dancing, Reading, Reflecting</span>
+              <h2>Interest</h2><span class="answer" id="interest"><?php echo $interest; ?></span>
             </li>
             <hr>
             <li class="elements">
-              <h2>skills</h2><span class="answer" id="skills">Typing, Teaching, Web designing</span>
+              <h2>skills</h2><span class="answer" id="skills"><?php echo $skills; ?></span>
             </li>
             <hr>
             <li class="elements">
-              <h2>Date of birth</h2><span class="answer" id="dob">1999/01/29</span>
+              <h2>Date of birth</h2><span class="answer" id="dob"><?php echo $dob; ?></span>
             </li>
             <hr>
             <li class="elements">
-              <h2>Contact Number</h2><span class="answer" id="contact">9860934053</span>
+              <h2>Contact Number</h2><span class="answer" id="contact"><?php echo $phone; ?></span>
             </li>
             <hr>
             <li class="elements">
-              <h2>Last updated at</h2><span class="answer" id="updated">2018/11/30</span>
+              <h2>Last updated at</h2><span class="answer" id="updated"><?php echo $updated_at; ?></span>
             </li>
             <hr>
-
-
           </ul>
         </div>
       </section>
       <section>
-        <div class="profilebody__rightpart">
-          <?php
-          for ($i=1; $i < 20; $i++) { 
-            echo ' <div class="posts"><div class="post-title">
-            <h2 class="heading-secondary">
-              Post #'.$i.'
-            </h2>
-            <div class="post-body">
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit eum  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem illum ipsam exercitationem, dolore quisquam, doloremque consequatur at officia beatae itaque qui tempora a hic ut rerum. Consequuntur laborum id voluptas. voluptate expedita eaque molestias amet aliquid aspernatur deleniti tenetur porro.</p>
-            </div></div></div>';
-          }
-          ?>
+      <div class="profilebody__rightpart">
+      <?php
+      $sql = "select * from posts where user_id='$user_id'";
+      $res=mysqli_query($con,$sql);
+      while($row=mysqli_fetch_array($res)){
+        echo '<div class="posts">
+                <div class="post-title">
+                <h2 class="heading-secondary">'.$row['title'].'
+                </h2>
+                </div>
+                <div class="post-body">
+                  <p>'.$row['body'].'</p>
+                </div>
+            </div>
           </div>
-        </div>
+        ';
+      }
+      ?>
+      </div>
       </section>
     </div>
   </div>

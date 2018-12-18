@@ -1,0 +1,14 @@
+.badge{
+    display: inline-block;
+    width: 3rem;
+    height: 3rem;
+    background: rgba(255, 0, 106, 0.938);
+    text-align: center;
+    color: white;
+    margin-right: .9rem;
+    border-radius: 50%;
+    line-height: 3rem;
+    font-size: 1.6rem;
+    font-family: 'PT Sans', sans-serif;
+    // // background-image: radial-gradient($color-primary-light 0%,$color-primary-dark 50%);
+}

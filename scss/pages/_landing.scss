@@ -29,5 +29,172 @@
         right: 1.5rem;
         transform: translateY(-50%);
     }
+}
 
+    .scroll{
+        position: absolute;
+        top: 95%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        text-align: center;
+        vertical-align: middle;
+        &-arr{
+            width: 10rem;
+            height: 10rem;
+            background: $color-primary-dark;
+            clip-path: polygon(0% 0%, 4% 0%,50% 30%, 96% 0%, 100% 0%, 50% 34%, 0% 0%);
+            -moz-animation: bounceArrow 2s infinite;
+            -webkit-animation: bounceArrow 2s infinite;
+            animation: bounceArrow 2s infinite;
+        }
+    }
+.landing-main{
+    // margin: 2rem 0;
+    display: flex;
+    justify-content: space-around;
+    // column-gap: 5rem;
+    // height: 100vh;
+    .landing-heading{
+        position: relative;
+        text-align: center;
+        font-size: 1.9rem;
+        text-transform: uppercase;
+        // margin-bottom: 3rem;
+        font-weight: 700;
+        background: linear-gradient(to right, $color-secondary-light, $color-secondary-dark);
+        // display: inline-block;
+        background-clip: text;
+        -webkit-background-clip: text;
+        -moz-background-clip: text;
+        color: transparent;
+        letter-spacing: .2rem;
+        @include underTag;
+    }
+    .landing-left{
+        margin: 2rem 0;
+        padding:0 3rem;
+        width: 70%;
+        display: inline-block;
+        .landing-scroll{
+            margin-top: 3rem;
+            padding: 0 3rem; 
+            overflow: scroll;
+            height: 80vh;
+        }
+        .job{
+            margin: 1.3rem 0;
+            background: $color-grey-dark-2;
+            padding: 1.5rem 3rem;
+            border-radius: .5rem;
+            background: $color-white;
+            box-shadow: 1px 1px 8px rgba($color-grey-dark-2,0.36);
+            &-body{
+                margin-top: .8rem;
+                width: 90%;
+                font-family: 'PT Sans', sans-serif;
+                font-size: 1.4rem;
+            }
+            &-by{
+                float: right;
+                font-size: 1.1rem;
+                margin-top: 1.3rem;
+                .job-date{
+                    font-family: monospace;
+                    letter-spacing: -.1rem;
+                    font-size: 1.3rem;
+                }
+                .job-name{
+                    
+                    position: relative;
+                    a{
+                    text-transform: uppercase;
+                    letter-spacing: .1rem;
+                    font-size: 1.4rem;
+                    margin: .8rem 1.3rem;
+                    text-decoration: none;
+                    color: $color-tertiary-dark;
+                    
+                    }
+                    &:hover{
+                        font-size: 1.6rem;
+                        &::after{
+                            animation: underlineToRight-2 1s ease-in-out normal;
+                            animation-fill-mode: forwards;
+                        }
+                    }
+                    &::after{
+                        content: '';
+                        display: block;
+                        position: absolute;
+                        top: 100%;
+                        width: 0px;
+                        left: 5%;
+                        border-top: 3px solid $color-primary-dark;
+                    }
+                }
+            }
+            @include clearfix;
+        }
+    }
+    .landing-right{
+        margin: 2rem 0;
+        width: 30%;
+        display: inline-block;
+
+        .company-list{
+            margin: 2.5rem 0;
+            list-style: none;
+            text-align: center;
+            // margin-top: 3rem;
+            // padding: 0 3rem; 
+            overflow-y: scroll;
+            padding: 0 1.4rem;
+            height: 80vh;
+            .company-name{
+                box-shadow: 1px 1px 8px rgba($color-grey-dark-2,0.36);
+                padding: 1.2rem 2.7rem;
+                border-radius: .5rem;
+                margin: 1.3rem 0;
+                .company-bio{
+                    margin: .9rem 0;
+                    font-size: 1.1rem;
+                    font-weight: 100;
+                    font-family: 'Fira Sans', sans-serif;
+                    text-align: justify;
+                }
+                a{
+                    text-transform: uppercase;
+                    text-decoration: none;
+                    letter-spacing: .1rem;
+                    font-size: 1.4rem;
+                    margin-left: .4rem;
+                    color: $color-primary-dark;
+                    font-family:Helvetica, sans-serif;
+                    transition: all .2s;
+                    position: relative;
+                    &:hover{
+                        font-size: 1.6rem;
+                        &::after{
+                            animation: underlineToRight 1s ease-in-out normal;
+                            animation-fill-mode: forwards;
+                            
+                        }
+                    }
+                    &::after{
+                        content: '';
+                        display: block;
+                        position: absolute;
+                        top: 115%;
+                        width: 0;
+                        left: -5%;
+                        border-top: 3px solid $color-secondary-dark;
+                    }
+                }
+            }
+        }
+    }
+}
+.landing-footer{
+    height: 4rem;
+    background: green;
 }

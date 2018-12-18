@@ -9,9 +9,10 @@ $num = mysqli_num_rows(mysqli_query($con,"SELECT id FROM user WHERE email='$emai
 if($num>0){
     session_start();
     $_SESSION['email'] = $email;
+    $user_id = getColumn("SELECT id FROM user WHERE email='$email'", "id");
     echo '
     <script>
-        location.href = "profile.php";
+        location.href = "../profile/display.php?user_id='.$user_id.'";
     </script>
 ';
 }

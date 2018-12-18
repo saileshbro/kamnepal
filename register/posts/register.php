@@ -47,7 +47,7 @@ try {
     $password = md5($password.$email);
 
     mysqli_query($con, "INSERT INTO user (email, password, vcode, type) VALUES ('$email', '$password', '$vcode', '$type')");
-
+// send email to verify here
     $result = mysqli_query($con, "SELECT id FROM user WHERE email='$email'");
 
     while($row = mysqli_fetch_array($result)){

@@ -20,3 +20,15 @@
     color: transparent;
     letter-spacing: .1rem;
 }
+.heading-tertiary{
+    font-size: 1.9rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    background: linear-gradient(to right, $color-secondary-light, $color-secondary-dark);
+    display: inline-block;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    color: transparent;
+    letter-spacing: .2rem;
+}
