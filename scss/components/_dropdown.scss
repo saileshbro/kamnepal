@@ -1,78 +1,85 @@
-.dropdown{
+.dropdown {
     position: absolute;
-    background: rgba($color-white,.9);
+    background: rgba($color-white, .9);
     margin-top: 2rem;
     margin-left: -8rem;
-    display: none;
     border-radius: 5px;
+    display: none;
 
-    &-content{
-        .dropdown-nav{
+    &-content {
+        .dropdown-nav {
             margin: .6rem;
             display: flex;
             justify-content: space-evenly;
             gap: 2rem;
-            border-bottom: 1px solid rgba($color-grey-dark,.5) ;
-            p{
+            border-bottom: 1px solid rgba($color-grey-dark, .5);
+            font-weight: 700;
+
+            p {
                 padding: .3rem 1.1rem;
                 text-transform: uppercase;
                 text-decoration: none;
                 display: inline-block;
                 font-size: 1.3rem;
-                color: $color-black ;
+                color: $color-black;
                 margin-bottom: .1rem;
-                &:hover{
+
+                &:hover {
                     // background: $color-grey-ark;
                     color: $color-primary-dark-2;
                     cursor: pointer;
                 }
             }
         }
-        .dropdown-body{
-            .employer,.jobseeker{
+
+        .dropdown-body {
+
+            .employer,
+            .jobseeker {
                 display: none;
+                text-align: center;
+
+                p {
+                    padding: .8rem 1.6rem;
+                }
             }
-            img{
+
+            img {
                 display: block;
                 margin: 2rem auto;
             }
-            .btn-dp{
+
+            .btn-drop {
                 display: inline-block;
-                // margin: 2rem auto;
-                // width: 50%;
-                text-align: center;
-                margin-right: 50%;
                 margin-bottom: 1.2rem;
-                transform: translate(40%);
-                a{
+
+                a {
                     text-decoration: none;
-                    text-transform: uppercase;
-                    text-align: center;
+                    font-size: 1.6rem;
+                    letter-spacing: .15rem;
+                    padding: .3rem .6rem;
+                    color: $color-primary;
+                    border: 1px solid $color-primary;
+                    transition: .2s all;
+                    border-radius: .5rem;
+
+                    &:hover {
+                        background: $color-primary;
+                        color: white;
+                    }
+
                 }
-            }
-            hr{
-                width: 80%;
-                margin: 0 auto;
-            }
-            .heading-secondary{
-                display: block;
-                text-align: center;
-            }
-            p{
-                text-align: center;
-                text-transform: none;
-                padding: .4rem .6rem;
-                margin: 0 auto;
-                width: 80%;
-                // margin
+
             }
         }
     }
 }
-.active{
+
+.active {
     background: $color-primary-light;
     color: white !important;
 }
-.show{
+
+.show {
     display: block !important;
 }

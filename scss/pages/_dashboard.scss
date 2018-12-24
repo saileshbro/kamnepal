@@ -1,0 +1,285 @@
+.dashboard-body {
+  // font-family: Arial, Helvetica, sans-serif;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-around;
+  background: whitesmoke;
+
+  .dashboard-left {
+    width: 20%;
+
+    .dashboard-card {
+      background: white;
+      box-shadow: 1px 1px 8px rgba($color-tertiary-dark, 0.36);
+      padding: 1rem;
+      margin: 1rem auto;
+      width: 97%;
+      border-radius: .5rem;
+      font-size: 1.1rem;
+      text-align: center;
+
+      hr {
+        color: rgba($color-grey-dark-2, 0.36);
+        width: 60%;
+        margin: 0 auto;
+      }
+
+      .prof-img {
+        padding: 0.2rem;
+        border-radius: 50%;
+        width: 70;
+        margin: 0 auto;
+
+        img {
+          width: 14rem;
+        }
+      }
+
+      .prof-name {
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+        color: $color-primary;
+        font-weight: bold;
+      }
+
+      .prof-employ,
+      .prof-bio {
+        margin: 0.5rem 0;
+        font-size: 1.3rem;
+        padding: 1rem 0;
+      }
+
+      .prof-bio {
+        padding: 1rem;
+        text-align: center;
+      }
+    }
+  }
+
+  .dashboard-middle {
+    overflow-y: scroll;
+    height: 100vh;
+    padding: 1rem;
+    width: 60rem;
+    margin: 0 1rem;
+    width: 55%;
+
+    .create-post {
+      background: white;
+      border-radius: .5rem;
+
+      form {
+        box-shadow: 1px 1px 8px rgba($color-tertiary-dark, 0.36);
+        margin: 0 0 3rem;
+        padding: 2rem;
+
+        h2,
+        input,
+        textarea {
+          margin-bottom: 1rem;
+          display: block;
+
+        }
+
+        h2 {
+          text-align: center;
+          color: $color-primary-dark-2;
+          font-size: 1.7rem;
+        }
+
+        input,
+        textarea {
+          width: 55rem;
+          margin: 2rem auto;
+          padding: 2rem;
+          font-family: 'PT Sans', sans-serif;
+
+          &::placeholder {
+            text-align: center;
+            font-weight: lighter;
+          }
+        }
+
+        input {
+          height: 5rem;
+          font-size: 1.5rem;
+          font-weight: bold;
+        }
+
+        textarea {
+          font-size: 1.3rem;
+          color: $color-black;
+          height: 15rem;
+        }
+
+        .button {
+
+          margin: 0 auto;
+          width: 100%;
+
+          .button1 {
+            margin-left: 4.5rem;
+          }
+        }
+      }
+    }
+
+    .actual-post {
+      border-radius: .5rem;
+      box-shadow: 1px 1px 8px rgba($color-tertiary-dark, 0.36);
+      background: white;
+      padding: 2rem;
+      margin: 1rem 0;
+
+      .job {
+        margin: 1.3rem 0;
+        background: $color-grey-dark-2;
+        padding: 1.5rem 3rem;
+        border-radius: .5rem;
+        background: $color-white;
+        box-shadow: 1px 1px 8px rgba($color-grey-dark-2, 0.36);
+
+        &-title {
+          .links {
+            font-size: 2rem;
+
+          }
+        }
+
+        &-body {
+          margin-top: .8rem;
+          width: 90%;
+          font-family: 'PT Sans', sans-serif;
+          font-size: 1.4rem;
+        }
+
+        &-by {
+          float: right;
+          font-size: 1.1rem;
+          margin-top: 1.3rem;
+
+          .job-date {
+            font-family: monospace;
+            letter-spacing: -.1rem;
+            font-size: 1.3rem;
+          }
+
+          .job-name {
+
+            position: relative;
+
+            a {
+              text-transform: uppercase;
+              letter-spacing: .1rem;
+              font-size: 1.4rem;
+              margin: .8rem 1.3rem;
+              text-decoration: none;
+              color: $color-tertiary-dark;
+
+            }
+
+            &:hover {
+              font-size: 1.6rem;
+
+              &::after {
+                animation: underlineToRight-2 1s ease-in-out normal;
+                animation-fill-mode: forwards;
+              }
+            }
+
+            &::after {
+              content: '';
+              display: block;
+              position: absolute;
+              top: 100%;
+              width: 0px;
+              left: 5%;
+              border-top: 3px solid $color-primary-dark;
+            }
+          }
+        }
+
+        @include clearfix;
+      }
+    }
+
+
+
+  }
+
+  .dashboard-right {
+    margin: 1rem 1rem;
+    width: 35%;
+
+    .dashboard-comp {
+      padding: 1rem 1.5rem;
+      background: white;
+      border-radius: .5rem;
+      box-shadow: 1px 1px 8px rgba($color-tertiary-dark, 0.36);
+
+      .company-list {
+        list-style: none;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+        height: 90vh;
+        overflow-y: auto;
+
+        h2 {
+          color: $color-primary;
+        }
+
+        .comp-card {
+          padding: 0 1.2rem;
+
+          .company-name {
+            box-shadow: 1px 1px 8px rgba($color-grey-dark-2, 0.36);
+            padding: 1.2rem 2.7rem;
+            border-radius: .5rem;
+            margin: 1.3rem 0;
+
+            .company-bio {
+              margin: .9rem 0;
+              font-size: 1.1rem;
+              font-weight: 100;
+              font-family: 'Fira Sans', sans-serif;
+              text-align: justify;
+            }
+
+            a {
+              text-transform: uppercase;
+              text-decoration: none;
+              letter-spacing: .1rem;
+              font-size: 1.4rem;
+              margin-left: .4rem;
+              color: $color-primary-dark;
+              font-family: Helvetica, sans-serif;
+              transition: all .2s;
+              position: relative;
+
+              &:hover {
+                font-size: 1.6rem;
+
+                &::after {
+                  animation: underlineToRight 1s ease-in-out normal;
+                  animation-fill-mode: forwards;
+
+                }
+              }
+
+              &::after {
+                content: '';
+                display: block;
+                position: absolute;
+                top: 115%;
+                width: 0;
+                left: -5%;
+                border-top: 3px solid $color-secondary-dark;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

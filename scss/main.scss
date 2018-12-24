@@ -15,11 +15,16 @@
 // layouts
 @import 'layout/navbar';
 
+// pages
+@import 'pages/register';
+@import 'pages/login';
 @import 'pages/landing';
 @import 'pages/profiledisplay';
 @import 'pages/profileupdate';
 @import 'pages/footer';
-
+@import 'pages/cv';
+@import 'pages/dashboard';
+@import 'pages/modal';
 // components
 @import 'components/card';
 @import 'components/form';
@@ -28,6 +33,4 @@
 
 @import 'utilities/buttons';
 @import 'utilities/badge';
-// pages
-@import 'pages/register';
-@import 'pages/login';
+@import 'utilities/inputOutline';

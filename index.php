@@ -13,59 +13,12 @@
     <title>Kam Nepal</title>
 </head>
 <body>
-    <div class="landing-body">
-        <nav class="navbar-landing" id='#navbar-landing'>
-            <div class="navbar-left">
-                <div class="navbar-links">
-                    <ul>
-                        <li><a class='links' href="#">Find a job</a></li>
-                        <li><a class='links' href="#">Post a job</a></li>
-                    </ul>
-                </div>    
-            </div>
-            <!-- <div class="navbar-center">
-                <img class='brand-logo' src="img/logo/kamnepal.svg" alt="" width='90rem' height='90rem' href='./index.php'>
-            </div> -->
-            <div class="navbar-right">
-                <div class="navbar-links">
-                    <ul>
-                        <li><a href="#" class="links">Create a CV</a></li>
-                        <li><a href="/login/login.php"  class="links" >Login</a>
-                        </li>
-                        <li><a href="#" id='register' onclick='toggleDropdown()' class="links">Register</a>
-                        <div class="dropdown">
-                                <div class="dropdown-content">
-                                    <div class=dropdown-nav>
-                                        <p id='drop-nav' onclick='toggleRegistration()' class='active'>Jobseeker</p>
-                                        <p id='drop-nav' onclick='toggleRegistration()'>Employer</p>
-                                    </div>
-                                    <div class="dropdown-body">
-                                        <div class='jobseeker drop-active show '>
-                                            <img src="../img/logo/user-regular.svg" alt="" width='60px'>
-                                            <div class="btn-dp button-primary">
-                                            <a  href='/register/jobseeker.php'>Register</a>
-                                            </div>
-                                            <hr>
-                                            <h3 class="heading-secondary">Jobseeker</h3>
-                                            <p>Create a free account to apply for jobs</p>
-                                        </div>
-                                        <div class='employer drop-active '>
-                                            <img src="../img/logo/building-regular.svg" alt="" width='60px'>
-                                            <div class="btn-dp button-secondary">
-                                            <a  href='/register/employer.php'>Register</a>
-                                            </div>
-                                            <hr>
-                                            <h3 class="heading-secondary">Employer</h3>
-                                            <p>Create a free acount to post vacancy.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+    <div id="landing">
+    <div class="landing-body" id='landing-body'>
+        <?php require('includes/navbar-landing.php');?>
+        <div class="navbar-center" id='navbar-center'>
+            <a href="/index.php"><img class='brand-logo' src="../img/logo/kamnepal.svg" alt="" width='90rem' height='90rem' href='./index.php'></a>
+        </div>
         <div class="landing-search">
             <input type="text" placeholder='Search here...'>
             <a href="#"><img src="img/logo/search-solid.svg" width='30px' alt=""></a>
@@ -115,8 +68,10 @@
     </div>
 </div>
 <?php
-    require('footer.php');
+    require('includes/footer.php');
 ?>
-    <script src="js/app.js"></script>
-</body>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.4.1/jspdf.debug.js" integrity="sha384-THVO/sM0mFD9h7dfSndI6TS0PgAGavwKvB5hAxRRvc0o9cPLohB0wb/PTA7LdUHs" crossorigin="anonymous"></script>
+        <script src="js/app.js"></script>
+    </body>
 </html>

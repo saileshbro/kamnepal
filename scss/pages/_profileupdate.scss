@@ -1,78 +1,210 @@
-.containerProfile{
+.containerProfile {
   // background: rgba(red,.3);
   padding: 3rem;
-  .profileUpdate{
-    margin:  0 auto;
+
+  .profileUpdate {
+    margin: 0 auto;
     background-color: rgba(245, 245, 245, 0.7);
     padding: 3rem;
     width: 75%;
     border-radius: 1rem;
-    label{
+
+    label {
       font-size: 1.7rem;
     }
+
     .headingpart {
-      margin:1.2rem auto;
+      margin: 1.2rem auto;
       text-align: center;
+
       h1 {
         color: $color-primary;
         display: block !important;
       }
+
       span {
         // color: #008ecc;
         color: $color-grey-dark;
         text-align: right;
       }
     }
-    hr{
+
+    hr {
       width: 80%;
       margin: 0 auto;
-      color: rgba($color-grey-light-2,.5);
+      color: rgba($color-grey-light-2, 0.5);
     }
 
     .list2 {
       margin: 0 auto;
       text-align: center;
       position: relative;
-    
+
       #avatar {
         border-radius: 50%;
         width: 20rem;
         height: 20rem;
-        transition: all .3s;
+        transition: all 0.3s;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
       }
-      #edit-a{
+
+      #edit-a {
         position: absolute;
         top: 80%;
         right: 40%;
       }
     }
 
+    #skill-set {
+      .skillinp {
+        .inpgrp {
+          display: flex;
+
+          input {
+            display: inline-block;
+            justify-content: start;
+            width: 45%;
+            border: 1px solid rgba(black, 0.05);
+            border-bottom: 0.1rem solid rgba($color-primary, 0.8);
+
+            &:first-child {
+              margin-right: 3rem;
+            }
+          }
+        }
+      }
+
+      .links {
+        border: 1px solid red;
+        color: red;
+        margin-top: 0.8rem;
+
+        &:hover {
+          background: red;
+          color: white;
+          font-weight: bold;
+        }
+      }
+    }
+
     .list1 {
       list-style: none;
-      &:not(:last-child){
+      position: relative;
+
+      input[type="file"] {
+        cursor: pointer;
+        width: 20rem;
+        height: 3.5rem;
+        overflow: hidden;
+      }
+
+      input[type="file"]:before {
+        width: 20rem;
+        height: 3.3rem;
+        font-size: 16px;
+        line-height: 32px;
+        content: "Click to add a picture";
+        display: inline-block;
+        background: white;
+        border-bottom: 0.1rem solid rgba($color-primary, 0.8);
+
+        &:focus {
+          box-shadow: 0 0.4rem 2px -2px $color-tertiary-dark;
+        }
+
+        padding: 0 10px;
+        text-align: center;
+      }
+
+      input[type="file"]::-webkit-file-upload-button {
+        visibility: hidden;
+      }
+
+      .btn-down {
+        margin-top: 1.4rem;
+        @include absCenter;
+
+        a {
+          font-size: 1.8rem;
+          text-transform: uppercase;
+          font-weight: bold;
+          letter-spacing: 0.2rem;
+        }
+      }
+
+      .cvform {
+        margin: 1.2rem 0;
+
+        label {
+          font-size: 1.5rem;
+        }
+
+        input,
+        textarea {
+          padding: 0.8rem 0.5rem;
+          width: 50%;
+          resize: none;
+          border-radius: 0.5rem;
+          border: 1px solid rgba(black, 0.05);
+          border-bottom: 0.1rem solid rgba($color-primary, 0.8);
+          margin: 1.2rem 0;
+
+          &:focus {
+            box-shadow: 0 0.4rem 2px -2px $color-tertiary-dark;
+          }
+
+          &::placeholder {
+            width: 100%;
+            content: attr(placeholder);
+          }
+        }
+
+        .links {
+          border: 1px solid red;
+          color: red;
+          margin-top: 0.8rem;
+
+          &:hover {
+            background: red;
+            color: white;
+            font-weight: bold;
+          }
+        }
+
+        label,
+        input,
+        textarea {
+          display: block;
+        }
+      }
+
+      .links {
+        border: 1px solid $color-primary;
+        padding: 0.5rem 0.9rem;
+        display: inline-block;
+      }
+
+      &:not(:last-child) {
         margin: 1rem 0 0 0;
       }
+
       width: 90%;
       padding: 1rem;
-      
+
       #edit-a {
         color: #008ecc;
-        margin: 1rem inherit;   
+        margin: 1rem inherit;
       }
 
       &__image {
         display: inline-block;
-        
       }
-
 
       .label1 {
         display: block;
         padding-right: 1rem;
         margin: 0 auto;
         color: #0e4d92;
-
       }
 
       .label2 {
@@ -84,13 +216,11 @@
       }
 
       .radios {
-
         margin: 1rem 1.2rem;
         width: 50%;
 
         &__item {
           margin: 1rem auto;
-
         }
       }
 
@@ -104,7 +234,7 @@
       }
 
       .input1 {
-        display:block !important;
+        display: block !important;
         padding: 1rem 2rem 2rem 2rem;
         margin: 1rem 0;
         width: 90%;
@@ -117,9 +247,10 @@
         // color: #585858;
         resize: none;
         color: black;
-        border-bottom: 0.1rem solid rgba($color-primary,.8);
-        &:focus{
-          box-shadow: 0 .4rem 2px -2px $color-tertiary-dark;
+        border-bottom: 0.1rem solid rgba($color-primary, 0.8);
+
+        &:focus {
+          box-shadow: 0 0.4rem 2px -2px $color-tertiary-dark;
         }
       }
 
@@ -133,41 +264,43 @@
         width: 60%;
       }
 
-    .select-box{
-      margin: 1rem 0;
-      width: 90%;
-      select{
-        display: inline-block;
-        padding: 1rem 2rem 2rem 2rem;
-        margin: 1rem auto;
+      .select-box {
+        margin: 1rem 0;
         width: 90%;
-        border: none;
-        font-size: 1.5rem;
-        background: white;
-        border-radius: 5px 5px 0 0;
-        // outline: none;
-        font-family: Arial, Helvetica, sans-serif;
-        // color: #585858;
-        color: black;
-        border: white;
-        border-bottom: 0.1rem solid rgba($color-primary,.8);
-        // &:focus{
-        //   box-shadow: 0 .4rem 2px -2px $color-tertiary-dark;
-        // }
-      }
+
+        select {
+          display: inline-block;
+          padding: 1rem 2rem 2rem 2rem;
+          margin: 1rem auto;
+          width: 90%;
+          border: none;
+          font-size: 1.5rem;
+          background: white;
+          border-radius: 5px 5px 0 0;
+          // outline: none;
+          font-family: Arial, Helvetica, sans-serif;
+          // color: #585858;
+          color: black;
+          border: white;
+          border-bottom: 0.1rem solid rgba($color-primary, 0.8);
+          // &:focus{
+          //   box-shadow: 0 .4rem 2px -2px $color-tertiary-dark;
+          // }
+        }
       }
     }
-    
+
     .infopart {
       .form1 {
         padding: 1rem;
         margin: 2rem auto;
         width: 100%;
 
-        .down-button{
+        .down-button {
           position: relative;
-          margin:2rem 0;
-          div{
+          margin: 2rem 0;
+
+          div {
             @include absCenter;
           }
         }

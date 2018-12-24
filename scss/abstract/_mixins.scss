@@ -1,24 +1,41 @@
 @mixin clearfix {
-    &::after{
+    &::after {
         content: '';
         display: table;
         clear: both;
     }
 
 }
-@mixin absCenter{
+
+@mixin absCenter {
     position: absolute;
     top: 50%;
-    left : 50%;
-    transform: translate(-50%,-50%);
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
+
 @mixin underTag {
-    &::after{
+    &::after {
         content: '';
         display: block;
         position: absolute;
         top: 90%;
         width: 2.5rem;
+        left: 50%;
+        transform: translateX(-50%);
+        border-top: 3px solid $color-tertiary-dark;
+    }
+}
+
+@mixin underTagLong {
+    position: relative;
+
+    &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 90%;
+        width: 50%;
         left: 50%;
         transform: translateX(-50%);
         border-top: 3px solid $color-tertiary-dark;

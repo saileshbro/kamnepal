@@ -1,4 +1,4 @@
-.badge{
+.badge {
     display: inline-block;
     width: 3rem;
     height: 3rem;
@@ -11,4 +11,32 @@
     font-size: 1.6rem;
     font-family: 'PT Sans', sans-serif;
     // // background-image: radial-gradient($color-primary-light 0%,$color-primary-dark 50%);
+}
+
+.pill-badge {
+    display: inline-block;
+    padding: 0 2rem;
+    margin: 1.2rem 1.2rem 1.8rem 0;
+    border-radius: 5rem;
+    box-shadow: 1px 1px 8px rgba($color-black, .4);
+
+    p {
+        padding: 0 2rem;
+        color: black;
+        display: inline-block;
+        font-size: 1.4rem;
+        letter-spacing: .1rem;
+        text-transform: uppercase;
+        vertical-align: middle;
+        padding-right: 0;
+    }
+
+    a {
+        font-size: 2.6rem;
+        display: inline-block;
+        // margin: -1.2rem;
+        margin: 0 0 0 .8rem;
+        text-decoration: none;
+        vertical-align: middle;
+    }
 }

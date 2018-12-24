@@ -22,8 +22,10 @@ class Database {
 
     function __construct(){
         $this->con = mysqli_connect("localhost","root","","kamnepal");
+        if(mysqli_connect_errno()){
+            die();
+        }
     }
-
     function __destruct(){
         mysqli_close($this->con);
     }

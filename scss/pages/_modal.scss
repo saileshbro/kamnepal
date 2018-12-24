@@ -1,0 +1,133 @@
+.modal {
+  width: 100vw;
+  height: 100vh;
+  background: rgba($color-black, .6);
+  padding-top: 5rem;
+  position: fixed;
+  z-index: 3;
+  overflow: hidden;
+  display: none;
+
+  .modal-content {
+    width: 60%;
+    margin: 5rem auto;
+    box-shadow: 1px 1px 8px rgba($color-black, 0.36);
+    overflow-y: auto;
+    border-radius: .5rem;
+    padding: 2rem;
+    background: rgba(white, 1);
+    @include clearfix;
+
+    // display: none;
+    .modal-title {
+      text-align: right;
+      font-size: 4rem;
+      color: $color-black;
+      float: right;
+      margin-right: 2rem;
+      cursor: pointer;
+    }
+
+    .modal-body {
+
+      .post-head {
+        text-align: center;
+        font-size: 3rem;
+        font-family: 'PT Sans', sans-serif;
+        color: $color-primary-dark;
+        padding: 0.7rem;
+
+        .heading-secondary {
+          @include underTagLong;
+        }
+      }
+
+      .modal-post {
+        display: flex;
+        justify-content: space-around;
+
+        .post-media {
+          img {
+            text-align: center;
+            display: block;
+            margin: 1rem auto;
+
+          }
+
+          width: 25%;
+
+        }
+
+        .post-body {
+
+          margin: 2rem 1rem;
+          padding: 1rem 0.5rem;
+          font-size: 1.4rem;
+          letter-spacing: 0.1rem;
+          line-height: 2.5rem;
+          font-family: Arial, Helvetica, sans-serif;
+          width: 75%;
+        }
+
+      }
+
+      .info {
+        font-size: 1.2rem;
+        text-align: right;
+        margin-right: 2rem;
+        display: none;
+
+        .posted-by {
+
+          p {
+            font-size: 1.5rem;
+            color: $color-primary-dark;
+          }
+        }
+
+        .posted-date {
+          text-align: right;
+          font-family: monospace;
+        }
+      }
+
+      .buttons {
+        margin-top: 1rem;
+        display: flex;
+        justify-content: space-around;
+
+        a {
+          letter-spacing: .1rem;
+          padding: 0 1.2rem;
+
+          &:first-child {
+            color: $color-primary;
+            border: 1px solid $color-primary-dark;
+
+            &:hover {
+              color: white;
+            }
+          }
+
+          &:last-child {
+            color: $color-danger;
+            border: solid 1px $color-danger;
+            font-weight: bold;
+
+            &:hover {
+              color: white;
+              background: $color-danger;
+            }
+          }
+        }
+      }
+
+      hr {
+        color: rgba($color-grey-light-1, .4);
+        width: 80%;
+        margin: 0 auto;
+        margin-top: 1.2rem;
+      }
+    }
+  }
+}

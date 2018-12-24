@@ -1,5 +1,5 @@
 .footer-distributed{
-	background: #444444;;
+	background: $color-nav-footer;;
 	box-shadow: 0 .1rem .1rem 0 rgba(0, 0, 0, 0.12);
 	box-sizing: border-box;
 	width: 100%;
@@ -67,11 +67,11 @@
         }
     }
     .footer-center{
-        svg{
+        img{
             display: inline-block;
             text-align: center;
-            width: 30rem;
-            height: 30rem;
+            width: 20rem;
+            height: 20rem;
             @include absCenter;
         }
     }

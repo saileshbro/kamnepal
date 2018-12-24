@@ -112,6 +112,8 @@ body {
   background: linear-gradient(to right, #8b9df8, #4665fd);
   display: inline-block;
   background-clip: text;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
   color: transparent;
   letter-spacing: .2rem;
 }
@@ -218,10 +220,35 @@ body {
   text-shadow: 1px 1px rgba(119, 119, 119, 0.8);
 }
 
+.navbar-landing {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  background-color: #003a63;
+  padding: 2rem 0;
+  -webkit-box-shadow: 0 1px 14px rgba(0, 0, 0, 0.9);
+          box-shadow: 0 1px 14px rgba(0, 0, 0, 0.9);
+  border-radius: 0 0 1rem 1rem;
+}
+
+.navbar-landing .navbar-left, .navbar-landing .navbar-right {
+  display: inline-block;
+}
+
+.navbar-landing .navbar-right .navbar-links a {
+  font-weight: 800;
+}
+
+.navbar-landing .navbar-right .navbar-links a:hover {
+  color: #fff;
+}
+
 .navbar-landing .navbar-links {
-  margin: 1.2rem 1.4rem;
+  margin: 2.4rem 1.4rem;
   text-transform: uppercase;
-  width: 80%;
+  display: block;
 }
 
 .navbar-landing .navbar-links ul {
@@ -235,49 +262,87 @@ body {
 
 .navbar-landing .navbar-links li a {
   color: white;
+  font-size: 2rem;
 }
 
-.navbar-landing .navbar-left {
-  background-image: linear-gradient(-21deg, rgba(139, 157, 248, 0.7) 0%, rgba(93, 120, 255, 0.7) 50%, rgba(70, 101, 253, 0.7) 100%);
-  width: 43%;
-  display: inline-block;
-  margin-top: -8rem;
-}
-
-.navbar-landing .navbar-right {
-  background-image: linear-gradient(21deg, rgba(139, 157, 248, 0.7) 0%, rgba(93, 120, 255, 0.7) 50%, rgba(70, 101, 253, 0.7) 100%);
-  width: 43%;
-  margin-top: -8rem;
-  text-align: right;
-  display: inline-block;
-}
-
-.navbar-landing .navbar-left {
-  position: relative;
-}
-
-.navbar-landing .navbar-left .navbar-links {
+.navbar-center {
   position: absolute;
-  top: 50%;
   left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  top: 1.2rem;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
 }
 
-.navbar-landing .navbar-right {
-  position: relative;
+.register-bg-1 {
+  background-image: linear-gradient(105deg, rgba(93, 120, 255, 0.2) 0%, rgba(93, 120, 255, 0.2) 50%, transparent 50%), url("../img/bg/job-bg-1.jpg");
+  background-attachment: fixed;
+  background-position: center center;
+  background-size: cover;
 }
 
-.navbar-landing .navbar-right .navbar-links {
-  position: absolute;
-  top: 50%;
-  right: 50%;
-  -webkit-transform: translate(50%, -50%);
-          transform: translate(50%, -50%);
+.register-bg-2 {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.7))), url("../img/bg/job-bg-2.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7)), url("../img/bg/job-bg-2.jpg");
+  background-attachment: fixed;
+  background-position: center center;
+  background-size: cover;
 }
 
-.navbar-landing .navbar-center {
+.register {
+  text-align: center;
+  height: 100vh;
+}
+
+.register .register-body {
+  border-radius: 5px;
   display: inline-block;
+  margin: 8rem auto;
+  background: rgba(255, 255, 255, 0.9);
+  -webkit-box-shadow: 1px 1px 20px #000;
+          box-shadow: 1px 1px 20px #000;
+}
+
+.login {
+  text-align: center;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.7))), url("../img/bg/job-bg-3.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7)), url("../img/bg/job-bg-3.jpg");
+  background-attachment: fixed;
+  background-position: center center;
+  background-size: cover;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.login .login-body {
+  border-radius: 5px;
+  display: inline-block;
+  margin: 15rem auto;
+  background: white;
+  -webkit-box-shadow: 1px 1px 20px #000;
+          box-shadow: 1px 1px 20px #000;
+}
+
+.login .login-body form a {
+  display: inline-block;
+  font-size: 1.2rem;
+  margin-bottom: -1.2rem;
+}
+
+.login .login-body form button {
+  margin: 1.2rem auto;
+  display: inline-block;
+}
+
+.login .login-body form .social-login button:not(:last-child) {
+  margin-right: .8rem;
+}
+
+.login .login-body form input {
+  margin: 2rem auto;
+}
+
+.login .login-body form p {
+  margin: 1.2rem auto;
 }
 
 .landing-body {
@@ -806,8 +871,8 @@ body {
   border-radius: 50%;
   width: 20rem;
   height: 20rem;
-  -webkit-transition: all .3s;
-  transition: all .3s;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
   -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
           box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
@@ -818,10 +883,161 @@ body {
   right: 40%;
 }
 
+.containerProfile .profileUpdate #skill-set .skillinp .inpgrp {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.containerProfile .profileUpdate #skill-set .skillinp .inpgrp input {
+  display: inline-block;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  width: 45%;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-bottom: 0.1rem solid rgba(93, 120, 255, 0.8);
+}
+
+.containerProfile .profileUpdate #skill-set .skillinp .inpgrp input:first-child {
+  margin-right: 3rem;
+}
+
+.containerProfile .profileUpdate #skill-set .links {
+  border: 1px solid red;
+  color: red;
+  margin-top: 0.8rem;
+}
+
+.containerProfile .profileUpdate #skill-set .links:hover {
+  background: red;
+  color: white;
+  font-weight: bold;
+}
+
 .containerProfile .profileUpdate .list1 {
   list-style: none;
+  position: relative;
   width: 90%;
   padding: 1rem;
+}
+
+.containerProfile .profileUpdate .list1 input[type="file"] {
+  cursor: pointer;
+  width: 20rem;
+  height: 3.5rem;
+  overflow: hidden;
+}
+
+.containerProfile .profileUpdate .list1 input[type="file"]:before {
+  width: 20rem;
+  height: 3.3rem;
+  font-size: 16px;
+  line-height: 32px;
+  content: "Click to add a picture";
+  display: inline-block;
+  background: white;
+  border-bottom: 0.1rem solid rgba(93, 120, 255, 0.8);
+  padding: 0 10px;
+  text-align: center;
+}
+
+.containerProfile .profileUpdate .list1 input[type="file"]:before:focus {
+  -webkit-box-shadow: 0 0.4rem 2px -2px #0fe456;
+          box-shadow: 0 0.4rem 2px -2px #0fe456;
+}
+
+.containerProfile .profileUpdate .list1 input[type="file"]::-webkit-file-upload-button {
+  visibility: hidden;
+}
+
+.containerProfile .profileUpdate .list1 .btn-down {
+  margin-top: 1.4rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.containerProfile .profileUpdate .list1 .btn-down a {
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 0.2rem;
+}
+
+.containerProfile .profileUpdate .list1 .cvform {
+  margin: 1.2rem 0;
+}
+
+.containerProfile .profileUpdate .list1 .cvform label {
+  font-size: 1.5rem;
+}
+
+.containerProfile .profileUpdate .list1 .cvform input,
+.containerProfile .profileUpdate .list1 .cvform textarea {
+  padding: 0.8rem 0.5rem;
+  width: 50%;
+  resize: none;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-bottom: 0.1rem solid rgba(93, 120, 255, 0.8);
+  margin: 1.2rem 0;
+}
+
+.containerProfile .profileUpdate .list1 .cvform input:focus,
+.containerProfile .profileUpdate .list1 .cvform textarea:focus {
+  -webkit-box-shadow: 0 0.4rem 2px -2px #0fe456;
+          box-shadow: 0 0.4rem 2px -2px #0fe456;
+}
+
+.containerProfile .profileUpdate .list1 .cvform input::-webkit-input-placeholder,
+.containerProfile .profileUpdate .list1 .cvform textarea::-webkit-input-placeholder {
+  width: 100%;
+  content: attr(placeholder);
+}
+
+.containerProfile .profileUpdate .list1 .cvform input:-ms-input-placeholder,
+.containerProfile .profileUpdate .list1 .cvform textarea:-ms-input-placeholder {
+  width: 100%;
+  content: attr(placeholder);
+}
+
+.containerProfile .profileUpdate .list1 .cvform input::-ms-input-placeholder,
+.containerProfile .profileUpdate .list1 .cvform textarea::-ms-input-placeholder {
+  width: 100%;
+  content: attr(placeholder);
+}
+
+.containerProfile .profileUpdate .list1 .cvform input::placeholder,
+.containerProfile .profileUpdate .list1 .cvform textarea::placeholder {
+  width: 100%;
+  content: attr(placeholder);
+}
+
+.containerProfile .profileUpdate .list1 .cvform .links {
+  border: 1px solid red;
+  color: red;
+  margin-top: 0.8rem;
+}
+
+.containerProfile .profileUpdate .list1 .cvform .links:hover {
+  background: red;
+  color: white;
+  font-weight: bold;
+}
+
+.containerProfile .profileUpdate .list1 .cvform label,
+.containerProfile .profileUpdate .list1 .cvform input,
+.containerProfile .profileUpdate .list1 .cvform textarea {
+  display: block;
+}
+
+.containerProfile .profileUpdate .list1 .links {
+  border: 1px solid #5d78ff;
+  padding: 0.5rem 0.9rem;
+  display: inline-block;
 }
 
 .containerProfile .profileUpdate .list1:not(:last-child) {
@@ -942,7 +1158,7 @@ body {
 }
 
 .footer-distributed {
-  background: #444444;
+  background: #003a63;
   -webkit-box-shadow: 0 0.1rem 0.1rem 0 rgba(0, 0, 0, 0.12);
           box-shadow: 0 0.1rem 0.1rem 0 rgba(0, 0, 0, 0.12);
   -webkit-box-sizing: border-box;
@@ -1021,11 +1237,11 @@ body {
   margin-bottom: .5rem;
 }
 
-.footer-distributed .footer-center svg {
+.footer-distributed .footer-center img {
   display: inline-block;
   text-align: center;
-  width: 30rem;
-  height: 30rem;
+  width: 20rem;
+  height: 20rem;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -1087,6 +1303,632 @@ body {
 .footer-distributed::-webkit-input-placeholder, .footer-distributed::-moz-placeholder, .footer-distributed:-ms-input-placeholder {
   color: #5c666b;
   opacity: 1;
+}
+
+.cv {
+  width: 85%;
+  margin: 0 auto;
+  margin-top: 5rem;
+}
+
+.cv * {
+  font-size: 1.4rem;
+}
+
+.cv * p {
+  font-family: "PT Sans";
+}
+
+.cv * h1 {
+  font-family: "Fira Sans";
+  font-size: 2rem;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.cv hr {
+  margin-top: -0.8rem;
+}
+
+.cv-head {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  margin-bottom: 1.4rem;
+}
+
+.cv-head-img {
+  height: 22rem;
+  width: 15rem;
+  margin-right: 15rem;
+}
+
+.cv-head-name em {
+  display: inline-block;
+  margin: 0 1.4rem;
+  text-transform: capitalize;
+}
+
+.cv-head-name p {
+  margin-top: 1.4rem;
+  font-family: 'Fira Sans';
+}
+
+.cv-body .cv-details {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  margin-bottom: 1.4rem;
+}
+
+.cv-body .cv-details .left {
+  margin-left: 3.0rem;
+}
+
+.cv-body .cv-details .left,
+.cv-body .cv-details .right {
+  padding: 1.5rem 0;
+}
+
+.cv-body .cv-details .left p,
+.cv-body .cv-details .right p {
+  margin: .6rem 0;
+}
+
+.cv-body .cv-details .left {
+  margin-right: 15rem;
+}
+
+.cv-body .cv-details .right p {
+  font-weight: 600;
+}
+
+.cv-body .cv-details .right p:not(:last-child) {
+  text-transform: capitalize;
+}
+
+.cv-education .edu-content {
+  margin: 1.7rem 0 1.8rem 1.4rem;
+}
+
+.cv-education .edu-content .degree {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.cv-education .edu-content .degree p:last-child {
+  margin-right: 2.4rem;
+}
+
+.cv-experience .job-content {
+  margin: 1.7rem 0 1.8rem 1.4rem;
+}
+
+.cv-experience .job-content .job {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.cv-experience .job-content .job-name {
+  font-size: 1.6rem;
+  font-weight: bold;
+  font-family: "PT Sans";
+}
+
+.cv-experience .job-content .job p:last-child {
+  margin-right: 2.4rem;
+}
+
+.cv-experience .job-content .company {
+  font-style: italic;
+}
+
+.cv-experience .job-content .company span {
+  display: inline-block;
+  margin-right: .9rem;
+  text-transform: capitalize;
+  font-style: normal;
+}
+
+.cv-skills .skill-div {
+  margin: 1.7rem 0 1.8rem 1.4rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.cv-skills .skill-div .skill-type {
+  font-weight: bold;
+}
+
+.cv-skills .skill-div p:last-child {
+  text-transform: uppercase;
+  margin-right: 2.4rem;
+}
+
+@media print {
+  #page1 {
+    page-break-after: always;
+  }
+}
+
+div.ui-datepicker {
+  font-size: 14px !important;
+}
+
+.dashboard-body {
+  padding: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  background: whitesmoke;
+}
+
+.dashboard-body .dashboard-left {
+  width: 20%;
+}
+
+.dashboard-body .dashboard-left .dashboard-card {
+  background: white;
+  -webkit-box-shadow: 1px 1px 8px rgba(15, 228, 86, 0.36);
+          box-shadow: 1px 1px 8px rgba(15, 228, 86, 0.36);
+  padding: 1rem;
+  margin: 1rem auto;
+  width: 97%;
+  border-radius: .5rem;
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+.dashboard-body .dashboard-left .dashboard-card hr {
+  color: rgba(153, 153, 153, 0.36);
+  width: 60%;
+  margin: 0 auto;
+}
+
+.dashboard-body .dashboard-left .dashboard-card .prof-img {
+  padding: 0.2rem;
+  border-radius: 50%;
+  width: 70;
+  margin: 0 auto;
+}
+
+.dashboard-body .dashboard-left .dashboard-card .prof-img img {
+  width: 14rem;
+}
+
+.dashboard-body .dashboard-left .dashboard-card .prof-name {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #5d78ff;
+  font-weight: bold;
+}
+
+.dashboard-body .dashboard-left .dashboard-card .prof-employ,
+.dashboard-body .dashboard-left .dashboard-card .prof-bio {
+  margin: 0.5rem 0;
+  font-size: 1.3rem;
+  padding: 1rem 0;
+}
+
+.dashboard-body .dashboard-left .dashboard-card .prof-bio {
+  padding: 1rem;
+  text-align: center;
+}
+
+.dashboard-body .dashboard-middle {
+  overflow-y: scroll;
+  height: 100vh;
+  padding: 1rem;
+  width: 60rem;
+  margin: 0 1rem;
+  width: 55%;
+}
+
+.dashboard-body .dashboard-middle .create-post {
+  background: white;
+  border-radius: .5rem;
+}
+
+.dashboard-body .dashboard-middle .create-post form {
+  -webkit-box-shadow: 1px 1px 8px rgba(15, 228, 86, 0.36);
+          box-shadow: 1px 1px 8px rgba(15, 228, 86, 0.36);
+  margin: 0 0 3rem;
+  padding: 2rem;
+}
+
+.dashboard-body .dashboard-middle .create-post form h2,
+.dashboard-body .dashboard-middle .create-post form input,
+.dashboard-body .dashboard-middle .create-post form textarea {
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.dashboard-body .dashboard-middle .create-post form h2 {
+  text-align: center;
+  color: #3859fc;
+  font-size: 1.7rem;
+}
+
+.dashboard-body .dashboard-middle .create-post form input,
+.dashboard-body .dashboard-middle .create-post form textarea {
+  width: 55rem;
+  margin: 2rem auto;
+  padding: 2rem;
+  font-family: 'PT Sans', sans-serif;
+}
+
+.dashboard-body .dashboard-middle .create-post form input::-webkit-input-placeholder,
+.dashboard-body .dashboard-middle .create-post form textarea::-webkit-input-placeholder {
+  text-align: center;
+  font-weight: lighter;
+}
+
+.dashboard-body .dashboard-middle .create-post form input:-ms-input-placeholder,
+.dashboard-body .dashboard-middle .create-post form textarea:-ms-input-placeholder {
+  text-align: center;
+  font-weight: lighter;
+}
+
+.dashboard-body .dashboard-middle .create-post form input::-ms-input-placeholder,
+.dashboard-body .dashboard-middle .create-post form textarea::-ms-input-placeholder {
+  text-align: center;
+  font-weight: lighter;
+}
+
+.dashboard-body .dashboard-middle .create-post form input::placeholder,
+.dashboard-body .dashboard-middle .create-post form textarea::placeholder {
+  text-align: center;
+  font-weight: lighter;
+}
+
+.dashboard-body .dashboard-middle .create-post form input {
+  height: 5rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.dashboard-body .dashboard-middle .create-post form textarea {
+  font-size: 1.3rem;
+  color: #000;
+  height: 15rem;
+}
+
+.dashboard-body .dashboard-middle .create-post form .button {
+  margin: 0 auto;
+  width: 100%;
+}
+
+.dashboard-body .dashboard-middle .create-post form .button .button1 {
+  margin-left: 4.5rem;
+}
+
+.dashboard-body .dashboard-middle .actual-post {
+  border-radius: .5rem;
+  -webkit-box-shadow: 1px 1px 8px rgba(15, 228, 86, 0.36);
+          box-shadow: 1px 1px 8px rgba(15, 228, 86, 0.36);
+  background: white;
+  padding: 2rem;
+  margin: 1rem 0;
+}
+
+.dashboard-body .dashboard-middle .actual-post .job {
+  margin: 1.3rem 0;
+  background: #999;
+  padding: 1.5rem 3rem;
+  border-radius: .5rem;
+  background: #fff;
+  -webkit-box-shadow: 1px 1px 8px rgba(153, 153, 153, 0.36);
+          box-shadow: 1px 1px 8px rgba(153, 153, 153, 0.36);
+}
+
+.dashboard-body .dashboard-middle .actual-post .job-title .links {
+  font-size: 2rem;
+}
+
+.dashboard-body .dashboard-middle .actual-post .job-body {
+  margin-top: .8rem;
+  width: 90%;
+  font-family: 'PT Sans', sans-serif;
+  font-size: 1.4rem;
+}
+
+.dashboard-body .dashboard-middle .actual-post .job-by {
+  float: right;
+  font-size: 1.1rem;
+  margin-top: 1.3rem;
+}
+
+.dashboard-body .dashboard-middle .actual-post .job-by .job-date {
+  font-family: monospace;
+  letter-spacing: -.1rem;
+  font-size: 1.3rem;
+}
+
+.dashboard-body .dashboard-middle .actual-post .job-by .job-name {
+  position: relative;
+}
+
+.dashboard-body .dashboard-middle .actual-post .job-by .job-name a {
+  text-transform: uppercase;
+  letter-spacing: .1rem;
+  font-size: 1.4rem;
+  margin: .8rem 1.3rem;
+  text-decoration: none;
+  color: #0fe456;
+}
+
+.dashboard-body .dashboard-middle .actual-post .job-by .job-name:hover {
+  font-size: 1.6rem;
+}
+
+.dashboard-body .dashboard-middle .actual-post .job-by .job-name:hover::after {
+  -webkit-animation: underlineToRight-2 1s ease-in-out normal;
+          animation: underlineToRight-2 1s ease-in-out normal;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+.dashboard-body .dashboard-middle .actual-post .job-by .job-name::after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 100%;
+  width: 0px;
+  left: 5%;
+  border-top: 3px solid #4665fd;
+}
+
+.dashboard-body .dashboard-middle .actual-post .job::after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.dashboard-body .dashboard-right {
+  margin: 1rem 1rem;
+  width: 35%;
+}
+
+.dashboard-body .dashboard-right .dashboard-comp {
+  padding: 1rem 1.5rem;
+  background: white;
+  border-radius: .5rem;
+  -webkit-box-shadow: 1px 1px 8px rgba(15, 228, 86, 0.36);
+          box-shadow: 1px 1px 8px rgba(15, 228, 86, 0.36);
+}
+
+.dashboard-body .dashboard-right .dashboard-comp .company-list {
+  list-style: none;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  height: 90vh;
+  overflow-y: auto;
+}
+
+.dashboard-body .dashboard-right .dashboard-comp .company-list h2 {
+  color: #5d78ff;
+}
+
+.dashboard-body .dashboard-right .dashboard-comp .company-list .comp-card {
+  padding: 0 1.2rem;
+}
+
+.dashboard-body .dashboard-right .dashboard-comp .company-list .comp-card .company-name {
+  -webkit-box-shadow: 1px 1px 8px rgba(153, 153, 153, 0.36);
+          box-shadow: 1px 1px 8px rgba(153, 153, 153, 0.36);
+  padding: 1.2rem 2.7rem;
+  border-radius: .5rem;
+  margin: 1.3rem 0;
+}
+
+.dashboard-body .dashboard-right .dashboard-comp .company-list .comp-card .company-name .company-bio {
+  margin: .9rem 0;
+  font-size: 1.1rem;
+  font-weight: 100;
+  font-family: 'Fira Sans', sans-serif;
+  text-align: justify;
+}
+
+.dashboard-body .dashboard-right .dashboard-comp .company-list .comp-card .company-name a {
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: .1rem;
+  font-size: 1.4rem;
+  margin-left: .4rem;
+  color: #4665fd;
+  font-family: Helvetica, sans-serif;
+  -webkit-transition: all .2s;
+  transition: all .2s;
+  position: relative;
+}
+
+.dashboard-body .dashboard-right .dashboard-comp .company-list .comp-card .company-name a:hover {
+  font-size: 1.6rem;
+}
+
+.dashboard-body .dashboard-right .dashboard-comp .company-list .comp-card .company-name a:hover::after {
+  -webkit-animation: underlineToRight 1s ease-in-out normal;
+          animation: underlineToRight 1s ease-in-out normal;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+.dashboard-body .dashboard-right .dashboard-comp .company-list .comp-card .company-name a::after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 115%;
+  width: 0;
+  left: -5%;
+  border-top: 3px solid #ff7730;
+}
+
+.modal {
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  padding-top: 5rem;
+  position: fixed;
+  z-index: 3;
+  overflow: hidden;
+  display: none;
+}
+
+.modal .modal-content {
+  width: 60%;
+  margin: 5rem auto;
+  -webkit-box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.36);
+          box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.36);
+  overflow-y: auto;
+  border-radius: .5rem;
+  padding: 2rem;
+  background: white;
+}
+
+.modal .modal-content::after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.modal .modal-content .modal-title {
+  text-align: right;
+  font-size: 4rem;
+  color: #000;
+  float: right;
+  margin-right: 2rem;
+  cursor: pointer;
+}
+
+.modal .modal-content .modal-body .post-head {
+  text-align: center;
+  font-size: 3rem;
+  font-family: 'PT Sans', sans-serif;
+  color: #4665fd;
+  padding: 0.7rem;
+}
+
+.modal .modal-content .modal-body .post-head .heading-secondary {
+  position: relative;
+}
+
+.modal .modal-content .modal-body .post-head .heading-secondary::after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 90%;
+  width: 50%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  border-top: 3px solid #0fe456;
+}
+
+.modal .modal-content .modal-body .modal-post {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.modal .modal-content .modal-body .modal-post .post-media {
+  width: 25%;
+}
+
+.modal .modal-content .modal-body .modal-post .post-media img {
+  text-align: center;
+  display: block;
+  margin: 1rem auto;
+}
+
+.modal .modal-content .modal-body .modal-post .post-body {
+  margin: 2rem 1rem;
+  padding: 1rem 0.5rem;
+  font-size: 1.4rem;
+  letter-spacing: 0.1rem;
+  line-height: 2.5rem;
+  font-family: Arial, Helvetica, sans-serif;
+  width: 75%;
+}
+
+.modal .modal-content .modal-body .info {
+  font-size: 1.2rem;
+  text-align: right;
+  margin-right: 2rem;
+  display: none;
+}
+
+.modal .modal-content .modal-body .info .posted-by p {
+  font-size: 1.5rem;
+  color: #4665fd;
+}
+
+.modal .modal-content .modal-body .info .posted-date {
+  text-align: right;
+  font-family: monospace;
+}
+
+.modal .modal-content .modal-body .buttons {
+  margin-top: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.modal .modal-content .modal-body .buttons a {
+  letter-spacing: .1rem;
+  padding: 0 1.2rem;
+}
+
+.modal .modal-content .modal-body .buttons a:first-child {
+  color: #5d78ff;
+  border: 1px solid #4665fd;
+}
+
+.modal .modal-content .modal-body .buttons a:first-child:hover {
+  color: white;
+}
+
+.modal .modal-content .modal-body .buttons a:last-child {
+  color: #dc3545;
+  border: solid 1px #dc3545;
+  font-weight: bold;
+}
+
+.modal .modal-content .modal-body .buttons a:last-child:hover {
+  color: white;
+  background: #dc3545;
+}
+
+.modal .modal-content .modal-body hr {
+  color: rgba(247, 247, 247, 0.4);
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 1.2rem;
 }
 
 .card {
@@ -1229,8 +2071,8 @@ body {
   background: rgba(255, 255, 255, 0.9);
   margin-top: 2rem;
   margin-left: -8rem;
-  display: none;
   border-radius: 5px;
+  display: none;
 }
 
 .dropdown-content .dropdown-nav {
@@ -1243,6 +2085,7 @@ body {
           justify-content: space-evenly;
   gap: 2rem;
   border-bottom: 1px solid rgba(119, 119, 119, 0.5);
+  font-weight: 700;
 }
 
 .dropdown-content .dropdown-nav p {
@@ -1260,8 +2103,15 @@ body {
   cursor: pointer;
 }
 
-.dropdown-content .dropdown-body .employer, .dropdown-content .dropdown-body .jobseeker {
+.dropdown-content .dropdown-body .employer,
+.dropdown-content .dropdown-body .jobseeker {
   display: none;
+  text-align: center;
+}
+
+.dropdown-content .dropdown-body .employer p,
+.dropdown-content .dropdown-body .jobseeker p {
+  padding: .8rem 1.6rem;
 }
 
 .dropdown-content .dropdown-body img {
@@ -1269,37 +2119,26 @@ body {
   margin: 2rem auto;
 }
 
-.dropdown-content .dropdown-body .btn-dp {
+.dropdown-content .dropdown-body .btn-drop {
   display: inline-block;
-  text-align: center;
-  margin-right: 50%;
   margin-bottom: 1.2rem;
-  -webkit-transform: translate(40%);
-          transform: translate(40%);
 }
 
-.dropdown-content .dropdown-body .btn-dp a {
+.dropdown-content .dropdown-body .btn-drop a {
   text-decoration: none;
-  text-transform: uppercase;
-  text-align: center;
+  font-size: 1.6rem;
+  letter-spacing: .15rem;
+  padding: .3rem .6rem;
+  color: #5d78ff;
+  border: 1px solid #5d78ff;
+  -webkit-transition: .2s all;
+  transition: .2s all;
+  border-radius: .5rem;
 }
 
-.dropdown-content .dropdown-body hr {
-  width: 80%;
-  margin: 0 auto;
-}
-
-.dropdown-content .dropdown-body .heading-secondary {
-  display: block;
-  text-align: center;
-}
-
-.dropdown-content .dropdown-body p {
-  text-align: center;
-  text-transform: none;
-  padding: .4rem .6rem;
-  margin: 0 auto;
-  width: 80%;
+.dropdown-content .dropdown-body .btn-drop a:hover {
+  background: #5d78ff;
+  color: white;
 }
 
 .active {
@@ -1457,75 +2296,38 @@ body {
   font-family: 'PT Sans', sans-serif;
 }
 
-.register-bg-1 {
-  background-image: linear-gradient(105deg, rgba(93, 120, 255, 0.2) 0%, rgba(93, 120, 255, 0.2) 50%, transparent 50%), url("../img/bg/job-bg-1.jpg");
-  background-attachment: fixed;
-  background-position: center center;
-  background-size: cover;
-}
-
-.register-bg-2 {
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.7))), url("../img/bg/job-bg-2.jpg");
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7)), url("../img/bg/job-bg-2.jpg");
-  background-attachment: fixed;
-  background-position: center center;
-  background-size: cover;
-}
-
-.register {
-  text-align: center;
-  height: 100vh;
-}
-
-.register .register-body {
-  border-radius: 5px;
+.pill-badge {
   display: inline-block;
-  margin: 8rem auto;
-  background: rgba(255, 255, 255, 0.9);
-  -webkit-box-shadow: 1px 1px 20px #000;
-          box-shadow: 1px 1px 20px #000;
+  padding: 0 2rem;
+  margin: 1.2rem 1.2rem 1.8rem 0;
+  border-radius: 5rem;
+  -webkit-box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.4);
+          box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.4);
 }
 
-.login {
-  text-align: center;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.7))), url("../img/bg/job-bg-3.jpg");
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7)), url("../img/bg/job-bg-3.jpg");
-  background-attachment: fixed;
-  background-position: center center;
-  background-size: cover;
-  height: 100vh;
-  overflow: hidden;
-}
-
-.login .login-body {
-  border-radius: 5px;
+.pill-badge p {
+  padding: 0 2rem;
+  color: black;
   display: inline-block;
-  margin: 15rem auto;
-  background: white;
-  -webkit-box-shadow: 1px 1px 20px #000;
-          box-shadow: 1px 1px 20px #000;
+  font-size: 1.4rem;
+  letter-spacing: .1rem;
+  text-transform: uppercase;
+  vertical-align: middle;
+  padding-right: 0;
 }
 
-.login .login-body form a {
+.pill-badge a {
+  font-size: 2.6rem;
   display: inline-block;
-  font-size: 1.2rem;
-  margin-bottom: -1.2rem;
+  margin: 0 0 0 .8rem;
+  text-decoration: none;
+  vertical-align: middle;
 }
 
-.login .login-body form button {
-  margin: 1.2rem auto;
-  display: inline-block;
-}
-
-.login .login-body form .social-login button:not(:last-child) {
-  margin-right: .8rem;
-}
-
-.login .login-body form input {
-  margin: 2rem auto;
-}
-
-.login .login-body form p {
-  margin: 1.2rem auto;
+.inputOutline textarea:focus, .inputOutline input:focus, .inputOutline input[type]:focus, .inputOutline .uneditable-input:focus {
+  border-color: #ff7730;
+  -webkit-box-shadow: 2px 2px 20px #0fe456;
+          box-shadow: 2px 2px 20px #0fe456;
+  outline: 0 none;
 }
 /*# sourceMappingURL=main.css.map */
