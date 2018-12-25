@@ -58,7 +58,7 @@
 
   .dashboard-middle {
     overflow-y: scroll;
-    height: 100vh;
+    max-height: 120vh;
     padding: 1rem;
     width: 60rem;
     margin: 0 1rem;
@@ -74,7 +74,7 @@
         padding: 2rem;
 
         h2,
-        input,
+        input[type="text"],
         textarea {
           margin-bottom: 1rem;
           display: block;
@@ -87,38 +87,76 @@
           font-size: 1.7rem;
         }
 
-        input,
+        .create-button {
+          input[type="file"] {
+            cursor: pointer;
+            width: 20rem;
+            height: 3.5rem;
+            overflow: hidden;
+          }
+
+          input[type="file"]:before {
+            width: 20rem;
+            height: 3.3rem;
+            font-size: 16px;
+            line-height: 32px;
+            content: "Click to add a picture";
+            display: inline-block;
+            background: white;
+            border-bottom: 0.1rem solid rgba($color-primary, 0.8);
+
+            &:focus {
+              box-shadow: 0 0.4rem 2px -2px $color-tertiary-dark;
+            }
+
+            padding: 0 1rem;
+            text-align: center;
+          }
+
+          input[type="file"]::-webkit-file-upload-button {
+            visibility: hidden;
+          }
+
+          input[type="file"]::-moz-file-upload-button {
+            visibility: hidden;
+          }
+
+          button {
+            margin: 0 2.5rem;
+          }
+
+          display: flex;
+          justify-content: right;
+        }
+
         textarea {
-          width: 55rem;
-          margin: 2rem auto;
-          padding: 2rem;
-          font-family: 'PT Sans', sans-serif;
+          height: 20rem;
 
           &::placeholder {
-            text-align: center;
-            font-weight: lighter;
+            word-spacing: -.6rem;
+            letter-spacing: -.1rem;
           }
         }
 
-        input {
-          height: 5rem;
-          font-size: 1.5rem;
-          font-weight: bold;
-        }
-
+        input[type="text"],
         textarea {
-          font-size: 1.3rem;
-          color: $color-black;
-          height: 15rem;
-        }
+          display: block;
+          padding: 1rem;
+          width: 95%;
+          resize: none;
+          border-radius: 0.5rem;
+          border: 1px solid rgba(black, 0.05);
+          border-bottom: 0.1rem solid rgba($color-primary, 0.8);
+          margin: 1.6rem auto;
+          font-size: 1.7rem;
 
-        .button {
+          &:focus {
+            box-shadow: 0 0.4rem 2px -2px $color-tertiary-dark;
+          }
 
-          margin: 0 auto;
-          width: 100%;
-
-          .button1 {
-            margin-left: 4.5rem;
+          &::placeholder {
+            font-size: 1.8rem;
+            padding: 1.2rem;
           }
         }
       }
@@ -222,7 +260,7 @@
         text-align: center;
         margin: 0;
         padding: 0;
-        height: 90vh;
+        // height: 90vh;
         overflow-y: auto;
 
         h2 {
@@ -240,7 +278,7 @@
 
             .company-bio {
               margin: .9rem 0;
-              font-size: 1.1rem;
+              font-size: 1.3rem;
               font-weight: 100;
               font-family: 'Fira Sans', sans-serif;
               text-align: justify;

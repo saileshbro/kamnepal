@@ -1,13 +1,12 @@
 .footer-distributed {
     background: $color-nav-footer;
-    ;
     box-shadow: 0 .1rem .1rem 0 rgba(0, 0, 0, 0.12);
     box-sizing: border-box;
     width: 100%;
     font-size: 1.6rem;
     font-weight: bold;
     text-align: left;
-    padding: 5.0rem 6.0rem 4.0rem;
+    padding: 2.0rem 6.0rem;
     // font-family: 'PT Sans', sans-serif;
     position: relative;
     overflow: hidden;
@@ -81,8 +80,8 @@
         img {
             display: inline-block;
             text-align: center;
-            width: 20rem;
-            height: 20rem;
+            width: 15rem;
+            height: 15rem;
             @include absCenter;
         }
     }

@@ -1,4 +1,114 @@
-.navbar {}
+.navbar {
+    padding: 1.5rem 0;
+    background: $color-nav-footer;
+    // background-image: linear-gradient(48.5deg, rgba($color-nav-footer, 0.9) 0%, rgba($color-nav-footer, 0.9) 49.9%, rgba($color-nav-footer, 0.8) 49.9%);
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0px 1px 10px rgba($color-black, 0.4);
+
+    &--left {
+        margin-left: 9rem;
+        text-align: center;
+
+        h3 {
+            display: inline-block;
+            color: #4665fd;
+            font-size: 3.6rem;
+            font-weight: normal;
+            font-family: 'PT Sans', sans-serif;
+            vertical-align: middle;
+            text-transform: uppercase;
+            margin-left: 2rem;
+            letter-spacing: .05rem;
+
+            span {
+                margin-left: .3rem;
+                color: $color-secondary;
+            }
+        }
+
+        .brand-logo {
+            display: inline-block;
+            vertical-align: middle;
+            width: 7rem;
+        }
+    }
+
+    &--right {
+        margin-right: 9rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        ul {
+            list-style: none;
+            // display: inline-block;
+
+            li {
+                display: inline-block;
+                vertical-align: middle;
+                margin: 0 .8rem;
+                margin-left: 1.5rem;
+
+                #nav-pro-img {
+                    width: 3.6rem;
+                    height: 3.6rem;
+                    border-radius: 50%;
+                    vertical-align: middle;
+
+                }
+
+                a {
+                    color: white;
+                }
+            }
+        }
+    }
+}
+
+.navbar {
+    position: relative;
+
+    &--center {
+        position: absolute;
+        top: 50%;
+        right: 27rem;
+        transform: translateY(-50%);
+
+        .dashboard-search {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+
+            input {
+                width: 45rem;
+                padding: 1.4rem;
+                padding-right: 4rem;
+                padding-left: 1rem;
+                font-size: 1.9rem;
+                color: $color-primary-dark;
+                background: $color-footer-input;
+                border: none;
+                border-radius: .5rem;
+                box-shadow: 0 0.1rem 0 0 rgba(255, 255, 255, 0.1);
+
+                &::placeholder {
+                    color: $color-white;
+                }
+            }
+
+            a {
+                position: absolute;
+                right: 1rem;
+                display: inline-block;
+                color: white;
+                // background: red;
+
+            }
+        }
+    }
+}
 
 .navbar-landing {
     display: flex;
@@ -39,7 +149,7 @@
 
         li {
             display: inline-block;
-            margin: 0 2rem;
+            margin: 0 .8rem;
 
             a {
                 color: white;

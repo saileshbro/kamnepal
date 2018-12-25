@@ -64,12 +64,12 @@
             <div class="create-post">
                 <form action="dashboard.php" method="POST">
                     <h2>Whats on your mind?</h2>
-                    <input type="text" placeholder="Title of Your Post">
-                    <textarea class="fr-view" name="createpost" id="" cols="30" rows="10" placeholder="Body of Your Post"></textarea>
-                    <div class="button">
-                        <button class="button1 button-tertiary">CreatePost</button>
-                        <button class=" button-primary">Add Media files</button>
-                        <button class=" button-secondary">Cancel Post</button>
+                    <input type="text" placeholder="Title of your post">
+                    <textarea class="fr-view" name="createpost" id="" cols="30" rows="10" placeholder="Body of your post"></textarea>
+                    <div class="create-button">
+                      <!-- <button class="button-primary">Add Media files</button> -->
+                      <input type="file" name="" id="">
+                      <button class="button-tertiary">Create Post</button>
                     </div>
                 </form>
             </div>

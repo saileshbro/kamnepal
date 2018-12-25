@@ -81,6 +81,7 @@
   padding: 0;
   -webkit-box-sizing: inherit;
           box-sizing: inherit;
+  outline: none;
 }
 
 html {
@@ -144,6 +145,144 @@ body {
   letter-spacing: .2rem;
 }
 
+.navbar {
+  padding: 1.5rem 0;
+  background: #003a63;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.4);
+          box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.4);
+}
+
+.navbar--left {
+  margin-left: 9rem;
+  text-align: center;
+}
+
+.navbar--left h3 {
+  display: inline-block;
+  color: #4665fd;
+  font-size: 3.6rem;
+  font-weight: normal;
+  font-family: 'PT Sans', sans-serif;
+  vertical-align: middle;
+  text-transform: uppercase;
+  margin-left: 2rem;
+  letter-spacing: .05rem;
+}
+
+.navbar--left h3 span {
+  margin-left: .3rem;
+  color: #d67d08;
+}
+
+.navbar--left .brand-logo {
+  display: inline-block;
+  vertical-align: middle;
+  width: 7rem;
+}
+
+.navbar--right {
+  margin-right: 9rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.navbar--right ul {
+  list-style: none;
+}
+
+.navbar--right ul li {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 .8rem;
+  margin-left: 1.5rem;
+}
+
+.navbar--right ul li #nav-pro-img {
+  width: 3.6rem;
+  height: 3.6rem;
+  border-radius: 50%;
+  vertical-align: middle;
+}
+
+.navbar--right ul li a {
+  color: white;
+}
+
+.navbar {
+  position: relative;
+}
+
+.navbar--center {
+  position: absolute;
+  top: 50%;
+  right: 27rem;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+.navbar--center .dashboard-search {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: relative;
+}
+
+.navbar--center .dashboard-search input {
+  width: 45rem;
+  padding: 1.4rem;
+  padding-right: 4rem;
+  padding-left: 1rem;
+  font-size: 1.9rem;
+  color: #4665fd;
+  background: #1f2022;
+  border: none;
+  border-radius: .5rem;
+  -webkit-box-shadow: 0 0.1rem 0 0 rgba(255, 255, 255, 0.1);
+          box-shadow: 0 0.1rem 0 0 rgba(255, 255, 255, 0.1);
+}
+
+.navbar--center .dashboard-search input::-webkit-input-placeholder {
+  color: #fff;
+}
+
+.navbar--center .dashboard-search input:-ms-input-placeholder {
+  color: #fff;
+}
+
+.navbar--center .dashboard-search input::-ms-input-placeholder {
+  color: #fff;
+}
+
+.navbar--center .dashboard-search input::placeholder {
+  color: #fff;
+}
+
+.navbar--center .dashboard-search a {
+  position: absolute;
+  right: 1rem;
+  display: inline-block;
+  color: white;
+}
+
 .navbar-landing {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -182,7 +321,7 @@ body {
 
 .navbar-landing .navbar-links li {
   display: inline-block;
-  margin: 0 2rem;
+  margin: 0 .8rem;
 }
 
 .navbar-landing .navbar-links li a {
@@ -1092,7 +1231,7 @@ body {
   font-size: 1.6rem;
   font-weight: bold;
   text-align: left;
-  padding: 5.0rem 6.0rem 4.0rem;
+  padding: 2.0rem 6.0rem;
   position: relative;
   overflow: hidden;
 }
@@ -1164,8 +1303,8 @@ body {
 .footer-distributed .footer-center img {
   display: inline-block;
   text-align: center;
-  width: 20rem;
-  height: 20rem;
+  width: 15rem;
+  height: 15rem;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -1462,7 +1601,7 @@ div.ui-datepicker {
 
 .dashboard-body .dashboard-middle {
   overflow-y: scroll;
-  height: 100vh;
+  max-height: 120vh;
   padding: 1rem;
   width: 60rem;
   margin: 0 1rem;
@@ -1482,7 +1621,7 @@ div.ui-datepicker {
 }
 
 .dashboard-body .dashboard-middle .create-post form h2,
-.dashboard-body .dashboard-middle .create-post form input,
+.dashboard-body .dashboard-middle .create-post form input[type="text"],
 .dashboard-body .dashboard-middle .create-post form textarea {
   margin-bottom: 1rem;
   display: block;
@@ -1494,57 +1633,117 @@ div.ui-datepicker {
   font-size: 1.7rem;
 }
 
-.dashboard-body .dashboard-middle .create-post form input,
-.dashboard-body .dashboard-middle .create-post form textarea {
-  width: 55rem;
-  margin: 2rem auto;
-  padding: 2rem;
-  font-family: 'PT Sans', sans-serif;
+.dashboard-body .dashboard-middle .create-post form .create-button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: right;
+      -ms-flex-pack: right;
+          justify-content: right;
 }
 
-.dashboard-body .dashboard-middle .create-post form input::-webkit-input-placeholder,
+.dashboard-body .dashboard-middle .create-post form .create-button input[type="file"] {
+  cursor: pointer;
+  width: 20rem;
+  height: 3.5rem;
+  overflow: hidden;
+}
+
+.dashboard-body .dashboard-middle .create-post form .create-button input[type="file"]:before {
+  width: 20rem;
+  height: 3.3rem;
+  font-size: 16px;
+  line-height: 32px;
+  content: "Click to add a picture";
+  display: inline-block;
+  background: white;
+  border-bottom: 0.1rem solid rgba(93, 120, 255, 0.8);
+  padding: 0 1rem;
+  text-align: center;
+}
+
+.dashboard-body .dashboard-middle .create-post form .create-button input[type="file"]:before:focus {
+  -webkit-box-shadow: 0 0.4rem 2px -2px #0fe456;
+          box-shadow: 0 0.4rem 2px -2px #0fe456;
+}
+
+.dashboard-body .dashboard-middle .create-post form .create-button input[type="file"]::-webkit-file-upload-button {
+  visibility: hidden;
+}
+
+.dashboard-body .dashboard-middle .create-post form .create-button input[type="file"]::-moz-file-upload-button {
+  visibility: hidden;
+}
+
+.dashboard-body .dashboard-middle .create-post form .create-button button {
+  margin: 0 2.5rem;
+}
+
+.dashboard-body .dashboard-middle .create-post form textarea {
+  height: 20rem;
+}
+
 .dashboard-body .dashboard-middle .create-post form textarea::-webkit-input-placeholder {
-  text-align: center;
-  font-weight: lighter;
+  word-spacing: -.6rem;
+  letter-spacing: -.1rem;
 }
 
-.dashboard-body .dashboard-middle .create-post form input:-ms-input-placeholder,
 .dashboard-body .dashboard-middle .create-post form textarea:-ms-input-placeholder {
-  text-align: center;
-  font-weight: lighter;
+  word-spacing: -.6rem;
+  letter-spacing: -.1rem;
 }
 
-.dashboard-body .dashboard-middle .create-post form input::-ms-input-placeholder,
 .dashboard-body .dashboard-middle .create-post form textarea::-ms-input-placeholder {
-  text-align: center;
-  font-weight: lighter;
+  word-spacing: -.6rem;
+  letter-spacing: -.1rem;
 }
 
-.dashboard-body .dashboard-middle .create-post form input::placeholder,
 .dashboard-body .dashboard-middle .create-post form textarea::placeholder {
-  text-align: center;
-  font-weight: lighter;
+  word-spacing: -.6rem;
+  letter-spacing: -.1rem;
 }
 
-.dashboard-body .dashboard-middle .create-post form input {
-  height: 5rem;
-  font-size: 1.5rem;
-  font-weight: bold;
-}
-
+.dashboard-body .dashboard-middle .create-post form input[type="text"],
 .dashboard-body .dashboard-middle .create-post form textarea {
-  font-size: 1.3rem;
-  color: #000;
-  height: 15rem;
+  display: block;
+  padding: 1rem;
+  width: 95%;
+  resize: none;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-bottom: 0.1rem solid rgba(93, 120, 255, 0.8);
+  margin: 1.6rem auto;
+  font-size: 1.7rem;
 }
 
-.dashboard-body .dashboard-middle .create-post form .button {
-  margin: 0 auto;
-  width: 100%;
+.dashboard-body .dashboard-middle .create-post form input[type="text"]:focus,
+.dashboard-body .dashboard-middle .create-post form textarea:focus {
+  -webkit-box-shadow: 0 0.4rem 2px -2px #0fe456;
+          box-shadow: 0 0.4rem 2px -2px #0fe456;
 }
 
-.dashboard-body .dashboard-middle .create-post form .button .button1 {
-  margin-left: 4.5rem;
+.dashboard-body .dashboard-middle .create-post form input[type="text"]::-webkit-input-placeholder,
+.dashboard-body .dashboard-middle .create-post form textarea::-webkit-input-placeholder {
+  font-size: 1.8rem;
+  padding: 1.2rem;
+}
+
+.dashboard-body .dashboard-middle .create-post form input[type="text"]:-ms-input-placeholder,
+.dashboard-body .dashboard-middle .create-post form textarea:-ms-input-placeholder {
+  font-size: 1.8rem;
+  padding: 1.2rem;
+}
+
+.dashboard-body .dashboard-middle .create-post form input[type="text"]::-ms-input-placeholder,
+.dashboard-body .dashboard-middle .create-post form textarea::-ms-input-placeholder {
+  font-size: 1.8rem;
+  padding: 1.2rem;
+}
+
+.dashboard-body .dashboard-middle .create-post form input[type="text"]::placeholder,
+.dashboard-body .dashboard-middle .create-post form textarea::placeholder {
+  font-size: 1.8rem;
+  padding: 1.2rem;
 }
 
 .dashboard-body .dashboard-middle .actual-post {
@@ -1647,7 +1846,6 @@ div.ui-datepicker {
   text-align: center;
   margin: 0;
   padding: 0;
-  height: 90vh;
   overflow-y: auto;
 }
 
@@ -1669,7 +1867,7 @@ div.ui-datepicker {
 
 .dashboard-body .dashboard-right .dashboard-comp .company-list .comp-card .company-name .company-bio {
   margin: .9rem 0;
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   font-weight: 100;
   font-family: 'Fira Sans', sans-serif;
   text-align: justify;
