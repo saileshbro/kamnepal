@@ -73,7 +73,10 @@
         margin: 0 0 3rem;
         padding: 2rem;
 
-        h2,
+        h2 {
+          font-family: 'Fira Sans';
+        }
+
         input[type="text"],
         textarea {
           margin-bottom: 1rem;
@@ -88,6 +91,7 @@
         }
 
         .create-button {
+
           input[type="file"] {
             cursor: pointer;
             width: 20rem;
@@ -123,6 +127,8 @@
 
           button {
             margin: 0 2.5rem;
+            font-weight: bold;
+            font-size: 1.4rem;
           }
 
           display: flex;

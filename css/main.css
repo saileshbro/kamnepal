@@ -1620,7 +1620,10 @@ div.ui-datepicker {
   padding: 2rem;
 }
 
-.dashboard-body .dashboard-middle .create-post form h2,
+.dashboard-body .dashboard-middle .create-post form h2 {
+  font-family: 'Fira Sans';
+}
+
 .dashboard-body .dashboard-middle .create-post form input[type="text"],
 .dashboard-body .dashboard-middle .create-post form textarea {
   margin-bottom: 1rem;
@@ -1677,6 +1680,8 @@ div.ui-datepicker {
 
 .dashboard-body .dashboard-middle .create-post form .create-button button {
   margin: 0 2.5rem;
+  font-weight: bold;
+  font-size: 1.4rem;
 }
 
 .dashboard-body .dashboard-middle .create-post form textarea {
