@@ -93,24 +93,29 @@ $(document).ready(() => {
         $('#skill-set').append("<div class='skillinp skills-" + val3 + "'><div class='inpgrp'><input id='skills' name='skill-type-" + val3 + "' class='input1' placeholder='Add skill type. Eg. Language'><input id='skills' name='skill-list-" + val3 + "' class='input1' placeholder='Add skills. Eg. English, French, Spanish'></div><a href='javascript:;' onclick='removeSkillPressed();' class='links remskill" + val3 + "' >Remove</a></div></div>");
         val3++;
     });
-    var jobCount = $('.jobPostsDashboard').length;
+
+    // dashboard
+
     $(".jobPostsDashboard").bind('click', $.proxy(function (event) {
         var postId = $(event.target).attr('id');
-        // alert(postId);
-        for (let i = 1; i < jobCount; i++) {
-            if ("post-id-" + i === postId) {
-                $('#modal-' + i).fadeIn();
+        $.ajax({
+            url: '../modal.php',
+            method: 'post',
+            data: {
+                postId: postId
+            },
+            success: function (data) {
+                $('#modal').html(data);
+                $('.modal').fadeIn();
             }
-        }
+        });
     }, this));
-    $('.modal-title').click(() => {
-        $('.modal').fadeOut();
-    });
-    // console.log($('.jobPostsDashboard'));
     $('#dob').datepicker({
         changeYear: true,
         changeMonth: true,
-        // showButtonPanel: true,
         yearRange: '1950:2000'
+    });
+    $(document).keyup(function (e) {
+        if (e.keyCode === 27) $('.modal-title').click();
     });
 });

@@ -1,4 +1,11 @@
+<?php
+  include 'database/db.php';
+  $db = new Database();
+  $con = $db->con;
+  $sql = "select * from posts limit 10";
+  $res = mysqli_query($con,$sql);
 
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,42 +14,10 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
   <link rel="stylesheet" href="css/main.css">
-  <title>Document</title>
+  <title>Kam Nepal | Dashboard</title>
 </head>
 <body>
-  <?php
-    for($i=0;$i<=10;$i++){
-      echo '<div class="modal"  id="modal-'.$i.'">
-      <div class="modal-content">
-        <div class=modal-title>
-          <p id="mod-title">&times;</p>
-        </div>
-        <div class="modal-body">
-          <div class="post-head">
-            <p class="heading-secondary">Senior Laravel Deveploper Required</p>
-          </div>
-          <div class="modal-post">
-            <div class="post-media"><img src="img/profile/profile.jpg" alt="" width="200px" height="260px">
-            </div>
-            <div class="post-body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis tenetur non aspernatur. Suscipit, corrupti voluptas distinctio enim non amet consectetur libero ut ab, facilis, aperiam quas porro vel esse! Aut repellendus sint neque quidem commodi quas placeat debitis? Esse ex odio rem alias, odit vero non neque! Voluptatum distinctio nemo totam omnis qui libero doloribus pariatur assumenda nam, minima quisquam eum fugit. Inventore accusantium libero eveniet officia nisi aut illum repellat nobis quae, sint consectetur tempore officiis similique, id fuga, aliquid temporibus vel illo dolore deserunt consequuntur nesciunt repellendus.
-            </div>
-          </div>
-          <div class="info">
-            <div class="posted-by">BY:
-              <p>ABC company</p>
-            </div>
-            <span class="posted-date">2012/06/01</span>
-          </div>
-          <hr>
-          <div class="buttons">
-            <a class="links" href="#">Edit</a>
-            <a class="links" href="#">Delete</a>
-          </div>
-        </div>
-      </div>
-      </div>';
-    }
-  ?> 
+  <div class='modal' id="modal"></div>
   <?php
     require 'index-nav.php';
   ?>
@@ -74,14 +49,18 @@
                 </form>
             </div>
             <div class="actual-post">
-                <?php for ($i=1 ; $i <=10; ++$i) { echo '<div class="job">
-				<div class="job-title"><a href="javascript:;" id="post-id-'.$i.'"class="links jobPostsDashboard">Post #'.$i.'</a></div>
-				<div class="job-body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem iure assumenda officiis sapiente voluptatibus aperiam alias dignissimos cupiditate, facilis dolore adipisci odio, dolorum quasi veniam molestiae repellat voluptatem libero doloribus?</div>
-				<div class="job-by">
-				<span class="job-name"><a href="">ABC Company</a></span>
-				<span class="job-date">2012/06/01</span>
-				</div>
-				</div>'; } ?>
+              <?php
+              while($row=mysqli_fetch_assoc($res)){
+                echo '<div class="job">
+              <div class="job-title"><a href="javascript:;" id="'.$row['id'].'"class="links jobPostsDashboard">'.$row['title'].'</a></div>
+              <div class="job-body">'.$row['body'].'</div>
+              <div class="job-by">
+              <span class="job-name"><a href="">ABC Company</a></span>
+              <span class="job-date">'.$row['updated_at'].'</span>
+              </div>
+              </div>';
+              }
+              ?>
             </div>
         </section>
         <section class="dashboard-right">
