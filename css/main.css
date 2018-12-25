@@ -81,11 +81,9 @@
   padding: 0;
   -webkit-box-sizing: inherit;
           box-sizing: inherit;
-  font-family: 'Poppins', sans-serif;
 }
 
 html {
-  font-family: 'Poppins', sans-serif;
   font-size: 62.5%;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -1095,7 +1093,6 @@ body {
   font-weight: bold;
   text-align: left;
   padding: 5.0rem 6.0rem 4.0rem;
-  font-family: 'PT Sans', sans-serif;
   position: relative;
   overflow: hidden;
 }
@@ -1193,7 +1190,8 @@ body {
   display: inline-block;
 }
 
-.footer-distributed form input, .footer-distributed form textarea {
+.footer-distributed form input,
+.footer-distributed form textarea {
   display: block;
   border-radius: .3rem;
   -webkit-box-sizing: border-box;

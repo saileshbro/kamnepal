@@ -1,73 +1,84 @@
-.footer-distributed{
-	background: $color-nav-footer;;
-	box-shadow: 0 .1rem .1rem 0 rgba(0, 0, 0, 0.12);
-	box-sizing: border-box;
-	width: 100%;
-    font-size:1.6rem;
+.footer-distributed {
+    background: $color-nav-footer;
+    ;
+    box-shadow: 0 .1rem .1rem 0 rgba(0, 0, 0, 0.12);
+    box-sizing: border-box;
+    width: 100%;
+    font-size: 1.6rem;
     font-weight: bold;
-	text-align: left;
+    text-align: left;
     padding: 5.0rem 6.0rem 4.0rem;
-    font-family: 'PT Sans', sans-serif;
+    // font-family: 'PT Sans', sans-serif;
     position: relative;
     overflow: hidden;
-    .footer-left{
+
+    .footer-left {
         float: left;
     }
-    h3{
-        color:  $color-primary-dark;
-        font-size:  3.6rem;
+
+    h3 {
+        color: $color-primary-dark;
+        font-size: 3.6rem;
         font-weight: normal;
         margin: 0 0 1.0rem;
         font-family: 'PT Sans', sans-serif;
-        span{
-            color:  $color-secondary-light;
+
+        span {
+            color: $color-secondary-light;
         }
     }
-    .footer-links{
-        color:  #ffffff;
+
+    .footer-links {
+        color: #ffffff;
         margin: 0 0 1.0rem;
         padding: 0;
-        a{
-            display:inline-block;
+
+        a {
+            display: inline-block;
             line-height: 1.8;
             text-decoration: none;
             text-transform: uppercase;
             margin: 0 1rem;
-            color:  inherit;
+            color: inherit;
             font-family: 'PT Sans', sans-serif;
-            &:first-child{
+
+            &:first-child {
                 margin-left: 0;
             }
         }
     }
-    .footer-company-name{
-        color:  #8f9296;
+
+    .footer-company-name {
+        color: #8f9296;
         font-size: 1.4rem;
         font-weight: normal;
-        margin: 0; 
+        margin: 0;
         font-family: 'PT Sans', sans-serif;
     }
-    .footer-icons{
+
+    .footer-icons {
         margin-top: 4.0rem;
-        a{
+
+        a {
             display: inline-block;
             width: 3.5rem;
             height: 3.5rem;
             cursor: pointer;
-            background-color:  #33383b;
+            background-color: #33383b;
             border-radius: .2rem;
             font-family: 'PT Sans', sans-serif;
             font-size: 2.0rem;
             color: #ffffff;
             text-align: center;
             line-height: 3.5rem;
-        
+
             margin-right: .3rem;
             margin-bottom: .5rem;
         }
     }
-    .footer-center{
-        img{
+
+    .footer-center {
+        img {
             display: inline-block;
             text-align: center;
             width: 20rem;
@@ -75,43 +86,51 @@
             @include absCenter;
         }
     }
-    .footer-right{
+
+    .footer-right {
         float: right;
-        p{
+
+        p {
             display: inline-block;
             vertical-align: top;
             margin: 1.5rem 4.2rem 0 0;
-            color: #ffffff;  
+            color: #ffffff;
             font-family: 'PT Sans', sans-serif;
             text-transform: uppercase;
         }
     }
-    form{
+
+    form {
         display: inline-block;
-        input,textarea{
+
+        input,
+        textarea {
             display: block;
             border-radius: .3rem;
             box-sizing: border-box;
-            background-color:  #1f2022;
+            background-color: #1f2022;
             box-shadow: 0 .1rem 0 0 rgba(255, 255, 255, 0.1);
             border: none;
             resize: none;
             font-size: inherit;
             font-size: 1.4rem;
             font-weight: normal;
-            color:  #d1d2d2;
+            color: #d1d2d2;
             width: 40.0rem;
             padding: 1.8rem;
         }
-        input{
+
+        input {
             height: 5.5rem;
             margin-bottom: 1.5rem;
         }
-        textarea{
+
+        textarea {
             height: 10.0rem;
             margin-bottom: 2.0rem;
         }
-        button{
+
+        button {
             // border-radius: .3rem;
             // background-color:  #33383b;
             // color: #ffffff;
@@ -122,10 +141,11 @@
             letter-spacing: .1rem;
         }
     }
+
     &::-webkit-input-placeholder,
     &::-moz-placeholder,
-    &:-ms-input-placeholder{
-        color:  #5c666b;
+    &:-ms-input-placeholder {
+        color: #5c666b;
         opacity: 1;
     }
 }
