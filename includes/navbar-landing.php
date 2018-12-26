@@ -23,7 +23,7 @@
                                     <div class="dropdown-body">
                                         <div class='jobseeker drop-active show '>
                                             <img src="../img/logo/user-regular.svg" alt="" width='60px'>
-                                            <div class="btn-drop links">
+                                            <div class="btn-drop">
                                             <a  href='/register/jobseeker.php'>Register</a>
                                             </div>
                                             <hr>
@@ -32,7 +32,7 @@
                                         </div>
                                         <div class='employer drop-active'>
                                             <img src="../img/logo/building-regular.svg" alt="" width='60px'>
-                                            <div class="btn-drop links">
+                                            <div class="btn-drop">
                                             <a  href='/register/employer.php'>Register</a>
                                             </div>
                                             <hr>

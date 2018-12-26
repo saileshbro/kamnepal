@@ -5,8 +5,11 @@ var count = 1;
 var string1 = "";
 
 function toggleDropdown() {
-    let element = document.querySelector('#register');
-    document.querySelector('.dropdown').classList.toggle("show");
+    $('.dropdown').slideToggle("show");
+}
+
+function toggleDropdownProf() {
+    $('#Prof-drop').slideToggle('show');
 }
 
 function toggleRegistration() {
@@ -96,7 +99,7 @@ $(document).ready(() => {
 
     // dashboard
 
-    $(".jobPostsDashboard").bind('click', $.proxy(function (event) {
+    $(".jobPosts").bind('click', $.proxy(function (event) {
         var postId = $(event.target).attr('id');
         $.ajax({
             url: '../modal.php',
@@ -117,5 +120,11 @@ $(document).ready(() => {
     });
     $(document).keyup(function (e) {
         if (e.keyCode === 27) $('.modal-title').click();
+    });
+    $('.landing-search input').focus(() => {
+        $('.landing-search').css('top', '25%');
+    });
+    $('.landing-search input').blur(() => {
+        $('.landing-search').css('top', '50%');
     });
 });

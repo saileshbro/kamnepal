@@ -1,3 +1,6 @@
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+<script src="/js/app.js"></script>
 <footer class="footer-distributed">
     <div class="footer-left">
         <h3>Kam<span>Nepal</span></h3>

@@ -52,7 +52,7 @@
               <?php
               while($row=mysqli_fetch_assoc($res)){
                 echo '<div class="job">
-              <div class="job-title"><a href="javascript:;" id="'.$row['id'].'"class="links jobPostsDashboard">'.$row['title'].'</a></div>
+              <div class="job-title"><a href="javascript:;" id="'.$row['id'].'"class="links jobPosts">'.$row['title'].'</a></div>
               <div class="job-body">'.$row['body'].'</div>
               <div class="job-by">
               <span class="job-name"><a href="">ABC Company</a></span>

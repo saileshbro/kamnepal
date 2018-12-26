@@ -1,3 +1,11 @@
+<?php
+  include 'database/db.php';
+  $db = new Database();
+  $con = $db->con;
+  $sql = "select * from posts limit 10";
+  $res = mysqli_query($con,$sql);
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,13 +14,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
-    <script
-			  src="http://code.jquery.com/jquery-3.3.1.min.js"
-			  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-			  crossorigin="anonymous"></script>
     <title>Kam Nepal</title>
 </head>
 <body>
+<div class='modal' id="modal"></div>
     <div id="landing">
     <div class="landing-body" id='landing-body'>
         <?php require('includes/navbar-landing.php');?>
@@ -34,17 +39,17 @@
         <h2 class="landing-heading"> Top Vacancies</h2>
         <div class='landing-scroll'>
         <?php
-            for($i=1;$i<=10;$i++){
+              while($row=mysqli_fetch_assoc($res)){
                 echo '<div class="job">
-                <div class="job-title"><a href="" class="links"><h2>Post #'.$i.'</h2></a></div>
-                <div class="job-body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem iure assumenda officiis sapiente voluptatibus aperiam alias dignissimos cupiditate, facilis dolore adipisci odio, dolorum quasi veniam molestiae repellat voluptatem libero doloribus?</div>
-                <div class="job-by">
-                    <span class="job-name"><a href="">ABC Company</a></span>
-                    <span class="job-date">2012/06/01</span>
-                </div>
-        </div>';
-            }
-        ?> 
+              <div class="job-title"><a href="javascript:;" id="'.$row['id'].'"class="links jobPosts">'.$row['title'].'</a></div>
+              <div class="job-body">'.$row['body'].'</div>
+              <div class="job-by">
+              <span class="job-name"><a href="">ABC Company</a></span>
+              <span class="job-date">'.$row['updated_at'].'</span>
+              </div>
+              </div>';
+              }
+              ?>
         </div>
        </div>
        <div class="landing-right">
@@ -70,8 +75,5 @@
 <?php
     require('includes/footer.php');
 ?>
-        </div>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.4.1/jspdf.debug.js" integrity="sha384-THVO/sM0mFD9h7dfSndI6TS0PgAGavwKvB5hAxRRvc0o9cPLohB0wb/PTA7LdUHs" crossorigin="anonymous"></script>
-        <script src="js/app.js"></script>
     </body>
 </html>

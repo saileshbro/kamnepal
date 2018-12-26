@@ -1,29 +1,31 @@
-.landing-body{
-    background:linear-gradient(rgba(0,0,0,.7)),url('../img/bg/job-bg-8.jpg');
+.landing-body {
+    background: linear-gradient(rgba(0, 0, 0, .7)), url('../img/bg/job-bg-8.jpg');
     height: 100vh;
     background-position: center center;
     background-attachment: fixed;
     background-size: cover;
-    
+
 }
-.landing-search{
+
+.landing-search {
     position: absolute;
-    top:50%;
+    top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
+
     // width: 70rem;
     // display: block;
-    input{
+    input {
         height: 6rem;
         width: 80rem;
         display: inline-block;
         position: relative;
         border-radius: 5px;
-        box-shadow: 3px -6px 46px 3px rgba($color-grey-dark-2,0.36);
+        box-shadow: 3px -6px 46px 3px rgba($color-grey-dark-2, 0.36);
         padding: 0 0 0 1.2rem;
-
     }
-    a{
+
+    a {
         position: absolute;
         top: 50%;
         right: 1.5rem;
@@ -31,30 +33,33 @@
     }
 }
 
-    .scroll{
-        position: absolute;
-        top: 95%;
-        left: 50%;
-        transform: translate(-50%,-50%);
-        text-align: center;
-        vertical-align: middle;
-        &-arr{
-            width: 10rem;
-            height: 10rem;
-            background: $color-primary-dark;
-            clip-path: polygon(0% 0%, 4% 0%,50% 30%, 96% 0%, 100% 0%, 50% 34%, 0% 0%);
-            -moz-animation: bounceArrow 2s infinite;
-            -webkit-animation: bounceArrow 2s infinite;
-            animation: bounceArrow 2s infinite;
-        }
+.scroll {
+    position: absolute;
+    top: 95%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    vertical-align: middle;
+
+    &-arr {
+        width: 10rem;
+        height: 10rem;
+        background: $color-primary-dark;
+        clip-path: polygon(0% 0%, 4% 0%, 50% 30%, 96% 0%, 100% 0%, 50% 34%, 0% 0%);
+        -moz-animation: bounceArrow 2s infinite;
+        -webkit-animation: bounceArrow 2s infinite;
+        animation: bounceArrow 2s infinite;
     }
-.landing-main{
+}
+
+.landing-main {
     // margin: 2rem 0;
     display: flex;
     justify-content: space-around;
+
     // column-gap: 5rem;
     // height: 100vh;
-    .landing-heading{
+    .landing-heading {
         position: relative;
         text-align: center;
         font-size: 1.9rem;
@@ -70,59 +75,70 @@
         letter-spacing: .2rem;
         @include underTag;
     }
-    .landing-left{
+
+    .landing-left {
         margin: 2rem 0;
-        padding:0 3rem;
+        padding: 0 3rem;
         width: 70%;
         display: inline-block;
-        .landing-scroll{
+
+        .landing-scroll {
             margin-top: 3rem;
-            padding: 0 3rem; 
+            padding: 0 3rem;
             overflow: scroll;
             height: 80vh;
         }
-        .job{
+
+        .job {
             margin: 1.3rem 0;
             background: $color-grey-dark-2;
             padding: 1.5rem 3rem;
             border-radius: .5rem;
             background: $color-white;
-            box-shadow: 1px 1px 8px rgba($color-grey-dark-2,0.36);
-            &-body{
+            box-shadow: 1px 1px 8px rgba($color-grey-dark-2, 0.36);
+
+            &-body {
                 margin-top: .8rem;
                 width: 90%;
                 font-family: 'PT Sans', sans-serif;
                 font-size: 1.4rem;
             }
-            &-by{
+
+            &-by {
                 float: right;
                 font-size: 1.1rem;
                 margin-top: 1.3rem;
-                .job-date{
+
+                .job-date {
                     font-family: monospace;
                     letter-spacing: -.1rem;
                     font-size: 1.3rem;
                 }
-                .job-name{
-                    
+
+                .job-name {
+
                     position: relative;
-                    a{
-                    text-transform: uppercase;
-                    letter-spacing: .1rem;
-                    font-size: 1.4rem;
-                    margin: .8rem 1.3rem;
-                    text-decoration: none;
-                    color: $color-tertiary-dark;
-                    
+
+                    a {
+                        text-transform: uppercase;
+                        letter-spacing: .1rem;
+                        font-size: 1.4rem;
+                        margin: .8rem 1.3rem;
+                        text-decoration: none;
+                        color: $color-tertiary-dark;
+
                     }
-                    &:hover{
+
+                    &:hover {
                         font-size: 1.6rem;
-                        &::after{
+
+                        &::after {
                             animation: underlineToRight-2 1s ease-in-out normal;
                             animation-fill-mode: forwards;
                         }
                     }
-                    &::after{
+
+                    &::after {
                         content: '';
                         display: block;
                         position: absolute;
@@ -133,15 +149,17 @@
                     }
                 }
             }
+
             @include clearfix;
         }
     }
-    .landing-right{
+
+    .landing-right {
         margin: 2rem 0;
         width: 30%;
         display: inline-block;
 
-        .company-list{
+        .company-list {
             margin: 2.5rem 0;
             list-style: none;
             text-align: center;
@@ -150,37 +168,43 @@
             overflow-y: scroll;
             padding: 0 1.4rem;
             height: 80vh;
-            .company-name{
-                box-shadow: 1px 1px 8px rgba($color-grey-dark-2,0.36);
+
+            .company-name {
+                box-shadow: 1px 1px 8px rgba($color-grey-dark-2, 0.36);
                 padding: 1.2rem 2.7rem;
                 border-radius: .5rem;
                 margin: 1.3rem 0;
-                .company-bio{
+
+                .company-bio {
                     margin: .9rem 0;
                     font-size: 1.1rem;
                     font-weight: 100;
                     font-family: 'Fira Sans', sans-serif;
                     text-align: justify;
                 }
-                a{
+
+                a {
                     text-transform: uppercase;
                     text-decoration: none;
                     letter-spacing: .1rem;
                     font-size: 1.4rem;
                     margin-left: .4rem;
                     color: $color-primary-dark;
-                    font-family:Helvetica, sans-serif;
+                    font-family: Helvetica, sans-serif;
                     transition: all .2s;
                     position: relative;
-                    &:hover{
+
+                    &:hover {
                         font-size: 1.6rem;
-                        &::after{
+
+                        &::after {
                             animation: underlineToRight 1s ease-in-out normal;
                             animation-fill-mode: forwards;
-                            
+
                         }
                     }
-                    &::after{
+
+                    &::after {
                         content: '';
                         display: block;
                         position: absolute;
@@ -194,7 +218,8 @@
         }
     }
 }
-.landing-footer{
+
+.landing-footer {
     height: 4rem;
     background: green;
 }
