@@ -1,21 +1,25 @@
-.form{
+.form {
     font-family: 'Poppins', sans-serif;
     padding: 2rem 3rem;
     width: 45rem;
     text-align: center;
-    box-shadow: 1px 1px 20px rgba($color-grey-dark,.4);
+    box-shadow: 1px 1px 20px rgba($color-grey-dark, .4);
     border-radius: 7px;
-    input,select{
+
+    input,
+    select {
         // font-family: 'Poppins', sans-serif;
         display: block;
         padding: .5rem .4rem;
         width: 80%;
         border: none;
-        border-bottom: 1px solid rgba(black,.2);
+        border-bottom: 1px solid rgba(black, .2);
         padding-bottom: 1rem;
-        margin: 1.4rem auto ;
+        margin: 1.4rem auto;
+        background: white;
 
     }
+
     select {
         // appearance: none;
         color: $color-grey-dark;
@@ -26,22 +30,27 @@
         // -webkit-appearance: scrollbarbutton-right;
         // -moz-appearance: button-arrow-down;
     }
-    input{
+
+    input {
         color: $color-primary-dark-2;
     }
-    input::placeholder{
+
+    input::placeholder {
         color: $color-grey-dark;
     }
-    button{
+
+    button {
         margin: 2rem 0;
     }
-    .form-text{
+
+    .form-text {
         font-size: 1.4rem;
         color: $color-grey-dark;
-    
+
     }
-    hr{
-        color: rgba($color-grey-dark,.3);
+
+    hr {
+        color: rgba($color-grey-dark, .3);
         width: 80%;
         margin: 1.2rem auto;
     }

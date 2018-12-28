@@ -13,11 +13,7 @@
     $address=$row['address'];
     $phone=$row['phone'];
     $profile_img=$row['profile_img'];
-    $study=$row['study'];
     $employ_status=$row['employ_status'];
-    $experience=$row['experience'];
-    $skills=$row['skills'];
-    $employ_details=$row['employ_details'];
     $interest=$row['interest'];
     $category=$row['category'];
     $bio=$row['bio'];
@@ -38,21 +34,6 @@
 </head>
 
 <body>
-  <!-- <nav class="navbar">
-    <div class="navbar--left">
-        <img class='brand-logo' src="../img/logo/kamnepal.svg" alt="" width='96px' href='./index.php'>
-    </div>
-    <div class="navbar--right">
-      <div class="navbar-links">
-        <ul>
-          <li><a href=""><img style="width: 30px; height:30px;" src="../img/logo/search-solid.svg" alt=""></a></li>
-          <li><a href=""><img style="width: 30px; height:30px;" src="../img/logo/bell-regular.svg" alt=""></a></li>
-          <li><a href=""><img style="width: 30px; height:30px;" src="../img/logo/cog-solid.svg" alt=""></i></a></li>
-          <li><a href=""><img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/Large_Scaled_Forest_Lizard.jpg" alt="a" style="width: 30px; height:30px;"></a></li>
-        </ul>
-      </div>
-    </div>
-  </nav> -->
   <div class="profilebody">
     <header>
       <div class='profilebody__header'>
@@ -77,9 +58,6 @@
                 <h3><?php echo $address; ?></h3>
            </div>
             </span>
-            <div id="employ_details">
-              <h2><?php echo $employ_details; ?></h2>
-            </div>
           </div>
         </div>
         <div class="text2">
@@ -108,7 +86,7 @@
             <a href="#" class="imp-link links" >
               verification status
             </a>
-            <button type="submit" class='button-primary'>Edit Info</button>
+            <a href="update.php?user_id=<?php echo $user_id?>" type="submit" class='button-primary'>Edit Info</a>
           </div>
         </div>
     </header>
@@ -125,19 +103,7 @@
             </li>
             <hr>
             <li class="elements">
-              <h2>Study</h2><span class="answer" id="study"><?php echo $study; ?></span>
-            </li>
-            <hr>
-            <li class="elements">
-              <h2>Experiences</h2><span class="answer" id="experiences"><?php echo $experience; ?></span>
-            </li>
-            <hr>
-            <li class="elements">
               <h2>Interest</h2><span class="answer" id="interest"><?php echo $interest; ?></span>
-            </li>
-            <hr>
-            <li class="elements">
-              <h2>skills</h2><span class="answer" id="skills"><?php echo $skills; ?></span>
             </li>
             <hr>
             <li class="elements">

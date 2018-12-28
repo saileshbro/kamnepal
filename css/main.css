@@ -2101,7 +2101,8 @@ div.ui-datepicker {
   border-radius: 7px;
 }
 
-.form input, .form select {
+.form input,
+.form select {
   display: block;
   padding: .5rem .4rem;
   width: 80%;
@@ -2109,6 +2110,7 @@ div.ui-datepicker {
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   padding-bottom: 1rem;
   margin: 1.4rem auto;
+  background: white;
 }
 
 .form select {

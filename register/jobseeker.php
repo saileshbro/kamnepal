@@ -1,3 +1,8 @@
+<?php
+include "../database/db.php";
+$db = new Database();
+$con = $db->con;
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,7 +33,14 @@
                     </div>
                     <input type='text' name='fname' placeholder='Full Name' required autocapitalize="words">
                     <select name="category" id="">
-                        <option value="Jobs">Jobs</option>
+                        <option value="Jobs" selected="true" disabled="disabled">Jobs</option>
+                        <?php
+                        $sql ="select * from category";
+                        $res = mysqli_query($con,$sql);
+                        while($row=mysqli_fetch_array($res)){
+                            echo "<option value=".$row['id'].">".$row['name']."</option>";
+                        }
+                    ?>
                     </select>
                     <input type="text" name='phone' placeholder='Mobile Number' required>
                     <input type="hidden" name='type' value='Jobseeker' required>

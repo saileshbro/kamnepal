@@ -1,3 +1,8 @@
+<?php
+include "../database/db.php";
+$db = new Database();
+$con = $db->con;
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,44 +24,33 @@
         </div>
 </nav>
  <div class="register register-bg-2">
-            <div class="register-body">
-                <form class='form' id='regForm' action="" onsubmit="completeRegistration();return false;">
-                    <h1 class="heading-secondary">Create your free Employer Account</h1>
-                    <div class="error">
-                        <h2 id="error"></h2>
-                    </div>
-                    <input type='text' name='fname' placeholder='Organisation Name' required autocapitalize="words">
-                    <select name="category" id="">
-                        <option value="Jobs">Jobs</option>
-                    </select>
-                    <input type="text" name='phone' placeholder='Organisational Phone Number' required>
-                    <input type="hidden" name='type' value='Employer' required>
-                    <input type="email" name="email" id="" placeholder='Office Email' required>
-                    <input type="password" name="password" id="" placeholder='Password' required>
-                    <input type="password" name='password2' placeholder='Confirm Password' required>
-                    <button type="submit" class='button-primary'>Create a Employer Account</button>
-                    <p class='form-text'>Already have a Employer account? <a class='links'href="">Login</a></p>
-                </form>
-            </div>
+        <div class="register-body">
+            <form class='form' id='regForm' action="" onsubmit="completeRegistration();return false;">
+                <h1 class="heading-secondary">Create your free Employer Account</h1>
+                <div class="error">
+                    <h2 id="error"></h2>
+                </div>
+                <input type='text' name='fname' placeholder='Organisation Name' required autocapitalize="words">
+                <select name="category" id="">
+                    <option value="Jobs" selected="true" disabled="disabled">Jobs</option>
+                    <?php
+                        $sql ="select * from category";
+                        $res = mysqli_query($con,$sql);
+                        while($row=mysqli_fetch_array($res)){
+                            echo "<option value=".$row['id'].">".$row['name']."</option>";
+                        }
+                    ?>
+                </select>
+                <input type="text" name='phone' placeholder='Organisational Phone Number' required>
+                <input type="hidden" name='type' value='Employer' required>
+                <input type="email" name="email" id="" placeholder='Office Email' required>
+                <input type="password" name="password" id="" placeholder='Password' required>
+                <input type="password" name='password2' placeholder='Confirm Password' required>
+                <button type="submit" class='button-primary'>Create a Employer Account</button>
+                <p class='form-text'>Already have a Employer account? <a class='links'href="">Login</a></p>
+            </form>
         </div>
-    
-
-
-
-
-
-    <!-- <div class="slider">
-        <div class="sliderMode">
-            <div class="slider left on" onclick="shift(this);">
-                <p>Individual</p>
-            </div>
-            <div class="slider right" onclick="shift(this);">
-                <p>Business</p>
-            </div>
-            <aside class="overlay" id="overlay" >
-            </aside>
-        </div>
-    </div> -->
+    </div>
 <script>
     var elem=document.getElementById('overlay');
     function shift(item){
