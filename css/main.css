@@ -961,7 +961,7 @@ body {
   display: flex;
 }
 
-.containerProfile .profileUpdate #skill-set .skillinp .inpgrp input {
+.containerProfile .profileUpdate #skill-set .skillinp .inpgrp .skills {
   display: inline-block;
   -webkit-box-pack: start;
       -ms-flex-pack: start;
@@ -969,10 +969,13 @@ body {
   width: 45%;
   border: 1px solid rgba(0, 0, 0, 0.05);
   border-bottom: 0.1rem solid rgba(93, 120, 255, 0.8);
+  padding: 1.1rem .8rem;
+  margin: 1.5rem 0;
+  background: white;
 }
 
-.containerProfile .profileUpdate #skill-set .skillinp .inpgrp input:first-child {
-  margin-right: 3rem;
+.containerProfile .profileUpdate #skill-set .skillinp .inpgrp .skills:first-child {
+  margin-right: 1.5rem;
 }
 
 .containerProfile .profileUpdate #skill-set .links {
@@ -1217,16 +1220,16 @@ body {
 }
 
 .containerProfile .profileUpdate .infopart .form1 .down-button {
-  position: relative;
-  margin: 2rem 0;
+  width: 40rem;
+  margin: 0 auto;
 }
 
 .containerProfile .profileUpdate .infopart .form1 .down-button div {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.containerProfile .profileUpdate .infopart .form1 .down-button div button {
+  font-size: 1.6rem;
 }
 
 .footer-distributed {

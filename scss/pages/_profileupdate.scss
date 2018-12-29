@@ -60,15 +60,18 @@
         .inpgrp {
           display: flex;
 
-          input {
+          .skills {
             display: inline-block;
             justify-content: start;
             width: 45%;
             border: 1px solid rgba(black, 0.05);
             border-bottom: 0.1rem solid rgba($color-primary, 0.8);
+            padding: 1.1rem .8rem;
+            margin: 1.5rem 0;
+            background: white;
 
             &:first-child {
-              margin-right: 3rem;
+              margin-right: 1.5rem;
             }
           }
         }
@@ -297,11 +300,15 @@
         width: 100%;
 
         .down-button {
-          position: relative;
-          margin: 2rem 0;
+          width: 40rem;
+          margin: 0 auto;
 
           div {
-            @include absCenter;
+            text-align: center;
+
+            button {
+              font-size: 1.6rem;
+            }
           }
         }
       }
