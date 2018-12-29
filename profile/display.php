@@ -1,25 +1,25 @@
 <?php
-  require('../database/db.php');
-  $db = new Database();
-  $con = $db->con;
-  $user_id = cleanse($_GET['user_id'])??'';
+require '../database/db.php';
+$db = new Database();
+$con = $db->con;
+$user_id = cleanse($_GET['user_id']) ?? '';
 
-  $sql = "select profile.*,user.v_status from profile,user where profile.user_id='$user_id' AND user.id=profile.user_id";
-  $res = mysqli_query($con,$sql);
-  while($row=mysqli_fetch_array($res)){
+$sql = "select profile.*,user.v_status from profile,user where profile.user_id='$user_id' AND user.id=profile.user_id";
+$res = mysqli_query($con, $sql);
+while ($row = mysqli_fetch_array($res)) {
     $fname = $row['fname'];
     $gender = $row['gender'];
-    $dob=$row['dob'];
-    $address=$row['address'];
-    $phone=$row['phone'];
-    $profile_img=$row['profile_img'];
-    $employ_status=$row['employ_status'];
-    $interest=$row['interest'];
-    $category=$row['category'];
-    $bio=$row['bio'];
+    $dob = $row['dob'];
+    $address = $row['address'];
+    $phone = $row['phone'];
+    $profile_img = $row['profile_img'];
+    $employ_status = $row['employ_status'];
+    $interest = $row['interest'];
+    $category = $row['category'];
+    $bio = $row['bio'];
     $updated_at = $row['updated_at'];
     $v_status = $row['v_status'];
-  }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -28,122 +28,112 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
   <link rel="stylesheet" href="../css/main.css">
-  <link href="../fontawesome/css/all.css" rel="stylesheet">
   <title>Kam Nepal</title>
 </head>
 
 <body>
-  <div class="profilebody">
-    <header>
-      <div class='profilebody__header'>
-        <a href="">
-          <div class="profilebody__header--image">
-            <img src="../img/profile/profile.jpg" alt="Avatar">
-          </div>
-        </a>
-        <div class="text1">
-          <div class="layer2">
-            <div id="name">
-              <h1 class='heading-primary'><?php echo $fname; ?></h1>
-            </div>
-            <div id="bio">
-              <h3><?php echo $bio; ?></h3>
-            </div>
-           <div class="brief">
-              <span id="gender">
-                <h2><?php echo $gender; ?> </h2>
-              </span>
-              <span id="address">
-                <h3><?php echo $address; ?></h3>
-           </div>
-            </span>
-          </div>
-        </div>
-        <div class="text2">
-          <div class="links1">
-            <a href="#" class="imp-link links">
-              Posts
-            </a>
-            <a href="#" class="imp-link links">
-              Study
-            </a>
-            <a href="#" class="imp-link links" >
-              Interest
-            </a>
-            <a href="#" class="imp-link links" >
-              Experiences
-            </a>
-            <a href="#" class="imp-link links" >
-              Dob
-            </a>
-            <a href="#" class="imp-link links" >
-              Contact
-            </a>
-            <a href="#" class="imp-link links" >
-              Updated at
-            </a>
-            <a href="#" class="imp-link links" >
-              verification status
-            </a>
-            <a href="update.php?user_id=<?php echo $user_id?>" type="submit" class='button-primary'>Edit Info</a>
-          </div>
-        </div>
-    </header>
-    <div class="middle-section clearfix">
-      <section>
-        <div class="profilebody__leftpart part">
-          <ul>
-            <li class="elements">
-              <h2>Verification status</h2><span class="answer" id="verify_status"><?php echo ($v_status == "no") ? "Not Verified" : "Verified";?></span>
-            </li>
-            <hr>
-            <li class="elements">
-              <h2>Employment status</h2><span class="answer" id="employ_status"><?php echo $employ_status; ?></span>
-            </li>
-            <hr>
-            <li class="elements">
-              <h2>Interest</h2><span class="answer" id="interest"><?php echo $interest; ?></span>
-            </li>
-            <hr>
-            <li class="elements">
-              <h2>Date of birth</h2><span class="answer" id="dob"><?php echo $dob; ?></span>
-            </li>
-            <hr>
-            <li class="elements">
-              <h2>Contact Number</h2><span class="answer" id="contact"><?php echo $phone; ?></span>
-            </li>
-            <hr>
-            <li class="elements">
-              <h2>Last updated at</h2><span class="answer" id="updated"><?php echo $updated_at; ?></span>
-            </li>
-            <hr>
-          </ul>
-        </div>
-      </section>
-      <section>
-      <div class="profilebody__rightpart">
-      <?php
-      $sql = "select * from posts where user_id='$user_id'";
-      $res=mysqli_query($con,$sql);
-      while($row=mysqli_fetch_array($res)){
-        echo '<div class="posts">
-                <div class="post-title">
-                <h2 class="heading-secondary">'.$row['title'].'
-                </h2>
-                </div>
-                <div class="post-body">
-                  <p>'.$row['body'].'</p>
-                </div>
-            </div>
-          </div>
-        ';
-      }
-      ?>
+<?php require '../includes/modal-education.php'; ?>
+<?php require '../includes/modal-experience.php'; ?>
+<div class="Profile-main-body">
+  <div class="prof-head-part">
+    <div class="prof-head-img">
+       <img src="../img/profile/profile1.jpg" alt="profile-pic">
+    </div>
+    <div class="prof-head-info">
+      <span class="prof-head-name "><?php echo $fname; ?></span>
+      <span class="prof-head-address"><i class="far fa-map"></i><span><?php echo $address; ?></span></span>
+      <div class="prof-head-bio"><?php echo $bio; ?></div>
+      <div class="info"><span class="prof-head-gender"><?php echo $gender; ?> </span>
+      <a href="" class="message"><i class="far fa-envelope"></i> Send Message</a></div>
+      <div class="prof-head-interest info"><?php echo $interest; ?></div>
+      <div class="prof-head-switch"><span class="prof-timeline"><a id="timeline" href="javascript:;"><i class="far fa-eye"></i>Timeline</a></span><span class="prof-about"><a class="when"id="about" href="javascript:;"><i class="far fa-user"></i>About</a></span>
       </div>
-      </section>
+      <hr>
     </div>
   </div>
+  <div class="prof-body-part">
+    <div class="prof-body-part-left">
+      <div class="left-elements">
+        <div class="left-heading"><span class="one">Education</span><a href="javascript:;" class="two" id="education-more">More..</a></div>
+        <div class="first-line">High Schooling</div>
+        <div class="second-line">Trinity International College</div>
+      </div>
+      <div class="left-elements">
+        <div class="left-heading"><span class="one">Experience</span><a href="javascript:" class="two" id="experience-more">More..</a></div>
+        <div class="first-line">Faculty Manager</div>
+        <div class="second-line">Kapil and Sons Company</div>
+      </div>
+      <hr>
+      <div class="left-bottom">
+        <h1 class="left-bottom-heading">Skills</h1>
+        <div class="bottom-body">
+          <span class="bottom-main">Language:</span>
+          <span class="bottom-text">English, Japanese, Hindi, French</span>
+        </div>
+        <div class="bottom-body">
+          <span class="bottom-main">Programming:</span>
+          <span class="bottom-text">C, C++, Python, PHP</span>
+        </div>
+        <div class="bottom-body">
+          <span class="bottom-main">Extra:</span>
+          <span class="bottom-text">Typing, Journaling, Auditing</span>
+        </div>
+      </div>
+    </div>
+    <div class="prof-body-part-right">
+      <div id="timeline-right">
+      <?php
+        $sql = "select * from posts where user_id='$user_id'";
+        $res = mysqli_query($con, $sql);
+        while ($row = mysqli_fetch_array($res)) {
+            echo '
+                <div class="job">
+                <div class="job-title" id="job-title"><a href="javascript:;" class="links"><h2>' . $row['title'] . '</h2></a></div>
+                <div class="job-body">' . $row['body'] . '</div>
+                <div class="job-by">
+                <span class="job-name"><a href="">ABC Company</a></span>
+                <span class="job-date">2012/06/01</span>
+                </div>
+                </div>';
+        }
+        ?>
+      </div>
+      <div id="about-right">
+        <h1>Contact Information:</h1>
+        <div class="right-elements">
+        <span class="heading">Contact Number</span>
+        <span class="text"><?php echo $phone; ?><span>
+        </div>
+        <div class="right-elements">
+        <span class="heading">Email</span>
+        <span class="text">sailbro@gmail.com<span>
+        </div>
+        <h1>Extra Information:</h1>
+        <div class="right-elements">
+        <span class="heading">Date Of Birth</span>
+        <span class="text"><?php echo $dob; ?></span>
+        </div>
+        <div class="right-elements">
+        <span class="heading">Verification Status</span>
+        <span class="text"><?php echo ($v_status == 'no') ? 'Not Verified' : 'Verified'; ?></span>
+        </div>
+        <div class="right-elements">
+        <span class="heading">Employment Status</span>
+        <span class="text"><?php echo $employ_status; ?></span>
+        </div>
+        <div class="right-elements">
+        <span class="heading">Last Updated at</span>
+        <span class="text"><?php echo $updated_at; ?></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+<script src="../js/app.js"></script>
 </body>
 
 </html>

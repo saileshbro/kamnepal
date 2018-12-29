@@ -1,9 +1,9 @@
 <?php
-  include 'database/db.php';
-  $db = new Database();
-  $con = $db->con;
-  $sql = "select * from posts limit 10";
-  $res = mysqli_query($con,$sql);
+include 'database/db.php';
+$db = new Database();
+$con = $db->con;
+$sql = "select * from posts limit 10";
+$res = mysqli_query($con, $sql);
 
 ?>
 <!DOCTYPE html>
@@ -20,7 +20,7 @@
 <div class='modal' id="modal"></div>
     <div id="landing">
     <div class="landing-body" id='landing-body'>
-        <?php require('includes/navbar-landing.php');?>
+        <?php require('includes/navbar-landing.php'); ?>
         <div class="navbar-center" id='navbar-center'>
             <a href="/index.php"><img class='brand-logo' src="../img/logo/kamnepal.svg" alt="" width='90rem' height='90rem' href='./index.php'></a>
         </div>
@@ -39,41 +39,39 @@
         <h2 class="landing-heading"> Top Vacancies</h2>
         <div class='landing-scroll'>
         <?php
-              while($row=mysqli_fetch_assoc($res)){
-                echo '<div class="job">
-              <div class="job-title"><a href="javascript:;" id="'.$row['id'].'"class="links jobPosts">'.$row['title'].'</a></div>
-              <div class="job-body">'.$row['body'].'</div>
+        while ($row = mysqli_fetch_assoc($res)) {
+            echo '<div class="job">
+              <div class="job-title"><a href="javascript:;" id="' . $row['id'] . '"class="links jobPosts">' . $row['title'] . '</a></div>
+              <div class="job-body">' . $row['body'] . '</div>
               <div class="job-by">
               <span class="job-name"><a href="">ABC Company</a></span>
-              <span class="job-date">'.$row['updated_at'].'</span>
+              <span class="job-date">' . $row['updated_at'] . '</span>
               </div>
               </div>';
-              }
-              ?>
+        }
+        ?>
         </div>
        </div>
        <div class="landing-right">
             <h2 class="landing-heading">Top companies</h2>
             <div class='company-list'>
-                <?php for($i=1;$i<=5;$i++){
+                <?php for ($i = 1; $i <= 5; $i++) {
                     // echo('<li class="company-name"><span class="badge">'.$i.'</span><a href="">Company '.$i.'</a></li>');
-                    if ($i<10) {
-                        echo('<div class="company-name"><span class="badge">0'.$i.'</span><a href="">Company ABC</a>
+                    if ($i < 10) {
+                        echo ('<div class="company-name"><span class="badge">0' . $i . '</span><a href="">Company ABC</a>
+                        <p class="company-bio">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem iure assumenda officiis sapiente voluptatibus aperiam alias dignissimos cupiditate, facilis dolore adipisci odio, dolorum quasi veniam molestiae repellat voluptatem libero doloribus?</p>
+                        </div>');
+                    } else {
+                        echo ('<div class="company-name"><span class="badge">' . $i . '</span><a href="">Company ABC</a>
                         <p class="company-bio">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem iure assumenda officiis sapiente voluptatibus aperiam alias dignissimos cupiditate, facilis dolore adipisci odio, dolorum quasi veniam molestiae repellat voluptatem libero doloribus?</p>
                         </div>');
                     }
-                    else{
-                        echo('<div class="company-name"><span class="badge">'.$i.'</span><a href="">Company ABC</a>
-                        <p class="company-bio">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem iure assumenda officiis sapiente voluptatibus aperiam alias dignissimos cupiditate, facilis dolore adipisci odio, dolorum quasi veniam molestiae repellat voluptatem libero doloribus?</p>
-                        </div>');
-                    }
-                }?>
+                } ?>
             </div>
         </div>
     </div>
 </div>
-<?php
-    require('includes/footer.php');
-?>
+<?php require('includes/footer.php'); ?>
+<script src="/js/app.js"></script>
     </body>
 </html>

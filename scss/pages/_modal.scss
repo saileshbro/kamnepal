@@ -1,12 +1,11 @@
 .modal {
-  width: 100vw;
-  height: 100vh;
-  background: rgba($color-black, .6);
+  width: 100%;
+  height: 100%;
+  background: rgba($color-black, .3);
   padding-top: 5rem;
-  position: fixed;
-  z-index: 3;
-  overflow: hidden;
   display: none;
+  z-index: 3;
+  position: fixed;
 
   .modal-content {
     width: 60%;
@@ -18,14 +17,15 @@
     background: rgba(white, 1);
     @include clearfix;
 
-    // display: none;
     .modal-title {
-      text-align: right;
-      font-size: 4rem;
-      color: $color-black;
-      float: right;
-      margin-right: 2rem;
-      cursor: pointer;
+      a {
+        text-align: right;
+        font-size: 4rem;
+        color: $color-black;
+        float: right;
+        margin-right: 2rem;
+        text-decoration: none;
+      }
     }
 
     .modal-body {
@@ -127,6 +127,145 @@
         width: 80%;
         margin: 0 auto;
         margin-top: 1.2rem;
+      }
+    }
+  }
+}
+
+//second modal
+
+.modal-profile-1 {
+  width: 100%;
+  height: 100%;
+  background: rgba($color-black, .3);
+  padding-top: 5rem;
+  display: none;
+  z-index: 3;
+  position: fixed;
+
+  .edu-modal {
+    width: 40%;
+    margin: 5rem auto;
+    box-shadow: 1px 1px 8px rgba($color-black, 0.36);
+    overflow-y: auto;
+    border-radius: .5rem;
+    height: 90%;
+    padding: 2rem;
+    background: rgba(white, 1);
+
+    .edu-modal-head {
+      a {
+        text-align: right;
+        font-size: 3rem;
+        color: $color-black;
+        float: right;
+        margin-right: 2rem;
+        text-decoration: none;
+      }
+    }
+
+    .edu-modal-body {
+      h1 {
+        text-align: center;
+        font-size: 2rem;
+        font-family: 'PT Sans', sans-serif;
+        color: $color-primary-dark;
+        padding: 0.7rem;
+      }
+
+      .each-modal-edu {
+        margin: 2rem auto;
+        padding: 1rem;
+        box-shadow: 1px 1px 8px rgba($color-black, 0.36);
+        text-align: center;
+
+        .each-element {
+          margin-bottom: 0.5rem;
+          padding: 0.5rem;
+          font-size: 1.2rem;
+
+          #course-title,
+          #Date {
+            text-transform: uppercase;
+            color: $color-secondary;
+            font-weight: bold;
+          }
+
+          #Institution {
+            font-size: 1.5rem;
+            color: $color-primary;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+//experience
+
+.modal-profile-2 {
+  width: 100%;
+  height: 100%;
+  background: rgba($color-black, .3);
+  padding-top: 5rem;
+  display: none;
+  z-index: 3;
+  position: fixed;
+
+  .exp-modal {
+    width: 40%;
+    margin: 5rem auto;
+    box-shadow: 1px 1px 8px rgba($color-black, 0.36);
+    overflow-y: auto;
+    border-radius: .5rem;
+    height: 90%;
+    padding: 2rem;
+    background: rgba(white, 1);
+
+    .exp-modal-head {
+      a {
+        text-align: right;
+        font-size: 3rem;
+        color: $color-black;
+        float: right;
+        margin-right: 2rem;
+        text-decoration: none;
+      }
+    }
+
+    .exp-modal-body {
+      h1 {
+        text-align: center;
+        font-size: 2rem;
+        font-family: 'PT Sans', sans-serif;
+        color: $color-primary-dark;
+        padding: 0.7rem;
+      }
+
+      .each-modal-exp {
+        margin: 2rem auto;
+        padding: 1rem;
+        box-shadow: 1px 1px 8px rgba($color-black, 0.36);
+        text-align: center;
+
+        .each-element {
+          margin-bottom: 0.5rem;
+          padding: 0.5rem;
+          font-size: 1.2rem;
+
+          #designation,
+          #start-end {
+            text-transform: uppercase;
+            color: $color-secondary;
+            font-weight: bold;
+          }
+
+          #company {
+            font-size: 1.5rem;
+            color: $color-primary;
+          }
+        }
       }
     }
   }

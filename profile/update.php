@@ -34,6 +34,7 @@ while ($row = mysqli_fetch_array($res)) {
     <title>Kam Nepal</title>
   </head>
   <body>
+    <?php include "../index-nav.php"; ?>
     <div class="containerProfile">
       <div class="profileUpdate">
         <div class="headingpart">
@@ -165,9 +166,9 @@ while ($row = mysqli_fetch_array($res)) {
     </div>
     <?php require('../includes/footer.php') ?>
     <script>
-      var val1 = "<?= $educationCount ?>";
-      var val2 = "<?= $experienceCount ?>";
-      var val3 = "<?= $skillCount ?>";
+      val1 = "<?= $educationCount ?>";
+      val2 = "<?= $experienceCount ?>";
+      val3 = "<?= $skillCount ?>";
     </script>
     <script type="text/javascript" src="../js/app.js"></script>
   </body>

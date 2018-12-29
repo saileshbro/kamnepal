@@ -10,7 +10,7 @@
         <title>Kam Nepal | Create CV</title>
     </head>
     <body>
-        <?php require('../includes/navbar-landing.php');?>
+        <?php require('../includes/navbar-landing.php'); ?>
         <div class="navbar-center">
             <a href="/index.php"><img class='brand-logo' src="../img/logo/kamnepal.svg" alt="" width='90rem' height='90rem' href='./index.php'></a>
         </div>
@@ -85,6 +85,7 @@
               </div>
           </div>
         </div>
-        <?php require('../includes/footer.php')?>
+        <?php require('../includes/footer.php') ?>
+        <script src="../js/app.js"></script>
     </body>
 </html>

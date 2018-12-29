@@ -169,6 +169,7 @@ body {
 .navbar--left {
   margin-left: 9rem;
   text-align: center;
+  cursor: pointer;
 }
 
 .navbar--left h3 {
@@ -661,239 +662,223 @@ body {
   background: green;
 }
 
-.profilebody {
-  background-repeat: no-repeat;
-  background-size: cover;
-  padding: 2rem;
-}
-
-.profilebody__header {
-  padding: 1rem auto;
-  line-height: 2rem;
-  margin: 1rem auto;
-  width: 100%;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  background-repeat: no-repeat;
-  background-size: cover;
-  border: 0.2rem solid #f5c3c2;
-  border-radius: 1rem;
-}
-
-.profilebody__header--image {
-  margin-top: 2rem;
-  -ms-flex-line-pack: center;
-      align-content: center;
-  display: block;
-  padding: 2rem 3rem;
-  float: left;
-}
-
-.profilebody__header--image img {
-  border-radius: 50%;
-  border: 0.3rem #f5c3c2 solid;
-  width: 22rem;
-  height: 22rem;
-}
-
-.profilebody__header .text1 {
+.Profile-main-body {
+  margin: 1rem 2rem;
+  padding: 1rem;
+  background: white;
   height: 100%;
-  margin: 1rem auto;
-  display: inline-block;
-  width: 70%;
 }
 
-.profilebody__header .text1 .brief {
-  padding: 1.2rem 1rem;
+.Profile-main-body .prof-head-part {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  margin: 1rem;
 }
 
-.profilebody__header .text1 .brief #age,
-.profilebody__header .text1 .brief #gender,
-.profilebody__header .text1 .brief #address {
-  color: #364380;
-  display: inline-block;
-  margin-right: 1.3rem;
-}
-
-.profilebody__header .text1 #name {
-  color: #111e6c;
-  margin: 1.2rem auto;
-}
-
-.profilebody__header .text1 #name .heading-primary {
-  padding: 1.2rem 1rem;
-}
-
-.profilebody__header .text1 #bio {
-  color: #800000;
-  padding: 1.2rem 1rem;
-  margin-top: -1.1rem;
-  font-style: italic;
-}
-
-.profilebody__header .text1 #employ_details {
-  color: black;
-  padding: 1rem;
-}
-
-.profilebody__header .text2 {
-  background-color: rgba(247, 152, 98, 0.6);
-  border-radius: 1rem;
-  padding: 1rem;
-  margin: .5rem;
-}
-
-.profilebody__header .text2 .links1 {
-  margin: auto;
-  width: 90%;
-  padding-right: .9rem;
-}
-
-.profilebody__header .text2 .links1 .imp-link {
-  text-transform: uppercase;
-  color: #4665fd;
-  font-weight: 900;
-  display: inline-block;
-  padding: 1rem;
-  margin: auto;
-  margin-right: 1.2rem;
-  text-decoration: none;
-  position: relative;
-  text-decoration: none;
-  font-size: 2rem;
-}
-
-.profilebody__header .text2 .links1 .imp-link:hover {
-  color: white;
-}
-
-.profilebody__header .text2 .links1 .imp-link::after {
-  content: '';
-  background: #605052;
-  position: absolute;
-  top: 50%;
-  right: 0;
-  height: 50%;
-  width: 1px;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
-}
-
-.profilebody .middle-section {
-  width: 100%;
-}
-
-.profilebody__leftpart {
-  padding: 1rem;
-  line-height: 2rem;
-  text-align: center;
-  margin: 1rem auto;
-  float: left;
+.Profile-main-body .prof-head-part .prof-head-img {
   width: 25%;
 }
 
-.profilebody__leftpart ul hr {
-  width: 70%;
-  color: rgba(119, 119, 119, 0.5);
-  margin: 0 auto;
+.Profile-main-body .prof-head-part .prof-head-img img {
+  width: 25rem;
+  height: 25rem;
+  border-radius: 50%;
 }
 
-.profilebody__leftpart .elements {
-  color: #303030;
+.Profile-main-body .prof-head-part .prof-head-info {
+  width: 75%;
+  padding: 0rem 3rem;
+  font-size: 1.3rem;
+  margin-left: 2rem;
+}
+
+.Profile-main-body .prof-head-part .prof-head-info i {
+  margin-right: 0.5rem;
+}
+
+.Profile-main-body .prof-head-part .prof-head-info .info {
+  margin: 3rem 0 0rem;
+}
+
+.Profile-main-body .prof-head-part .prof-head-info .prof-head-name {
+  font-size: 2rem;
+  letter-spacing: 0.1rem;
+  display: inline-block;
+  margin-right: 1.5rem;
+  color: #d67d08;
+}
+
+.Profile-main-body .prof-head-part .prof-head-info .prof-head-name::first-letter {
+  font-size: 3rem;
+  color: #5d78ff;
+}
+
+.Profile-main-body .prof-head-part .prof-head-info .message {
+  margin-left: 45rem;
+  padding: 0.5rem 1rem;
+  color: #d67d08;
+  background: white;
+  font-size: 1.3rem;
+  border-radius: 1rem;
+  border: solid #5d78ff;
+  text-decoration: none;
+}
+
+.Profile-main-body .prof-head-part .prof-head-info .message i {
+  color: #000;
+  margin-right: 0.3rem;
+}
+
+.Profile-main-body .prof-head-part .prof-head-info .prof-head-bio,
+.Profile-main-body .prof-head-part .prof-head-info .prof-head-interest {
+  color: #5d78ff;
+  font-weight: bold;
+}
+
+.Profile-main-body .prof-head-part .prof-head-info .prof-head-switch {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  margin-top: 3rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.Profile-main-body .prof-head-part .prof-head-info .prof-head-switch span a {
+  color: #d67d08;
+  text-decoration: none;
+}
+
+.Profile-main-body .prof-body-part {
   margin: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  height: 100%;
   padding: 1rem;
-  list-style: none;
 }
 
-.profilebody__leftpart .answer {
-  color: #003399;
+.Profile-main-body .prof-body-part-left {
+  width: 25%;
+  padding: 1rem;
+  margin-right: 1rem;
+}
+
+.Profile-main-body .prof-body-part-left .left-elements {
+  margin-bottom: 3rem;
+  font-size: 1.2rem;
+}
+
+.Profile-main-body .prof-body-part-left .left-elements .left-heading .one {
+  font-size: 1.7rem;
+  margin-right: 2rem;
+  color: #5d78ff;
+  font-weight: bold;
+}
+
+.Profile-main-body .prof-body-part-left .left-elements .left-heading .two {
+  font-size: 1.3rem;
+  padding: 0.3rem 1rem;
+  border-radius: 0.5rem;
+  color: #d67d08;
+  font-weight: bold;
+  border: solid #5d78ff;
+  background: white;
+  text-decoration: none;
+}
+
+.Profile-main-body .prof-body-part-left .left-elements .first-line {
+  text-transform: uppercase;
+}
+
+.Profile-main-body .prof-body-part-left .left-elements .second-line {
+  color: #d67d08;
+  font-size: 1.4rem;
+}
+
+.Profile-main-body .prof-body-part-left .left-bottom {
   font-size: 1.3rem;
 }
 
-.profilebody__rightpart {
-  color: blue;
-  padding: 1rem;
-  line-height: 2rem;
-  text-align: center;
-  margin: 2rem auto;
-  height: 78rem;
-  background: white;
-  border: 0.5rem solid #f5c3c2;
-  float: right;
-  display: block;
-  width: 70%;
+.Profile-main-body .prof-body-part-left .left-bottom .left-bottom-heading {
+  font-size: 1.7rem;
+  color: #5d78ff;
+  letter-spacing: 0.1rem;
+}
+
+.Profile-main-body .prof-body-part-left .left-bottom .bottom-body {
+  margin-bottom: 1rem;
+}
+
+.Profile-main-body .prof-body-part-left .left-bottom .bottom-body .bottom-main {
+  font-size: 1.5rem;
+  color: #d67d08;
+  display: inline-block;
+  margin-right: 1rem;
+  text-transform: capitalize;
+}
+
+.Profile-main-body .prof-body-part-left .left-bottom .bottom-body .bottom-text {
+  display: inline-block;
+}
+
+.Profile-main-body .prof-body-part-right {
+  width: 75%;
+  padding: 0 1.5rem;
+}
+
+.Profile-main-body .prof-body-part-right #timeline-right {
+  display: none;
   overflow: auto;
 }
 
-.profilebody__rightpart .posts {
-  margin: 2rem;
-  padding: .9rem;
-  background: #eee;
+.Profile-main-body .prof-body-part-right #about-right {
+  padding: 0 1rem;
+  margin-top: 0rem;
 }
 
-.profilebody__rightpart .posts:not(:last-child) {
-  margin-bottom: 1.2rem;
+.Profile-main-body .prof-body-part-right #about-right h1 {
+  margin-bottom: 2rem;
+  color: #5d78ff;
+  font-size: 1.2rem;
+  font-weight: lighter;
 }
 
-.profilebody__rightpart .posts .post-title {
-  display: inline-block;
-  text-align: left;
+.Profile-main-body .prof-body-part-right #about-right .right-elements {
+  margin-bottom: 3rem;
+  font-size: 1.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
 }
 
-.profilebody__rightpart .posts .post-body {
-  margin: 1.2rem 0;
+.Profile-main-body .prof-body-part-right #about-right .right-elements .heading {
+  color: #d67d08;
+  font-weight: bold;
+  width: 30%;
 }
 
-.profilebody__rightpart .posts .post-body :not(:last-child) {
-  margin-bottom: .9rem;
+.Profile-main-body .prof-body-part-right #about-right .right-elements .text {
+  width: 70%;
 }
 
-.profilebody .layer2 {
-  background-color: rgba(218, 218, 218, 0.5);
-  border-radius: 1rem;
-  margin: 2rem auto;
-  padding: 3rem;
-  width: 100%;
-  height: 100%;
+.border {
+  border: 1px solid black;
 }
 
-.profilebody .clearfix::after {
-  content: "";
-  clear: both;
-  display: table;
-}
-
-@media only screen and (max-width: 50rem) {
-  .profilebody__leftpart {
-    padding: 1rem;
-    line-height: 2rem;
-    text-align: center;
-    margin: 1rem auto;
-    height: 100%;
-    width: 100%;
-  }
-  .profilebody__leftpart .elements {
-    color: #303030;
-    margin: 1rem;
-    padding: 1rem;
-    list-style: none;
-  }
-  .profilebody__leftpart .answer {
-    color: #003399;
-  }
-  .profilebody__rightpart {
-    color: blue;
-    padding: 1rem;
-    line-height: 2rem;
-    text-align: center;
-    margin: 2rem auto;
-    height: 80rem;
-    background: white;
-    border: 0.5rem solid #f5c3c2;
-    width: 100%;
-    overflow: scroll;
-    border-radius: 2rem;
-  }
+.when {
+  -webkit-box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.36);
+          box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.36);
+  padding: 0.3rem 1rem;
 }
 
 .containerProfile {
@@ -1924,14 +1909,13 @@ div.ui-datepicker {
 }
 
 .modal {
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.6);
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
   padding-top: 5rem;
-  position: fixed;
-  z-index: 3;
-  overflow: hidden;
   display: none;
+  z-index: 3;
+  position: fixed;
 }
 
 .modal .modal-content {
@@ -1951,13 +1935,13 @@ div.ui-datepicker {
   clear: both;
 }
 
-.modal .modal-content .modal-title {
+.modal .modal-content .modal-title a {
   text-align: right;
   font-size: 4rem;
   color: #000;
   float: right;
   margin-right: 2rem;
-  cursor: pointer;
+  text-decoration: none;
 }
 
 .modal .modal-content .modal-body .post-head {
@@ -2068,6 +2052,136 @@ div.ui-datepicker {
   width: 80%;
   margin: 0 auto;
   margin-top: 1.2rem;
+}
+
+.modal-profile-1 {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  padding-top: 5rem;
+  display: none;
+  z-index: 3;
+  position: fixed;
+}
+
+.modal-profile-1 .edu-modal {
+  width: 40%;
+  margin: 5rem auto;
+  -webkit-box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.36);
+          box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.36);
+  overflow-y: auto;
+  border-radius: .5rem;
+  height: 90%;
+  padding: 2rem;
+  background: white;
+}
+
+.modal-profile-1 .edu-modal .edu-modal-head a {
+  text-align: right;
+  font-size: 3rem;
+  color: #000;
+  float: right;
+  margin-right: 2rem;
+  text-decoration: none;
+}
+
+.modal-profile-1 .edu-modal .edu-modal-body h1 {
+  text-align: center;
+  font-size: 2rem;
+  font-family: 'PT Sans', sans-serif;
+  color: #4665fd;
+  padding: 0.7rem;
+}
+
+.modal-profile-1 .edu-modal .edu-modal-body .each-modal-edu {
+  margin: 2rem auto;
+  padding: 1rem;
+  -webkit-box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.36);
+          box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.36);
+  text-align: center;
+}
+
+.modal-profile-1 .edu-modal .edu-modal-body .each-modal-edu .each-element {
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.modal-profile-1 .edu-modal .edu-modal-body .each-modal-edu .each-element #course-title,
+.modal-profile-1 .edu-modal .edu-modal-body .each-modal-edu .each-element #Date {
+  text-transform: uppercase;
+  color: #d67d08;
+  font-weight: bold;
+}
+
+.modal-profile-1 .edu-modal .edu-modal-body .each-modal-edu .each-element #Institution {
+  font-size: 1.5rem;
+  color: #5d78ff;
+}
+
+.modal-profile-2 {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  padding-top: 5rem;
+  display: none;
+  z-index: 3;
+  position: fixed;
+}
+
+.modal-profile-2 .exp-modal {
+  width: 40%;
+  margin: 5rem auto;
+  -webkit-box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.36);
+          box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.36);
+  overflow-y: auto;
+  border-radius: .5rem;
+  height: 90%;
+  padding: 2rem;
+  background: white;
+}
+
+.modal-profile-2 .exp-modal .exp-modal-head a {
+  text-align: right;
+  font-size: 3rem;
+  color: #000;
+  float: right;
+  margin-right: 2rem;
+  text-decoration: none;
+}
+
+.modal-profile-2 .exp-modal .exp-modal-body h1 {
+  text-align: center;
+  font-size: 2rem;
+  font-family: 'PT Sans', sans-serif;
+  color: #4665fd;
+  padding: 0.7rem;
+}
+
+.modal-profile-2 .exp-modal .exp-modal-body .each-modal-exp {
+  margin: 2rem auto;
+  padding: 1rem;
+  -webkit-box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.36);
+          box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.36);
+  text-align: center;
+}
+
+.modal-profile-2 .exp-modal .exp-modal-body .each-modal-exp .each-element {
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.modal-profile-2 .exp-modal .exp-modal-body .each-modal-exp .each-element #designation,
+.modal-profile-2 .exp-modal .exp-modal-body .each-modal-exp .each-element #start-end {
+  text-transform: uppercase;
+  color: #d67d08;
+  font-weight: bold;
+}
+
+.modal-profile-2 .exp-modal .exp-modal-body .each-modal-exp .each-element #company {
+  font-size: 1.5rem;
+  color: #5d78ff;
 }
 
 .card {

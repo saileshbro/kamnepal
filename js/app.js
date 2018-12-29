@@ -1,8 +1,6 @@
-var count = 1;
-var string1 = "";
-val1;
-val2;
-val3;
+var val1;
+var val2;
+var val3;
 
 function toggleDropdown() {
   $(".dropdown").slideToggle("show");
@@ -22,7 +20,7 @@ function toggleRegistration() {
     element2[i].classList.toggle("show");
   }
 }
-$(".remedu").click(function (event) {
+$(".remedu").click(function(event) {
   var str = event.target.id;
   var eduId = str.slice(4, str.length); //equals 14
   $(".edu-" + eduId).remove();
@@ -36,7 +34,7 @@ $(".remedu").click(function (event) {
   });
 });
 
-window.pressed = function () {
+window.pressed = function() {
   var a = document.getElementById("aa");
   if (a.value == "") {
     fileLabel.innerHTML = "Choose a passport sized photo";
@@ -57,7 +55,7 @@ function removeEduPressed(data) {
     type: "POST",
     url: "../profile/posts/processRemove.php",
     data: myData,
-    success: function (data) {
+    success: function(data) {
       if (data == "success") {
         alert("edu");
         // success message here
@@ -83,7 +81,7 @@ function removeExpPressed(data) {
     type: "POST",
     url: "../profile/posts/processRemove.php",
     data: myData,
-    success: function (data) {
+    success: function(data) {
       if (data == "success") {
         alert("emp");
         // success message here
@@ -108,7 +106,7 @@ function removeSkillPressed(data) {
     type: "POST",
     url: "../profile/posts/processRemove.php",
     data: myData,
-    success: function (data) {
+    success: function(data) {
       if (data == "success") {
         alert("skill");
         // success message here
@@ -121,23 +119,23 @@ function removeSkillPressed(data) {
   val3--;
 }
 //update profile code
-$('#updateProfile').click(() => {
-  var dataSet = $('.profileUpdate :input').serialize();
+$("#updateProfile").click(() => {
+  var dataSet = $(".profileUpdate :input").serialize();
   $.ajax({
     url: "../profile/posts/processUpdate.php",
     type: "POST",
     data: dataSet,
-    success: (data) => {
+    success: data => {
       alert(data);
     }
   });
 });
 
-
-
-
 $(document).ready(() => {
-  $(".scroll").click(function (e) {
+  $(".navbar--left").click(() => {
+    location.href = "../dashboard.php";
+  });
+  $(".scroll").click(function(e) {
     e.preventDefault();
 
     var position = $($(this).attr("href")).offset().top;
@@ -146,7 +144,7 @@ $(document).ready(() => {
       scrollTop: position
     });
   });
-  $("#footer-home").click(function (e) {
+  $("#footer-home").click(function(e) {
     e.preventDefault();
 
     var position = $($(this).attr("href")).offset().top;
@@ -160,7 +158,7 @@ $(document).ready(() => {
     $("#inputGr")
       .addClass("inputOutline")
       .delay(2000)
-      .queue(function (next) {
+      .queue(function(next) {
         $(this).removeClass("inputOutline");
         next();
       });
@@ -168,54 +166,54 @@ $(document).ready(() => {
   $("#addEducation").click(() => {
     $("#education").append(
       "<div class='cvform education-" +
-      val1 +
-      "'><input type='text' name='course-title-" +
-      val1 +
-      "' placeholder='Your course name'><input type='text' name='course-inst-" +
-      val1 +
-      "' placeholder='Your Institution&apos;s name'><input type='text' name='course-begin-" +
-      val1 +
-      "' placeholder='Course start year'><input type='text' name='course-end-" +
-      val1 +
-      "' placeholder='Course ended. Blank for present'><textarea name='course-detail-" +
-      val1 +
-      "' id='' cols='30' rows='10' placeholder='Add your course Details'></textarea><a onclick='removeEduPressed(this.id);' href='javascript:;'class='links remedu'id='edu-" +
-      val1 +
-      "' >Remove</a></div>"
+        val1 +
+        "'><input type='text' name='course-title-" +
+        val1 +
+        "' placeholder='Your course name'><input type='text' name='course-inst-" +
+        val1 +
+        "' placeholder='Your Institution&apos;s name'><input type='text' name='course-begin-" +
+        val1 +
+        "' placeholder='Course start year'><input type='text' name='course-end-" +
+        val1 +
+        "' placeholder='Course ended. Blank for present'><textarea name='course-detail-" +
+        val1 +
+        "' id='' cols='30' rows='10' placeholder='Add your course Details'></textarea><a onclick='removeEduPressed(this.id);' href='javascript:;'class='links remedu'id='edu-" +
+        val1 +
+        "' >Remove</a></div>"
     );
     val1++;
   });
   $("#addExperience").click(() => {
     $("#experience").append(
       "<div class='cvform experience-" +
-      val2 +
-      "'><input type='text' name='emp-title-" +
-      val2 +
-      "' placeholder='Job title | Designation'><input type='text' name='emp-comp-" +
-      val2 +
-      "' placeholder='Add the company&apos;s name.'><input type='text' name='emp-begin-" +
-      val2 +
-      "' placeholder='Start year'><input type='text' name='emp-end-" +
-      val2 +
-      "' placeholder='End Year | Blank for Current'><textarea name='emp-detail-" +
-      val2 +
-      "' id='' cols='30' rows='10' placeholder='Explain your role'></textarea><a href='javascript:;' onclick='removeExpPressed(this.id);' class='links remexp' id='emp-" +
-      val2 +
-      "' >Remove</a></div>"
+        val2 +
+        "'><input type='text' name='emp-title-" +
+        val2 +
+        "' placeholder='Job title | Designation'><input type='text' name='emp-comp-" +
+        val2 +
+        "' placeholder='Add the company&apos;s name.'><input type='text' name='emp-begin-" +
+        val2 +
+        "' placeholder='Start year'><input type='text' name='emp-end-" +
+        val2 +
+        "' placeholder='End Year | Blank for Current'><textarea name='emp-detail-" +
+        val2 +
+        "' id='' cols='30' rows='10' placeholder='Explain your role'></textarea><a href='javascript:;' onclick='removeExpPressed(this.id);' class='links remexp' id='emp-" +
+        val2 +
+        "' >Remove</a></div>"
     );
     val2++;
   });
   $("#addSkill").click(() => {
     $(".skill-group").append(
       "<div id='skill-set'><div class='skillinp skills-" +
-      val3 +
-      "'><div class='inpgrp'><input class='skills' name='skill-type-" +
-      val3 +
-      "' class='input1' placeholder='Add skill type. Eg. Language'><input class='skills' name='skill-list-" +
-      val3 +
-      "' class='input1' placeholder='Add skills. Eg. English, French, Spanish'></div><a href='javascript:;' onclick='removeSkillPressed(this.id);' class='links remexp' id='emp-" +
-      val3 +
-      "' >Remove</a></div></div>"
+        val3 +
+        "'><div class='inpgrp'><input class='skills' name='skill-type-" +
+        val3 +
+        "' class='input1' placeholder='Add skill type. Eg. Language'><input class='skills' name='skill-list-" +
+        val3 +
+        "' class='input1' placeholder='Add skills. Eg. English, French, Spanish'></div><a href='javascript:;' onclick='removeSkillPressed(this.id);' class='links remexp' id='emp-" +
+        val3 +
+        "' >Remove</a></div></div>"
     );
     val3++;
   });
@@ -224,7 +222,7 @@ $(document).ready(() => {
 
   $(".jobPosts").bind(
     "click",
-    $.proxy(function (event) {
+    $.proxy(function(event) {
       var postId = $(event.target).attr("id");
       $.ajax({
         url: "../modal.php",
@@ -232,7 +230,7 @@ $(document).ready(() => {
         data: {
           postId: postId
         },
-        success: function (data) {
+        success: function(data) {
           $("#modal").html(data);
           $(".modal").fadeIn();
         }
@@ -244,7 +242,7 @@ $(document).ready(() => {
     changeMonth: true,
     yearRange: "1950:2000"
   });
-  $(document).keyup(function (e) {
+  $(document).keyup(function(e) {
     if (e.keyCode === 27) $(".modal-title").click();
   });
   $(".landing-search input").focus(() => {
@@ -253,4 +251,46 @@ $(document).ready(() => {
   $(".landing-search input").blur(() => {
     $(".landing-search").css("top", "50%");
   });
+  // profile modals
+
+  $(".job-title").click(function() {
+    $("#modal").fadeIn();
+  });
+
+  $("#mod-title").click(function() {
+    $("#modal").fadeOut();
+  });
+
+  $("#education-more").click(function() {
+    $("#modal-profile-1").fadeIn();
+  });
+
+  $("#experience-more").click(function() {
+    $("#modal-profile-2").fadeIn();
+  });
+
+  $("#edu-modal-head").click(function() {
+    $("#modal-profile-1").fadeOut();
+  });
+
+  $("#exp-modal-head").click(function() {
+    $("#modal-profile-2").fadeOut();
+  });
+
+  $("#timeline").click(function() {
+    $("#about-right").hide();
+    $("#timeline-right").show();
+    $(".prof-body-part-right").addClass("border");
+    $("#about").removeClass("when");
+    $("#timeline").addClass("when");
+  });
+  $("#about").click(function() {
+    $("#timeline-right").hide();
+    $("#about-right").show();
+    $(".prof-body-part-right").removeClass("border");
+    $("#about").addClass("when");
+    $("#timeline").removeClass("when");
+  });
+
+  // *************
 });

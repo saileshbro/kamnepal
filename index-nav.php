@@ -1,6 +1,6 @@
 <nav  class="navbar dropped-navbar">
     <div class="navbar--left">
-        <img class='brand-logo' src="img/logo/kamnepal.svg" alt="Kam Nepal" href='./index.php'>
+        <img class='brand-logo' src="/img/logo/kamnepal.svg" alt="Kam Nepal" href='./index.php'>
         <h3>Kam<span>Nepal</span></h3>
     </div>
     <div class="navbar--center">
@@ -18,7 +18,7 @@
         <div id="Prof-drop">
             <div class="dropdown-profile">
                 <div class="dropdown-profile-mid">
-                    <img src="img/profile/profile.jpg" alt="Profile-pic">
+                    <img src="/img/profile/profile.jpg" alt="Profile-pic">
                     <div class="drop-text">
                         <div class="Prof-name">Sarayu Gautam</div>
                         <div class="Prof-bio">Lorem ipsum dolor sit amet consectetur Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deserunt, doloribus!</div>
