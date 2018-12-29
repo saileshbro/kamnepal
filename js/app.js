@@ -55,7 +55,7 @@ function removeEduPressed(data) {
 
   $.ajax({
     type: "POST",
-    url: "../profile/posts/process.php",
+    url: "../profile/posts/processRemove.php",
     data: myData,
     success: function (data) {
       if (data == "success") {
@@ -81,7 +81,7 @@ function removeExpPressed(data) {
 
   $.ajax({
     type: "POST",
-    url: "../profile/posts/process.php",
+    url: "../profile/posts/processRemove.php",
     data: myData,
     success: function (data) {
       if (data == "success") {
@@ -106,7 +106,7 @@ function removeSkillPressed(data) {
 
   $.ajax({
     type: "POST",
-    url: "../profile/posts/process.php",
+    url: "../profile/posts/processRemove.php",
     data: myData,
     success: function (data) {
       if (data == "success") {
@@ -120,6 +120,22 @@ function removeSkillPressed(data) {
   $("." + mainParent).remove();
   val3--;
 }
+//update profile code
+$('#updateProfile').click(() => {
+  var dataSet = $('.profileUpdate :input').serialize();
+  $.ajax({
+    url: "../profile/posts/processUpdate.php",
+    type: "POST",
+    data: dataSet,
+    success: (data) => {
+      alert(data);
+    }
+  });
+});
+
+
+
+
 $(document).ready(() => {
   $(".scroll").click(function (e) {
     e.preventDefault();
