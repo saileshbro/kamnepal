@@ -16,17 +16,30 @@
     padding: 2rem;
     background: rgba(white, 1);
     @include clearfix;
+    position: relative;
 
     .modal-title {
-      a {
-        text-align: right;
-        font-size: 4rem;
-        color: $color-black;
-        float: right;
-        margin-right: 2rem;
-        text-decoration: none;
+      // display: flex;
+      // text-align: right;
+      position: absolute;
+      top: 3rem;
+      right: 3rem;
+      font-size: 2.5rem;
+      // transform: translateY(-50%);
+      width: 3rem;
+      height: 3rem;
+      cursor: pointer;
+      transition: all .2s;
+      text-align: center;
+      line-height: 125%;
+      border-radius: 50%;
+
+      &:hover {
+        background: $color-primary-dark;
+        color: white;
       }
     }
+
 
     .modal-body {
 
@@ -149,51 +162,77 @@
     box-shadow: 1px 1px 8px rgba($color-black, 0.36);
     overflow-y: auto;
     border-radius: .5rem;
-    height: 90%;
+    // height: 90%;
     padding: 2rem;
     background: rgba(white, 1);
+    position: relative;
 
     .edu-modal-head {
+      position: absolute;
+      top: 3rem;
+      right: 3rem;
+      font-size: 2.5rem;
+      // transform: translateY(-50%);
+      width: 3rem;
+      height: 3rem;
+      cursor: pointer;
+      transition: all .2s;
+      text-align: center;
+      line-height: 125%;
+      border-radius: 50%;
+
       a {
-        text-align: right;
-        font-size: 3rem;
-        color: $color-black;
-        float: right;
-        margin-right: 2rem;
+        color: black;
         text-decoration: none;
+      }
+
+      &:hover {
+        background: $color-primary-dark;
+
+        a {
+          color: white;
+        }
       }
     }
 
     .edu-modal-body {
-      h1 {
-        text-align: center;
-        font-size: 2rem;
-        font-family: 'PT Sans', sans-serif;
-        color: $color-primary-dark;
-        padding: 0.7rem;
-      }
+      .edu-content {
+        margin: 1.7rem 3rem 1.8rem 0;
+        border-left: 2px solid $color-secondary;
+        padding-left: 2.5rem;
 
-      .each-modal-edu {
-        margin: 2rem auto;
-        padding: 1rem;
-        box-shadow: 1px 1px 8px rgba($color-black, 0.36);
-        text-align: center;
-
-        .each-element {
-          margin-bottom: 0.5rem;
-          padding: 0.5rem;
+        #body {
           font-size: 1.2rem;
 
-          #course-title,
-          #Date {
-            text-transform: uppercase;
-            color: $color-secondary;
-            font-weight: bold;
-          }
+          font-style: italic;
 
-          #Institution {
-            font-size: 1.5rem;
-            color: $color-primary;
+          &::first-letter {
+            padding-left: 1rem;
+          }
+        }
+
+        .name-ins {
+          font-size: 1.5rem;
+          text-transform: uppercase;
+          font-family: "Fira sans";
+          color: $color-primary-dark;
+        }
+
+        .degree {
+          display: flex;
+          justify-content: space-between;
+
+          p {
+            font-size: 1.7rem;
+            text-transform: capitalize;
+            font-family: 'PT sans';
+            color: $color-secondary;
+
+            &:last-child {
+              color: $color-grey-dark;
+              font-size: 1.3rem;
+              margin-right: 2rem;
+            }
           }
         }
       }
@@ -219,51 +258,77 @@
     box-shadow: 1px 1px 8px rgba($color-black, 0.36);
     overflow-y: auto;
     border-radius: .5rem;
-    height: 90%;
+    // height: 90%;
     padding: 2rem;
     background: rgba(white, 1);
+    position: relative;
 
     .exp-modal-head {
+      position: absolute;
+      top: 3rem;
+      right: 3rem;
+      font-size: 2.5rem;
+      // transform: translateY(-50%);
+      width: 3rem;
+      height: 3rem;
+      cursor: pointer;
+      transition: all .2s;
+      text-align: center;
+      line-height: 125%;
+      border-radius: 50%;
+
       a {
-        text-align: right;
-        font-size: 3rem;
-        color: $color-black;
-        float: right;
-        margin-right: 2rem;
+        color: black;
         text-decoration: none;
+      }
+
+      &:hover {
+        background: $color-primary-dark;
+
+        a {
+          color: white;
+        }
       }
     }
 
     .exp-modal-body {
-      h1 {
-        text-align: center;
-        font-size: 2rem;
-        font-family: 'PT Sans', sans-serif;
-        color: $color-primary-dark;
-        padding: 0.7rem;
-      }
+      .edu-content {
+        margin: 1.7rem 3rem 1.8rem 0;
+        border-left: 2px solid $color-secondary;
+        padding-left: 2.5rem;
 
-      .each-modal-exp {
-        margin: 2rem auto;
-        padding: 1rem;
-        box-shadow: 1px 1px 8px rgba($color-black, 0.36);
-        text-align: center;
-
-        .each-element {
-          margin-bottom: 0.5rem;
-          padding: 0.5rem;
+        #body {
           font-size: 1.2rem;
 
-          #designation,
-          #start-end {
-            text-transform: uppercase;
-            color: $color-secondary;
-            font-weight: bold;
-          }
+          font-style: italic;
 
-          #company {
-            font-size: 1.5rem;
-            color: $color-primary;
+          &::first-letter {
+            padding-left: 1rem;
+          }
+        }
+
+        .name-ins {
+          font-size: 1.5rem;
+          text-transform: uppercase;
+          font-family: "Fira sans";
+          color: $color-primary-dark;
+        }
+
+        .degree {
+          display: flex;
+          justify-content: space-between;
+
+          p {
+            font-size: 1.7rem;
+            text-transform: capitalize;
+            font-family: 'PT sans';
+            color: $color-secondary;
+
+            &:last-child {
+              color: $color-grey-dark;
+              font-size: 1.3rem;
+              margin-right: 2rem;
+            }
           }
         }
       }

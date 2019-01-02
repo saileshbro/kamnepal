@@ -1,6 +1,13 @@
+<?php
+require('auth/authenticate.php');
+include_once('database/db.php');
+$db = new Database;
+$con = $db->con;
+$user_id = getColumn("SELECT id FROM user WHERE email='$email'", "id");
+?>
 <nav  class="navbar dropped-navbar">
     <div class="navbar--left">
-        <img class='brand-logo' src="/img/logo/kamnepal.svg" alt="Kam Nepal" href='./index.php'>
+        <img class='brand-logo' src="/img/logo/kamnepal.svg" alt="Kam Nepal" href='javascript:;'>
         <h3>Kam<span>Nepal</span></h3>
     </div>
     <div class="navbar--center">
@@ -26,10 +33,10 @@
                 </div>
                 <div class="dropdown-profile-last">
                     <ul>
-                        <li><a href=""><i class="far fa-2x fa-user"></i><h3>My Profile</h3></a></li>
+                        <li><a href="/profile/display.php?user_id=<?php echo $user_id; ?>"><i class="far fa-2x fa-user"></i><h3>My Profile</h3></a></li>
                         <li><a href=""><i class="far fa-2x fa-envelope"></i><h3>Messages</h3></a></li>
                     </ul>
-                    <div class="drop-button"><button class="links">Sign Out</button></div>
+                    <div class="drop-button"><button onclick="location.href='/login/logout.php';";class="links">Sign Out</button></div>
                 </div>
             </div>
         </div>

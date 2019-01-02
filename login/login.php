@@ -1,14 +1,14 @@
 <?php
-    require('../database/db.php');
-    $db = new Database;
-    $con=$db->con;
-    session_start();
-    $email =$_SESSION['email']??"";
-    $user_id = getColumn("SELECT id FROM user WHERE email='$email'", "id");
-    if(strlen($email)>0){
+require('../database/db.php');
+$db = new Database;
+$con = $db->con;
+session_start();
+$email = $_SESSION['email'] ?? "";
+$user_id = getColumn("SELECT id FROM user WHERE email='$email'", "id");
+if (strlen($email) > 0) {
         // redirect after login
-        header("Location: ../profile/display.php?user_id=$user_id");
-    }
+    header("Location: ../dashboard.php?user_id=$user_id");
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">

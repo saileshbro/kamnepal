@@ -4,7 +4,6 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
         <link rel="stylesheet" href="../css/main.css" />
         <title>Kam Nepal | Create CV</title>
@@ -86,6 +85,33 @@
           </div>
         </div>
         <?php require('../includes/footer.php') ?>
-        <script src="../js/app.js"></script>
+        <script src="../js/cv.js"></script>
+        <script>
+function removeEduPressed() {
+    let val = val1 - 1;
+    let str = ".remedu" + val;
+    let str2 = ".edu-" + val;
+    $(str2).remove();
+    val1--;
+}
+
+function removeExpPressed() {
+    let vall = val2 - 1;
+    let str3 = ".remexp" + vall;
+    let str4 = ".exp-" + vall;
+    $(str4).remove();
+    console.log(str4);
+    val2--;
+}
+
+function removeSkillPressed() {
+    let valll = val3 - 1;
+    let str5 = ".remskill" + valll;
+    let str6 = ".skills-" + valll;
+    $(str6).remove();
+    console.log(str6);
+    val3--;
+}
+        </script>
     </body>
 </html>

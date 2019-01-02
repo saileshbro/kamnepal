@@ -1,5 +1,5 @@
 <?php
-require('../auth/authenticate.php');
+include_once('../auth/authenticate.php');
 require('../database/db.php');
 $db = new Database;
 $con = $db->con;
