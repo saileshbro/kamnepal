@@ -72,14 +72,11 @@
           .second-line {
             color: $color-secondary;
             font-size: 1.4rem;
+            margin-bottom: 1.6rem;
           }
         }
       }
     }
-
-    // hr {
-    //   // padding: 0 5rem;
-    // }
 
     .left-bottom {
       padding: 0 5rem;
@@ -155,16 +152,15 @@
         text-transform: uppercase;
         margin-bottom: 1.4rem;
 
-        &::first-letter {
-          font-size: 3rem;
-          color: $color-primary;
+        // &::first-letter {
+        //   font-size: 3rem;
+        //   color: $color-primary;
 
-        }
+        // }
       }
 
       .prof-head-address {
         display: inline-block;
-        margin-left: -4rem;
         color: $color-grey-dark;
         font-family: 'PT Sans';
         margin-bottom: 1.4rem;

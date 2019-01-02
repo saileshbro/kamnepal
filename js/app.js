@@ -1,6 +1,7 @@
 var val1;
 var val2;
 var val3;
+var user_id;
 
 function toggleDropdown() {
   $(".dropdown").slideToggle("show");
@@ -132,6 +133,9 @@ $("#updateProfile").click(() => {
 });
 
 $(document).ready(() => {
+  $('#printCV').click(() => {
+    window.open("cv.php?user_id=" + user_id);
+  });
   $(".navbar--left").click(() => {
     location.href = "../dashboard.php";
   });

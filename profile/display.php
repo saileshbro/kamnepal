@@ -1,8 +1,10 @@
 <?php
+// require "../auth/authenticate.php";
 require '../database/db.php';
 $db = new Database();
 $con = $db->con;
 $user_id = cleanse($_GET['user_id']) ?? '';
+$email = getColumn("select email from user where id='$user_id'", "email");
 $sql = "select profile.*,user.v_status from profile,user where profile.user_id='$user_id' AND user.id=profile.user_id";
 $res = mysqli_query($con, $sql);
 while ($row = mysqli_fetch_array($res)) {
@@ -49,12 +51,13 @@ while ($row = mysqli_fetch_array($res)) {
             <a href="javascript:;" class="two" id="education-more">+</a>
           </div>
           <div class='body'>
-            <?php $sql = "select * from education where user_id =' $user_id ' limit 1";
-            $res = mysqli_query($con, $sql);
-            $row = mysqli_fetch_array($res);
-            ?>
-            <h4 class="first-line"><?php echo $row['course_title'] ?></h4>
-            <p class="second-line"><?php echo $row['inst_name'] ?></p>
+          <?php $sql = "select * from education where user_id =' $user_id ' limit 2";
+          $res = mysqli_query($con, $sql);
+          while ($row = mysqli_fetch_array($res)) {
+            echo "<h4 class='first-line'>" . $row['course_title'] . "</h4>
+            <p class='second-line'>" . $row['inst_name'] . "</p>";
+          }
+          ?>
           </div>
         </div>
       </div>
@@ -65,12 +68,13 @@ while ($row = mysqli_fetch_array($res)) {
             <a href="javascript:" class="two" id="experience-more">+</a>
           </div>
           <div class="body">
-          <?php $sql = "select * from experience where user_id =' $user_id ' limit 1";
+          <?php $sql = "select * from experience where user_id =' $user_id ' limit 2";
           $res = mysqli_query($con, $sql);
-          $row = mysqli_fetch_array($res);
+          while ($row = mysqli_fetch_array($res)) {
+            echo "<h4 class='first-line'>" . $row['emp_title'] . "</h4>
+            <p class='second-line'>" . $row['emp_comp'] . "</p>";
+          }
           ?>
-            <h4 class="first-line"><?php echo $row['emp_title'] ?></h4>
-            <p class="second-line"><?php echo $row['emp_comp'] ?></p>
           </div>
         </div>
       </div>
@@ -79,14 +83,22 @@ while ($row = mysqli_fetch_array($res)) {
         <h1 class="left-bottom-heading">Skills</h1>
         <div class='skill-set'>
           <div>
-            <h3 class="bottom-main">Language:</h3>
-            <h3 class="bottom-main">Programming:</h3>
-            <h3 class="bottom-main">Extra:</h3>
+          <?php
+          $sql = "select skill_type from skills where user_id = '$user_id'";
+          $res = mysqli_query($con, $sql);
+          while ($row = mysqli_fetch_array($res)) {
+            echo "<h3 class='bottom-main'>" . $row['skill_type'] . "</h3>";
+          }
+          ?>
           </div>
           <div>
-              <h4 class="bottom-text">English, Japanese, Hindi, French</span>
-              <h4 class="bottom-text">C, C++, Python, PHP</h4>
-              <h4 class="bottom-text">Typing, Journaling, Auditing</h4>
+          <?php
+          $sql = "select skill_list from skills where user_id = '$user_id'";
+          $res = mysqli_query($con, $sql);
+          while ($row = mysqli_fetch_array($res)) {
+            echo "<h3 class='bottom-main'>" . implode(',   ', explode(',', $row['skill_list'])) . " </h3>";
+          }
+          ?>
           </div>
         </div>
       </div>
@@ -100,8 +112,12 @@ while ($row = mysqli_fetch_array($res)) {
       <span class="prof-head-gender"><?php echo $gender; ?> </span>
       <span class="prof-head-interest"><?php echo $interest; ?></span>
       <a href="" class="message"><i class="far fa-envelope"></i>Message</a>
-      <a href="update.php" class="message"><i class="far fa-edit"></i></i>Edit Profile</a>
-      <a href="" class="message"><i class="fas fa-print"></i></i>Print CV</a>
+      <?php
+      if ($user_id === $userId) {
+        echo "<a href='update.php' class='message'><i class='far fa-edit'></i></i>Edit Profile</a>";
+      }
+      ?>
+      <a href="javascript:;" id='printCV' class="message"><i class="fas fa-print"></i></i>Print CV</a>
     </div>
     <div class="prof-head-switch">
         <a class="prof-timeline" id="timeline" href="javascript:;"><i class="far fa-eye"></i>Timeline </a>
@@ -123,15 +139,17 @@ while ($row = mysqli_fetch_array($res)) {
       <div id="about-right">
         <div id='ext'>
         <h1>Contact</h1>
+        <!-- to edit here -->
         <div class="right-elements">
         <span class="heading"><i class="fas fa-phone"></i>Phone</span>
         <span class="text"><?php echo $phone; ?><span>
         </div>
         <div class="right-elements">
         <span class="heading"><i class="fas fa-at"></i>Email</span>
-        <span class="text">sailbro@gmail.com<span>
+        <span class="text"><?php echo $email; ?><span>
         </div>
         </div>
+        <!-- to edit here -->
       <div id='ext'>
       <h1>Extra Information:</h1>
         <div class="right-elements">
@@ -158,6 +176,8 @@ while ($row = mysqli_fetch_array($res)) {
   </div>
 </div>
 <?php include '../includes/footer.php' ?>
+<script> user_id = <?= $user_id ?></script>
+
 <script src="../js/app.js"></script>
 </body>
 

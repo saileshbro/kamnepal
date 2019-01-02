@@ -1,10 +1,10 @@
 <?php
+include "auth/authenticate.php";
 include 'database/db.php';
 $db = new Database();
 $con = $db->con;
-$sql = "select * from posts limit 10";
-$res = mysqli_query($con, $sql);
-
+$user_id = getColumn("select id from user where email='$email'", 'id');
+$fname = getColumn("select fname from profile where user_id ='$user_id'", "fname");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,7 +27,7 @@ $res = mysqli_query($con, $sql);
 				<div class="prof-img">
 					<img src="img/profile/profile.jpg"alt="profile-pic">
 				</div>
-				<p class="prof-name">Name</p>
+				<p class="prof-name"><?php echo $fname; ?></p>
 				<hr>
 				<p class="prof-employ">Employment details</p>
 				<hr>

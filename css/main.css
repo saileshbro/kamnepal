@@ -736,6 +736,7 @@ body {
 .Profile-main-body .profile-left .left-elements .left-heading .body .second-line {
   color: #d67d08;
   font-size: 1.4rem;
+  margin-bottom: 1.6rem;
 }
 
 .Profile-main-body .profile-left .left-bottom {
@@ -811,14 +812,8 @@ body {
   margin-bottom: 1.4rem;
 }
 
-.Profile-main-body .profile-right .prof-head-info .prof-head-name::first-letter {
-  font-size: 3rem;
-  color: #5d78ff;
-}
-
 .Profile-main-body .profile-right .prof-head-info .prof-head-address {
   display: inline-block;
-  margin-left: -4rem;
   color: #777;
   font-family: 'PT Sans';
   margin-bottom: 1.4rem;
@@ -1640,7 +1635,7 @@ body {
   font-weight: 600;
 }
 
-.cv-body .cv-details .right p:not(:last-child) {
+.cv-body .cv-details .right p:not(:nth-child(2)) {
   text-transform: capitalize;
 }
 

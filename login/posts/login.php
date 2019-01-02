@@ -12,7 +12,7 @@ if ($num > 0) {
     $user_id = getColumn("SELECT id FROM user WHERE email='$email'", "id");
     echo '
     <script>
-        location.href = "../dashboard.php?user_id=' . $user_id . '";
+        location.href = "../dashboard.php";
     </script>';
 } else {
     echo ('Email and password incorrect.');
