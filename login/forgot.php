@@ -30,7 +30,7 @@ $fcode = $_GET['fcode'];
     
     <title>Kam Nepal | Login</title>
 </head>
-<body style="overflow:hidden;">
+<body >
     <nav class="navbar">
             <div class="navbar--left">
                 <a href='../index.php' class='brand-header links'>Kam Nepal</a>
@@ -41,7 +41,7 @@ $fcode = $_GET['fcode'];
     </nav>
         <section>
         <div class="login">
-            <div class="login-body" style="margin:185px 0;">
+            <div class="login-body" style="margin:199px 0;">
                 <form class='form'id='resetForm' action="">
                     <h1 class="heading-secondary">Forgot Password</h1>
                     <div class="error">
@@ -62,6 +62,7 @@ $fcode = $_GET['fcode'];
         fcode = "<?= $fcode ?>";
         $('#changePassword').click(() => {
         var passData = $('#resetForm :input').serialize();
+        $('#error').html('<img src="/img/gif/loading.gif" alt="" srcset="" style="width:72px;">');
         $.ajax({
         url: "posts/password-reset.php",
         data: passData + "&email=" + email + "&fcode=" + fcode,

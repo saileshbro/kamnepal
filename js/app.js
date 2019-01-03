@@ -23,20 +23,6 @@ function toggleRegistration() {
     element2[i].classList.toggle("show");
   }
 }
-$(".remedu").click(function (event) {
-  var str = event.target.id;
-  var eduId = str.slice(4, str.length); //equals 14
-  $(".edu-" + eduId).remove();
-  $.ajax({
-    type: "POST",
-    url: "posts/process.php",
-    data: {
-      eduId: eduId
-    },
-    success: data => {}
-  });
-});
-
 window.pressed = function () {
   var a = document.getElementById("aa");
   if (a.value == "") {
@@ -52,15 +38,13 @@ function removeEduPressed(data) {
   let mainParent = parent;
   parent = "." + parent + " :input";
   var myData = $(parent).serialize();
-
+  $('#error').html('<img src="/img/gif/loading.gif" alt="" srcset="" style="width:72px;">');
   $.ajax({
     type: "POST",
     url: "../jsk/posts/processRemove.php",
     data: myData,
     success: function (data) {
-      if (data == "success") {} else {
-        //   error message here
-      }
+      $('#error').html(data);
     }
   });
   $("." + mainParent).remove();
@@ -70,22 +54,16 @@ function removeEduPressed(data) {
 function removeExpPressed(data) {
   //   console.log(data);
   let parent = $("#" + data).parent()[0].classList[1];
-  console.log(parent);
   let mainParent = parent;
   parent = "." + parent + " :input";
   var myData = $(parent).serialize();
-  console.log(myData);
-
+  $('#error').html('<img src="/img/gif/loading.gif" alt="" srcset="" style="width:72px;">');
   $.ajax({
     type: "POST",
     url: "../jsk/posts/processRemove.php",
     data: myData,
     success: function (data) {
-      if (data.success) {
-        // success message here
-      } else {
-        //   error message here
-      }
+      $('#error').html(data);
     }
   });
   $("." + mainParent).remove();
@@ -94,22 +72,16 @@ function removeExpPressed(data) {
 
 function removeSkillPressed(data) {
   let parent = $("#" + data).parent()[0].classList[1];
-  console.log(parent);
   let mainParent = parent;
   parent = "." + parent + " :input";
   var myData = $(parent).serialize();
-  console.log(myData);
-
+  $('#error').html('<img src="/img/gif/loading.gif" alt="" srcset="" style="width:72px;">');
   $.ajax({
     type: "POST",
     url: "../jsk/posts/processRemove.php",
     data: myData,
     success: function (data) {
-      if (data == "success") {
-        // success message here
-      } else {
-        //   error message here
-      }
+      $('#error').html(data);
     }
   });
   $("." + mainParent).remove();
@@ -118,23 +90,25 @@ function removeSkillPressed(data) {
 //update profile code
 $("#updateJsk").click(() => {
   var dataSet = $(".profileUpdate :input").serialize();
+  $('#error').html('<img src="/img/gif/loading.gif" alt="" srcset="" style="width:72px;">');
   $.ajax({
     url: "../jsk/posts/processUpdate.php",
     type: "POST",
     data: dataSet,
     success: data => {
-      alert(data);
+      $('#error').html(data);
     }
   });
 });
 $("#updateEmp").click(() => {
   var dataSet = $(".profileUpdate :input").serialize();
+  $('#error').html('<img src="/img/gif/loading.gif" alt="" srcset="" style="width:72px;">');
   $.ajax({
     url: "../emp/posts/processUpdate.php",
     type: "POST",
     data: dataSet,
     success: data => {
-      alert(data);
+      $('#error').html(data);
     }
   });
 });

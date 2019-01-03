@@ -28,10 +28,13 @@ if (strlen($email) > 0) {
     
     <title>Kam Nepal | Login</title>
 </head>
-<body style="overflow:hidden;">
+<body >
 <div class="modal-forgot login">
     <div class='login-body'>
         <a href="javascript:;" class="modal-title" onclick="$('.modal-forgot').fadeOut();">&times;</a>
+        <div class="error">
+            <h2 id="errorModal"></h2>
+        </div>
         <div id="resetPW">
             <input  type="email" name='email' placeholder="Email">
         </div>
@@ -73,7 +76,6 @@ if (strlen($email) > 0) {
         <script>
 function login(){
     $('#error').html('<img src="/img/gif/loading.gif" alt="" srcset="" style="width:72px;">');
-
     $.ajax({
         url: 'posts/login.php',
         method: 'post',
@@ -88,12 +90,13 @@ function login(){
 }
 $('#getReset').click(() => {
     var data = $('#resetPW :input').serialize();
+    $('#errorModal').html('<img src="/img/gif/loading.gif" alt="" srcset="" style="width:72px;">');
     $.ajax({
         url : "posts/reset.php",
         data: data,
         type: "POST",
         success: (data)=>{
-            $('#error').html(data);
+            $('#errorModal').html(data);
         }
     });
   });

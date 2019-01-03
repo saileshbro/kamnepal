@@ -1,6 +1,6 @@
 <?php
 include("../../database/db.php");
-
+include_once "../../phpmailer/Mailer.php";
 $db = new Database();
 $con = $db->con;
 
@@ -47,13 +47,18 @@ try {
     $password = md5($password . $email);
 
     mysqli_query($con, "INSERT INTO user (email, password, vcode, type) VALUES ('$email', '$password', '$vcode', '$type')");
-// send email to verify here
+    $link = "kam.nepal/auth/verify_code.php?email=$email&vcode=$vcode";
+    $link = "<a href='$link'>" . $link . "</a>";
+    $mailer = new Mailer();
+    $mailer->sendMail($email, "Verify your Kam Nepal account", $link);
+
     $result = mysqli_query($con, "SELECT id FROM user WHERE email='$email'");
 
     while ($row = mysqli_fetch_array($result)) {
         mysqli_query($con, "INSERT INTO profile (user_id,fname,phone,category) VALUES ('{$row['id']}','$fname','$phone','$category')");
     }
-
+    session_start();
+    $_SESSION['email'] = $email;
     echo '
         <script>
             location.href = "../dashboard.php";

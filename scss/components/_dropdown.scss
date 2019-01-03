@@ -163,7 +163,7 @@
 
                     li {
                         // box-shadow: 1px 1px 8px rgba($color-black, .3);
-                        padding: 1rem 0.9rem;
+
                         display: block;
                         border-radius: 0.5rem;
                         transition: 0.2s all;
@@ -189,6 +189,7 @@
                         a {
                             display: flex;
                             text-decoration: none;
+                            padding: 1rem 0.9rem;
 
                             i {
                                 color: $color-primary;

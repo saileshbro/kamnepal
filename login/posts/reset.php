@@ -1,6 +1,7 @@
 <?php
 
 include '../../database/db.php';
+include_once '../../phpmailer/Mailer.php';
 $db = new Database();
 $con = $db->con;
 $email = cleanse($_POST['email']) ?? '';
@@ -15,6 +16,9 @@ if ($num > 0) {
     $res1 = mysqli_query($con, $sql1);
 
     // send  mail with the reset link
-    // kam.nepal/forgot.php?email=$email&fcode=$fcode
+    $link = "kam.nepal/login/forgot.php?email=$email&fcode=$fcode";
+    $link = "<a href='$link'>" . $link . "</a>";
+    $mailer = new Mailer();
+    $mailer->sendMail($email, "Reset your Kam Nepal password", $link);
 }
 ?>

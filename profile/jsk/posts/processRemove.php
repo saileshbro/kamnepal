@@ -16,11 +16,6 @@ if (substr(array_keys($_POST)[0], 0, 13) == "course-title-") {
     } else {
         $sql = "delete from education where course_title='$courseTitle' and id='$id'";
         $res = mysqli_query($con, $sql);
-        if ($res) {
-            echo "success";
-        } else {
-            echo "failure";
-        }
     }
 }
 if (substr(array_keys($_POST)[0], 0, 10) == "emp-title-") {
@@ -36,11 +31,6 @@ if (substr(array_keys($_POST)[0], 0, 10) == "emp-title-") {
     } else {
         $sql = "delete from experience where emp_title='$empTitle' and id='$id'";
         $res = mysqli_query($con, $sql);
-        if ($res) {
-            echo "success";
-        } else {
-            echo "failure";
-        }
     }
 }
 if (substr(array_keys($_POST)[0], 0, 11) == "skill-type-") {
@@ -53,11 +43,6 @@ if (substr(array_keys($_POST)[0], 0, 11) == "skill-type-") {
     } else {
         $sql = "delete from skills where skill_type='$skillType' and id='$id'";
         $res = mysqli_query($con, $sql);
-        if ($res) {
-            echo "success";
-        } else {
-            echo "failure";
-        }
     }
 }
 ?>
