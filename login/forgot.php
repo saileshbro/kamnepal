@@ -9,6 +9,8 @@ if (strlen($email) > 0) {
         // redirect after login
     header("Location: ../dashboard.php?user_id=$user_id");
 }
+$email = $_GET['email'];
+$fcode = $_GET['fcode'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -47,14 +49,29 @@ if (strlen($email) > 0) {
                     </div>
                     <input type="password" name="password" id="" placeholder='New Password' required>
                     <input type="password" name="password2" id="" placeholder='Confirm Password' required>
-                    <button type="submit" class='button-primary'>Change Password</button>
+                    <a id="changePassword" class='button-primary'>Change Password</a>
                     </div>
                 </form>
             </div>
         </div>
         </section>
         <?php include "../includes/footer.php" ?>
+
         <script src="/js/app.js"></script>
+        <script>email = "<?= $email ?>";
+        fcode = "<?= $fcode ?>";
+        $('#changePassword').click(() => {
+        var passData = $('#resetForm :input').serialize();
+        $.ajax({
+        url: "posts/password-reset.php",
+        data: passData + "&email=" + email + "&fcode=" + fcode,
+        type: 'POST',
+        success: (data) => {
+            $('#error').html(data);
+        }
+        });
+    });
+        </script>
     </body>
     
 </html>

@@ -93,7 +93,7 @@ $('#getReset').click(() => {
         data: data,
         type: "POST",
         success: (data)=>{
-            alert(data);
+            $('#error').html(data);
         }
     });
   });

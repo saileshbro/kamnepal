@@ -2,6 +2,8 @@ var val1;
 var val2;
 var val3;
 var user_id;
+var email;
+var fcode;
 
 function toggleDropdown() {
   $(".dropdown").slideToggle("show");
@@ -310,5 +312,4 @@ $(document).ready(() => {
   $('#forgotPassword').click(() => {
     $('.modal-forgot').fadeIn();
   });
-
 });
