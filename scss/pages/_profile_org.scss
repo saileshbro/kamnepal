@@ -1,0 +1,189 @@
+.Profile-main-body {
+  justify-content: space-around;
+  display: flex;
+  padding: 3rem;
+
+
+  .profile-left {
+    width: 30%;
+    margin: 0 auto;
+    padding: 0rem;
+
+    .prof-head-img2 {
+      width: 100%;
+      margin: 0 auto;
+      text-align: center;
+
+
+      img {
+        width: 22rem;
+        height: 22rem;
+        border-radius: 50%;
+        border: 1px solid black;
+      }
+    }
+
+    .org-left-body {
+      // margin: 0 auto;
+
+      .org-head-info {
+
+        width: 100%;
+        font-size: 1.2rem;
+        margin-left: 2rem;
+
+        .org-name {
+          font-size: 2rem;
+          letter-spacing: 0.1rem;
+          color: $color-secondary;
+          font-family: 'Fira Sans';
+          text-transform: uppercase;
+          display: inline-block;
+
+          &::first-letter {
+            font-size: 3rem;
+            color: $color-primary;
+          }
+        }
+
+        .org-address {
+
+          i {
+            margin-right: 0.5rem;
+          }
+
+          font-size: 1.4rem;
+          display: inline-block;
+          color: $color-grey-dark;
+          font-family: 'PT Sans';
+          margin-left: 1rem;
+        }
+
+        .org-bio {
+          font-family: Arial, Helvetica, sans-serif;
+          font-style: italic;
+          color: $color-grey-dark-3;
+        }
+      }
+
+      .org-body-info {
+        margin-top: 3rem;
+        margin-left: 2rem;
+
+
+        .right-elements {
+
+          font-size: 1.5rem;
+          margin: 1.5rem 0;
+          justify-content: space-around;
+          display: flex;
+          width: 100%;
+
+
+          .heading {
+            color: $color-secondary;
+            font-weight: bold;
+            width: 50%;
+            display: inline-block;
+
+            i {
+              color: $color-primary;
+              font-size: 1.5rem;
+              display: inline-block;
+              margin-right: 1rem;
+            }
+
+          }
+
+          .text {
+            width: 50%;
+            display: inline-block;
+          }
+        }
+      }
+    }
+
+    padding: 1rem;
+    margin-right: 1rem;
+  }
+
+  .profile-right {
+
+    width: 70%;
+    margin-left: 5rem;
+    overflow-y: auto;
+
+    .job {
+      margin: 1.3rem;
+      background: $color-grey-dark-2;
+      padding: 1.5rem 3rem;
+      border-radius: .5rem;
+      background: $color-white;
+      box-shadow: 1px 1px 8px rgba($color-grey-dark-2, 0.36);
+
+      &-title {
+        .links {
+          font-size: 2rem;
+
+        }
+      }
+
+      &-body {
+        margin-top: .8rem;
+        width: 90%;
+        font-family: 'PT Sans', sans-serif;
+        font-size: 1.4rem;
+      }
+
+      &-by {
+        float: right;
+        font-size: 1.1rem;
+        margin-top: 1.3rem;
+
+        .job-date {
+          font-family: monospace;
+          letter-spacing: -.1rem;
+          font-size: 1.3rem;
+        }
+
+        .job-name {
+
+          position: relative;
+
+          a {
+            text-transform: uppercase;
+            letter-spacing: .1rem;
+            font-size: 1.4rem;
+            margin: .8rem 1.3rem;
+            text-decoration: none;
+            color: $color-tertiary-dark;
+
+          }
+
+          &:hover {
+            font-size: 1.6rem;
+
+            &::after {
+              animation: underlineToRight-2 1s ease-in-out normal;
+              animation-fill-mode: forwards;
+            }
+          }
+
+          &::after {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 100%;
+            width: 0px;
+            left: 5%;
+            border-top: 3px solid $color-primary-dark;
+          }
+        }
+      }
+
+      @include clearfix;
+    }
+
+  }
+
+}

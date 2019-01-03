@@ -1403,6 +1403,188 @@ body {
   font-size: 1.6rem;
 }
 
+.Profile-main-body {
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 3rem;
+}
+
+.Profile-main-body .profile-left {
+  width: 30%;
+  margin: 0 auto;
+  padding: 0rem;
+  padding: 1rem;
+  margin-right: 1rem;
+}
+
+.Profile-main-body .profile-left .prof-head-img2 {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.Profile-main-body .profile-left .prof-head-img2 img {
+  width: 22rem;
+  height: 22rem;
+  border-radius: 50%;
+  border: 1px solid black;
+}
+
+.Profile-main-body .profile-left .org-left-body .org-head-info {
+  width: 100%;
+  font-size: 1.2rem;
+  margin-left: 2rem;
+}
+
+.Profile-main-body .profile-left .org-left-body .org-head-info .org-name {
+  font-size: 2rem;
+  letter-spacing: 0.1rem;
+  color: #d67d08;
+  font-family: 'Fira Sans';
+  text-transform: uppercase;
+  display: inline-block;
+}
+
+.Profile-main-body .profile-left .org-left-body .org-head-info .org-name::first-letter {
+  font-size: 3rem;
+  color: #5d78ff;
+}
+
+.Profile-main-body .profile-left .org-left-body .org-head-info .org-address {
+  font-size: 1.4rem;
+  display: inline-block;
+  color: #777;
+  font-family: 'PT Sans';
+  margin-left: 1rem;
+}
+
+.Profile-main-body .profile-left .org-left-body .org-head-info .org-address i {
+  margin-right: 0.5rem;
+}
+
+.Profile-main-body .profile-left .org-left-body .org-head-info .org-bio {
+  font-family: Arial, Helvetica, sans-serif;
+  font-style: italic;
+  color: #333;
+}
+
+.Profile-main-body .profile-left .org-left-body .org-body-info {
+  margin-top: 3rem;
+  margin-left: 2rem;
+}
+
+.Profile-main-body .profile-left .org-left-body .org-body-info .right-elements {
+  font-size: 1.5rem;
+  margin: 1.5rem 0;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+}
+
+.Profile-main-body .profile-left .org-left-body .org-body-info .right-elements .heading {
+  color: #d67d08;
+  font-weight: bold;
+  width: 50%;
+  display: inline-block;
+}
+
+.Profile-main-body .profile-left .org-left-body .org-body-info .right-elements .heading i {
+  color: #5d78ff;
+  font-size: 1.5rem;
+  display: inline-block;
+  margin-right: 1rem;
+}
+
+.Profile-main-body .profile-left .org-left-body .org-body-info .right-elements .text {
+  width: 50%;
+  display: inline-block;
+}
+
+.Profile-main-body .profile-right {
+  width: 70%;
+  margin-left: 5rem;
+  overflow-y: auto;
+}
+
+.Profile-main-body .profile-right .job {
+  margin: 1.3rem;
+  background: #999;
+  padding: 1.5rem 3rem;
+  border-radius: .5rem;
+  background: #fff;
+  -webkit-box-shadow: 1px 1px 8px rgba(153, 153, 153, 0.36);
+          box-shadow: 1px 1px 8px rgba(153, 153, 153, 0.36);
+}
+
+.Profile-main-body .profile-right .job-title .links {
+  font-size: 2rem;
+}
+
+.Profile-main-body .profile-right .job-body {
+  margin-top: .8rem;
+  width: 90%;
+  font-family: 'PT Sans', sans-serif;
+  font-size: 1.4rem;
+}
+
+.Profile-main-body .profile-right .job-by {
+  float: right;
+  font-size: 1.1rem;
+  margin-top: 1.3rem;
+}
+
+.Profile-main-body .profile-right .job-by .job-date {
+  font-family: monospace;
+  letter-spacing: -.1rem;
+  font-size: 1.3rem;
+}
+
+.Profile-main-body .profile-right .job-by .job-name {
+  position: relative;
+}
+
+.Profile-main-body .profile-right .job-by .job-name a {
+  text-transform: uppercase;
+  letter-spacing: .1rem;
+  font-size: 1.4rem;
+  margin: .8rem 1.3rem;
+  text-decoration: none;
+  color: #0fe456;
+}
+
+.Profile-main-body .profile-right .job-by .job-name:hover {
+  font-size: 1.6rem;
+}
+
+.Profile-main-body .profile-right .job-by .job-name:hover::after {
+  -webkit-animation: underlineToRight-2 1s ease-in-out normal;
+          animation: underlineToRight-2 1s ease-in-out normal;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+.Profile-main-body .profile-right .job-by .job-name::after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 100%;
+  width: 0px;
+  left: 5%;
+  border-top: 3px solid #4665fd;
+}
+
+.Profile-main-body .profile-right .job::after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
 .footer-distributed {
   background: #003a63;
   -webkit-box-shadow: 0 0.1rem 0.1rem 0 rgba(0, 0, 0, 0.12);

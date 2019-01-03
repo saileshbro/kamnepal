@@ -1,0 +1,7 @@
+#success {
+    height: 6rem;
+    width: 6rem;
+    background: red;
+    display: none;
+    @include absCenter;
+}

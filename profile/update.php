@@ -34,6 +34,7 @@ while ($row = mysqli_fetch_array($res)) {
     <title>Kam Nepal</title>
   </head>
   <body>
+    <div id="success"></div>
     <?php include "../index-nav.php"; ?>
     <div class="containerProfile">
       <div class="profileUpdate">
