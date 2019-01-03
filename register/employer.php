@@ -9,14 +9,21 @@ $con = $db->con;
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
     <link rel="stylesheet" href="../css/main.css">
     
     <title>Kam Nepal | Register</title>
 </head>
-<body style='overflow:hidden;'>
+<body style="overflow:hidden;" >
 <nav class="navbar">
         <div class="navbar--left">
-            <i class="fa fa-graduation-cap brand-logo"></i>
             <a href='../index.php' class='brand-header links'>Kam Nepal</a>
         </div>
         <div class="navbar--right">
@@ -34,11 +41,11 @@ $con = $db->con;
                 <select name="category" id="">
                     <option value="Jobs" selected="true" disabled="disabled">Jobs</option>
                     <?php
-                        $sql ="select * from category";
-                        $res = mysqli_query($con,$sql);
-                        while($row=mysqli_fetch_array($res)){
-                            echo "<option value=".$row['id'].">".$row['name']."</option>";
-                        }
+                    $sql = "select * from category";
+                    $res = mysqli_query($con, $sql);
+                    while ($row = mysqli_fetch_array($res)) {
+                        echo "<option value=" . $row['id'] . ">" . $row['name'] . "</option>";
+                    }
                     ?>
                 </select>
                 <input type="text" name='phone' placeholder='Organisational Phone Number' required>
@@ -47,30 +54,14 @@ $con = $db->con;
                 <input type="password" name="password" id="" placeholder='Password' required>
                 <input type="password" name='password2' placeholder='Confirm Password' required>
                 <button type="submit" class='button-primary'>Create a Employer Account</button>
-                <p class='form-text'>Already have a Employer account? <a class='links'href="">Login</a></p>
+                <p class='form-text'>Already have a Employer account? <a class='links'href="../login/login.php">Login</a></p>
             </form>
         </div>
     </div>
-<script>
-    var elem=document.getElementById('overlay');
-    function shift(item){
-        let slide=item.parentNode.getElementsByClassName('slider');
-        for(let i=0;i<slide.length;i++){
-            slide[i].classList.toggle('on');
-        }
-        item.classList.add('on');
-        elem.classList.toggle('on');
-    }
-</script>
-<script
-			  src="http://code.jquery.com/jquery-3.3.1.min.js"
-			  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-			  crossorigin="anonymous"></script>
-
+    <?php include "../includes/footer.php"; ?>
 <script>
 function completeRegistration(){
     $('#error').html('<img src="/img/gif/loading.gif" alt="" srcset="" style="width:72px;">');
-
     $.ajax({
         url: 'posts/register.php',
         method: 'post',

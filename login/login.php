@@ -16,14 +16,30 @@ if (strlen($email) > 0) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
     <link rel="stylesheet" href="../css/main.css">
     
     <title>Kam Nepal | Login</title>
 </head>
-<body style='overflow:hidden;'>
+<body style="overflow:hidden;">
+<div class="modal-forgot login">
+    <div class='login-body'>
+        <a href="javascript:;" class="modal-title" onclick="$('.modal-forgot').fadeOut();">&times;</a>
+        <div id="resetFrom" >
+            <input type="email" name='email' placeholder="Email">
+            <a href="javascript:;" id="getReset" class="links">Get Password reset Link</a>
+        </div>
+    </div>
+</div>
     <nav class="navbar">
             <div class="navbar--left">
-                <i class="fa fa-graduation-cap brand-logo"></i>
                 <a href='../index.php' class='brand-header links'>Kam Nepal</a>
             </div>
             <div class="navbar--right">
@@ -40,7 +56,7 @@ if (strlen($email) > 0) {
                     </div>
                     <input type="email" name="email" id="" placeholder='Email' required>
                     <input type="password" name="password" id="" placeholder='Password' required>
-                    <a class='links'href="">Forgot Password?</a></p>
+                    <a class='links'href="javascript:;" id="forgotPassword">Forgot Password?</a></p>
                     <button type="submit" class='button-primary'>Login</button>
                     <hr>
                     <p class="form-text">Or Sign in with</p>
@@ -53,10 +69,7 @@ if (strlen($email) > 0) {
             </div>
         </div>
         </section>
-        <script
-			  src="http://code.jquery.com/jquery-3.3.1.min.js"
-			  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-			  crossorigin="anonymous"></script>
+        <?php include "../includes/footer.php" ?>
         <script>
 function login(){
     $('#error').html('<img src="/img/gif/loading.gif" alt="" srcset="" style="width:72px;">');
@@ -73,7 +86,20 @@ function login(){
         }
     });
 }
+$('#getReset').click(() => {
+    var myData = $('#resetForm :input').serialize();
+    $.ajax({
+        url : "posts/reset.php",
+        data: myData,
+        type: "POST",
+        success: (data)=>{
+            alert(data);
+        }
+    });
+  });
         </script>
+
+        <script src="/js/app.js"></script>
     </body>
     
 </html>

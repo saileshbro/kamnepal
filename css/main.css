@@ -363,13 +363,12 @@ body {
 
 .register {
   text-align: center;
-  height: 100vh;
 }
 
 .register .register-body {
   border-radius: 5px;
   display: inline-block;
-  margin: 8rem auto;
+  margin: 6rem auto;
   background: rgba(255, 255, 255, 0.9);
   -webkit-box-shadow: 1px 1px 20px #000;
           box-shadow: 1px 1px 20px #000;
@@ -382,14 +381,12 @@ body {
   background-attachment: fixed;
   background-position: center center;
   background-size: cover;
-  height: 100vh;
-  overflow: hidden;
 }
 
 .login .login-body {
   border-radius: 5px;
   display: inline-block;
-  margin: 15rem auto;
+  margin: 11rem auto;
   background: white;
   -webkit-box-shadow: 1px 1px 20px #000;
           box-shadow: 1px 1px 20px #000;
@@ -2673,6 +2670,70 @@ div.ui-datepicker {
   color: #777;
   font-size: 1.3rem;
   margin-right: 2rem;
+}
+
+.modal-forgot {
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  display: none;
+}
+
+.modal-forgot .login-body {
+  padding-top: 0 !important;
+  width: 55rem;
+  position: relative;
+  margin-top: 19rem !important;
+}
+
+.modal-forgot .login-body .modal-title {
+  position: absolute;
+  top: .3rem;
+  right: .3rem;
+  font-size: 2.5rem;
+  width: 3rem;
+  height: 3rem;
+  cursor: pointer;
+  -webkit-transition: all .2s;
+  transition: all .2s;
+  text-align: center;
+  line-height: 125%;
+  border-radius: 50%;
+  color: #5d78ff;
+  text-decoration: none;
+}
+
+.modal-forgot .login-body .modal-title:hover {
+  background: #4665fd;
+  color: white;
+}
+
+.modal-forgot .login-body div {
+  margin-top: 4rem;
+  margin-left: 2rem;
+}
+
+.modal-forgot .login-body input {
+  display: block;
+  width: 90%;
+  margin-top: 1.2rem !important;
+  margin-bottom: 0 !important;
+  border: none;
+  padding: 1.2rem;
+  border-bottom: 1px solid rgba(119, 119, 119, 0.4);
+  color: #4665fd;
+}
+
+.modal-forgot .login-body .links {
+  margin: 1.5rem 0;
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  letter-spacing: .1rem;
+  border: 1px solid #5d78ff;
 }
 
 .card {

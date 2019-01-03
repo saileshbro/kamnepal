@@ -1,40 +1,44 @@
-.login{
+.login {
     text-align: center;
-    background-image: linear-gradient(rgba(0,0,0,.7)),url('../img/bg/job-bg-3.jpg');
+    background-image: linear-gradient(rgba(0, 0, 0, .7)), url('../img/bg/job-bg-3.jpg');
     background-attachment: fixed;
     background-position: center center;
     background-size: cover;
-    height: 100vh;
-    overflow: hidden;
-    .login-body{
+
+    .login-body {
         border-radius: 5px;
         display: inline-block;
-        margin: 15rem auto;
+        margin: 11rem auto;
         background: white;
         box-shadow: 1px 1px 20px $color-black;
+
         form {
-            
-            a{ 
+
+            a {
                 display: inline-block;
                 font-size: 1.2rem;
                 margin-bottom: -1.2rem;
             }
-            button{
+
+            button {
                 margin: 1.2rem auto;
                 display: inline-block;
             }
-            .social-login button{
-                &:not(:last-child){
+
+            .social-login button {
+                &:not(:last-child) {
                     margin-right: .8rem;
                 }
             }
-            input{
+
+            input {
                 margin: 2rem auto;
             }
-            p{
+
+            p {
                 margin: 1.2rem auto;
             }
         }
-        
+
     }
 }

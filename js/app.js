@@ -256,6 +256,7 @@ $(document).ready(() => {
       $(".modal-title").click();
       $("#edu-modal-head").click();
       $("#exp-modal-head").click();
+      // $('.modal-forgot').fadeOut();
     }
   });
   $(".landing-search input").focus(() => {
@@ -306,4 +307,8 @@ $(document).ready(() => {
   });
 
   // *************
+  $('#forgotPassword').click(() => {
+    $('.modal-forgot').fadeIn();
+  });
+
 });
