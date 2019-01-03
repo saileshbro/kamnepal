@@ -1,6 +1,6 @@
 <?php
-include_once('../auth/authenticate.php');
-require('../database/db.php');
+include_once('../../auth/authenticate.php');
+require('../../database/db.php');
 $db = new Database;
 $con = $db->con;
 $user_id = getColumn("SELECT id FROM user WHERE email='$email'", "id");
@@ -30,12 +30,12 @@ while ($row = mysqli_fetch_array($res)) {
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
-    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="stylesheet" href="../../css/main.css" />
     <title>Kam Nepal</title>
   </head>
   <body>
-    <div id="success"></div>
-    <?php include "../index-nav.php"; ?>
+    <!-- <div id="success"></div> -->
+    <?php include "../../index-nav.php"; ?>
     <div class="containerProfile">
       <div class="profileUpdate">
         <div class="headingpart">
@@ -45,7 +45,7 @@ while ($row = mysqli_fetch_array($res)) {
         <div class="infopart">
           <div class="form1">
             <div class="list2">
-                <img id="avatar" class="list2__image" src="../img/profile/profile.jpg" alt="Avatar"/>
+                <img id="avatar" class="list2__image" src="../../img/profile/profile.jpg" alt="Avatar"/>
             </div>
             <div class="list1">
               <label class="label1" for="name">Name</label>
@@ -158,19 +158,19 @@ while ($row = mysqli_fetch_array($res)) {
             </div>
             <div class="down-button">
               <div>
-                <button class="button-secondary" id="updateProfile" name='update'>Update Info</button>
+                <button class="button-secondary" id="updateJsk" name='update'>Update Info</button>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <?php require('../includes/footer.php') ?>
+    <?php require('../../includes/footer.php') ?>
     <script>
       val1 = "<?= $educationCount ?>";
       val2 = "<?= $experienceCount ?>";
       val3 = "<?= $skillCount ?>";
     </script>
-    <script type="text/javascript" src="../js/app.js"></script>
+    <script type="text/javascript" src="../../js/app.js"></script>
   </body>
 </html>

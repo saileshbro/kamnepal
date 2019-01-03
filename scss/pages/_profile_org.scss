@@ -13,7 +13,51 @@
       width: 100%;
       margin: 0 auto;
       text-align: center;
+      position: relative;
 
+      .message {
+        position: absolute;
+        top: 90%;
+        right: 3rem;
+        margin-left: 5rem;
+        padding: 0.5rem 1rem;
+        color: $color-secondary;
+        background: white;
+        font-size: 1.3rem;
+        border-radius: .3rem;
+        border: 1px solid $color-primary;
+        text-decoration: none;
+        text-transform: uppercase;
+        display: inline-block;
+        vertical-align: middle;
+        transition: .2s all;
+        font-size: 1.4rem;
+        font-weight: 500;
+
+        &:hover {
+          color: white;
+          background: $color-primary;
+          transform: translateY(-3px);
+          transition: all .1s;
+
+          &:active {
+            transform: translateY(1px);
+          }
+
+          i {
+            color: white;
+          }
+        }
+
+        i {
+          color: $color-primary;
+          margin-right: 0.7rem;
+          font-size: 2rem;
+          padding: 0rem;
+          vertical-align: middle;
+        }
+
+      }
 
       img {
         width: 22rem;
@@ -24,7 +68,8 @@
     }
 
     .org-left-body {
-      // margin: 0 auto;
+      padding-left: 8rem;
+      margin-top: 2rem;
 
       .org-head-info {
 

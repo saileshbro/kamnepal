@@ -1,6 +1,6 @@
 <?php
 // require "../auth/authenticate.php";
-require '../database/db.php';
+require '../../database/db.php';
 $db = new Database();
 $con = $db->con;
 $user_id = cleanse($_GET['user_id']) ?? '';
@@ -30,18 +30,18 @@ while ($row = mysqli_fetch_array($res)) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../../css/main.css">
   <title>Kam Nepal</title>
 </head>
 
 <body onload="document.getElementById('about').click();$('#about').trigger('click');">
-<?php require '../includes/modal-education.php'; ?>
-<?php require '../includes/modal-experience.php'; ?>
-<?php include '../index-nav.php'; ?>
+<?php include '../../index-nav.php'; ?>
+<?php require '../../includes/modal-education.php'; ?>
+<?php require '../../includes/modal-experience.php'; ?>
 <div class="Profile-main-body">
   <div class="profile-left">
     <div class="prof-head-img">
-       <img src="../img/profile/profile.jpg" alt="profile-pic">
+       <img src="../../img/profile/profile.jpg" alt="profile-pic">
     </div>
     <div class="prof-body-part-left">
       <div class="left-elements">
@@ -175,10 +175,10 @@ while ($row = mysqli_fetch_array($res)) {
   </div>
   </div>
 </div>
-<?php include '../includes/footer.php' ?>
+<?php include '../../includes/footer.php' ?>
 <script> user_id = <?= $user_id ?></script>
 
-<script src="../js/app.js"></script>
+<script src="../../js/app.js"></script>
 </body>
 
 </html>

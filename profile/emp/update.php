@@ -1,0 +1,81 @@
+<?php
+include_once('../../auth/authenticate.php');
+require('../../database/db.php');
+$db = new Database;
+$con = $db->con;
+$user_id = getColumn("SELECT id FROM user WHERE email='$email'", "id");
+$educationCount = getColumn("SHOW TABLE STATUS LIKE 'education'", "Auto_increment");
+$experienceCount = getColumn("SHOW TABLE STATUS LIKE 'experience'", "Auto_increment");
+$skillCount = getColumn("SHOW TABLE STATUS LIKE 'skills'", "Auto_increment");
+$sql = "select * from profile where user_id='$user_id'";
+$res = mysqli_query($con, $sql);
+while ($row = mysqli_fetch_array($res)) {
+  $fname = $row['fname'];
+  $gender = $row['gender'];
+  $dob = $row['dob'];
+  $address = $row['address'];
+  $phone = $row['phone'];
+  $employ_status = $row['employ_status'];
+  $interest = $row['interest'];
+  $bio = $row['bio'];
+  $updated_at = $row['updated_at'];
+}
+?>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
+    <link rel="stylesheet" href="../../css/main.css" />
+    <title>Kam Nepal</title>
+  </head>
+  <body>
+    <!-- <div id="success"></div> -->
+    <?php include "../../index-nav.php"; ?>
+    <div class="containerProfile">
+      <div class="profileUpdate">
+        <div class="headingpart">
+          <h1 class='heading-primary'>Update Profile</h1>
+        </div>
+        <hr>
+        <div class="infopart">
+          <div class="form1">
+            <div class="list2">
+                <img id="avatar" class="list2__image" src="../../img/profile/profile.jpg" alt="Avatar"/>
+            </div>
+            <div class="list1">
+              <label class="label1" for="name">Name</label>
+              <input name='fname' class="input1" id="fname" type="text" value="<?php echo $fname ?>">
+            </div>
+            <div class="list1">
+              <label class="label1" for="dob">Date of Establishment</label>
+              <input id="dob" name='dob' class="input1 dob" type="text" value='<?php echo $dob; ?>'/>
+            </div>
+            <div class="list1">
+              <label class="label1" for="address">Address</label>
+              <textarea name='address' id="address" class="input1"><?php echo ($address) ?></textarea>
+            </div>
+            <div class="list1">
+              <label class="label1" for="contactinfo">Contact Info</label>
+              <input id="contactinfo" name='phone' class="input1" placeholder="Contact Number" type="tel" value='<?php echo $phone; ?>'/>
+            </div>
+            <div class="list1">
+              <label class="label1" for="bio">Details</label>
+              <textarea name='bio' id="bio" class="input1"><?php echo ($bio) ?></textarea>
+            </div>
+            <div class="down-button">
+              <div>
+                <button class="button-secondary" id="updateEmp" name='update'>Update Info</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <?php require('../../includes/footer.php') ?>
+    <script type="text/javascript" src="../../js/app.js"></script>
+  </body>
+</html>

@@ -1,5 +1,5 @@
 <?php
-include "../../database/db.php";
+include "../../../database/db.php";
 $db = new Database();
 $con = $db->con;
 

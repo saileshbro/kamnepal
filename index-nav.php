@@ -4,6 +4,7 @@ require 'auth/authenticate.php';
 $userId = getColumn("SELECT id FROM user WHERE email='$email'", "id");
 $fullName = getColumn("SELECT fname FROM profile WHERE user_id='$userId'", "fname");
 $fullBio = getColumn("SELECT bio FROM profile WHERE user_id='$userId'", "bio");
+$Type = getColumn("SELECT type FROM user WHERE email='$email'", "type");
 // bio limited to 100 chars
 $disp = (strlen($fullBio) <= 95) ? $fullBio : substr($fullBio, 0, 100) . ' . . .';
 ?>
@@ -35,7 +36,13 @@ $disp = (strlen($fullBio) <= 95) ? $fullBio : substr($fullBio, 0, 100) . ' . . .
                 </div>
                 <div class="dropdown-profile-last">
                     <ul>
-                        <li><a href="/profile/display.php?user_id=<?php echo $userId; ?>"><i class="far fa-2x fa-user"></i><h3>My Profile</h3></a></li>
+                        <?php 
+                        if ($Type == "Employer") {
+                            echo "<li><a href='/profile/emp/display.php?user_id=" . $userId . "'><i class='far fa-2x fa-user'></i><h3>My Profile</h3></a></li>";
+                        } else {
+                            echo "<li><a href='/profile/jsk/display.php?user_id=" . $userId . "'><i class='far fa-2x fa-user'></i><h3>My Profile</h3></a></li>";
+                        }
+                        ?>
                         <li><a href=""><i class="far fa-2x fa-envelope"></i><h3>Messages</h3></a></li>
                     </ul>
                     <div class="drop-button"><button onclick="location.href='/login/logout.php';";class="links">Sign Out</button></div>

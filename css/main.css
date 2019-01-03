@@ -1424,6 +1424,54 @@ body {
   width: 100%;
   margin: 0 auto;
   text-align: center;
+  position: relative;
+}
+
+.Profile-main-body .profile-left .prof-head-img2 .message {
+  position: absolute;
+  top: 90%;
+  right: 3rem;
+  margin-left: 5rem;
+  padding: 0.5rem 1rem;
+  color: #d67d08;
+  background: white;
+  font-size: 1.3rem;
+  border-radius: .3rem;
+  border: 1px solid #5d78ff;
+  text-decoration: none;
+  text-transform: uppercase;
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transition: .2s all;
+  transition: .2s all;
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+
+.Profile-main-body .profile-left .prof-head-img2 .message:hover {
+  color: white;
+  background: #5d78ff;
+  -webkit-transform: translateY(-3px);
+          transform: translateY(-3px);
+  -webkit-transition: all .1s;
+  transition: all .1s;
+}
+
+.Profile-main-body .profile-left .prof-head-img2 .message:hover:active {
+  -webkit-transform: translateY(1px);
+          transform: translateY(1px);
+}
+
+.Profile-main-body .profile-left .prof-head-img2 .message:hover i {
+  color: white;
+}
+
+.Profile-main-body .profile-left .prof-head-img2 .message i {
+  color: #5d78ff;
+  margin-right: 0.7rem;
+  font-size: 2rem;
+  padding: 0rem;
+  vertical-align: middle;
 }
 
 .Profile-main-body .profile-left .prof-head-img2 img {
@@ -1431,6 +1479,11 @@ body {
   height: 22rem;
   border-radius: 50%;
   border: 1px solid black;
+}
+
+.Profile-main-body .profile-left .org-left-body {
+  padding-left: 8rem;
+  margin-top: 2rem;
 }
 
 .Profile-main-body .profile-left .org-left-body .org-head-info {
