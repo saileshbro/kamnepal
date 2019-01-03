@@ -40,7 +40,9 @@ $fname = getColumn("select fname from profile where user_id ='$user_id'", "fname
                 <form action="dashboard.php" method="POST">
                     <h2>Whats on your mind?</h2>
                     <input type="text" placeholder="Title of your post">
-                    <textarea class="fr-view" name="createpost" id="" cols="30" rows="10" placeholder="Body of your post"></textarea>
+                    <div style="margin: 0 20px; margin-bottom:20px; border-radius:5px;">
+                    <textarea class="fr-view" name="createpost" id="editor" cols="30" style="display:none;" rows="10" placeholder="Body of your post"></textarea>
+                    </div>
                     <div class="create-button">
                       <!-- <button class="button-primary">Add Media files</button> -->
                       <input type="file" name="" id="">
@@ -87,6 +89,10 @@ $fname = getColumn("select fname from profile where user_id ='$user_id'", "fname
         </section>
   </div>
   <?php require('./includes/footer.php') ?>
+  <script src="https://cdn.ckeditor.com/4.11.1/standard/ckeditor.js"></script>
+  <script>
+			CKEDITOR.replace( 'createpost' );
+		</script>
   <script src="/js/app.js"></script>
 </body>
 </html>
