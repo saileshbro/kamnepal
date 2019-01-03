@@ -32,10 +32,10 @@ if (strlen($email) > 0) {
 <div class="modal-forgot login">
     <div class='login-body'>
         <a href="javascript:;" class="modal-title" onclick="$('.modal-forgot').fadeOut();">&times;</a>
-        <div id="resetFrom" >
-            <input type="email" name='email' placeholder="Email">
-            <a href="javascript:;" id="getReset" class="links">Get Password reset Link</a>
+        <div id="resetPW">
+            <input  type="email" name='email' placeholder="Email">
         </div>
+        <a href="javascript:;" id="getReset" class="links">Get Password reset Link</a>
     </div>
 </div>
     <nav class="navbar">
@@ -87,10 +87,10 @@ function login(){
     });
 }
 $('#getReset').click(() => {
-    var myData = $('#resetForm :input').serialize();
+    var data = $('#resetPW :input').serialize();
     $.ajax({
         url : "posts/reset.php",
-        data: myData,
+        data: data,
         type: "POST",
         success: (data)=>{
             alert(data);
