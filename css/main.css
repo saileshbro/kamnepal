@@ -2039,9 +2039,11 @@ div.ui-datepicker {
 }
 
 .dashboard-body .dashboard-middle .create-post form input[type="text"],
-.dashboard-body .dashboard-middle .create-post form textarea {
+.dashboard-body .dashboard-middle .create-post form textarea,
+.dashboard-body .dashboard-middle .create-post form select {
   margin-bottom: 1rem;
   display: block;
+  padding: .5rem 1rem !important;
 }
 
 .dashboard-body .dashboard-middle .create-post form h2 {
@@ -2122,8 +2124,27 @@ div.ui-datepicker {
   letter-spacing: -.1rem;
 }
 
+.dashboard-body .dashboard-middle .create-post form .inp-grp {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 95%;
+  margin: 0 auto;
+}
+
+.dashboard-body .dashboard-middle .create-post form .inp-grp input {
+  width: 55%;
+  display: inline-block;
+  margin-right: 2rem !important;
+}
+
+.dashboard-body .dashboard-middle .create-post form .inp-grp select {
+  width: 45%;
+}
+
 .dashboard-body .dashboard-middle .create-post form input[type="text"],
-.dashboard-body .dashboard-middle .create-post form textarea {
+.dashboard-body .dashboard-middle .create-post form textarea,
+.dashboard-body .dashboard-middle .create-post form select {
   display: block;
   padding: 1rem;
   width: 95%;
@@ -2132,36 +2153,42 @@ div.ui-datepicker {
   border: 1px solid rgba(0, 0, 0, 0.05);
   border-bottom: 0.1rem solid rgba(93, 120, 255, 0.8);
   margin: 1.6rem auto;
-  font-size: 1.7rem;
+  font-size: 1.5rem !important;
+  background: white;
 }
 
 .dashboard-body .dashboard-middle .create-post form input[type="text"]:focus,
-.dashboard-body .dashboard-middle .create-post form textarea:focus {
+.dashboard-body .dashboard-middle .create-post form textarea:focus,
+.dashboard-body .dashboard-middle .create-post form select:focus {
   -webkit-box-shadow: 0 0.4rem 2px -2px #0fe456;
           box-shadow: 0 0.4rem 2px -2px #0fe456;
 }
 
 .dashboard-body .dashboard-middle .create-post form input[type="text"]::-webkit-input-placeholder,
-.dashboard-body .dashboard-middle .create-post form textarea::-webkit-input-placeholder {
-  font-size: 1.8rem;
+.dashboard-body .dashboard-middle .create-post form textarea::-webkit-input-placeholder,
+.dashboard-body .dashboard-middle .create-post form select::-webkit-input-placeholder {
+  font-size: 1.5rem;
   padding: 1.2rem;
 }
 
 .dashboard-body .dashboard-middle .create-post form input[type="text"]:-ms-input-placeholder,
-.dashboard-body .dashboard-middle .create-post form textarea:-ms-input-placeholder {
-  font-size: 1.8rem;
+.dashboard-body .dashboard-middle .create-post form textarea:-ms-input-placeholder,
+.dashboard-body .dashboard-middle .create-post form select:-ms-input-placeholder {
+  font-size: 1.5rem;
   padding: 1.2rem;
 }
 
 .dashboard-body .dashboard-middle .create-post form input[type="text"]::-ms-input-placeholder,
-.dashboard-body .dashboard-middle .create-post form textarea::-ms-input-placeholder {
-  font-size: 1.8rem;
+.dashboard-body .dashboard-middle .create-post form textarea::-ms-input-placeholder,
+.dashboard-body .dashboard-middle .create-post form select::-ms-input-placeholder {
+  font-size: 1.5rem;
   padding: 1.2rem;
 }
 
 .dashboard-body .dashboard-middle .create-post form input[type="text"]::placeholder,
-.dashboard-body .dashboard-middle .create-post form textarea::placeholder {
-  font-size: 1.8rem;
+.dashboard-body .dashboard-middle .create-post form textarea::placeholder,
+.dashboard-body .dashboard-middle .create-post form select::placeholder {
+  font-size: 1.5rem;
   padding: 1.2rem;
 }
 

@@ -49,7 +49,7 @@ $res = mysqli_query($con, $sql);
         while ($row = mysqli_fetch_assoc($res)) {
             echo '<div class="job">
               <div class="job-title"><a href="javascript:;" id="' . $row['id'] . '"class="links jobPosts">' . $row['title'] . '</a></div>
-              <div class="job-body">' . $row['body'] . '</div>
+              <div class="job-body">' . html_entity_decode(htmlspecialchars_decode($row['body'])) . '</div>
               <div class="job-by">
               <span class="job-name"><a href="">ABC Company</a></span>
               <span class="job-date">' . $row['updated_at'] . '</span>

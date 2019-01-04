@@ -226,7 +226,7 @@ $(document).ready(() => {
   });
 
   // dashboard
-  $('#postTitle').click(() => {
+  $('#title').click(() => {
     $('#cke_editor').fadeToggle();
   });
 

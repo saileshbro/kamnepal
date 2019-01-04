@@ -78,10 +78,11 @@
         }
 
         input[type="text"],
-        textarea {
+        textarea,
+        select {
           margin-bottom: 1rem;
           display: block;
-
+          padding: .5rem 1rem !important;
         }
 
         h2 {
@@ -144,8 +145,27 @@
           }
         }
 
+        .inp-grp {
+          display: flex;
+          width: 95%;
+          margin: 0 auto;
+
+          input {
+            width: 55%;
+            display: inline-block;
+            margin-right: 2rem !important;
+
+          }
+
+          select {
+            width: 45%;
+
+          }
+        }
+
         input[type="text"],
-        textarea {
+        textarea,
+        select {
           display: block;
           padding: 1rem;
           width: 95%;
@@ -154,14 +174,15 @@
           border: 1px solid rgba(black, 0.05);
           border-bottom: 0.1rem solid rgba($color-primary, 0.8);
           margin: 1.6rem auto;
-          font-size: 1.7rem;
+          font-size: 1.5rem !important;
+          background: white;
 
           &:focus {
             box-shadow: 0 0.4rem 2px -2px $color-tertiary-dark;
           }
 
           &::placeholder {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             padding: 1.2rem;
           }
         }

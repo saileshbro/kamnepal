@@ -4,7 +4,11 @@ include 'database/db.php';
 $db = new Database();
 $con = $db->con;
 $user_id = getColumn("select id from user where email='$email'", 'id');
+$type = getColumn("select type from user where email='$email'", 'type');
 $fname = getColumn("select fname from profile where user_id ='$user_id'", "fname");
+if ($type == 'Jobseeker') {
+  $category = getColumn("select category from profile where user_id='$user_id'", 'category');
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -49,33 +53,56 @@ $fname = getColumn("select fname from profile where user_id ='$user_id'", "fname
         </section>
         <section class="dashboard-middle">
             <div class="create-post">
-                <form action="dashboard.php" method="POST">
+                <form id="createPost">
                     <h2>Whats on your mind?</h2>
-                    <input type="text" id="postTitle" placeholder="Title of your post">
+                    <?php if ($type === 'Jobseeker') {
+                      echo "<div class='inp-grp' style='width:100%;'>";
+                    } else {
+                      echo "<div class='inp-grp' style='width:95%;'>";
+                    }
+                    ?>
+                      <input type="text" id="title" placeholder="Title of your post">
+                      <?php
+                      if ($type === 'Employer') {
+                        echo "<select name='category' ><option value='Jobs Category' selected='true' disabled='disabled'>Category</option>";
+                        $sql = "select * from category";
+                        $res = mysqli_query($con, $sql);
+                        if ($res) {
+                          while ($row = mysqli_fetch_array($res)) {
+                            echo "<option value=" . $row['id'] . ">" . $row['name'] . "</option>";
+                          }
+                          echo "</select>";
+                        }
+
+                      }
+                      ?>
+                    </div>
                     <div style="margin: 0 20px; margin-bottom:20px; border-radius:5px;">
                     <textarea class="fr-view" name="createpost" id="editor" cols="30" style="display:none;" rows="10" placeholder="Body of your post"></textarea>
                     </div>
                     <div class="create-button">
                       <!-- <button class="button-primary">Add Media files</button> -->
-                      <input type="file" name="" id="">
-                      <a href='javascript:;' class="button-primary" onclick="getData();">Create Post</a>
+                      <input type="file" name="file" id="">
+                      <a href='javascript:;' id='create-button' class="button-primary">Create Post</a>
                     </div>
-                </form>
-            </div>
+                </div>
+            </form>
             <div class="actual-post">
+              <!-- show jobs here -->
               <?php
-              while ($row = mysqli_fetch_assoc($res)) {
-                echo '<div class="job">
-              <div class="job-title"><a href="javascript:;" id="' . $row['id'] . '"class="links jobPosts">' . $row['title'] . '</a></div>
-              <div class="job-body">' . $row['body'] . '</div>
-              <div class="job-by">
-              <span class="job-name"><a href="">ABC Company</a></span>
-              <span class="job-date">' . $row['updated_at'] . '</span>
-              </div>
-              </div>';
+              if ($type === 'Jobseeker') {
+
               }
               ?>
-            </div>
+              <!-- <div class="job">
+                <div class="job-title"><a href="javascript:;" id="' . $row['id'] . '"class="links jobPosts">' . $row['title'] . '</a></div>
+                  <div class="job-body">' . $row['body'] . '</div>
+                    <div class="job-by">
+                      <span class="job-name"><a href="">ABC Company</a></span>
+                      <span class="job-date">' . $row['updated_at'] . '</span>
+                  </div>
+                </div>
+              </div> -->
         </section>
         <section class="dashboard-right">
             <div class="dashboard-comp">
@@ -102,11 +129,25 @@ $fname = getColumn("select fname from profile where user_id ='$user_id'", "fname
   </div>
   <?php require('./includes/footer.php') ?>
   <script src="//cdn.ckeditor.com/4.11.1/standard/ckeditor.js"></script>
+  <script> user_id = "<?= $user_id ?>";</script>
   <script>
-    
-    // function getData(){
-      //   console.log(createpost.getData());
-    // };
+    $('.create-button .button-primary').click(()=>{
+      var title = document.getElementById('title').value;
+      var category = $('#createPost select').val();
+        $.ajax({
+        type: 'POST',
+        url: 'createpost.php',
+        data: {
+          user_id: user_id,
+          title: title,
+          body: createpost.getData(),
+          category: category
+        },
+        success: (data)=>{
+          alert(data);
+        }
+      });
+    });
   </script>
   <script src="/js/app.js"></script>
 </body>
