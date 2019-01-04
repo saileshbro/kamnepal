@@ -39,7 +39,7 @@ $con = $db->con;
                         <h2 id="error"></h2>
                     </div>
                     <input type='text' name='fname' placeholder='Full Name' required autocapitalize="words">
-                    <select name="category" id="">
+                    <select name="category" >
                         <option value="Jobs" selected="true" disabled="disabled">Jobs</option>
                         <?php
                         $sql = "select * from category";
@@ -51,8 +51,8 @@ $con = $db->con;
                     </select>
                     <input type="text" name='phone' placeholder='Mobile Number' required>
                     <input type="hidden" name='type' value='Jobseeker' required>
-                    <input type="email" name="email" id="" placeholder='Email' required>
-                    <input type="password" name="password" id="" placeholder='Password' required>
+                    <input type="email" name="email"placeholder='Email' required>
+                    <input type="password" name="password"placeholder='Password' required>
                     <input type="password" name='password2' placeholder='Confirm Password' required>
                     <button type="submit" class='button-primary'>Create a Jobseeker Account</button>
                     <p class='form-text'>Already have a Jobseeker account? <a class='links'href="../login/login.php">Login</a></p>

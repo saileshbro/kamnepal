@@ -9,7 +9,7 @@ $Type = getColumn("SELECT type FROM user WHERE email='$email'", "type");
 $disp = (strlen($fullBio) <= 95) ? $fullBio : substr($fullBio, 0, 100) . ' . . .';
 ?>
 <nav  class="navbar dropped-navbar">
-    <div class="navbar--left">
+    <div class="navbar--left" onclick="location.href = '../../dashboard.php';">
         <img class='brand-logo' src="/img/logo/kamnepal.svg" alt="Kam Nepal" href='javascript:;'>
         <h3>Kam<span>Nepal</span></h3>
     </div>

@@ -3,6 +3,10 @@ require '../../database/db.php';
 $db = new Database();
 $con = $db->con;
 $user_id = cleanse($_GET['user_id']) ?? '';
+$type = getColumn("select type from user where id='$user_id'", 'type');
+if ($type === "Jobseeker") {
+  header("Location: ../jsk/display.php?user_id=" . $user_id);
+}
 $sql = "select profile.*,user.v_status from profile,user where profile.user_id='$user_id' AND user.id=profile.user_id";
 $res = mysqli_query($con, $sql);
 while ($row = mysqli_fetch_array($res)) {
@@ -47,7 +51,11 @@ while ($row = mysqli_fetch_array($res)) {
   <div class="profile-left">
     <div class="prof-head-img2">
        <img src="../../img/profile/profile.jpg" alt="profile-pic">
-       <a href='update.php' class='message'><i class='far fa-edit'></i></i>Edit Profile</a>
+       <?php
+      if ($user_id === $userId) {
+        echo "<a href='update.php' class='message'><i class='far fa-edit'></i></i>Edit Profile</a>";
+      }
+      ?>
     </div>
     <div class="org-left-body">
       <div class="org-head-info">

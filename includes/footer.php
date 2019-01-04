@@ -4,7 +4,8 @@
     <div class="footer-left">
         <h3>Kam<span>Nepal</span></h3>
         <p class="footer-links">
-            <a class='links' href="#landing-body" id='footer-home'>Home</a>
+            <!-- <a class='links' href="../index.php" id='footer-home'>Home</a> -->
+            <a class='links' href="../index.php">home</a>
             <a class='links' href="#">About</a>
             <a class='links' href="javascript:;" id="footerContact">Contact</a>
         </p>

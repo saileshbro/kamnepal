@@ -4,6 +4,10 @@ require '../../database/db.php';
 $db = new Database();
 $con = $db->con;
 $user_id = cleanse($_GET['user_id']) ?? '';
+$type = getColumn("select type from user where id='$user_id'", 'type');
+if ($type === "Employer") {
+  header("Location: ../emp/display.php?user_id=" . $user_id);
+}
 $email = getColumn("select email from user where id='$user_id'", "email");
 $sql = "select profile.*,user.v_status from profile,user where profile.user_id='$user_id' AND user.id=profile.user_id";
 $res = mysqli_query($con, $sql);
