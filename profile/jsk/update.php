@@ -7,6 +7,10 @@ $user_id = getColumn("SELECT id FROM user WHERE email='$email'", "id");
 $educationCount = getColumn("SHOW TABLE STATUS LIKE 'education'", "Auto_increment");
 $experienceCount = getColumn("SHOW TABLE STATUS LIKE 'experience'", "Auto_increment");
 $skillCount = getColumn("SHOW TABLE STATUS LIKE 'skills'", "Auto_increment");
+$type = getColumn("select type from user where email='$email'", 'type');
+if ($type === "Employer") {
+  header("Location: ../emp/update.php");
+}
 $sql = "select * from profile where user_id='$user_id'";
 $res = mysqli_query($con, $sql);
 while ($row = mysqli_fetch_array($res)) {

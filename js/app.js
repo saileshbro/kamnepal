@@ -115,7 +115,7 @@ $("#updateEmp").click(() => {
 
 $(document).ready(() => {
   $("#printCV").click(() => {
-    window.open("cv.php?user_id=" + user_id);
+    window.open("../cv.php?user_id=" + user_id);
   });
   $(".scroll").click(function (e) {
     e.preventDefault();
@@ -212,7 +212,7 @@ $(document).ready(() => {
     $.proxy(function (event) {
       var postId = $(event.target).attr("id");
       $.ajax({
-        url: "../modal.php",
+        url: "/modal.php",
         method: "post",
         data: {
           postId: postId
@@ -271,15 +271,16 @@ $(document).ready(() => {
 
   $("#timeline").click(function () {
     $("#about-right").hide();
-    $("#timeline-right").show();
-    $(".prof-body-part-right").addClass("border");
+    $("#timeline-right").show().css("height", "600px").scroll();
+    $(".prof-head-gender,.prof-head-interest,.message").hide();
     $("#about").removeClass("when");
     $("#timeline").addClass("when");
+
   });
   $("#about").click(function () {
     $("#timeline-right").hide();
+    $(".prof-head-gender,.prof-head-interest,.message").show();
     $("#about-right").show();
-    $(".prof-body-part-right").removeClass("border");
     $("#about").addClass("when");
     $("#timeline").removeClass("when");
   });

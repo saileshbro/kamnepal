@@ -4,6 +4,7 @@ $db = new Database();
 $con = $db->con;
 $user_id = cleanse($_GET['user_id']) ?? '';
 $type = getColumn("select type from user where id='$user_id'", 'type');
+
 if ($type === "Jobseeker") {
   header("Location: ../jsk/display.php?user_id=" . $user_id);
 }
@@ -43,7 +44,7 @@ while ($row = mysqli_fetch_array($res)) {
   <title>Kam Nepal</title>
 </head>
 
-<body onload="document.getElementById('about').click();$('#about').trigger('click');">
+<body>
 <?php require '../../includes/modal-education.php'; ?>
 <?php require '../../includes/modal-experience.php'; ?>
 <?php include '../../index-nav.php'; ?>
@@ -78,20 +79,26 @@ while ($row = mysqli_fetch_array($res)) {
         </div>
         <div class="right-elements">
           <span class="heading"><i class="fas fa-hashtag"></i>No of Posts</span>
-          <span class="text">15</span>
+          <span class="text"><?php echo mysqli_num_rows(mysqli_query($con, "select * from posts where user_id='$user_id'")); ?></span>
         </div>
       </div>
     </div>
   </div>
-  <div class="profile-right">
-    <div class="job">
-      <div class="job-title" id="job-title"><a href="javascript:;" class="links"><h2>Title</h2></a></div>
-      <div class="job-body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam quo tempore voluptas nisi! Similique soluta eum repellendus earum, fuga repudiandae doloribus adipisci? Odio ipsum voluptate alias, hic nam tempore omnis.</div>
-      <div class="job-by">
-      <span class="job-name"><a href="">ABC Company</a></span>
-      <span class="job-date">2012/06/01</span>
-      </div>
-    </div>
+  <div class="profile-right" style="max-height: 57.3rem;">
+  <?php
+  $sql = "select * from posts where user_id='$user_id'";
+  $res = mysqli_query($con, $sql);
+  while ($row = mysqli_fetch_array($res)) {
+    echo '<div class="job">
+              <div class="job-title"><a href="javascript:;" id="' . $row['id'] . '"class="links jobPosts">' . $row['title'] . '</a></div>
+              <div class="job-body">' . html_entity_decode(htmlspecialchars_decode($row['body'])) . '</div>
+              <div class="job-by">
+              <span class="job-name"><a href="javascript:;">' . $fname . '</a></span>
+              <span class="job-date">' . $row['updated_at'] . '</span>
+              </div>
+              </div>';
+  }
+  ?>
   </div>
   </div>
 </div>

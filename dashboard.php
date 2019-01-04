@@ -6,6 +6,8 @@ $con = $db->con;
 $user_id = getColumn("select id from user where email='$email'", 'id');
 $type = getColumn("select type from user where email='$email'", 'type');
 $fname = getColumn("select fname from profile where user_id ='$user_id'", "fname");
+$interest = getColumn("select interest from profile where user_id ='$user_id'", "interest");
+$bio = getColumn("select bio from profile where user_id ='$user_id'", "bio");
 if ($type == 'Jobseeker') {
   $category = getColumn("select category from profile where user_id='$user_id'", 'category');
 }
@@ -43,12 +45,19 @@ if ($type == 'Jobseeker') {
 				<div class="prof-img">
 					<img src="img/profile/profile.jpg"alt="profile-pic">
 				</div>
-				<p class="prof-name"><?php echo $fname; ?></p>
-				<hr>
-				<p class="prof-employ">Employment details</p>
-				<hr>
-				<p class="prof-bio">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Distinctio, at!</p>
-				<hr>
+				<p class="prof-name" style="cursor: pointer;" onclick="gotoProfile();"><?php echo $fname; ?></p>
+        <hr>
+        <?php
+        if ($type === 'Jobseeker') {
+          echo "<p class='prof-employ'>$interest</p>";
+          echo "<hr>";
+          // echo "<p class='prof-bio'>$bio</p>  ";
+        } else {
+          echo "<p class='prof-employ'>Employment details</p>";
+          echo "<hr>";
+          echo "<p class='prof-bio'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Distinctio, at!</p>  ";
+        }
+        ?>
 			</div>
         </section>
         <section class="dashboard-middle">
@@ -111,7 +120,7 @@ if ($type == 'Jobseeker') {
             <div class="dashboard-comp">
 				<div class='company-list'>
 					<h2>Recommended Companies</h2>
-					<?php for ($i = 1; $i <= 5; ++$i) {
+					<?php for ($i = 1; $i <= 4; ++$i) {
       if ($i < 10) {
         echo '<div class="comp-card"><div class="company-name">
 									<span class="badge">0' . $i . '</span>
@@ -177,6 +186,13 @@ if ($type == 'Jobseeker') {
         }
       });
     });
+    function gotoProfile(){
+      if("<?= $type ?>"==="Jobseeker"){
+        location.href = "profile/jsk/display.php?user_id="+"<?= $user_id ?>";
+      }else{
+        location.href = "profile/emp/display.php?user_id="+"<?= $user_id ?>";
+      }
+    }
   </script>
   <script src="/js/app.js"></script>
 </body>
