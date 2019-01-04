@@ -5,31 +5,6 @@ var user_id;
 var email;
 var fcode;
 
-var createpost = CKEDITOR.replace('createpost', {
-  extraAllowedContent: 'div',
-  height: 250,
-  removePlugins: "elementspath,about,sourcearea,resize,pastefromword,pastetext,paste",
-  removeButtons: 'Paste,Cut,Copy,Undo,Redo,Anchor'
-  // extraPlugins: "justify"
-  // remove here
-});
-createpost.on('instanceReady', function () {
-  // Output self-closing tags the HTML4 way, like <br>.
-  this.dataProcessor.writer.selfClosingEnd = '>';
-
-  // Use line breaks for block elements, tables, and lists.
-  var dtd = CKEDITOR.dtd;
-  for (var e in CKEDITOR.tools.extend({}, dtd.$nonBodyContent, dtd.$block, dtd.$listItem, dtd.$tableContent)) {
-    this.dataProcessor.writer.setRules(e, {
-      indent: false,
-      breakBeforeOpen: true,
-      breakAfterOpen: true,
-      breakBeforeClose: true,
-      breakAfterClose: true
-    });
-  }
-});
-
 function toggleDropdown() {
   $(".dropdown").slideToggle("show");
 }
@@ -227,7 +202,9 @@ $(document).ready(() => {
 
   // dashboard
   $('#title').click(() => {
-    $('#cke_editor').fadeToggle();
+    if ($('#title').val() == "") {
+      $('#cke_editor').fadeToggle();
+    }
   });
 
   $(".jobPosts").bind(

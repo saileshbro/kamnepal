@@ -19,7 +19,7 @@ if (isset($_POST['postId'])) {
             <div class='modal-post'>
               <div class='post-media'>"
       . "<img src='" . $row['media'] . "' alt='' width='200px' height='260px'>
-              </div>" . "<div class='post-body'>" . $row['body'] . "
+              </div>" . "<div class='post-body'>" . html_entity_decode(htmlspecialchars_decode($row['body'])) . "
           </div>" .
       "</div>
           <div class='info'>

@@ -91,18 +91,21 @@ if ($type == 'Jobseeker') {
               <!-- show jobs here -->
               <?php
               if ($type === 'Jobseeker') {
-
+                $sql = "SELECT posts.*,profile.fname FROM posts,user,profile WHERE posts.category='$category' AND user.id=posts.user_id AND user.id=profile.user_id AND user.type='Employer'";
+                $res = mysqli_query($con, $sql);
+                while ($row = mysqli_fetch_array($res)) {
+                  echo "<div class='job'>
+                  <div class='job-title'><a href='javascript:;' id='" . $row['id'] . "'class='links jobPosts'>" . $row['title'] . "</a></div>
+                    <div class='job-body'>" . html_entity_decode(htmlspecialchars_decode($row['body'])) . "</div>
+                      <div class='job-by'>
+                        <span class='job-name'><a href='profile/emp/display.php?user_id=" . $row['user_id'] . "'>" . $row['fname'] . "</a></span>
+                        <span class='job-date'>" . $row['updated_at'] . "</span>
+                    </div>
+                  </div>
+                </div>";
+                }
               }
               ?>
-              <!-- <div class="job">
-                <div class="job-title"><a href="javascript:;" id="' . $row['id'] . '"class="links jobPosts">' . $row['title'] . '</a></div>
-                  <div class="job-body">' . $row['body'] . '</div>
-                    <div class="job-by">
-                      <span class="job-name"><a href="">ABC Company</a></span>
-                      <span class="job-date">' . $row['updated_at'] . '</span>
-                  </div>
-                </div>
-              </div> -->
         </section>
         <section class="dashboard-right">
             <div class="dashboard-comp">
@@ -131,6 +134,30 @@ if ($type == 'Jobseeker') {
   <script src="//cdn.ckeditor.com/4.11.1/standard/ckeditor.js"></script>
   <script> user_id = "<?= $user_id ?>";</script>
   <script>
+    var createpost = CKEDITOR.replace('createpost', {
+      extraAllowedContent: 'div',
+      height: 250,
+      removePlugins: "elementspath,about,sourcearea,resize,pastefromword,pastetext,paste",
+      removeButtons: 'Paste,Cut,Copy,Undo,Redo,Anchor'
+      // extraPlugins: "justify"
+      // remove here
+    });
+    createpost.on('instanceReady', function () {
+      // Output self-closing tags the HTML4 way, like <br>.
+      this.dataProcessor.writer.selfClosingEnd = '>';
+
+      // Use line breaks for block elements, tables, and lists.
+      var dtd = CKEDITOR.dtd;
+      for (var e in CKEDITOR.tools.extend({}, dtd.$nonBodyContent, dtd.$block, dtd.$listItem, dtd.$tableContent)) {
+        this.dataProcessor.writer.setRules(e, {
+          indent: false,
+          breakBeforeOpen: true,
+          breakAfterOpen: true,
+          breakBeforeClose: true,
+          breakAfterClose: true
+        });
+      }
+    });
     $('.create-button .button-primary').click(()=>{
       var title = document.getElementById('title').value;
       var category = $('#createPost select').val();
@@ -144,7 +171,9 @@ if ($type == 'Jobseeker') {
           category: category
         },
         success: (data)=>{
-          alert(data);
+          document.getElementById('title').value= "";
+          createpost.setData("");
+          $('#title').click();
         }
       });
     });
