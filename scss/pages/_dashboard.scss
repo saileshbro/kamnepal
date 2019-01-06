@@ -245,57 +245,6 @@
         h2 {
           color: $color-primary;
         }
-
-        .comp-card {
-          padding: 0 1.2rem;
-
-          .company-name {
-            box-shadow: 1px 1px 8px rgba($color-grey-dark-2, 0.36);
-            padding: 1.2rem 2.7rem;
-            border-radius: .5rem;
-            margin: 1.3rem 0;
-
-            .company-bio {
-              margin: .9rem 0;
-              font-size: 1.3rem;
-              font-weight: 100;
-              font-family: 'Fira Sans', sans-serif;
-              text-align: justify;
-            }
-
-            a {
-              text-transform: uppercase;
-              text-decoration: none;
-              letter-spacing: .1rem;
-              font-size: 1.4rem;
-              margin-left: .4rem;
-              color: $color-primary-dark;
-              font-family: Helvetica, sans-serif;
-              transition: all .2s;
-              position: relative;
-
-              &:hover {
-                font-size: 1.6rem;
-
-                &::after {
-                  animation: underlineToRight 1s ease-in-out normal;
-                  animation-fill-mode: forwards;
-
-                }
-              }
-
-              &::after {
-                content: '';
-                display: block;
-                position: absolute;
-                top: 115%;
-                width: 0;
-                left: -5%;
-                border-top: 3px solid $color-secondary-dark;
-              }
-            }
-          }
-        }
       }
     }
   }

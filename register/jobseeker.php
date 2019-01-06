@@ -21,7 +21,7 @@ $con = $db->con;
     
     <title>Kam Nepal | Register</title>
 </head>
-<body >
+<body style="overflow:hidden;">
     <nav class="navbar">
             <div class="navbar--left">
                 <a href='../index.php' class='brand-header links'>Kam Nepal</a>

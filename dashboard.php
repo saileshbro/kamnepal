@@ -8,6 +8,11 @@ $type = getColumn("select type from user where email='$email'", 'type');
 $fname = getColumn("select fname from profile where user_id ='$user_id'", "fname");
 $interest = getColumn("select interest from profile where user_id ='$user_id'", "interest");
 $bio = getColumn("select bio from profile where user_id ='$user_id'", "bio");
+$jobsql = "select  profile.id, profile.fname, profile.bio from profile,user where profile.user_id= user.id and user.type='Jobseeker' limit 10";
+$jobres = mysqli_query($con, $jobsql);
+
+$empsql = "select  profile.id, profile.fname, profile.bio from profile,user where profile.user_id= user.id and user.type='Employer' limit 10";
+$empres = mysqli_query($con, $empsql);
 if ($type == 'Jobseeker') {
   $category = getColumn("select category from profile where user_id='$user_id'", 'category');
 }
@@ -62,14 +67,14 @@ if ($type == 'Jobseeker') {
         </section>
         <section class="dashboard-middle">
             <div class="create-post">
-                <form id="createPost">
-                    <h2>Whats on your mind?</h2>
-                    <?php if ($type === 'Jobseeker') {
-                      echo "<div class='inp-grp' style='width:100%;'>";
-                    } else {
-                      echo "<div class='inp-grp' style='width:95%;'>";
-                    }
-                    ?>
+              <form id="createPost">
+                <h2>Whats on your mind?</h2>
+                <?php if ($type === 'Jobseeker') {
+                  echo "<div class='inp-grp' style='width:100%;'>";
+                } else {
+                  echo "<div class='inp-grp' style='width:95%;'>";
+                }
+                ?>
                       <input type="text" id="title" placeholder="Title of your post">
                       <?php
                       if ($type === 'Employer') {
@@ -84,18 +89,17 @@ if ($type == 'Jobseeker') {
                         }
 
                       }
+                      echo ("</div>")
                       ?>
-                    </div>
-                    <div style="margin: 0 20px; margin-bottom:20px; border-radius:5px;">
-                    <textarea class="fr-view" name="createpost" id="editor" cols="30" style="display:none;" rows="10" placeholder="Body of your post"></textarea>
-                    </div>
-                    <div class="create-button">
-                      <!-- <button class="button-primary">Add Media files</button> -->
-                      <input type="file" name="file" id="">
-                      <a href='javascript:;' id='create-button' class="button-primary">Create Post</a>
-                    </div>
+                <div style="margin: 0 20px; margin-bottom:20px; border-radius:5px;">
+                  <textarea class="fr-view" name="createpost" id="editor" cols="30" style="display:none;" rows="10" placeholder="Body of your post"></textarea>
                 </div>
-            </form>
+                <div class="create-button">
+                  <input type="file" name="file" id="">
+                  <a href='javascript:;' id='create-button' class="button-primary">Create Post</a>
+                </div>
+              </form>
+            </div>
             <div class="actual-post">
               <!-- show jobs here -->
               <?php
@@ -119,22 +123,29 @@ if ($type == 'Jobseeker') {
         <section class="dashboard-right">
             <div class="dashboard-comp">
 				<div class='company-list'>
-					<h2>Recommended Companies</h2>
-					<?php for ($i = 1; $i <= 4; ++$i) {
-      if ($i < 10) {
-        echo '<div class="comp-card"><div class="company-name">
+          <?php echo ($type === 'Jobseeker') ? "<h2>Recommended Companies</h2>" : "<h2>Potential Candidates</h2>"; ?>
+          <?php 
+          if ($type === 'Jobseeker') {
+            $i = 1;
+            while ($row = mysqli_fetch_assoc($empres)) {
+              echo '<div class="comp-card"><div class="company-name">
 									<span class="badge">0' . $i . '</span>
-									<a href="">Company ABC</a>
-									<p class="company-bio">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem iure assumenda officiis sapiente voluptatibus aperiam alias dignissimos cupiditate, facilis dolore adipisci odio, dolorum quasi veniam molestiae repellat voluptatem libero doloribus?</p>
-							</div></div>';
-      } else {
-        echo '<div class="company-name">
-								<span class="badge">' . $i . '</span>
-								<a href="">Company ABC</a>
-								<p class="company-bio">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem iure assumenda officiis sapiente voluptatibus aperiam alias dignissimos cupiditate, facilis dolore adipisci odio, dolorum quasi veniam molestiae repellat voluptatem libero doloribus?</p>
-							</div></div>';
-      }
-    } ?>
+									<a href="">' . $row['fname'] . '</a>
+									<p class="company-bio">' . $row['bio'] . '</p>
+              </div></div>';
+              $i++;
+            }
+          } else if ($type === 'Employer') {
+            $i = 1;
+            while ($row = mysqli_fetch_assoc($jobres)) {
+              echo '<div class="comp-card"><div class="company-name">
+                      <span class="badge">0' . $i . '</span>
+                      <a href="">' . $row['fname'] . '</a>
+                      <p class="company-bio">' . $row['bio'] . '</p>
+                  </div></div>';
+              $i++;
+            }
+          } ?>
 				</div>
 			</div>
         </section>

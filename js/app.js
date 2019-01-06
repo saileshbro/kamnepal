@@ -87,6 +87,82 @@ function removeSkillPressed(data) {
   $("." + mainParent).remove();
   val3--;
 }
+
+//post-edit and delete
+
+function removePost(mydata) {
+  var id = mydata.slice(5, mydata.length);
+  $.ajax({
+    url: "../postRemove.php",
+    type: 'POST',
+    data: {
+      id: mydata
+    },
+    success: function (data) {
+      $('#error').html(data);
+    }
+  });
+  $("#job" + id).fadeOut();
+  var num = $('#num-post-org').text() - 1;
+  $('#num-post-org').text(num);
+}
+
+function displayedit(mydata) {
+  var id = mydata.slice(6, mydata.length);
+  $("#delete" + id).hide();
+  $("#check" + id).fadeIn();
+  $("#check" + id).mouseout(function () {
+    setTimeout(() => {
+      $("#check" + id).hide();
+      $("#delete" + id).fadeIn();
+    }, 1500);
+  });
+
+}
+
+function editPost(mydata) {
+  mydata = mydata.slice(4, mydata.length);
+  $.ajax({
+    url: "../modal-post.php",
+    type: 'POST',
+    data: {
+      editId: mydata
+    },
+    success: function (data) {
+      $('.inp-grp').attr('id', mydata);
+      if (JSON.parse(data).type === 'Jobseeker') {
+        $('#title').val(JSON.parse(data).title);
+        createpost.setData(JSON.parse(data).body);
+      } else {
+        $('#title').val(JSON.parse(data).title);
+        createpost.setData(JSON.parse(data).body);
+        document.getElementById('category').value = JSON.parse(data).category;
+
+      }
+      $('.modal-post-form').fadeIn();
+    }
+  });
+}
+
+
+$('.modal-post-form .create-button').click(() => {
+  var title = document.getElementById('title').value;
+  var category = $('#createPost select').val();
+  $.ajax({
+    type: 'POST',
+    url: '../../updatepost.php',
+    data: {
+      user_id: user_id,
+      postId: $('.inp-grp').attr('id'),
+      title: title,
+      body: createpost.getData(),
+      category: category
+    },
+    success: (data) => {
+      $('.modal-title').click();
+    }
+  });
+});
 //update profile code
 $("#updateJsk").click(() => {
   var dataSet = $(".profileUpdate :input").serialize();
@@ -219,7 +295,7 @@ $(document).ready(() => {
         },
         success: function (data) {
           $("#modal").html(data);
-          $(".modal").fadeIn();
+          $("#modal").fadeIn();
         }
       });
     }, this)

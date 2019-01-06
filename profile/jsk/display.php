@@ -46,6 +46,9 @@ while ($row = mysqli_fetch_array($res)) {
 </head>
 
 <body onload="document.getElementById('about').click();$('#about').trigger('click');">
+<div class="modal-post-form">
+<div class='create-post'><form id='createPost'><a class='modal-title' onclick="$('.modal-post-form').fadeOut();$('.inp-grp').attr('id','none')">&times;</a><h2>Edit Post</h2><div class='inp-grp' style='width:100%;'><input type='text' id='title' placeholder='Title of your post' value='hell'></div><div style='margin: 0 20px; margin-bottom:20px; border-radius:5px;'><textarea class='fr-view' name='createpost' id='editor' cols='30' style='display:none;' rows='10' placeholder='Body of your post'></textarea></div><div class='create-button'><input type='file' name='file'><a href='javascript:;' id='create-button' class='button-primary'>Update</a></div></form></div>
+</div>
 <?php include '../../index-nav.php'; ?>
 <?php require '../../includes/modal-education.php'; ?>
 <?php require '../../includes/modal-experience.php'; ?>
@@ -139,20 +142,31 @@ while ($row = mysqli_fetch_array($res)) {
 
     <div class="prof-body-part-right">
       <div id="timeline-right">
-        <?php
-        $sql = "select * from posts where user_id='$user_id'";
-        $res = mysqli_query($con, $sql);
-        while ($row = mysqli_fetch_array($res)) {
-          echo '<div class="job">
-              <div class="job-title"><a href="javascript:;" id="' . $row['id'] . '"class="links jobPosts">' . $row['title'] . '</a></div>
+      <?php
+      $sql = "select * from posts where user_id='$user_id'";
+      $res = mysqli_query($con, $sql);
+      while ($row = mysqli_fetch_array($res)) {
+        echo '<div class="job" id = "job' . $row['id'] . '">
+                  <div class="head-ele">
+                  <div class="job-title"><a href="javascript:;" id="' . $row['id'] . '"class="links jobPosts">' . $row['title'] . '</a></div>
+                  ';
+        if ($userId === $user_id) {
+          echo ('<div class="post-buttons">
+                    <a id= "edit' . $row['id'] . '" class="edit" onclick="editPost(this.id);"><i class="fas fa-edit fa-2x"></i></a>
+                    <a id= "delete' . $row['id'] . '"  onclick="displayedit(this.id);" class="delete"><i class="fas fa-trash fa-2x"></i></a>
+                    <a id= "check' . $row['id'] . '"  onclick="removePost(this.id);" class="check"><i class="fas fa-check fa-2x"></i></a>
+                </div>');
+        }
+        echo '
+              </div>
               <div class="job-body">' . html_entity_decode(htmlspecialchars_decode($row['body'])) . '</div>
               <div class="job-by">
               <span class="job-name"><a href="javascript:;">' . $fname . '</a></span>
               <span class="job-date">' . $row['updated_at'] . '</span>
               </div>
               </div>';
-        }
-        ?>
+      }
+      ?>
       </div>
       <div id="about-right">
         <div id='ext'>
@@ -194,9 +208,34 @@ while ($row = mysqli_fetch_array($res)) {
   </div>
 </div>
 <?php include '../../includes/footer.php' ?>
+<script src="//cdn.ckeditor.com/4.11.1/standard/ckeditor.js"></script>
 <script> user_id = <?= $user_id ?></script>
-
 <script src="../../js/app.js"></script>
-</body>
+<script>
+var createpost = CKEDITOR.replace('createpost', {
+        extraAllowedContent: 'div',
+        height: 250,
+        removePlugins: "elementspath,about,sourcearea,resize,pastefromword,pastetext,paste",
+        removeButtons: 'Paste,Cut,Copy,Undo,Redo,Anchor'
+        // extraPlugins: "justify"
+        // remove here
+      });
+      createpost.on('instanceReady', function () {
+        // Output self-closing tags the HTML4 way, like <br>.
+        this.dataProcessor.writer.selfClosingEnd = '>';
 
+        // Use line breaks for block elements, tables, and lists.
+        var dtd = CKEDITOR.dtd;
+        for (var e in CKEDITOR.tools.extend({}, dtd.$nonBodyContent, dtd.$block, dtd.$listItem, dtd.$tableContent)) {
+          this.dataProcessor.writer.setRules(e, {
+            indent: false,
+            breakBeforeOpen: true,
+            breakAfterOpen: true,
+            breakBeforeClose: true,
+            breakAfterClose: true
+          });
+        }
+      });
+</script>
+</body>
 </html>

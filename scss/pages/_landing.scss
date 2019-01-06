@@ -85,8 +85,8 @@
         .landing-scroll {
             margin-top: 3rem;
             padding: 0 3rem;
-            overflow: scroll;
-            height: 80vh;
+            overflow: auto;
+            max-height: 80vh;
         }
     }
 
@@ -101,9 +101,9 @@
             text-align: center;
             // margin-top: 3rem;
             // padding: 0 3rem; 
-            overflow-y: scroll;
+            overflow: auto;
             padding: 0 1.4rem;
-            height: 80vh;
+            max-height: 80vh;
 
             .company-name {
                 box-shadow: 1px 1px 8px rgba($color-grey-dark-2, 0.36);

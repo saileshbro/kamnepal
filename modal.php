@@ -27,14 +27,7 @@ if (isset($_POST['postId'])) {
               <p>ABC company</p>
             </div>
             <span class='posted-date'>" . $row['updated_at'] . "</span>
-          </div>" .
-      "   <hr>
-             <div class='buttons'>
-               <a class='links' href='#'>Edit</a>
-               <a class='links' href='#'>Delete</a>
-             </div>
-           </div>
-         </div>";
+          </div></div></div>";
   }
 }
 echo $output;

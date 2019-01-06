@@ -28,7 +28,7 @@ if (strlen($email) > 0) {
     
     <title>Kam Nepal | Login</title>
 </head>
-<body >
+<body style="overflow:hidden;">
 <div class="modal-forgot login">
     <div class='login-body'>
         <a href="javascript:;" class="modal-title" onclick="$('.modal-forgot').fadeOut();">&times;</a>
@@ -57,8 +57,8 @@ if (strlen($email) > 0) {
                     <div class="error">
                         <h2 id="error"></h2>
                     </div>
-                    <input type="email" name="email" id="" placeholder='Email' required>
-                    <input type="password" name="password" id="" placeholder='Password' required>
+                    <input type="email" name="email" placeholder='Email' required>
+                    <input type="password" name="password" placeholder='Password' required>
                     <a class='links'href="javascript:;" id="forgotPassword">Forgot Password?</a></p>
                     <button type="submit" class='button-primary'>Login</button>
                     <hr>

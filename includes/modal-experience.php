@@ -10,7 +10,7 @@ $res = mysqli_query($con, $sql);
         <a href="#modal-profile-2" id='exp-modal-head'><p>&times;</p></a>
       </div>
       <div class="exp-modal-body">
-        <h1>Experiences</h1>
+        <h1 class='heading-secondary'>Experiences</h1>
         <?php
         while ($row = mysqli_fetch_array($res)) {
           echo "<div class='edu-content'>

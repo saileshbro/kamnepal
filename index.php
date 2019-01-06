@@ -4,6 +4,8 @@ $db = new Database();
 $con = $db->con;
 $sql = "select * from posts limit 10";
 $res = mysqli_query($con, $sql);
+$sql1 = "select profile.id, profile.fname, profile.bio from profile,user where profile.user_id = user.id and user.type='Employer' limit 10";
+$res1 = mysqli_query($con, $sql1);
 
 ?>
 <!DOCTYPE html>
@@ -13,12 +15,12 @@ $res = mysqli_query($con, $sql);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/site.webmanifest">
-<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-<meta name="msapplication-TileColor" content="#da532c">
-<meta name="theme-color" content="#ffffff">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
     <title>Kam Nepal</title>
@@ -62,18 +64,16 @@ $res = mysqli_query($con, $sql);
        <div class="landing-right">
             <h2 class="landing-heading">Top companies</h2>
             <div class='company-list'>
-                <?php for ($i = 1; $i <= 5; $i++) {
-                    // echo('<li class="company-name"><span class="badge">'.$i.'</span><a href="">Company '.$i.'</a></li>');
-                    if ($i < 10) {
-                        echo ('<div class="company-name"><span class="badge">0' . $i . '</span><a href="">Company ABC</a>
-                        <p class="company-bio">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem iure assumenda officiis sapiente voluptatibus aperiam alias dignissimos cupiditate, facilis dolore adipisci odio, dolorum quasi veniam molestiae repellat voluptatem libero doloribus?</p>
-                        </div>');
-                    } else {
-                        echo ('<div class="company-name"><span class="badge">' . $i . '</span><a href="">Company ABC</a>
-                        <p class="company-bio">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem iure assumenda officiis sapiente voluptatibus aperiam alias dignissimos cupiditate, facilis dolore adipisci odio, dolorum quasi veniam molestiae repellat voluptatem libero doloribus?</p>
-                        </div>');
-                    }
-                } ?>
+            <?php 
+            $i = 1;
+            while ($row = mysqli_fetch_assoc($res1)) {
+                echo '<div class="comp-card"><div class="company-name">
+                <span class="badge">0' . $i . '</span>
+                <a href="">' . $row['fname'] . '</a>
+                <p class="company-bio">' . $row['bio'] . '</p>
+             </div></div>';
+                $i++;
+            } ?>
             </div>
         </div>
     </div>
