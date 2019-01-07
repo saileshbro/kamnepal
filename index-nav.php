@@ -2,6 +2,7 @@
 
 require 'auth/authenticate.php';
 $userId = getColumn("SELECT id FROM user WHERE email='$email'", "id");
+$profileImg = "./" . getColumn("SELECT profile_img FROM profile WHERE user_id='$userId'", "profile_img");
 $fullName = getColumn("SELECT fname FROM profile WHERE user_id='$userId'", "fname");
 $fullBio = getColumn("SELECT bio FROM profile WHERE user_id='$userId'", "bio");
 $Type = getColumn("SELECT type FROM user WHERE email='$email'", "type");
@@ -23,12 +24,12 @@ $disp = (strlen($fullBio) <= 95) ? $fullBio : substr($fullBio, 0, 100) . ' . . .
         <ul>
             <li><a href=""><i class="far  fa-3x fa-bell"></i></a></li>
             <li><a href=""><i class="fas  fa-3x fa-cog"></i></a></li>
-            <li><a onclick="toggleDropdownProf();" href="javascript:;"  id='prof-img'><img id="nav-pro-img" src="https://upload.wikimedia.org/wikipedia/commons/e/e0/Large_Scaled_Forest_Lizard.jpg" alt=""></a></li>
+            <li><a onclick="toggleDropdownProf();" href="javascript:;"  id='prof-img'><img id="nav-pro-img" src=<?php echo $profileImg ?> alt=""></a></li>
         </ul>
         <div id="Prof-drop">
             <div class="dropdown-profile">
                 <div class="dropdown-profile-mid">
-                    <img src="/img/profile/profile.jpg" alt="Profile-pic">
+                    <img src=<?php echo $profileImg ?> alt="Profile-pic">
                     <div class="drop-text">
                         <div class="Prof-name"><?php echo $fullName; ?></div>
                         <div class="Prof-bio"><?php echo $disp; ?></div>

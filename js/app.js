@@ -99,7 +99,7 @@ function removePost(mydata) {
       id: mydata
     },
     success: function (data) {
-      $('#error').html(data);
+      alert(data);
     }
   });
   $("#job" + id).fadeOut();
@@ -144,25 +144,29 @@ function editPost(mydata) {
   });
 }
 
-
-$('.modal-post-form .create-button').click(() => {
+$('.modal-post-form #create-button').click(() => {
   var title = document.getElementById('title').value;
   var category = $('#createPost select').val();
+  var fileToUpload = $('#file').prop('files')[0];
+  var form = new FormData();
+  form.append("user_id", user_id);
+  form.append("title", title);
+  form.append("body", createpost.getData());
+  form.append("category", category);
+  form.append("image", fileToUpload);
+  form.append('postId', $('.inp-grp').attr('id'));
   $.ajax({
     type: 'POST',
     url: '../../updatepost.php',
-    data: {
-      user_id: user_id,
-      postId: $('.inp-grp').attr('id'),
-      title: title,
-      body: createpost.getData(),
-      category: category
-    },
+    contentType: false,
+    processData: false,
+    data: form,
     success: (data) => {
-      $('.modal-title').click();
+      $('.modal-post-form').fadeOut();
     }
   });
 });
+
 //update profile code
 $("#updateJsk").click(() => {
   var dataSet = $(".profileUpdate :input").serialize();
@@ -364,5 +368,24 @@ $(document).ready(() => {
   // *************
   $('#forgotPassword').click(() => {
     $('.modal-forgot').fadeIn();
+  });
+
+  // profile update pic codes
+  var readURL = function (input) {
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
+
+      reader.onload = function (e) {
+        $('#avatar').attr('src', e.target.result);
+      }
+
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+  $(".file-upload").on('change', function () {
+    readURL(this);
+  });
+  $(".upload-button").on('click', function () {
+    $(".file-upload").click();
   });
 });

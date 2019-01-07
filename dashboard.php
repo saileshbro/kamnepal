@@ -10,7 +10,6 @@ $interest = getColumn("select interest from profile where user_id ='$user_id'", 
 $bio = getColumn("select bio from profile where user_id ='$user_id'", "bio");
 $jobsql = "select  profile.id, profile.fname, profile.bio from profile,user where profile.user_id= user.id and user.type='Jobseeker' limit 10";
 $jobres = mysqli_query($con, $jobsql);
-
 $empsql = "select  profile.id, profile.fname, profile.bio from profile,user where profile.user_id= user.id and user.type='Employer' limit 10";
 $empres = mysqli_query($con, $empsql);
 if ($type == 'Jobseeker') {
@@ -48,7 +47,8 @@ if ($type == 'Jobseeker') {
         <section class="dashboard-left">
 			<div class="dashboard-card">
 				<div class="prof-img">
-					<img src="img/profile/profile.jpg"alt="profile-pic">
+          
+					<img src=<?php echo $profileImg ?> alt="profile-pic">
 				</div>
 				<p class="prof-name" style="cursor: pointer;" onclick="gotoProfile();"><?php echo $fname; ?></p>
         <hr>
@@ -95,7 +95,7 @@ if ($type == 'Jobseeker') {
                   <textarea class="fr-view" name="createpost" id="editor" cols="30" style="display:none;" rows="10" placeholder="Body of your post"></textarea>
                 </div>
                 <div class="create-button">
-                  <input type="file" name="file" id="">
+                  <input type="file" id="file">
                   <a href='javascript:;' id='create-button' class="button-primary">Create Post</a>
                 </div>
               </form>
@@ -159,8 +159,6 @@ if ($type == 'Jobseeker') {
       height: 250,
       removePlugins: "elementspath,about,sourcearea,resize,pastefromword,pastetext,paste",
       removeButtons: 'Paste,Cut,Copy,Undo,Redo,Anchor'
-      // extraPlugins: "justify"
-      // remove here
     });
     createpost.on('instanceReady', function () {
       // Output self-closing tags the HTML4 way, like <br>.
@@ -181,15 +179,19 @@ if ($type == 'Jobseeker') {
     $('.create-button .button-primary').click(()=>{
       var title = document.getElementById('title').value;
       var category = $('#createPost select').val();
+      var fileToUpload = $('#file').prop('files')[0];
+      var form = new FormData();
+      form.append("user_id",user_id);
+      form.append("title",title);
+      form.append("body",createpost.getData());
+      form.append("category",category);
+      form.append("image",fileToUpload);
         $.ajax({
         type: 'POST',
         url: 'createpost.php',
-        data: {
-          user_id: user_id,
-          title: title,
-          body: createpost.getData(),
-          category: category
-        },
+        contentType: false,
+        processData: false,
+        data: form,
         success: (data)=>{
           document.getElementById('title').value= "";
           createpost.setData("");

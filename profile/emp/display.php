@@ -1,10 +1,15 @@
 <?php
 require '../../database/db.php';
+function incNav()
+{
+  include '../../index-nav.php';
+  $profileImg = "../." . $profileImg;
+}
+
 $db = new Database();
 $con = $db->con;
 $user_id = cleanse($_GET['user_id']) ?? '';
 $type = getColumn("select type from user where id='$user_id'", 'type');
-
 if ($type === "Jobseeker") {
   header("Location: ../jsk/display.php?user_id=" . $user_id);
 }
@@ -45,8 +50,8 @@ while ($row = mysqli_fetch_array($res)) {
 </head>
 <body>
 <?php require '../../includes/modal-education.php'; ?>
-<?php require '../../includes/modal-experience.php'; ?>
-<?php include '../../index-nav.php'; ?>
+<?php require '../../includes/modal-experience.php';
+incNav(); ?>
 <div id='modal' class='modal' ></div>
 <div class='modal-post-form'>
 <div class='create-post'>
@@ -86,7 +91,7 @@ while ($row = mysqli_fetch_array($res)) {
     <textarea class='fr-view' name='createpost' id='editor' cols='30' style='display:none;' rows='10' placeholder='Body of your post'></textarea>
   </div>
   <div class='create-button'>
-    <input type='file' name='file'>
+    <input type='file' name='file' id='file'>
     <a href='javascript:;' id='create-button' class='button-primary'>Update</a>
   </div>
 </form>
@@ -95,7 +100,7 @@ while ($row = mysqli_fetch_array($res)) {
 <div class="Profile-main-body">
   <div class="profile-left">
     <div class="prof-head-img2">
-       <img src="../../img/profile/profile.jpg" alt="profile-pic">
+       <img src=<?php echo $profileImg ?> alt="profile-pic">
        <?php
       if ($user_id === $userId) {
         echo "<a href='update.php' class='message'><i class='far fa-edit'></i></i>Edit Profile</a>";
@@ -186,6 +191,12 @@ var createpost = CKEDITOR.replace('createpost', {
           });
         }
       });
+</script>
+<script>
+  var src = "<?= $profileImg ?>";
+  src = "../."+src;
+  $('#nav-pro-img').attr("src",src);
+  $('.dropdown-profile-mid img').attr("src",src);
 </script>
 </body>
 

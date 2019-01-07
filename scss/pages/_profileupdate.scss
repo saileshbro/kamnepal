@@ -50,8 +50,23 @@
 
       #edit-a {
         position: absolute;
-        top: 80%;
-        right: 40%;
+        top: 70%;
+        right: 42%;
+        z-index: 1;
+
+        i {
+          cursor: pointer;
+          background: rgba(black, .5);
+          color: white;
+          padding: 1rem;
+          border-radius: 50%;
+          transition: .2s all;
+
+          &:hover {
+            color: black;
+            background: rgba($color-primary, .5);
+          }
+        }
       }
     }
 

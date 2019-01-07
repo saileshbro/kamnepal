@@ -58,7 +58,11 @@ while ($row = mysqli_fetch_array($res)) {
         <div class="infopart">
           <div class="form1">
             <div class="list2">
-                <img id="avatar" class="list2__image" src="../../img/profile/profile.jpg" alt="Avatar"/>
+                <img id="avatar" class="list2__image" src=<?php echo "../." . $profileImg ?> alt="Avatar"/>
+                <div id='edit-a'>
+                  <i class="fas fa-pencil-alt fa-2x upload-button"></i>
+                    <input class="file-upload" type="file" accept="image/*"  onchange="changeAvatar(this);" style="display:none;"/>
+                </div>
             </div>
             <div class="list1">
               <label class="label1" for="name">Name</label>
@@ -184,6 +188,29 @@ while ($row = mysqli_fetch_array($res)) {
       val2 = "<?= $experienceCount ?>";
       val3 = "<?= $skillCount ?>";
     </script>
+    <script>
+      function changeAvatar(data){
+        var fileToUpload = $('.file-upload').prop('files')[0];
+        var data = new FormData();
+        data.append('image',fileToUpload);
+        $.ajax({
+          url:"../changeProfile.php",
+          data: data,
+          type: 'POST',
+          contentType: false,
+          processData: false,
+          success: (data)=>{
+            alert(data);
+          }
+        });
+      }
+    </script>
+    <script>
+  var src = "<?= $profileImg ?>";
+  src = "../."+src;
+  $('#nav-pro-img').attr("src",src);
+  $('.dropdown-profile-mid img').attr("src",src);
+</script>
     <script type="text/javascript" src="../../js/app.js"></script>
   </body>
 </html>

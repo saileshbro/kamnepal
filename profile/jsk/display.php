@@ -47,7 +47,22 @@ while ($row = mysqli_fetch_array($res)) {
 
 <body onload="document.getElementById('about').click();$('#about').trigger('click');">
 <div class="modal-post-form">
-<div class='create-post'><form id='createPost'><a class='modal-title' onclick="$('.modal-post-form').fadeOut();$('.inp-grp').attr('id','none')">&times;</a><h2>Edit Post</h2><div class='inp-grp' style='width:100%;'><input type='text' id='title' placeholder='Title of your post' value='hell'></div><div style='margin: 0 20px; margin-bottom:20px; border-radius:5px;'><textarea class='fr-view' name='createpost' id='editor' cols='30' style='display:none;' rows='10' placeholder='Body of your post'></textarea></div><div class='create-button'><input type='file' name='file'><a href='javascript:;' id='create-button' class='button-primary'>Update</a></div></form></div>
+  <div class='create-post'>
+    <form id='createPost'>
+      <a class='modal-title' onclick="$('.modal-post-form').fadeOut();$('.inp-grp').attr('id','none')">&times;</a>
+      <h2>Edit Post</h2>
+      <div class='inp-grp' style='width:100%;'>
+      <input type='text' id='title' placeholder='Title of your post'>
+    </div>
+    <div style='margin: 0 20px; margin-bottom:20px; border-radius:5px;'>
+      <textarea class='fr-view' name='createpost' id='editor' cols='30' style='display:none;' rows='10' placeholder='Body of your post'></textarea>
+    </div>
+    <div class='create-button'>
+      <input type='file' id='file' name='file'>
+      <a href='javascript:;' id='create-button' class='button-primary'>Update</a>
+    </div>
+    </form>
+  </div>
 </div>
 <?php include '../../index-nav.php'; ?>
 <?php require '../../includes/modal-education.php'; ?>
@@ -56,7 +71,7 @@ while ($row = mysqli_fetch_array($res)) {
 <div class="Profile-main-body">
   <div class="profile-left">
     <div class="prof-head-img">
-       <img src="../../img/profile/profile.jpg" alt="profile-pic">
+       <img src=<?php echo "../." . $profileImg ?> alt="profile-pic">
     </div>
     <div class="prof-body-part-left">
       <div class="left-elements">
@@ -236,6 +251,12 @@ var createpost = CKEDITOR.replace('createpost', {
           });
         }
       });
+</script>
+<script>
+  var src = "<?= $profileImg ?>";
+  src = "../."+src;
+  $('#nav-pro-img').attr("src",src);
+  $('.dropdown-profile-mid img').attr("src",src);
 </script>
 </body>
 </html>

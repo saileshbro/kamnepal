@@ -55,7 +55,7 @@ try {
     $result = mysqli_query($con, "SELECT id FROM user WHERE email='$email'");
 
     while ($row = mysqli_fetch_array($result)) {
-        mysqli_query($con, "INSERT INTO profile (user_id,fname,phone,category) VALUES ('{$row['id']}','$fname','$phone','$category')");
+        mysqli_query($con, "INSERT INTO profile (user_id,fname,phone,category,profile_img) VALUES ('{$row['id']}','$fname','$phone','$category','uploads/default.png')");
     }
     session_start();
     $_SESSION['email'] = $email;
