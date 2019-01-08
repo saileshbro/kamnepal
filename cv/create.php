@@ -1,9 +1,27 @@
+<?php
+if (file_exists('../uploads/cv.png')) {
+    unlink('../uploads/cv.png');
+}
+if (file_exists('../uploads/cv.jpg')) {
+    unlink('../uploads/cv.jpg');
+}
+if (file_exists('../uploads/cv.jpeg')) {
+    unlink('../uploads/cv.jpeg');
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="manifest" href="/site.webmanifest">
+        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+        <meta name="msapplication-TileColor" content="#da532c">
+        <meta name="theme-color" content="#ffffff">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
         <link rel="stylesheet" href="../css/main.css" />
         <title>Kam Nepal | Create CV</title>
@@ -21,9 +39,13 @@
               <hr>
               <div class="infopart">
                 <form class="form1" action="display.php" method='post'>
-                  <div class="list1">
-                      <input type='file'>
-                  </div>
+                  <div class="list2">
+                    <img id="avatar" class="list2__image" src='../uploads/default.png' alt="Avatar"/>
+                        <div id='edit-a'>
+                            <i class="fas fa-pencil-alt fa-2x upload-button"></i>
+                            <input class="file-upload" type="file" accept="image/*" style="display:none;" onchange="changeAvatar(this)"/>
+                        </div>
+                    </div>
                   <div class="list1">
                       <label class="label1" for="name">Name</label>
                       <input name='fname' class="input1" id="fname" type="text">
@@ -72,10 +94,8 @@
                       </div>
                       
                   </div>
-                  <!-- <button class="down-button links" type="submit" name='create'>Create CV</button> -->
                   <div class="list1">
                     <div class="btn-down">
-                        <!-- <a href="javascript:;" class="links" id="btn-down">Create CV</a> -->
                         <button type="submit"class="button-primary" name="create"> create cv</button>
                     </div>
                   </div>
@@ -87,31 +107,45 @@
         <?php require('../includes/footer.php') ?>
         <script src="../js/cv.js"></script>
         <script>
-function removeEduPressed() {
-    let val = val1 - 1;
-    let str = ".remedu" + val;
-    let str2 = ".edu-" + val;
-    $(str2).remove();
-    val1--;
-}
+        function removeEduPressed() {
+            let val = val1 - 1;
+            let str = ".remedu" + val;
+            let str2 = ".edu-" + val;
+            $(str2).remove();
+            val1--;
+        }
 
-function removeExpPressed() {
-    let vall = val2 - 1;
-    let str3 = ".remexp" + vall;
-    let str4 = ".exp-" + vall;
-    $(str4).remove();
-    console.log(str4);
-    val2--;
-}
+        function removeExpPressed() {
+            let vall = val2 - 1;
+            let str3 = ".remexp" + vall;
+            let str4 = ".exp-" + vall;
+            $(str4).remove();
+            val2--;
+        }
 
-function removeSkillPressed() {
-    let valll = val3 - 1;
-    let str5 = ".remskill" + valll;
-    let str6 = ".skills-" + valll;
-    $(str6).remove();
-    console.log(str6);
-    val3--;
-}
+        function removeSkillPressed() {
+            let valll = val3 - 1;
+            let str5 = ".remskill" + valll;
+            let str6 = ".skills-" + valll;
+            $(str6).remove();
+            val3--;
+        }
         </script>
+            <script>
+            function changeAvatar(data){
+                var fileToUpload = $('.file-upload').prop('files')[0];
+                var data = new FormData();
+                data.append('image',fileToUpload);
+                $.ajax({
+                url:"upload.php",
+                data: data,
+                type: 'POST',
+                contentType: false,
+                processData: false,
+                success: (data)=>{
+                }
+                });
+            }
+    </script>
     </body>
 </html>

@@ -70,7 +70,6 @@
   }
 
   .dashboard-middle {
-    max-height: 73.2rem;
     padding: 1rem;
     width: 60rem;
     margin: 0 1rem;
@@ -218,6 +217,8 @@
       background: white;
       padding: 2rem;
       margin: 1rem 0;
+      // max-height: 72rem;
+      // overflow: auto;
 
     }
   }

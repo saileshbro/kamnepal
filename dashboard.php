@@ -104,18 +104,25 @@ if ($type == 'Jobseeker') {
               <!-- show jobs here -->
               <?php
               if ($type === 'Jobseeker') {
-                $sql = "SELECT posts.*,profile.fname FROM posts,user,profile WHERE posts.category='$category' AND user.id=posts.user_id AND user.id=profile.user_id AND user.type='Employer'";
+                $sql = "SELECT posts.*,profile.fname FROM posts,user,profile WHERE posts.category='$category' AND user.id=posts.user_id AND user.id=profile.user_id AND user.type='Employer' ORDER BY updated_at DESC";
                 $res = mysqli_query($con, $sql);
-                while ($row = mysqli_fetch_array($res)) {
+                if ($res) {
+                  while ($row = mysqli_fetch_array($res)) {
+                    echo "<div class='job'>
+                            <div class='job-title'><a href='javascript:;' id='" . $row['id'] . "'class='links jobPosts'>" . $row['title'] . "</a>
+                            </div>
+                            <div class='job-body'>" . html_entity_decode(htmlspecialchars_decode($row['body'])) . "
+                            </div>
+                            <div class='job-by'>
+                              <span class='job-name'><a href='profile/emp/display.php?user_id=" . $row['user_id'] . "'>" . $row['fname'] . "</a></span>
+                              <span class='job-date'>" . $row['updated_at'] . "</span>
+                            </div>
+                          </div>";
+                  }
+                } else {
                   echo "<div class='job'>
-                  <div class='job-title'><a href='javascript:;' id='" . $row['id'] . "'class='links jobPosts'>" . $row['title'] . "</a></div>
-                    <div class='job-body'>" . html_entity_decode(htmlspecialchars_decode($row['body'])) . "</div>
-                      <div class='job-by'>
-                        <span class='job-name'><a href='profile/emp/display.php?user_id=" . $row['user_id'] . "'>" . $row['fname'] . "</a></span>
-                        <span class='job-date'>" . $row['updated_at'] . "</span>
-                    </div>
-                  </div>
-                </div>";
+                          <div class job-body>No Posts Available</div>
+                        </div>";
                 }
               }
               ?>
@@ -128,21 +135,25 @@ if ($type == 'Jobseeker') {
           if ($type === 'Jobseeker') {
             $i = 1;
             while ($row = mysqli_fetch_assoc($empres)) {
-              echo '<div class="comp-card"><div class="company-name">
-									<span class="badge">0' . $i . '</span>
-									<a href="">' . $row['fname'] . '</a>
-									<p class="company-bio">' . $row['bio'] . '</p>
-              </div></div>';
+              echo '<div class="comp-card">
+                      <div class="company-name">
+                        <span class="badge">0' . $i . '</span>
+                        <a href="">' . $row['fname'] . '</a>
+                        <p class="company-bio">' . $row['bio'] . '</p>
+                      </div>
+                    </div>';
               $i++;
             }
           } else if ($type === 'Employer') {
             $i = 1;
             while ($row = mysqli_fetch_assoc($jobres)) {
-              echo '<div class="comp-card"><div class="company-name">
-                      <span class="badge">0' . $i . '</span>
-                      <a href="">' . $row['fname'] . '</a>
-                      <p class="company-bio">' . $row['bio'] . '</p>
-                  </div></div>';
+              echo '<div class="comp-card">
+                      <div class="company-name">
+                        <span class="badge">0' . $i . '</span>
+                        <a href="">' . $row['fname'] . '</a>
+                        <p class="company-bio">' . $row['bio'] . '</p>
+                      </div>
+                    </div>';
               $i++;
             }
           } ?>
@@ -195,7 +206,7 @@ if ($type == 'Jobseeker') {
         success: (data)=>{
           document.getElementById('title').value= "";
           createpost.setData("");
-          $('#title').click();
+          $('#cke_editor').fadeOut();
         }
       });
     });

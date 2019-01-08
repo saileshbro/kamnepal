@@ -29,7 +29,7 @@ if (isset($_FILES['image'])) {
                 if ($type == 'Jobseeker') {
 
                     if (move_uploaded_file($fileTempName, $fileDest)) {
-                        $sql = "update posts set title='$title',body='$body',media='$fileDest' where id='$postId'";
+                        $sql = "update posts set title='$title',body='$body',media='$fileDest',updated_at=CURRENT_TIMESTAMP where id='$postId'";
                         $res = mysqli_query($con, $sql);
                     }
                     echo "";
@@ -37,7 +37,7 @@ if (isset($_FILES['image'])) {
                 if ($type === "Employer") {
                     if (move_uploaded_file($fileTempName, $fileDest)) {
                         $category = cleanse($_POST['category']) ?? "";
-                        $sql = "update posts set title='$title',body='$body',category='$category',media='$fileDest' where id='$postId'";
+                        $sql = "update posts set title='$title',body='$body',category='$category',media='$fileDest',updated_at=CURRENT_TIMESTAMP where id='$postId'";
                         $res = mysqli_query($con, $sql);
                     }
                     echo "";
@@ -55,12 +55,12 @@ if (isset($_FILES['image'])) {
 } else {
     if ($type === "Jobseeker") {
 
-        $sql = "update posts set title='$title',body='$body' where id='$postId'";
+        $sql = "update posts set title='$title',body='$body',updated_at=CURRENT_TIMESTAMP where id='$postId'";
         $res = mysqli_query($con, $sql);
 
     } else {
         $category = cleanse($_POST['category']) ?? "";
-        $sql = "update posts set title='$title',body='$body',category='$category' where id='$postId'";
+        $sql = "update posts set title='$title',body='$body',category='$category',updated_at=CURRENT_TIMESTAMP where id='$postId'";
         $res = mysqli_query($con, $sql);
     }
 }

@@ -158,7 +158,7 @@ while ($row = mysqli_fetch_array($res)) {
     <div class="prof-body-part-right">
       <div id="timeline-right">
       <?php
-      $sql = "select * from posts where user_id='$user_id'";
+      $sql = "select * from posts where user_id='$user_id'  ORDER BY updated_at DESC";
       $res = mysqli_query($con, $sql);
       while ($row = mysqli_fetch_array($res)) {
         echo '<div class="job" id = "job' . $row['id'] . '">

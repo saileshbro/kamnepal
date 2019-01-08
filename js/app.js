@@ -283,7 +283,7 @@ $(document).ready(() => {
   // dashboard
   $('#title').click(() => {
     if ($('#title').val() == "") {
-      $('#cke_editor').fadeToggle();
+      $('#cke_editor').fadeIn();
     }
   });
 

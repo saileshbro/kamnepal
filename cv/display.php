@@ -1,4 +1,14 @@
 <?php
+$profImg = '../uploads/default.png';
+if (file_exists('../uploads/cv.png')) {
+    $profImg = '../uploads/cv.png';
+}
+if (file_exists('../uploads/cv.jpg')) {
+    $profImg = '../uploads/cv.jpg';
+}
+if (file_exists('../uploads/cv.jpeg')) {
+    $profImg = '../uploads/cv.jpeg';
+}
 $i = 0;
 $j = 0;
 $k = 0;
@@ -52,6 +62,13 @@ while (isset($_POST['skill-type-' . $k])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
     <link rel="stylesheet" href="../css/main.css">
     <title>Display CV | Kam Nepal</title>
 </head>
@@ -59,7 +76,7 @@ while (isset($_POST['skill-type-' . $k])) {
    <div class="cv">
        <div id="page1">
        <header class="cv-head">
-        <img src="../img/profile/profile.jpg"  alt="CV Image" class="cv-head-img">
+        <img src=<?php echo $profImg; ?>  alt="CV Image" class="cv-head-img">
         <div class="cv-head-name">
             <h1><?php echo $fname ?></h1>
             <?php for ($i = 0; $i < count($interest); $i++) {
