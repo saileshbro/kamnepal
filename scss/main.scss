@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins');
 @import url('https://fonts.googleapis.com/css?family=PT+Sans');
 @import url('https://fonts.googleapis.com/css?family=Fira+Sans');
+@import url('https://fonts.googleapis.com/css?family=Muli');
 // abstracts
 @import 'abstract/variables';
 @import 'abstract/mixins';
@@ -25,6 +26,7 @@
 @import 'pages/cv';
 @import 'pages/dashboard';
 @import 'pages/modal';
+@import 'pages/messages';
 // components
 @import 'components/card';
 @import 'components/form';

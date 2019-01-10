@@ -1,5 +1,4 @@
 <?php
-// require "../auth/authenticate.php";
 require '../../database/db.php';
 $db = new Database();
 $con = $db->con;
@@ -46,6 +45,15 @@ while ($row = mysqli_fetch_array($res)) {
 </head>
 
 <body onload="document.getElementById('about').click();$('#about').trigger('click');">
+<div class='modal-message'>
+  <div class='message-body'>
+    <a class='modal-title' onclick="$('.modal-message').fadeOut();">&times;</a>
+    <h2>Send Message</h2>
+    <textarea name="message" id="message" cols="30" rows="10" placeholder="Enter your message here" ></textarea>
+    <a href="javascript:;" class="links" id="sendTheMessage"> <i class="fab fa-telegram-plane"></i>Send</a>
+  </div>
+</div>
+</div>
 <div class="modal-post-form">
   <div class='create-post'>
     <form id='createPost'>
@@ -141,7 +149,11 @@ while ($row = mysqli_fetch_array($res)) {
       <p class="prof-head-bio"><?php echo $bio; ?></p>
       <span class="prof-head-gender"><?php echo $gender; ?> </span>
       <span class="prof-head-interest"><?php echo $interest; ?></span>
-      <a href="" class="message"><i class="far fa-envelope"></i>Message</a>
+      <?php
+      if ($user_id !== $userId) {
+        echo "<a href='javascript:;' class='message' onclick='sendMessage();' id='sendMessage'><i class='far fa-envelope'></i></i>Message</a>";
+      }
+      ?>
       <?php
       if ($user_id === $userId) {
         echo "<a href='update.php' class='message'><i class='far fa-edit'></i></i>Edit Profile</a>";
@@ -224,10 +236,10 @@ while ($row = mysqli_fetch_array($res)) {
 </div>
 <?php include '../../includes/footer.php' ?>
 <script src="//cdn.ckeditor.com/4.11.1/standard/ckeditor.js"></script>
-<script> user_id = <?= $user_id ?></script>
+<script> user_id = "<?= $user_id ?>"</script>
 <script src="../../js/app.js"></script>
 <script>
-var createpost = CKEDITOR.replace('createpost', {
+    var createpost = CKEDITOR.replace('createpost', {
         extraAllowedContent: 'div',
         height: 250,
         removePlugins: "elementspath,about,sourcearea,resize,pastefromword,pastetext,paste",
@@ -250,6 +262,22 @@ var createpost = CKEDITOR.replace('createpost', {
             breakAfterClose: true
           });
         }
+      });
+      function sendMessage(){
+        $('.modal-message').fadeIn();
+      }
+      $("#sendTheMessage").click(() => {
+        $.ajax({
+          type: "POST",
+          url : "../../messages/sendtojsk.php",
+          data: {
+            reciever: user_id,
+            message: $('#message').val()
+          },
+          success: (data)=>{
+            $('.modal-message').fadeOut();
+          }
+        });
       });
 </script>
 <script>

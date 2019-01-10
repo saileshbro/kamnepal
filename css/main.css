@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Poppins");
 @import url("https://fonts.googleapis.com/css?family=PT+Sans");
 @import url("https://fonts.googleapis.com/css?family=Fira+Sans");
+@import url("https://fonts.googleapis.com/css?family=Muli");
 @-webkit-keyframes underlineToRight {
   0% {
     width: 0px;
@@ -2220,6 +2221,102 @@ div.ui-datepicker {
   margin-top: 1.2rem;
 }
 
+.modal-message {
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  z-index: 10;
+  display: none;
+}
+
+.modal-message .message-body {
+  top: 0;
+  left: 50%;
+  padding: 1.5rem;
+  width: 55rem;
+  position: relative;
+  margin-top: 19rem !important;
+  background: white;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+.modal-message .message-body .modal-title {
+  position: absolute;
+  top: .3rem;
+  right: .3rem;
+  font-size: 2.5rem;
+  width: 3rem;
+  height: 3rem;
+  cursor: pointer;
+  -webkit-transition: all .2s;
+  transition: all .2s;
+  text-align: center;
+  line-height: 125%;
+  border-radius: 50%;
+  color: #5d78ff;
+  text-decoration: none;
+}
+
+.modal-message .message-body .modal-title:hover {
+  background: #4665fd;
+  color: white;
+}
+
+.modal-message .message-body textarea {
+  display: block;
+  border: none;
+  width: 100%;
+  margin-top: 1.3rem;
+  resize: none;
+  padding: 1.2rem;
+  border-bottom: 1px solid rgba(119, 119, 119, 0.4);
+  color: #4665fd;
+  height: 14rem;
+  border-bottom: 0.1rem solid rgba(93, 120, 255, 0.8);
+}
+
+.modal-message .message-body textarea:focus {
+  -webkit-box-shadow: 0 0.4rem 2px -2px #0fe456;
+          box-shadow: 0 0.4rem 2px -2px #0fe456;
+}
+
+.modal-message .message-body textarea::-webkit-input-placeholder {
+  font-size: 1.4rem;
+  color: black;
+}
+
+.modal-message .message-body textarea:-ms-input-placeholder {
+  font-size: 1.4rem;
+  color: black;
+}
+
+.modal-message .message-body textarea::-ms-input-placeholder {
+  font-size: 1.4rem;
+  color: black;
+}
+
+.modal-message .message-body textarea::placeholder {
+  font-size: 1.4rem;
+  color: black;
+}
+
+.modal-message .message-body h2 {
+  text-transform: uppercase;
+  font-size: 2rem;
+  color: #5d78ff;
+}
+
+.modal-message .message-body .links {
+  margin: 1rem 0;
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  letter-spacing: .1rem;
+  border: 1px solid #5d78ff;
+  margin-bottom: 0;
+}
+
 .modal-profile-1 {
   width: 100%;
   height: 100%;
@@ -2683,6 +2780,235 @@ div.ui-datepicker {
 .modal-post-form .create-post form select::placeholder {
   font-size: 1.5rem;
   padding: 1.2rem;
+}
+
+.messageBody {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  width: 90%;
+  margin: 0 auto;
+  padding: 1rem 0;
+}
+
+.messageBody .people-list {
+  width: 30%;
+  background: #003a63;
+  margin-right: 2rem;
+}
+
+.messageBody .people-list input {
+  border-radius: 3px;
+  border: none;
+  padding: 14px;
+  color: white;
+  background: #6A6C75;
+  width: 90%;
+  font-size: 14px;
+}
+
+.messageBody .people-list ul {
+  padding: 20px;
+  height: 770px;
+  list-style: none;
+}
+
+.messageBody .people-list ul li {
+  padding-bottom: 20px;
+}
+
+.messageBody .people-list ul li .name {
+  color: white;
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+
+.messageBody .people-list img {
+  float: left;
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  cursor: pointer;
+}
+
+.messageBody .people-list .about {
+  float: left;
+  width: 85%;
+}
+
+.messageBody .people-list .about {
+  padding-left: 8px;
+}
+
+.messageBody .people-list .status {
+  color: #92959E;
+}
+
+.messageBody .chat {
+  width: 70%;
+  background: #F2F5F8;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  color: #434651;
+}
+
+.messageBody .chat .chat-header {
+  padding: 20px;
+  border-bottom: 2px solid white;
+}
+
+.messageBody .chat .chat-header img {
+  float: left;
+}
+
+.messageBody .chat .chat-header .chat-about {
+  float: left;
+  padding-left: 10px;
+  margin-top: 6px;
+}
+
+.messageBody .chat .chat-header .chat-with {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.messageBody .chat .chat-header .chat-num-messages {
+  color: #92959E;
+}
+
+.messageBody .chat .chat-history {
+  padding: 30px 30px 20px;
+  border-bottom: 2px solid white;
+  overflow-y: scroll;
+  height: 575px;
+}
+
+.messageBody .chat .chat-history ul {
+  list-style: none;
+}
+
+.messageBody .chat .chat-history .message-data {
+  margin-bottom: 15px;
+}
+
+.messageBody .chat .chat-history .message-data-name {
+  font-size: 1.4rem;
+}
+
+.messageBody .chat .chat-history .message-data-time {
+  color: #a8aab1;
+  padding-left: 6px;
+}
+
+.messageBody .chat .chat-history .message {
+  color: white;
+  padding: 18px 20px;
+  line-height: 26px;
+  font-size: 16px;
+  border-radius: 7px;
+  margin-bottom: 30px;
+  width: 90%;
+  position: relative;
+}
+
+.messageBody .chat .chat-history .message:after {
+  bottom: 100%;
+  left: 7%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  border-bottom-color: #86bb71;
+  border-width: 10px;
+  margin-left: -10px;
+}
+
+.messageBody .chat .chat-history .my-message {
+  background: #86bb71;
+  text-align: left;
+  font-family: "Muli";
+}
+
+.messageBody .chat .chat-history .other-message {
+  background: #5d78ff;
+  text-align: right;
+  font-family: "Muli";
+}
+
+.messageBody .chat .chat-history .other-message:after {
+  border-bottom-color: #5d78ff;
+  left: 93%;
+}
+
+.messageBody .chat .chat-message {
+  padding: 30px;
+}
+
+.messageBody .chat .chat-message textarea {
+  width: 100%;
+  border: none;
+  padding: 10px 20px;
+  font: 14px/22px "Lato", Arial, sans-serif;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  resize: none;
+}
+
+.messageBody .chat .chat-message .fa-file-o,
+.messageBody .chat .chat-message .fa-file-image-o {
+  font-size: 16px;
+  color: gray;
+  cursor: pointer;
+}
+
+.messageBody .chat .chat-message button {
+  float: right;
+  color: #5d78ff;
+  font-size: 16px;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  background: #F2F5F8;
+}
+
+.messageBody .chat .chat-message button i {
+  margin-right: .8rem;
+  font-size: 1.8rem;
+}
+
+.messageBody .chat .chat-message button:hover {
+  color: #395aff;
+}
+
+.messageBody .me {
+  color: #5d78ff;
+}
+
+.messageBody .align-left {
+  text-align: left;
+}
+
+.messageBody .align-right {
+  text-align: right;
+}
+
+.messageBody .float-right {
+  float: right;
+}
+
+.messageBody .clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
 }
 
 .card {

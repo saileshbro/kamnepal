@@ -171,6 +171,86 @@
   }
 }
 
+.modal-message {
+  width: 100vw;
+  height: 100vh;
+  background: rgba($color-black, .7);
+  position: fixed;
+  z-index: 10;
+  display: none;
+
+
+  .message-body {
+    top: 0;
+    left: 50%;
+    padding: 1.5rem;
+    width: 55rem;
+    position: relative;
+    margin-top: 19rem !important;
+    background: white;
+    transform: translateX(-50%);
+
+    .modal-title {
+      position: absolute;
+      top: .3rem;
+      right: .3rem;
+      font-size: 2.5rem;
+      // transform: translateY(-50%);
+      width: 3rem;
+      height: 3rem;
+      cursor: pointer;
+      transition: all .2s;
+      text-align: center;
+      line-height: 125%;
+      border-radius: 50%;
+      color: $color-primary;
+      text-decoration: none;
+
+
+      &:hover {
+        background: $color-primary-dark;
+        color: white;
+      }
+    }
+
+    textarea {
+      display: block;
+      border: none;
+      width: 100%;
+      margin-top: 1.3rem;
+      resize: none;
+      padding: 1.2rem;
+      border-bottom: 1px solid rgba($color-grey-dark, .4);
+      color: $color-primary-dark;
+      height: 14rem;
+      border-bottom: 0.1rem solid rgba($color-primary, 0.8);
+
+      &:focus {
+        box-shadow: 0 0.4rem 2px -2px $color-tertiary-dark;
+      }
+
+      &::placeholder {
+        font-size: 1.4rem;
+        color: black;
+      }
+    }
+
+    h2 {
+      text-transform: uppercase;
+      font-size: 2rem;
+      color: $color-primary;
+    }
+
+    .links {
+      margin: 1rem 0;
+      font-size: 1.6rem;
+      text-transform: uppercase;
+      letter-spacing: .1rem;
+      border: 1px solid $color-primary;
+      margin-bottom: 0;
+    }
+  }
+}
 
 //second modal
 

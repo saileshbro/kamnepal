@@ -44,7 +44,7 @@ $disp = (strlen($fullBio) <= 95) ? $fullBio : substr($fullBio, 0, 100) . ' . . .
                             echo "<li><a href='/profile/jsk/display.php?user_id=" . $userId . "'><i class='far fa-2x fa-user'></i><h3>My Profile</h3></a></li>";
                         }
                         ?>
-                        <li><a href=""><i class="far fa-2x fa-envelope"></i><h3>Messages</h3></a></li>
+                        <li><a href="messages/"><i class="far fa-2x fa-envelope"></i><h3>Messages</h3></a></li>
                     </ul>
                     <div class="drop-button"><button onclick="location.href='/login/logout.php';";class="links">Sign Out</button></div>
                 </div>

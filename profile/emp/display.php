@@ -1,11 +1,5 @@
 <?php
 require '../../database/db.php';
-function incNav()
-{
-  include '../../index-nav.php';
-  $profileImg = "../." . $profileImg;
-}
-
 $db = new Database();
 $con = $db->con;
 $user_id = cleanse($_GET['user_id']) ?? '';
@@ -51,7 +45,7 @@ while ($row = mysqli_fetch_array($res)) {
 <body>
 <?php require '../../includes/modal-education.php'; ?>
 <?php require '../../includes/modal-experience.php';
-incNav(); ?>
+include '../../index-nav.php'; ?>
 <div id='modal' class='modal' ></div>
 <div class='modal-post-form'>
 <div class='create-post'>
@@ -100,7 +94,7 @@ incNav(); ?>
 <div class="Profile-main-body">
   <div class="profile-left">
     <div class="prof-head-img2">
-       <img src=<?php echo $profileImg ?> alt="profile-pic">
+       <img src=<?php echo "../." . $profileImg ?> alt="profile-pic">
        <?php
       if ($user_id === $userId) {
         echo "<a href='update.php' class='message'><i class='far fa-edit'></i></i>Edit Profile</a>";
