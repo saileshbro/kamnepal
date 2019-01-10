@@ -3,7 +3,12 @@ require '../auth/authenticate.php';
 require '../database/db.php';
 $db = new Database();
 $con = $db->con;
-?><!DOCTYPE html>
+$sender_id = getColumn("select id from user where email = '$email'", 'id');
+$reciever_id = cleanse($_GET['id']) ?? "";
+$reciever_name = getColumn("select fname from profile where user_id='$reciever_id'", 'fname');
+$sender_name = getColumn("select fname from profile where user_id='$sender_id'", 'fname');
+?>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -127,69 +132,27 @@ $con = $db->con;
           </div>
         </li>
       </ul>
-    </div>
-    
+</div>
+    <!-- right side -->
     <div class="chat">
       <div class="chat-header clearfix">
-        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_01_green.jpg" alt="avatar" />
+        <img style="cursor:pointer;" onclick="location.href='../profile/jsk/display.php?user_id='+<?= $reciever_id ?>" src=<?php echo "../" . getColumn("select profile_img from profile where user_id='$reciever_id'", 'profile_img') ?> alt="avatar" />
         
         <div class="chat-about">
-          <div class="chat-with">Chat with Vincent Porter</div>
-          <div class="chat-num-messages">already 1 902 messages</div>
+          <div class="chat-with">Chat with <?php echo $reciever_name ?></div>
+          <div class="chat-num-messages">already <?php echo mysqli_num_rows(mysqli_query($con, "SELECT * FROM chat WHERE (reciever_id='$reciever_id' AND sender_id='$sender_id') OR (reciever_id ='$sender_id' AND sender_id='$reciever_id')")) ?> messages</div>
         </div>
       </div> <!-- end chat-header -->
       
-      <div class="chat-history">
-        <ul>
-          <li class="clearfix">
-            <div class="message-data align-right">
-              <span class="message-data-time" >10:10 AM, Today</span> &nbsp; &nbsp;
-              <span class="message-data-name" >Olia</span> <i class=" me"></i>
-              
-            </div>
-            <div class="message other-message float-right">
-              Hi Vincent, how are you? How is the project coming along?
-            </div>
-          </li>
+      <div class="chat-history" id="msgs">
+        <ul id="chatHistory">
           
-          <li>
-            <div class="message-data">
-              <span class="message-data-name"><i class=" online"></i> Vincent</span>
-              <span class="message-data-time">10:12 AM, Today</span>
-            </div>
-            <div class="message my-message">
-              Are we meeting today? Project has been already finished and I have results to show you.
-            </div>
-          </li>
-          
-          <li class="clearfix">
-            <div class="message-data align-right">
-              <span class="message-data-time" >10:14 AM, Today</span> &nbsp; &nbsp;
-              <span class="message-data-name" >Olia</span> <i class=" me"></i>
-              
-            </div>
-            <div class="message other-message float-right">
-              Well I am not sure. The rest of the team is not here yet. Maybe in an hour or so? Have you faced any problems at the last phase of the project?
-            </div>
-          </li>
-          
-          <li>
-            <div class="message-data">
-              <span class="message-data-name"><i class=" online"></i> Vincent</span>
-              <span class="message-data-time">10:20 AM, Today</span>
-            </div>
-            <div class="message my-message">
-              Actually everything was fine. I'm very excited to show this to our team.
-            </div>
-          </li>          
         </ul>
-        
       </div> <!-- end chat-history -->
       
-      <div class="chat-message clearfix">
+      <div class="chat-message">
         <textarea name="message-to-send" id="message-to-send" placeholder ="Type your message" rows="3"></textarea>        
-        <button> <i class="fab fa-telegram-plane"></i>Send</button>
-
+        <button onclick="sendMessage();"> <i class="fab fa-telegram-plane"></i>Send</button>
       </div> <!-- end chat-message -->
       
     </div> <!-- end chat -->
@@ -202,6 +165,43 @@ $con = $db->con;
   src = "../."+src;
   $('#nav-pro-img').attr("src",src);
   $('.dropdown-profile-mid img').attr("src",src);
+
+  function sendMessage(){
+    $.ajax({
+      type: "POST",
+      url : "sendmessage.php",
+      data: {
+        reciever: "<?= $reciever_id ?>",
+        message: $('#message-to-send').val()
+      },
+      success: (data)=>{
+        
+        fetchMessages();
+      }
+    });
+    $('#message-to-send').val("");
+  }
+  function fetchMessages(){
+    $.ajax({
+      type: 'GET',
+      url: 'fetchMessages.php',
+      data:{
+        id: "<?= $reciever_id ?>"
+      },
+      success: (data)=>{
+        $('#chatHistory').html(data);
+          $('#msgs').animate({
+                scrollTop: $('#msgs')[0].scrollHeight}, "slow");
+          }
+    });
+  }
+  fetchMessages();
+  setInterval(fetchMessages,8000);
+  $('#message-to-send').on('keypress',function(e) {
+    if(e.which == 13) {
+      sendMessage();
+    }
+});
 </script>
 </body>
 </html>

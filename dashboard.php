@@ -217,6 +217,9 @@ if ($type == 'Jobseeker') {
         location.href = "profile/emp/display.php?user_id="+"<?= $user_id ?>";
       }
     }
+    function gotoMessage(){
+      location.href="./messages";
+    }
   </script>
   <script src="/js/app.js"></script>
 </body>

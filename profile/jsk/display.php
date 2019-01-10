@@ -45,14 +45,6 @@ while ($row = mysqli_fetch_array($res)) {
 </head>
 
 <body onload="document.getElementById('about').click();$('#about').trigger('click');">
-<div class='modal-message'>
-  <div class='message-body'>
-    <a class='modal-title' onclick="$('.modal-message').fadeOut();">&times;</a>
-    <h2>Send Message</h2>
-    <textarea name="message" id="message" cols="30" rows="10" placeholder="Enter your message here" ></textarea>
-    <a href="javascript:;" class="links" id="sendTheMessage"> <i class="fab fa-telegram-plane"></i>Send</a>
-  </div>
-</div>
 </div>
 <div class="modal-post-form">
   <div class='create-post'>
@@ -75,7 +67,6 @@ while ($row = mysqli_fetch_array($res)) {
 <?php include '../../index-nav.php'; ?>
 <?php require '../../includes/modal-education.php'; ?>
 <?php require '../../includes/modal-experience.php'; ?>
-<div class='modal' id="modal"></div>
 <div class="Profile-main-body">
   <div class="profile-left">
     <div class="prof-head-img">
@@ -263,28 +254,18 @@ while ($row = mysqli_fetch_array($res)) {
           });
         }
       });
-      function sendMessage(){
-        $('.modal-message').fadeIn();
-      }
-      $("#sendTheMessage").click(() => {
-        $.ajax({
-          type: "POST",
-          url : "../../messages/sendtojsk.php",
-          data: {
-            reciever: user_id,
-            message: $('#message').val()
-          },
-          success: (data)=>{
-            $('.modal-message').fadeOut();
-          }
-        });
-      });
 </script>
 <script>
   var src = "<?= $profileImg ?>";
   src = "../."+src;
   $('#nav-pro-img').attr("src",src);
   $('.dropdown-profile-mid img').attr("src",src);
+  function sendMessage(){
+    location.href="../../messages?id="+user_id;
+  }
+  function gotoMessage(){
+      location.href="../../messages";
+    }
 </script>
 </body>
 </html>

@@ -2,7 +2,7 @@
     $gray: #92959E;
     display: flex;
     justify-content: space-around;
-    width: 90%;
+    width: 95%;
     margin: 0 auto;
     padding: 1rem 0;
 
@@ -48,7 +48,7 @@
 
         .about {
             float: left;
-            width: 85%;
+            width: 80%;
         }
 
         .about {
@@ -62,7 +62,7 @@
     }
 
     .chat {
-        width: 70%;
+        width: 90%;
         background: #F2F5F8;
         border-top-right-radius: 5px;
         border-bottom-right-radius: 5px;
@@ -75,6 +75,9 @@
 
             img {
                 float: left;
+                width: 5rem;
+                height: 5rem;
+                border-radius: 50%;
             }
 
             .chat-about {
@@ -97,7 +100,7 @@
             padding: 30px 30px 20px;
             border-bottom: 2px solid white;
             overflow-y: scroll;
-            height: 575px;
+            height: 600px;
 
             ul {
                 list-style: none;
@@ -162,9 +165,10 @@
 
         .chat-message {
             padding: 30px;
+            display: flex;
 
             textarea {
-                width: 100%;
+                width: 90%;
                 border: none;
                 padding: 10px 20px;
                 font: 14px/22px "Lato", Arial, sans-serif;
@@ -174,16 +178,7 @@
 
             }
 
-            .fa-file-o,
-            .fa-file-image-o {
-                font-size: 16px;
-                color: gray;
-                cursor: pointer;
-
-            }
-
             button {
-                float: right;
                 color: $color-primary;
                 font-size: 16px;
                 text-transform: uppercase;
@@ -191,6 +186,21 @@
                 cursor: pointer;
                 font-weight: bold;
                 background: #F2F5F8;
+                padding: .8rem 1.2rem;
+                border: 1px solid $color-primary;
+                transition: .2s all;
+                outline: none;
+                height: 3.6rem;
+                margin-left: 1.2rem;
+                margin-top: 3rem;
+
+                &:hover {
+                    transform: translateY(-3px);
+
+                    &:active {
+                        transform: translateY(1px);
+                    }
+                }
 
                 i {
                     margin-right: .8rem;

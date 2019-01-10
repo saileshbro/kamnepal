@@ -2788,7 +2788,7 @@ div.ui-datepicker {
   display: flex;
   -ms-flex-pack: distribute;
       justify-content: space-around;
-  width: 90%;
+  width: 95%;
   margin: 0 auto;
   padding: 1rem 0;
 }
@@ -2836,7 +2836,7 @@ div.ui-datepicker {
 
 .messageBody .people-list .about {
   float: left;
-  width: 85%;
+  width: 80%;
 }
 
 .messageBody .people-list .about {
@@ -2848,7 +2848,7 @@ div.ui-datepicker {
 }
 
 .messageBody .chat {
-  width: 70%;
+  width: 90%;
   background: #F2F5F8;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
@@ -2862,6 +2862,9 @@ div.ui-datepicker {
 
 .messageBody .chat .chat-header img {
   float: left;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
 }
 
 .messageBody .chat .chat-header .chat-about {
@@ -2883,7 +2886,7 @@ div.ui-datepicker {
   padding: 30px 30px 20px;
   border-bottom: 2px solid white;
   overflow-y: scroll;
-  height: 575px;
+  height: 600px;
 }
 
 .messageBody .chat .chat-history ul {
@@ -2947,10 +2950,13 @@ div.ui-datepicker {
 
 .messageBody .chat .chat-message {
   padding: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .messageBody .chat .chat-message textarea {
-  width: 100%;
+  width: 90%;
   border: none;
   padding: 10px 20px;
   font: 14px/22px "Lato", Arial, sans-serif;
@@ -2959,15 +2965,7 @@ div.ui-datepicker {
   resize: none;
 }
 
-.messageBody .chat .chat-message .fa-file-o,
-.messageBody .chat .chat-message .fa-file-image-o {
-  font-size: 16px;
-  color: gray;
-  cursor: pointer;
-}
-
 .messageBody .chat .chat-message button {
-  float: right;
   color: #5d78ff;
   font-size: 16px;
   text-transform: uppercase;
@@ -2975,6 +2973,24 @@ div.ui-datepicker {
   cursor: pointer;
   font-weight: bold;
   background: #F2F5F8;
+  padding: .8rem 1.2rem;
+  border: 1px solid #5d78ff;
+  -webkit-transition: .2s all;
+  transition: .2s all;
+  outline: none;
+  height: 3.6rem;
+  margin-left: 1.2rem;
+  margin-top: 3rem;
+}
+
+.messageBody .chat .chat-message button:hover {
+  -webkit-transform: translateY(-3px);
+          transform: translateY(-3px);
+}
+
+.messageBody .chat .chat-message button:hover:active {
+  -webkit-transform: translateY(1px);
+          transform: translateY(1px);
 }
 
 .messageBody .chat .chat-message button i {
