@@ -94,7 +94,7 @@ include '../../index-nav.php'; ?>
 <div class="Profile-main-body">
   <div class="profile-left">
     <div class="prof-head-img2">
-       <img src=<?php echo "../." . $profileImg ?> alt="profile-pic">
+       <img src=<?php echo "../../" . getColumn("select profile_img from profile where user_id='$user_id'", "profile_img"); ?> alt="profile-pic">
        <?php
       if ($user_id === $userId) {
         echo "<a href='update.php' class='message'><i class='far fa-edit'></i></i>Edit Profile</a>";
