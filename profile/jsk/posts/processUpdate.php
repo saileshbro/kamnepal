@@ -88,3 +88,4 @@ foreach ($_POST as $key => $value) {
         }
     }
 }
+echo $user_id;

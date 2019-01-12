@@ -2790,7 +2790,7 @@ div.ui-datepicker {
       justify-content: space-around;
   width: 95%;
   margin: 0 auto;
-  padding: 1rem 0;
+  padding: .1rem 0;
 }
 
 .messageBody .people-list {
@@ -2813,16 +2813,26 @@ div.ui-datepicker {
   padding: 20px;
   height: 770px;
   list-style: none;
+  margin-left: 2rem;
+  padding-top: 0;
 }
 
 .messageBody .people-list ul li {
-  padding-bottom: 20px;
+  padding: 1rem 0;
+  margin: 1rem 0;
 }
 
 .messageBody .people-list ul li .name {
   color: white;
   font-weight: bold;
-  font-size: 1.3rem;
+  font-size: 1.5rem;
+  font-family: "PT Sans";
+}
+
+.messageBody .people-list ul li img {
+  height: 4rem;
+  width: 4rem;
+  border-radius: 50%;
 }
 
 .messageBody .people-list img {
@@ -2856,7 +2866,7 @@ div.ui-datepicker {
 }
 
 .messageBody .chat .chat-header {
-  padding: 20px;
+  padding: 10px 2rem;
   border-bottom: 2px solid white;
 }
 
@@ -2886,7 +2896,7 @@ div.ui-datepicker {
   padding: 30px 30px 20px;
   border-bottom: 2px solid white;
   overflow-y: scroll;
-  height: 600px;
+  height: 580px;
 }
 
 .messageBody .chat .chat-history ul {
@@ -2912,7 +2922,7 @@ div.ui-datepicker {
   line-height: 26px;
   font-size: 16px;
   border-radius: 7px;
-  margin-bottom: 30px;
+  margin-bottom: 15px;
   width: 90%;
   position: relative;
 }
@@ -2949,20 +2959,50 @@ div.ui-datepicker {
 }
 
 .messageBody .chat .chat-message {
-  padding: 30px;
+  padding: 15px 30px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  justify-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
-.messageBody .chat .chat-message textarea {
+.messageBody .chat .chat-message #message-to-send {
+  display: block;
   width: 90%;
   border: none;
-  padding: 10px 20px;
   font: 14px/22px "Lato", Arial, sans-serif;
-  margin-bottom: 10px;
   border-radius: 5px;
-  resize: none;
+  padding: .8rem 1rem 5rem 1rem;
+  border-bottom: 0.2rem solid rgba(93, 120, 255, 0.8);
+}
+
+.messageBody .chat .chat-message #message-to-send:focus {
+  -webkit-box-shadow: 0 0.4rem 2px -2px #0fe456;
+          box-shadow: 0 0.4rem 2px -2px #0fe456;
+}
+
+.messageBody .chat .chat-message #message-to-send::-webkit-input-placeholder {
+  font-weight: 400;
+}
+
+.messageBody .chat .chat-message #message-to-send:-ms-input-placeholder {
+  font-weight: 400;
+}
+
+.messageBody .chat .chat-message #message-to-send::-ms-input-placeholder {
+  font-weight: 400;
+}
+
+.messageBody .chat .chat-message #message-to-send::placeholder {
+  font-weight: 400;
 }
 
 .messageBody .chat .chat-message button {
@@ -2978,9 +3018,7 @@ div.ui-datepicker {
   -webkit-transition: .2s all;
   transition: .2s all;
   outline: none;
-  height: 3.6rem;
   margin-left: 1.2rem;
-  margin-top: 3rem;
 }
 
 .messageBody .chat .chat-message button:hover {
@@ -3025,6 +3063,180 @@ div.ui-datepicker {
   content: " ";
   clear: both;
   height: 0;
+}
+
+.post-main {
+  width: 85%;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  font-family: 'Fira Sans';
+}
+
+.post-main .post-text {
+  width: 65%;
+  background: white;
+  padding: 3rem;
+}
+
+.post-main .post-text .post-title {
+  font-size: 3.5rem;
+  line-height: 3.5rem;
+  color: #4665fd;
+  margin-bottom: 2rem;
+}
+
+.post-main .post-text .post-head {
+  margin-bottom: 1.5rem;
+  color: #777;
+  font-size: 1.5rem;
+  font-family: "PT Sans", sans-serif;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.post-main .post-text .post-head .posted-on {
+  text-transform: lowercase;
+  font-style: italic;
+  margin-right: 4rem;
+}
+
+.post-main .post-text .post-head .posted-on em {
+  font-style: normal;
+}
+
+.post-main .post-text .post-head .post-by {
+  margin-right: 3rem;
+  font-style: italic;
+  text-transform: lowercase;
+}
+
+.post-main .post-text .post-head .post-by a {
+  text-transform: none;
+  font-size: 2.1rem;
+  font-style: normal;
+  text-decoration: none;
+  font-family: 'Muli';
+  color: #ff7730;
+  cursor: pointer;
+  margin-left: 0.5rem;
+}
+
+.post-main .post-text .post-head .post-by a::first-letter {
+  font-size: 2.2rem;
+}
+
+.post-main .post-text .post-media {
+  overflow: hidden;
+}
+
+.post-main .post-text .post-media img {
+  -o-object-fit: fill;
+     object-fit: fill;
+  width: 100%;
+  margin: -10rem 0 -30rem 0;
+}
+
+.post-main .post-text .actual-post {
+  margin: 3rem 0;
+  font-size: 2rem;
+  color: #333;
+  font-family: 'Muli';
+}
+
+.post-main .post-related {
+  width: 30%;
+  padding: 3rem;
+  padding-top: 8rem;
+}
+
+.post-main .post-related hr {
+  width: 60%;
+  margin: 0rem auto;
+  opacity: .1;
+  color: #777;
+}
+
+.post-main .post-related .related-head {
+  text-align: center;
+  background: whitesmoke;
+  color: #4665fd;
+  font-size: 2.5rem;
+  margin: 0 1.4rem;
+  padding-top: 1.4rem;
+  position: relative;
+}
+
+.post-main .post-related .related-head::after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 90%;
+  width: 2.5rem;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  border-top: 3px solid #0fe456;
+}
+
+.post-main .post-related .related-body {
+  background: whitesmoke;
+  margin: 0 1.4rem;
+  padding: 1.4rem 0;
+  padding-bottom: 2rem;
+}
+
+.post-main .post-related .related-body li {
+  list-style: none;
+  margin: 1.5rem 0 .8rem 0;
+  padding-left: 4rem;
+}
+
+.post-main .post-related .related-body li span {
+  font-size: 2rem;
+  font-family: "Fira Sans";
+}
+
+.post-main .post-related .related-body li a {
+  text-decoration: none;
+  color: #5d78ff;
+  font-size: 1.8rem;
+  cursor: pointer;
+  font-family: 'Muli';
+  font-size: 1.7rem;
+  font-weight: 600;
+  -webkit-transition: all .2s;
+  transition: all .2s;
+  position: relative;
+}
+
+.post-main .post-related .related-body li a:hover {
+  font-size: 1.85rem;
+}
+
+.post-main .post-related .related-body li a:hover::after {
+  -webkit-animation: underlineToRight 1s ease-in-out normal;
+          animation: underlineToRight 1s ease-in-out normal;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+.post-main .post-related .related-body li a::after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 115%;
+  width: 0;
+  left: -5%;
+  border-top: 3px solid #ff7730;
 }
 
 .card {

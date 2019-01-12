@@ -7,13 +7,13 @@ $type = getColumn("select type from user where id='$user_id'", 'type');
 if ($type === "Employer") {
   header("Location: ../emp/display.php?user_id=" . $user_id);
 }
-$email = getColumn("select email from user where id='$user_id'", "email");
-$sql = "select profile.*,user.v_status from profile,user where profile.user_id='$user_id' AND user.id=profile.user_id";
+$sql = "select profile.*,user.v_status,user.email from profile,user where profile.user_id='$user_id' AND user.id=profile.user_id";
 $res = mysqli_query($con, $sql);
 while ($row = mysqli_fetch_array($res)) {
   $fname = $row['fname'];
   $gender = $row['gender'];
   $dob = $row['dob'];
+  $Email = $row['email'];
   $address = $row['address'];
   $phone = $row['phone'];
   $profile_img = $row['profile_img'];
@@ -64,7 +64,11 @@ while ($row = mysqli_fetch_array($res)) {
     </form>
   </div>
 </div>
-<?php include '../../index-nav.php'; ?>
+<?php include '../../index-nav.php';
+if (!mysqli_num_rows(mysqli_query($con, "SELECT id from user where id='$user_id'")) > 0) {
+  header('Location: ?user_id=' . $userId);
+}
+?>
 <?php require '../../includes/modal-education.php'; ?>
 <?php require '../../includes/modal-experience.php'; ?>
 <div class="Profile-main-body">
@@ -196,7 +200,7 @@ while ($row = mysqli_fetch_array($res)) {
         </div>
         <div class="right-elements">
         <span class="heading"><i class="fas fa-at"></i>Email</span>
-        <span class="text"><?php echo $email; ?><span>
+        <span class="text"><?php echo $Email; ?><span>
         </div>
         </div>
         <!-- to edit here -->

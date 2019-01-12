@@ -30,6 +30,12 @@ function removeSkillPressed() {
     val3--;
 }
 $(document).ready(() => {
+    $("#dob").datepicker({
+        changeYear: true,
+        changeMonth: true,
+        yearRange: "1950:2000",
+
+    });
     $('#addEducation').click(() => {
         $('#education').append("<div class='cvform edu-" + val1 + "'><input type='text' name='course-title-" + val1 + "' placeholder='Your course name'><input type='text' name='course-inst-" + val1 + "' placeholder='Your Institution&apos;s name'><input type='text' name='course-begin-" + val1 + "' placeholder='Course start year'><input type='text' name='course-end-" + val1 + "' placeholder='Course ended. Blank for present'><textarea name='course-detail-" + val1 + "' id='' cols='30' rows='10' placeholder='Add your course Details'></textarea><a href='javascript:;' onclick='removeEduPressed();' class='links remedu" + val1 + "' >Remove</a></div>");
         val1++;

@@ -3,6 +3,7 @@ include "../database/db.php";
 include "../auth/authenticate.php";
 $db = new Database();
 $con = $db->con;
+
 $sender_id = getColumn("select id from user where email='$email'", 'id');
 $reciever_id = $_GET['id'];
 $reciever_name = getColumn("select fname from profile where user_id='$reciever_id'", 'fname');
@@ -19,7 +20,7 @@ foreach ($chats as $chat) {
         ?>
     <li class="clearfix">
             <div class="message-data align-right">
-              <span class="message-data-time" >10:10 AM, Today</span> &nbsp; &nbsp;
+              <span class="message-data-time" ><?php echo $chat['sent_at']; ?></span> &nbsp; &nbsp;
               <span class="message-data-name" ><?php echo $sender_name; ?></span> <i class=" me"></i>
             </div>
             <div class="message other-message float-right">
@@ -32,8 +33,8 @@ foreach ($chats as $chat) {
     ?>
     <li>
             <div class="message-data">
-              <span class="message-data-name"><i class=" online"></i><?php echo $reciever_name; ?></span>
-              <span class="message-data-time">10:12 AM, Today</span>
+              <span class="message-data-name"><i class="online"></i><?php echo $reciever_name; ?></span>
+              <span class="message-data-time"><?php echo $chat['sent_at']; ?></span>
             </div>
             <div class="message my-message">
             <?php echo $chat['message']; ?>

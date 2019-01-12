@@ -23,6 +23,7 @@ if (file_exists('../uploads/cv.jpeg')) {
         <meta name="msapplication-TileColor" content="#da532c">
         <meta name="theme-color" content="#ffffff">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
         <link rel="stylesheet" href="../css/main.css" />
         <title>Kam Nepal | Create CV</title>
     </head>
@@ -105,6 +106,7 @@ if (file_exists('../uploads/cv.jpeg')) {
           </div>
         </div>
         <?php require('../includes/footer.php') ?>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
         <script src="../js/cv.js"></script>
         <script>
         function removeEduPressed() {

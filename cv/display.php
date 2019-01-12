@@ -91,16 +91,16 @@ while (isset($_POST['skill-type-' . $k])) {
         <hr>
         <div class="cv-details">
             <div class="left">
-                <p>Date of Birth</p>
-                <p>Address</p>
-                <p>Phone</p>
-                <p>E-mail</p>
+                <?php echo ($phone === "") ? "" : "<p>Phone</p>"; ?>
+                <?php echo ($email === "") ? "" : "<p>E-mail</p>"; ?>
+                <?php echo ($dob === "") ? "" : "<p>Date Of Birth</p>"; ?>
+                <?php echo ($address === "") ? "" : "<p>Address</p>"; ?>
             </div>
             <div class="right">
-                <p><?php echo $dob ?></p>
-                <p><?php echo $address ?></p>
                 <p><?php echo $phone ?></p>
                 <p><?php echo $email ?></p>
+                <p><?php echo $dob ?></p>
+                <p><?php echo $address ?></p>
             </div>
         </div>
     </main>

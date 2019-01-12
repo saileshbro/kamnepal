@@ -10,3 +10,4 @@ $address = cleanse($_POST['address']) ?? "";
 $phone = cleanse($_POST['phone']) ?? "";
 $bio = cleanse($_POST['bio']) ?? "";
 $res = mysqli_query($con, "update profile set fname='$fname',dob='$dob',address='$address',phone='$phone',bio='$bio' where user_id='$user_id'");
+echo $user_id;

@@ -7,13 +7,40 @@ $type = getColumn("select type from user where id='$user_id'", 'type');
 if ($type === "Jobseeker") {
   header("Location: ../jsk/display.php?user_id=" . $user_id);
 }
-$sql = "select profile.*,user.v_status from profile,user where profile.user_id='$user_id' AND user.id=profile.user_id";
+?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link rel="stylesheet" href="../../css/main.css">
+  <title>Kam Nepal</title>
+</head>
+<body>
+<?php require '../../includes/modal-education.php'; ?>
+<?php require '../../includes/modal-experience.php';
+include '../../index-nav.php';
+if (!mysqli_num_rows(mysqli_query($con, "SELECT id from user where id='$user_id'")) > 0) {
+  header('Location: ?user_id=' . $userId);
+}
+$sql = "select profile.*,user.v_status,user.email from profile,user where profile.user_id='$user_id' AND user.id=profile.user_id";
 $res = mysqli_query($con, $sql);
 while ($row = mysqli_fetch_array($res)) {
   $fname = $row['fname'];
   $gender = $row['gender'];
   $dob = $row['dob'];
   $address = $row['address'];
+  $email = $row['email'];
   $phone = $row['phone'];
   $profile_img = $row['profile_img'];
   $employ_status = $row['employ_status'];
@@ -24,28 +51,6 @@ while ($row = mysqli_fetch_array($res)) {
   $v_status = $row['v_status'];
 }
 ?>
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/site.webmanifest">
-<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-<meta name="msapplication-TileColor" content="#da532c">
-<meta name="theme-color" content="#ffffff">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-  <link rel="stylesheet" href="../../css/main.css">
-  <title>Kam Nepal</title>
-</head>
-<body>
-<?php require '../../includes/modal-education.php'; ?>
-<?php require '../../includes/modal-experience.php';
-include '../../index-nav.php'; ?>
 <div id='modal' class='modal' ></div>
 <div class='modal-post-form'>
 <div class='create-post'>

@@ -1,0 +1,160 @@
+.post-main {
+  width: 85%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Fira Sans';
+
+  .post-text {
+    width: 65%;
+    background: white;
+    padding: 3rem;
+    // border: 1px solid red;
+
+    .post-title {
+      font-size: 3.5rem;
+      line-height: 3.5rem;
+      color: $color-primary-dark;
+      margin-bottom: 2rem;
+
+    }
+
+    .post-head {
+
+      margin-bottom: 1.5rem;
+      color: $color-grey-dark;
+      font-size: 1.5rem;
+      font-family: "PT Sans", sans-serif;
+      display: flex;
+      justify-content: space-between;
+
+      .posted-on {
+        text-transform: lowercase;
+        font-style: italic;
+        margin-right: 4rem;
+
+        em {
+          font-style: normal;
+        }
+      }
+
+      .post-by {
+        margin-right: 3rem;
+        font-style: italic;
+        text-transform: lowercase;
+
+        a {
+          text-transform: none;
+          font-size: 2.1rem;
+          font-style: normal;
+          text-decoration: none;
+          font-family: 'Muli';
+          color: $color-secondary-dark;
+          cursor: pointer;
+          margin-left: 0.5rem;
+
+          &::first-letter {
+            font-size: 2.2rem;
+          }
+        }
+
+      }
+
+    }
+
+    .post-media {
+      overflow: hidden;
+
+      img {
+        object-fit: fill;
+        width: 100%;
+        margin: -10rem 0 -30rem 0;
+      }
+    }
+
+    .actual-post {
+
+      margin: 3rem 0;
+      font-size: 2rem;
+      color: $color-grey-dark-3;
+      font-family: 'Muli';
+
+    }
+  }
+
+  .post-related {
+    width: 30%;
+    padding: 3rem;
+    padding-top: 8rem;
+    // border: 1px solid red;
+
+    hr {
+      width: 60%;
+      margin: 0rem auto;
+      opacity: .1;
+      color: $color-grey-dark;
+    }
+
+    .related-head {
+      text-align: center;
+      background: whitesmoke;
+      color: $color-primary-dark;
+      font-size: 2.5rem;
+      margin: 0 1.4rem;
+      padding-top: 1.4rem;
+      position: relative;
+      @include underTag;
+    }
+
+    .related-body {
+      background: whitesmoke;
+      margin: 0 1.4rem;
+      padding: 1.4rem 0;
+      padding-bottom: 2rem;
+
+      li {
+        list-style: none;
+        margin: 1.5rem 0 .8rem 0;
+        padding-left: 4rem;
+
+        span {
+          font-size: 2rem;
+          font-family: "Fira Sans";
+        }
+
+        a {
+          text-decoration: none;
+          color: $color-primary;
+          font-size: 1.8rem;
+          cursor: pointer;
+          font-family: 'Muli';
+          font-size: 1.7rem;
+          font-weight: 600;
+          transition: all .2s;
+          position: relative;
+
+          &:hover {
+            font-size: 1.85rem;
+
+            &::after {
+              animation: underlineToRight 1s ease-in-out normal;
+              animation-fill-mode: forwards;
+
+            }
+          }
+
+          &::after {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 115%;
+            width: 0;
+            left: -5%;
+            border-top: 3px solid $color-secondary-dark;
+          }
+        }
+      }
+    }
+  }
+
+}

@@ -138,7 +138,7 @@ if ($type == 'Jobseeker') {
               echo '<div class="comp-card">
                       <div class="company-name">
                         <span class="badge">0' . $i . '</span>
-                        <a href="">' . $row['fname'] . '</a>
+                        <a href="/profile/jsk/display.php?user_id=' . $row['id'] . '">' . $row['fname'] . '</a>
                         <p class="company-bio">' . $row['bio'] . '</p>
                       </div>
                     </div>';
@@ -150,7 +150,7 @@ if ($type == 'Jobseeker') {
               echo '<div class="comp-card">
                       <div class="company-name">
                         <span class="badge">0' . $i . '</span>
-                        <a href="">' . $row['fname'] . '</a>
+                        <a href="/profile/emp/display.php?user_id=' . $row['id'] . '">' . $row['fname'] . '</a>
                         <p class="company-bio">' . $row['bio'] . '</p>
                       </div>
                     </div>';
