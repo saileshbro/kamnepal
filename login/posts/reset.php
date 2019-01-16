@@ -14,8 +14,6 @@ if ($num > 0) {
     $fcode = substr(str_shuffle(md5(microtime())), 0, 7);
     $sql1 = "UPDATE user set fcode='$fcode' WHERE email='$email'";
     $res1 = mysqli_query($con, $sql1);
-
-    // send  mail with the reset link
     $link = "kam.nepal/login/forgot.php?email=$email&fcode=$fcode";
     $link = "<a href='$link'>" . $link . "</a>";
     $mailer = new Mailer();

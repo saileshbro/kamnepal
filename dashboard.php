@@ -170,10 +170,7 @@ if ($type == 'Jobseeker') {
       removeButtons: 'Paste,Cut,Copy,Undo,Redo,Anchor'
     });
     createpost.on('instanceReady', function () {
-      // Output self-closing tags the HTML4 way, like <br>.
       this.dataProcessor.writer.selfClosingEnd = '>';
-
-      // Use line breaks for block elements, tables, and lists.
       var dtd = CKEDITOR.dtd;
       for (var e in CKEDITOR.tools.extend({}, dtd.$nonBodyContent, dtd.$block, dtd.$listItem, dtd.$tableContent)) {
         this.dataProcessor.writer.setRules(e, {

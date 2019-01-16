@@ -603,6 +603,7 @@ body {
   display: -ms-flexbox;
   display: flex;
   padding: 3rem;
+  min-height: 57.8rem;
   -webkit-box-align: self-start !important;
       -ms-flex-align: self-start !important;
           align-items: self-start !important;
@@ -952,6 +953,7 @@ body {
 
 .containerProfile {
   padding: 3rem;
+  min-height: 57.8rem;
 }
 
 .containerProfile .profileUpdate {
@@ -1031,7 +1033,7 @@ body {
   display: flex;
 }
 
-.containerProfile .profileUpdate #skill-set .skillinp .inpgrp .skills {
+.containerProfile .profileUpdate #skill-set .skillinp .inpgrp .input1 {
   display: inline-block;
   -webkit-box-pack: start;
       -ms-flex-pack: start;
@@ -1044,7 +1046,7 @@ body {
   background: white;
 }
 
-.containerProfile .profileUpdate #skill-set .skillinp .inpgrp .skills:first-child {
+.containerProfile .profileUpdate #skill-set .skillinp .inpgrp .input1:first-child {
   margin-right: 1.5rem;
 }
 
@@ -1312,6 +1314,7 @@ body {
       -ms-flex-align: self-start;
           align-items: self-start;
   padding: 3rem;
+  min-height: 57.8rem;
 }
 
 .Profile-main-body .profile-left {
@@ -1805,6 +1808,7 @@ div.ui-datepicker {
   -ms-flex-pack: distribute;
       justify-content: space-around;
   background: whitesmoke;
+  min-height: 57.8rem;
 }
 
 .dashboard-body .dashboard-left {
@@ -2104,11 +2108,67 @@ div.ui-datepicker {
 .modal {
   width: 100vw;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.6);
   padding-top: 5rem;
   display: none;
   z-index: 3;
   position: fixed;
+}
+
+.modal .imageWrapper {
+  margin: auto;
+  -webkit-box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.8);
+          box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.8);
+  position: absolute;
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  border-radius: .5rem;
+  min-width: 70vw;
+}
+
+.modal .imageWrapper .modal-title {
+  position: absolute;
+  width: 3rem;
+  height: 3rem;
+  top: -1.5rem;
+  right: -1.5rem;
+  cursor: pointer;
+  -webkit-transition: all .2s;
+  transition: all .2s;
+  text-align: center;
+  border-radius: 50%;
+  text-decoration: none;
+  background: white;
+  -webkit-box-shadow: 2px 2px 20px #272626;
+          box-shadow: 2px 2px 20px #272626;
+  color: black;
+  font-size: 3rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  z-index: 4;
+}
+
+.modal .imageWrapper .modal-title:hover {
+  background: black;
+  color: white;
+}
+
+.modal .imageWrapper .postImage {
+  display: block;
+  width: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 .modal .change {
@@ -3276,6 +3336,7 @@ div.ui-datepicker {
      object-fit: fill;
   width: 100%;
   margin: -10rem 0 -30rem 0;
+  cursor: pointer;
 }
 
 .post-main .post-text .actual-post {
@@ -3387,7 +3448,7 @@ div.ui-datepicker {
 .post-main .post-related .related-body li a {
   text-decoration: none;
   color: #5d78ff;
-  font-size: 1.8rem;
+  font-size: 1.4rem;
   cursor: pointer;
   font-family: 'Muli';
   font-size: 1.7rem;
@@ -3395,10 +3456,6 @@ div.ui-datepicker {
   -webkit-transition: all .2s;
   transition: all .2s;
   position: relative;
-}
-
-.post-main .post-related .related-body li a:hover {
-  font-size: 1.85rem;
 }
 
 .post-main .post-related .related-body li a:hover::after {

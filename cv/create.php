@@ -109,28 +109,44 @@ if (file_exists('../uploads/cv.jpeg')) {
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
         <script src="../js/cv.js"></script>
         <script>
-        function removeEduPressed() {
-            let val = val1 - 1;
-            let str = ".remedu" + val;
-            let str2 = ".edu-" + val;
-            $(str2).remove();
-            val1--;
+        function removeEduPressed(data) {
+            let grandfather = data.parentElement; //education
+            data.remove();
+            let children = grandfather.children;
+            for(let i= 0;i<children.length;i++){
+                let inputs = children[i].children;
+                inputs[0].attributes['name'].nodeValue="course-title-"+i;
+                inputs[1].attributes['name'].nodeValue="course-inst-"+i;
+                inputs[2].attributes['name'].nodeValue="course-begin-"+i;
+                inputs[3].attributes['name'].nodeValue="course-end-"+i;
+                inputs[4].attributes['name'].nodeValue="course-detail-"+i;
+            }
         }
 
-        function removeExpPressed() {
-            let vall = val2 - 1;
-            let str3 = ".remexp" + vall;
-            let str4 = ".exp-" + vall;
-            $(str4).remove();
-            val2--;
+        function removeExpPressed(data) {
+            let grandfather = data.parentElement;
+            data.remove();
+            let children = grandfather.children;
+            for(let i= 0;i<children.length;i++){
+                let inputs = children[i].childNodes;
+                inputs[0].attributes['name'].nodeValue="emp-title-"+i;
+                inputs[1].attributes['name'].nodeValue="emp-comp-"+i;
+                inputs[2].attributes['name'].nodeValue="emp-begin-"+i;
+                inputs[3].attributes['name'].nodeValue="emp-end-"+i;
+                inputs[4].attributes['name'].nodeValue="emp-detail-"+i;
+            }
         }
 
-        function removeSkillPressed() {
-            let valll = val3 - 1;
-            let str5 = ".remskill" + valll;
-            let str6 = ".skills-" + valll;
-            $(str6).remove();
-            val3--;
+        function removeSkillPressed(data) {
+            let grandfather = data.parentElement;
+            data.remove();
+            let children = grandfather.children;
+            for(let i= 0;i<children.length;i++){
+                let inputs = children[i].childNodes[0];
+                inputs.childNodes[0].attributes['name'].nodeValue="skill-type-"+i;
+                inputs.childNodes[1].attributes['name'].nodeValue="skill-list-"+i;
+            }
+
         }
         </script>
             <script>

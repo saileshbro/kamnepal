@@ -6,7 +6,7 @@ var email;
 var fcode;
 
 function changePass() {
-  $('#modal').show();
+  $('#modal').fadeIn();
 }
 
 function newPass() {
@@ -359,6 +359,7 @@ $(document).ready(() => {
       $(".modal-title").click();
       $("#edu-modal-head").click();
       $("#exp-modal-head").click();
+      $('.modal').fadeOut();
       // $('.modal-forgot').fadeOut();
     }
   });

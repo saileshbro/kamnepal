@@ -5,6 +5,7 @@ $con = $db->con;
 $postid = cleanse($_GET['id']) ?? '';
 $posts = "select * from posts where id = '$postid'";
 $result1 = mysqli_query($con, $posts);
+
 $row1 = mysqli_fetch_assoc($result1);
 $user_id = $row1['user_id'];
 $category = $row1['category'];
@@ -31,8 +32,32 @@ $user_type = $row2['type'];
   <title>Kam Nepal | Posts</title>
 </head>
 <body>
-    <?php include '../index-nav.php' ?>
-  <div class='modal' id="modal"></div>
+  <?php
+  if (!mysqli_num_rows($result1) > 0) {
+    include '../index-nav.php';
+    echo '<div class="post-main" style="height:578px">
+    <div class="post-text">
+        <h1 class="post-title">No Post available.</h1>
+    </div>  
+  </div>';
+    include "../includes/footer.php";
+    echo "<script src='/js/app.js'></script>";
+    echo "<script>var src = '" . $profileImg . "';
+    src = \"../..\"+src;
+    $('#nav-pro-img').attr(\"src\",src);
+    $('.dropdown-profile-mid img').attr(\"src\",src)</script>";
+    die();
+  }
+  if ($row1['media'] !== "") {
+    echo "<div class='modal' id='modal'>
+            <div class='imageWrapper'>
+              <a href='javascript:;' class='modal-title' onclick=\"$('.modal').fadeOut();\">&times;</a>
+              <img class='postImage' src='../" . $row1['media'] . "'>
+            </div>
+          </div>";
+  }
+  include '../index-nav.php';
+  ?>
   
   <div class="post-main">
   <div class="post-text">
@@ -45,7 +70,7 @@ $user_type = $row2['type'];
       </div>
         <?php
         if ($row1['media'] !== "") {
-          echo '<div class="post-media"><img src="../' . $row1['media'] . '?>"></div>';
+          echo '<div onclick="showImage()" class="post-media"><img src="../' . $row1['media'] . '"></div>';
         }
         ?>
       <div class="actual-post">
@@ -94,6 +119,19 @@ $user_type = $row2['type'];
   <?php include "../includes/footer.php" ?>
   <script src="/js/app.js"></script>
   <script>
+    function showImage(){
+      $('.modal').fadeIn();
+      $(document).mouseup(function (e) {
+        var container = $(".imageWrapper");
+        if (!container.is(e.target) && container.has(e.target).length === 0) {
+          // container.fadeOut();
+          $('.modal').fadeOut();
+        }
+      }); 
+    }
+    function gotoMessage(){
+      location.href="../messages";
+    }
     var src = "<?= $profileImg ?>";
   src = "../."+src;
   $('#nav-pro-img').attr("src",src);

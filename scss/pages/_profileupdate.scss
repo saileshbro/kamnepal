@@ -1,6 +1,7 @@
 .containerProfile {
   // background: rgba(red,.3);
   padding: 3rem;
+  min-height: 57.8rem;
 
   .profileUpdate {
     margin: 0 auto;
@@ -75,7 +76,7 @@
         .inpgrp {
           display: flex;
 
-          .skills {
+          .input1 {
             display: inline-block;
             justify-content: start;
             width: 45%;
