@@ -81,13 +81,14 @@ while ($row = mysqli_fetch_array($res)) {
     </form>
   </div>
 </div>
+<?php require '../../includes/modal-education.php'; ?>
+<?php require '../../includes/modal-experience.php'; ?>
 <?php include '../../index-nav.php';
 if (!mysqli_num_rows(mysqli_query($con, "SELECT id from user where id='$user_id'")) > 0) {
   header('Location: ?user_id=' . $userId);
 }
 ?>
-<?php require '../../includes/modal-education.php'; ?>
-<?php require '../../includes/modal-experience.php'; ?>
+
 <div class="Profile-main-body">
   <div class="profile-left">
     <div class="prof-head-img">

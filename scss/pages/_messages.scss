@@ -12,6 +12,11 @@
         background: $color-nav-footer;
         margin-right: 2rem;
 
+        .search {
+            padding: 20px;
+            position: relative;
+        }
+
         input {
             border-radius: 3px;
             border: none;
@@ -19,7 +24,24 @@
             color: white;
             background: #6A6C75;
             width: 90%;
-            font-size: 14px;
+            font-size: 1.4rem;
+            font-weight: bold;
+            font-family: 'PT Sans';
+
+            &::placeholder {
+                font-size: 1.6rem;
+                text-transform: capitalize;
+                font-family: 'PT Sans';
+            }
+        }
+
+        .fa-search {
+            position: absolute;
+            font-size: 2.3rem;
+            top: 50%;
+            right: 7rem;
+            transform: translateY(-50%);
+            color: white;
         }
 
         ul {
@@ -111,7 +133,7 @@
             padding: 30px 30px 20px;
             border-bottom: 2px solid white;
             overflow-y: scroll;
-            height: 580px;
+            height: 65rem;
 
             ul {
                 list-style: none;

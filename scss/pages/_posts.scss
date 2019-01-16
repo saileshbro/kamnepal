@@ -87,16 +87,13 @@
       table,
       ul,
       p {
-        margin-left: 1.8rem;
         padding: 0;
         display: block;
       }
 
       p {
         &:has(+ strong) {
-          a {
-            margin-left: 1.8rem;
-          }
+          a {}
         }
       }
 

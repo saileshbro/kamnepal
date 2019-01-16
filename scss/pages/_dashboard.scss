@@ -1,5 +1,4 @@
 .dashboard-body {
-  // font-family: Arial, Helvetica, sans-serif;
   padding: 1rem;
   display: flex;
   justify-content: space-around;
@@ -10,12 +9,11 @@
 
     .dashboard-card {
       background: white;
-      box-shadow: 1px 1px 8px rgba($color-tertiary-dark, 0.36);
-      // position: fixed;
+      border: 1px solid rgba($color-grey-dark-2, 0.36);
+
       padding: 1rem;
       margin: 1rem auto;
       width: 97%;
-      border-radius: .5rem;
       font-size: 1.1rem;
       text-align: center;
 
@@ -77,10 +75,9 @@
 
     .create-post {
       background: white;
-      border-radius: .5rem;
 
       form {
-        box-shadow: 1px 1px 8px rgba($color-tertiary-dark, 0.36);
+        border: 1px solid rgba($color-grey-dark-2, 0.36);
         margin: 0 0 3rem;
         padding: 2rem;
 
@@ -93,7 +90,7 @@
         select {
           margin-bottom: 1rem;
           display: block;
-          padding: .5rem 1rem !important;
+          padding: 1.2rem .8rem !important;
         }
 
         h2 {
@@ -145,7 +142,7 @@
           }
 
           a {
-            // font-weight: bold;
+
             font-size: 1.8rem;
             padding: 0 3rem;
             display: flex;
@@ -175,6 +172,7 @@
             width: 55%;
             display: inline-block;
             margin-right: 2rem !important;
+            padding: 1.2rem .8rem;
 
           }
 
@@ -212,14 +210,24 @@
     }
 
     .actual-post {
-      border-radius: .5rem;
-      box-shadow: 1px 1px 8px rgba($color-tertiary-dark, 0.36);
+      border: 1px solid rgba($color-grey-dark-2, 0.36);
       background: white;
-      padding: 2rem;
       margin: 1rem 0;
-      // max-height: 72rem;
-      // overflow: auto;
 
+      .job {
+        margin: 1.2rem .8rem;
+
+        .jobPosts {
+          color: $color-primary-dark-2;
+
+          &:visited,
+          &:active,
+          &:hover {
+            color: $color-primary-dark-2;
+          }
+        }
+
+      }
     }
   }
 
@@ -230,8 +238,7 @@
     .dashboard-comp {
       padding: 1rem 1.5rem;
       background: white;
-      border-radius: .5rem;
-      box-shadow: 1px 1px 8px rgba($color-tertiary-dark, 0.36);
+      border: 1px solid rgba($color-grey-dark-2, 0.36);
       overflow: auto;
       max-height: 74.2rem;
 
@@ -240,7 +247,7 @@
         text-align: center;
         margin: 0;
         padding: 0;
-        // height: 90vh;
+
         overflow-y: auto;
         text-align: left;
 

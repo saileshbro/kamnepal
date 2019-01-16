@@ -93,5 +93,11 @@ $user_type = $row2['type'];
   
   <?php include "../includes/footer.php" ?>
   <script src="/js/app.js"></script>
+  <script>
+    var src = "<?= $profileImg ?>";
+  src = "../."+src;
+  $('#nav-pro-img').attr("src",src);
+  $('.dropdown-profile-mid img').attr("src",src);
+  </script>
 </body>
 </html>

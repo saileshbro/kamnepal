@@ -40,9 +40,13 @@ if (!mysqli_num_rows(mysqli_query($con, "SELECT id from user where id='$reciever
     ?>
     <section class='messageBody'>
     <div class="people-list" id="people-list">
+    <div class="search">
+        <input type="text" oninput="search(this.value);"placeholder="search" />
+        <i class="fa fa-search"></i>
+      </div>
       <ul class="list">
       </ul>
-</div>
+    </div>
     <!-- right side -->
     <div class="chat">
       <div class="chat-header clearfix">
@@ -143,6 +147,19 @@ if (!mysqli_num_rows(mysqli_query($con, "SELECT id from user where id='$reciever
       sendMessage();
     }
 });
+function search(query){
+  let people = $("li.clearfix div.about .name");
+  query = query.toLowerCase();
+  let textVal;
+  for(let i=0;i<people.length;i++){
+    textVal=people[i].textContent || people[i].innerText;
+    if(textVal.toLowerCase().indexOf(query)>-1){
+      people[i].parentElement.parentElement.style.display="";
+    }else{
+      people[i].parentElement.parentElement.style.display="none";
+    }
+  }
+}
 </script>
 </body>
 </html>

@@ -2,7 +2,7 @@
 include("../../database/db.php");
 $db = new Database();
 $con = $db->con;
-if (isset($_POST['password3']) && isset(($_POST['user_id']))) {
+if (isset($_POST['password3']) && isset($_POST['user_id'])) {
     $user_id = cleanse($_POST['user_id']) ?? "";
     $email = getColumn("select email from user where id='$user_id'", 'email');
     $dbpass = getColumn("select password from user where id='$user_id'", 'password');
@@ -49,7 +49,8 @@ if (isset($_POST['password3']) && isset(($_POST['user_id']))) {
             $password = md5($password . $email);
             $sql1 = "UPDATE user set password='$password' WHERE email='$email'";
             $res1 = mysqli_query($con, $sql1);
-
+            $str = "";
+            mysqli_query($con, "update user set fcode='$str' where email='$email'");
             echo '
         <script>
             location.href = "login.php";

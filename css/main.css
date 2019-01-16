@@ -1813,12 +1813,10 @@ div.ui-datepicker {
 
 .dashboard-body .dashboard-left .dashboard-card {
   background: white;
-  -webkit-box-shadow: 1px 1px 8px rgba(15, 228, 86, 0.36);
-          box-shadow: 1px 1px 8px rgba(15, 228, 86, 0.36);
+  border: 1px solid rgba(153, 153, 153, 0.36);
   padding: 1rem;
   margin: 1rem auto;
   width: 97%;
-  border-radius: .5rem;
   font-size: 1.1rem;
   text-align: center;
 }
@@ -1880,12 +1878,10 @@ div.ui-datepicker {
 
 .dashboard-body .dashboard-middle .create-post {
   background: white;
-  border-radius: .5rem;
 }
 
 .dashboard-body .dashboard-middle .create-post form {
-  -webkit-box-shadow: 1px 1px 8px rgba(15, 228, 86, 0.36);
-          box-shadow: 1px 1px 8px rgba(15, 228, 86, 0.36);
+  border: 1px solid rgba(153, 153, 153, 0.36);
   margin: 0 0 3rem;
   padding: 2rem;
 }
@@ -1899,7 +1895,7 @@ div.ui-datepicker {
 .dashboard-body .dashboard-middle .create-post form select {
   margin-bottom: 1rem;
   display: block;
-  padding: .5rem 1rem !important;
+  padding: 1.2rem .8rem !important;
 }
 
 .dashboard-body .dashboard-middle .create-post form h2 {
@@ -2004,6 +2000,7 @@ div.ui-datepicker {
   width: 55%;
   display: inline-block;
   margin-right: 2rem !important;
+  padding: 1.2rem .8rem;
 }
 
 .dashboard-body .dashboard-middle .create-post form .inp-grp select {
@@ -2061,12 +2058,21 @@ div.ui-datepicker {
 }
 
 .dashboard-body .dashboard-middle .actual-post {
-  border-radius: .5rem;
-  -webkit-box-shadow: 1px 1px 8px rgba(15, 228, 86, 0.36);
-          box-shadow: 1px 1px 8px rgba(15, 228, 86, 0.36);
+  border: 1px solid rgba(153, 153, 153, 0.36);
   background: white;
-  padding: 2rem;
   margin: 1rem 0;
+}
+
+.dashboard-body .dashboard-middle .actual-post .job {
+  margin: 1.2rem .8rem;
+}
+
+.dashboard-body .dashboard-middle .actual-post .job .jobPosts {
+  color: #3859fc;
+}
+
+.dashboard-body .dashboard-middle .actual-post .job .jobPosts:visited, .dashboard-body .dashboard-middle .actual-post .job .jobPosts:active, .dashboard-body .dashboard-middle .actual-post .job .jobPosts:hover {
+  color: #3859fc;
 }
 
 .dashboard-body .dashboard-right {
@@ -2077,9 +2083,7 @@ div.ui-datepicker {
 .dashboard-body .dashboard-right .dashboard-comp {
   padding: 1rem 1.5rem;
   background: white;
-  border-radius: .5rem;
-  -webkit-box-shadow: 1px 1px 8px rgba(15, 228, 86, 0.36);
-          box-shadow: 1px 1px 8px rgba(15, 228, 86, 0.36);
+  border: 1px solid rgba(153, 153, 153, 0.36);
   overflow: auto;
   max-height: 74.2rem;
 }
@@ -2887,6 +2891,11 @@ div.ui-datepicker {
   margin-right: 2rem;
 }
 
+.messageBody .people-list .search {
+  padding: 20px;
+  position: relative;
+}
+
 .messageBody .people-list input {
   border-radius: 3px;
   border: none;
@@ -2894,7 +2903,43 @@ div.ui-datepicker {
   color: white;
   background: #6A6C75;
   width: 90%;
-  font-size: 14px;
+  font-size: 1.4rem;
+  font-weight: bold;
+  font-family: 'PT Sans';
+}
+
+.messageBody .people-list input::-webkit-input-placeholder {
+  font-size: 1.6rem;
+  text-transform: capitalize;
+  font-family: 'PT Sans';
+}
+
+.messageBody .people-list input:-ms-input-placeholder {
+  font-size: 1.6rem;
+  text-transform: capitalize;
+  font-family: 'PT Sans';
+}
+
+.messageBody .people-list input::-ms-input-placeholder {
+  font-size: 1.6rem;
+  text-transform: capitalize;
+  font-family: 'PT Sans';
+}
+
+.messageBody .people-list input::placeholder {
+  font-size: 1.6rem;
+  text-transform: capitalize;
+  font-family: 'PT Sans';
+}
+
+.messageBody .people-list .fa-search {
+  position: absolute;
+  font-size: 2.3rem;
+  top: 50%;
+  right: 7rem;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  color: white;
 }
 
 .messageBody .people-list ul {
@@ -2984,7 +3029,7 @@ div.ui-datepicker {
   padding: 30px 30px 20px;
   border-bottom: 2px solid white;
   overflow-y: scroll;
-  height: 580px;
+  height: 65rem;
 }
 
 .messageBody .chat .chat-history ul {
@@ -3248,13 +3293,8 @@ div.ui-datepicker {
 .post-main .post-text .actual-post table,
 .post-main .post-text .actual-post ul,
 .post-main .post-text .actual-post p {
-  margin-left: 1.8rem;
   padding: 0;
   display: block;
-}
-
-.post-main .post-text .actual-post p:has(+ strong) a {
-  margin-left: 1.8rem;
 }
 
 .post-main .post-text .actual-post p:not(:first-child) strong {

@@ -109,9 +109,7 @@ if ($type == 'Jobseeker') {
                 if ($res) {
                   while ($row = mysqli_fetch_array($res)) {
                     echo "<div class='job'>
-                            <div class='job-title'><a href='javascript:;' id='" . $row['id'] . "'class='links jobPosts'>" . $row['title'] . "</a>
-                            </div>
-                            <div class='job-body'>" . html_entity_decode(htmlspecialchars_decode($row['body'])) . "
+                            <div class='job-title'><a href='posts/index.php?id=" . $row['id'] . "' id='" . $row['id'] . "'class='jobPosts'>" . $row['title'] . "</a>
                             </div>
                             <div class='job-by'>
                               <span class='job-name'><a href='profile/emp/display.php?user_id=" . $row['user_id'] . "'>" . $row['fname'] . "</a></span>
