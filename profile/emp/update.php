@@ -44,9 +44,6 @@ while ($row = mysqli_fetch_array($res)) {
     <title>Kam Nepal</title>
   </head>
   <body>
-    <div class="profERR">
-      <h2 id="error"></h2>
-    </div>
     <?php include "../../index-nav.php"; ?>
     <div class="containerProfile">
       <div class="profileUpdate">

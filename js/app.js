@@ -5,6 +5,30 @@ var user_id;
 var email;
 var fcode;
 
+function changePass() {
+  $('#modal').show();
+}
+
+function newPass() {
+  var formData = $('#resetForm').serialize();
+  formData = formData + "&user_id=" + user_id;
+  $('#error').html('<img src="/img/gif/loading.gif" alt="" srcset="" style="width:72px;">');
+  console.log(user_id);
+  $.ajax({
+    url: "../../login/posts/password-reset.php",
+    data: formData,
+    type: 'POST',
+    success: (data) => {
+      $('#error').html(data);
+      if (data === "Password changed sucessfully.") {
+        $('input').removeAttr('required');
+        $('input').delay(200).val("");
+        $('.modal').delay(700).fadeOut();
+      }
+    }
+  });
+}
+
 function toggleDropdown() {
   $(".dropdown").slideToggle("show");
 }
@@ -344,12 +368,6 @@ $(document).ready(() => {
   $(".landing-search input").blur(() => {
     $(".landing-search").css("top", "50%");
   });
-  // profile modals
-
-  $(".job-title").click(function () {
-    $("#modal").fadeIn();
-  });
-
   $("#mod-title").click(function () {
     $("#modal").fadeOut();
   });
@@ -372,10 +390,7 @@ $(document).ready(() => {
 
   $("#timeline").click(function () {
     $("#about-right").hide();
-    $("#timeline-right")
-      .show()
-      .css("height", "600px")
-      .scroll();
+    $("#timeline-right").show();
     $(".prof-head-gender,.prof-head-interest,.message").hide();
     $("#about").removeClass("when");
     $("#timeline").addClass("when");

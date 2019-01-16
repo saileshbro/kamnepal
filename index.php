@@ -50,8 +50,12 @@ $res1 = mysqli_query($con, $sql1);
         <?php
         while ($row = mysqli_fetch_assoc($res)) {
             echo '<div class="job">
-              <div class="job-title"><a href="javascript:;" id="' . $row['id'] . '"class="links jobPosts">' . $row['title'] . '</a></div>
-              <div class="job-body">' . html_entity_decode(htmlspecialchars_decode($row['body'])) . '</div>
+              <div class="job-title"><a href="javascript:;" id="' . $row['id'] . '"class="jobPosts">' . $row['title'] . '</a></div>';
+
+            if ($row['category'] != 0) {
+                echo '<li>' . getColumn("select name from category where id ='" . $row['category'] . "'", 'name') . '</li>';
+            }
+            echo '
               <div class="job-by">
               <span class="job-name"><a href="">ABC Company</a></span>
               <span class="job-date">' . $row['updated_at'] . '</span>

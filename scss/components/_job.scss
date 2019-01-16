@@ -1,29 +1,46 @@
 .job {
-  margin: 1.3rem;
   background: $color-grey-dark-2;
-  padding: 1.5rem 3rem;
-  border-radius: .5rem;
+  padding: 1.5rem 1rem;
   background: $color-white;
-  box-shadow: 1px 1px 8px rgba($color-grey-dark-2, 0.36);
+  box-shadow: 1px 1px 4px rgba($color-grey-dark-2, 0.36);
+  height: 12.5rem;
+
+  .jobPosts {
+    text-decoration: none;
+    font-size: 1.6rem;
+    cursor: pointer;
+    font-family: "Fira Sans";
+
+    &:focus,
+    &:active,
+    &:visited {
+      color: $color-primary;
+    }
+  }
+
+  li {
+    list-style: none;
+    font-size: 1.2rem;
+    margin-left: 1.2rem;
+  }
 
   .head-ele {
-    margin-bottom: 2rem;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 
     .job-title {
       display: inline-block;
 
-      .links {
-        font-size: 2rem;
 
-      }
     }
 
     .post-buttons {
-
       margin-top: 1rem;
       display: inline-block;
+      width: 12rem;
+      display: flex;
+      justify-content: right;
 
       .edit {
         color: $color-primary-dark-2;
@@ -41,20 +58,27 @@
 
       a {
 
+        text-align: center;
+
         i {
           margin-left: 1.5rem;
+          width: 3rem;
+          height: 3rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
         }
 
         .fa-edit,
         .fa-trash,
         .fa-check {
+          font-size: 1.4rem;
 
-          width: 5rem;
-          height: 5rem;
           cursor: pointer;
           transition: all .2s;
           text-align: center;
-          padding: 1.5rem;
+          // padding: 1rem;
           border-radius: 50%;
         }
 
@@ -79,8 +103,6 @@
           color: white;
           text-align: center;
         }
-
-
       }
     }
 
@@ -95,9 +117,10 @@
   }
 
   &-by {
-    float: right;
     font-size: 1.1rem;
     margin-top: 1.3rem;
+    display: flex;
+    justify-content: space-between;
 
     .job-date {
       font-family: monospace;
@@ -113,9 +136,9 @@
         text-transform: uppercase;
         letter-spacing: .1rem;
         font-size: 1.4rem;
-        margin: .8rem 1.3rem;
+        margin: .8rem 0;
         text-decoration: none;
-        color: $color-tertiary-dark;
+        color: $color-secondary;
 
       }
 
@@ -138,6 +161,4 @@
       }
     }
   }
-
-  @include clearfix;
 }

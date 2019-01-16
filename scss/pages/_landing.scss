@@ -84,9 +84,19 @@
 
         .landing-scroll {
             margin-top: 3rem;
-            padding: 0 3rem;
+            padding: 3rem;
             overflow: auto;
             max-height: 80vh;
+            display: grid;
+            // grid-template-columns: auto auto auto;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-gap: 1rem;
+            grid-row-gap: 2rem;
+            // grid-te
+
+            .job {
+                // display:inl;
+            }
         }
     }
 

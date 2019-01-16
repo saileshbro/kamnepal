@@ -78,8 +78,8 @@ if ($type == 'Jobseeker') {
                       <input type="text" id="title" placeholder="Title of your post">
                       <?php
                       if ($type === 'Employer') {
-                        echo "<select name='category' ><option value='Jobs Category' selected='true' disabled='disabled'>Category</option>";
-                        $sql = "select * from category";
+                        echo "<select name='category' required</select><option value='Jobs Category' selected='true' disabled='disabled'>Category</option>";
+                        $sql = "select * from category order by name asc";
                         $res = mysqli_query($con, $sql);
                         if ($res) {
                           while ($row = mysqli_fetch_array($res)) {

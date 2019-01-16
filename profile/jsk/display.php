@@ -45,6 +45,23 @@ while ($row = mysqli_fetch_array($res)) {
 </head>
 
 <body onload="document.getElementById('about').click();$('#about').trigger('click');">
+<div id='modal' class='modal'>
+  <div class="change">
+    <div class="change-body" style="margin:199px 0;">
+        <a href="javascript:;" class="modal-title" onclick="$('.modal').fadeOut();">&times;</a>
+          <form class='form'id='resetForm' action="">
+              <h1 class="heading-secondary">Change Password</h1>
+              <div class="error">
+                  <h2 id="error"></h2>
+              </div>
+                <input type="password" name="password" placeholder='Current Password' required>
+                <input type="password" name="password2" placeholder='New Password' required>
+                <input type="password" name="password3" placeholder='Confirm Password' required>
+                <a onclick='newPass();' class='button-primary'>Change Password</a>
+              </div>
+          </form>
+      </div>
+  </div>
 </div>
 <div class="modal-post-form">
   <div class='create-post'>
@@ -137,7 +154,7 @@ if (!mysqli_num_rows(mysqli_query($con, "SELECT id from user where id='$user_id'
       </div>
     </div>
   </div>
-  <div class="profile-right">
+  <div class="profile-right-jsk">
     <div class="prof-head-info">
       <h2 class="prof-head-name "><?php echo $fname; ?></h2>
       <p class="prof-head-address"><i class="fas fa-map-marker-alt"></i><?php echo $address; ?></p>
@@ -152,6 +169,11 @@ if (!mysqli_num_rows(mysqli_query($con, "SELECT id from user where id='$user_id'
       <?php
       if ($user_id === $userId) {
         echo "<a href='update.php' class='message'><i class='far fa-edit'></i></i>Edit Profile</a>";
+      }
+      ?>
+      <?php
+      if ($user_id === $userId) {
+        echo "<a href='javascript:;' class='message' onclick='changePass();'><i class='fas fa-key'></i></i>Change Password</a>";
       }
       ?>
       <a href="javascript:;" id='printCV' class="message"><i class="fas fa-print"></i></i>Print CV</a>
@@ -170,18 +192,20 @@ if (!mysqli_num_rows(mysqli_query($con, "SELECT id from user where id='$user_id'
       while ($row = mysqli_fetch_array($res)) {
         echo '<div class="job" id = "job' . $row['id'] . '">
                   <div class="head-ele">
-                  <div class="job-title"><a href="javascript:;" id="' . $row['id'] . '"class="links jobPosts">' . $row['title'] . '</a></div>
-                  ';
+                  <div class="job-title"><a href="../../posts/?id=' . $row['id'] . '" id="' . $row['id'] . '"class="jobPosts">' . $row['title'] . '</a></div>';
         if ($userId === $user_id) {
           echo ('<div class="post-buttons">
-                    <a id= "edit' . $row['id'] . '" class="edit" onclick="editPost(this.id);"><i class="fas fa-edit fa-2x"></i></a>
-                    <a id= "delete' . $row['id'] . '"  onclick="displayedit(this.id);" class="delete"><i class="fas fa-trash fa-2x"></i></a>
-                    <a id= "check' . $row['id'] . '"  onclick="removePost(this.id);" class="check"><i class="fas fa-check fa-2x"></i></a>
-                </div>');
+                              <a id= "edit' . $row['id'] . '" class="edit" onclick="editPost(this.id);"><i class="fas fa-edit"></i></a>
+                              <a id= "delete' . $row['id'] . '"  onclick="displayedit(this.id);" class="delete"><i class="fas fa-trash"></i></a>
+                              <a id= "check' . $row['id'] . '"  onclick="removePost(this.id);" class="check"><i class="fas fa-check"></i></a>
+                          </div>');
         }
         echo '
-              </div>
-              <div class="job-body">' . html_entity_decode(htmlspecialchars_decode($row['body'])) . '</div>
+              </div>';
+        if ($row['category'] != 0) {
+          echo '<li>' . getColumn("select name from category where id ='" . $row['category'] . "'", 'name') . '</li>';
+        }
+        echo '
               <div class="job-by">
               <span class="job-name"><a href="javascript:;">' . $fname . '</a></span>
               <span class="job-date">' . $row['updated_at'] . '</span>

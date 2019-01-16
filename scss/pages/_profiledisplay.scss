@@ -4,10 +4,10 @@
   display: flex;
   padding: 3rem;
   // justify-content: space-evenly;
+  align-items: self-start !important;
 
   .profile-left {
     width: 20%;
-    // background: red;
     margin-right: 10rem;
     padding: 0 9rem;
 
@@ -36,9 +36,9 @@
         margin: 1.7rem 0;
 
         .title {
-          // background: $color-grey-light-2;
           display: flex;
-          // justify-content: space-around;
+          align-items: self-start;
+
           margin-bottom: .9rem;
           vertical-align: middle;
 
@@ -123,7 +123,7 @@
     }
   }
 
-  .profile-right {
+  .profile-right-jsk {
     width: 70%;
 
     .prof-head-info {
@@ -245,6 +245,7 @@
     .prof-head-switch {
       display: flex;
       // justify-content: space-around;
+      align-items: self-start;
       margin-top: 1.2rem;
       font-size: 1.5rem;
       cursor: pointer;
@@ -269,13 +270,20 @@
 
     .prof-body-part-right {
       margin-left: 1rem;
-      margin-top: 2rem;
       // width: 75%;
 
       #timeline-right {
-        margin-left: 1rem;
-        display: none;
-        overflow: auto;
+        display: grid;
+        padding: 1.2rem .8rem;
+        // margin: 1.2rem .8rem;
+        // padding: 3rem;
+        overflow-y: auto;
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        // grid-template-columns: auto auto;
+        grid-gap: 1rem;
+        grid-row-gap: 2rem;
+        align-content: start;
+        min-height: 44rem;
       }
 
       #about-right {

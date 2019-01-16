@@ -38,15 +38,16 @@ $user_type = $row2['type'];
   <div class="post-text">
       <h1 class="post-title"><?php echo $row1['title']; ?></h1>
       <div class="post-head">
-          <span class="post-by">By<a href=""><?php echo $row2['fname']; ?></a></span>
+          <span class="post-by">By<a href="../profile/jsk/display.php?user_id=<?php echo $user_id; ?>"><?php echo $row2['fname']; ?></a></span>
           <span class="posted-on">
           Posted on <?php echo $row1['created_at']; ?>
           </span>
       </div>
-     
-      <div class="post-media">
-        <img src="<?php echo $row1['media']; ?>" alt="post-image">
-      </div>
+        <?php
+        if ($row1['media'] !== "") {
+          echo '<div class="post-media"><img src="../' . $row1['media'] . '?>"></div>';
+        }
+        ?>
       <div class="actual-post">
       <?php echo html_entity_decode(htmlspecialchars_decode($row1['body'])); ?>
       </div>
@@ -57,34 +58,34 @@ $user_type = $row2['type'];
     </h1>
     <ul class="related-body">
       <?php
-        $empsql = "select posts.title from posts,user where posts.user_id= user.id and user.type= 'Jobseeker' and posts.category = '$category' limit 10";
-        if ($user_type === 'Employeer') {
-            $empres = mysqli_query($con, $empsql);
-            $i = 1;
-            while ($row = mysqli_fetch_array($empres)) {
-                echo ' 
+      $empsql = "select posts.title from posts,user where posts.user_id= user.id and user.type= 'Jobseeker' and posts.category = '$category' limit 10";
+      if ($user_type === 'Employeer') {
+        $empres = mysqli_query($con, $empsql);
+        $i = 1;
+        while ($row = mysqli_fetch_array($empres)) {
+          echo ' 
           <li><span class="badge">0' . $i . '</span>
           <a href="">' . $row['title'] . '</a>
           </li>
           <hr>
         ';
-                $i++;
-            }
-            $jobsql = "select posts.title from posts,user where posts.user_id= user.id and user.type= 'Employer' and posts.category = '$category' limit 10";
-        } else if ($user_type === 'Jobseeker') {
-            $i = 1;
-            $jobres = mysqli_query($con, $empsql);
-            while ($row = mysqli_fetch_array($jobres)) {
-                echo ' 
+          $i++;
+        }
+        $jobsql = "select posts.title from posts,user where posts.user_id= user.id and user.type= 'Employer' and posts.category = '$category' limit 10";
+      } else if ($user_type === 'Jobseeker') {
+        $i = 1;
+        $jobres = mysqli_query($con, $empsql);
+        while ($row = mysqli_fetch_array($jobres)) {
+          echo ' 
         <li><span class="badge">0' . $i . '</span>
         <a href="">' . $row['title'] . '</a>
         </li>
         <hr>  
       ';
-                $i++;
-            }
+          $i++;
         }
-        ?>
+      }
+      ?>
     </ul>
   </div>
   

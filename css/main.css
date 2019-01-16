@@ -516,9 +516,15 @@ body {
 
 .landing-main .landing-left .landing-scroll {
   margin-top: 3rem;
-  padding: 0 3rem;
+  padding: 3rem;
   overflow: auto;
   max-height: 80vh;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(300px, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 1rem;
+  grid-row-gap: 2rem;
 }
 
 .landing-main .landing-right {
@@ -597,6 +603,9 @@ body {
   display: -ms-flexbox;
   display: flex;
   padding: 3rem;
+  -webkit-box-align: self-start !important;
+      -ms-flex-align: self-start !important;
+          align-items: self-start !important;
 }
 
 .Profile-main-body .profile-left {
@@ -634,6 +643,9 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: self-start;
+      -ms-flex-align: self-start;
+          align-items: self-start;
   margin-bottom: .9rem;
   vertical-align: middle;
 }
@@ -713,25 +725,25 @@ body {
   font-weight: lighter;
 }
 
-.Profile-main-body .profile-right {
+.Profile-main-body .profile-right-jsk {
   width: 70%;
 }
 
-.Profile-main-body .profile-right .prof-head-info {
+.Profile-main-body .profile-right-jsk .prof-head-info {
   width: 75%;
   padding: 0rem 2rem;
   font-size: 1.3rem;
 }
 
-.Profile-main-body .profile-right .prof-head-info i {
+.Profile-main-body .profile-right-jsk .prof-head-info i {
   margin-right: 0.5rem;
 }
 
-.Profile-main-body .profile-right .prof-head-info .info {
+.Profile-main-body .profile-right-jsk .prof-head-info .info {
   margin: 3rem 0 0rem;
 }
 
-.Profile-main-body .profile-right .prof-head-info .prof-head-name {
+.Profile-main-body .profile-right-jsk .prof-head-info .prof-head-name {
   font-size: 2rem;
   letter-spacing: 0.1rem;
   display: inline-block;
@@ -742,14 +754,14 @@ body {
   margin-bottom: 1.4rem;
 }
 
-.Profile-main-body .profile-right .prof-head-info .prof-head-address {
+.Profile-main-body .profile-right-jsk .prof-head-info .prof-head-address {
   display: inline-block;
   color: #777;
   font-family: 'PT Sans';
   margin-bottom: 1.4rem;
 }
 
-.Profile-main-body .profile-right .prof-head-info .message {
+.Profile-main-body .profile-right-jsk .prof-head-info .message {
   margin-left: 5rem;
   padding: 0.5rem 1rem;
   color: #d67d08;
@@ -767,7 +779,7 @@ body {
   font-weight: 500;
 }
 
-.Profile-main-body .profile-right .prof-head-info .message:hover {
+.Profile-main-body .profile-right-jsk .prof-head-info .message:hover {
   color: white;
   background: #5d78ff;
   -webkit-transform: translateY(-3px);
@@ -776,16 +788,16 @@ body {
   transition: all .1s;
 }
 
-.Profile-main-body .profile-right .prof-head-info .message:hover:active {
+.Profile-main-body .profile-right-jsk .prof-head-info .message:hover:active {
   -webkit-transform: translateY(1px);
           transform: translateY(1px);
 }
 
-.Profile-main-body .profile-right .prof-head-info .message:hover i {
+.Profile-main-body .profile-right-jsk .prof-head-info .message:hover i {
   color: white;
 }
 
-.Profile-main-body .profile-right .prof-head-info .message i {
+.Profile-main-body .profile-right-jsk .prof-head-info .message i {
   color: #5d78ff;
   margin-right: 0.7rem;
   font-size: 2rem;
@@ -793,13 +805,13 @@ body {
   vertical-align: middle;
 }
 
-.Profile-main-body .profile-right .prof-head-info .prof-head-bio {
+.Profile-main-body .profile-right-jsk .prof-head-info .prof-head-bio {
   font-family: Arial, Helvetica, sans-serif;
   font-style: italic;
   color: #333;
 }
 
-.Profile-main-body .profile-right .prof-head-info .prof-head-gender {
+.Profile-main-body .profile-right-jsk .prof-head-info .prof-head-gender {
   display: block;
   font-size: 1.8rem;
   text-transform: uppercase;
@@ -809,12 +821,12 @@ body {
   margin-bottom: 0;
 }
 
-.Profile-main-body .profile-right .prof-head-info .prof-head-gender::first-letter {
+.Profile-main-body .profile-right-jsk .prof-head-info .prof-head-gender::first-letter {
   font-size: 2.2rem;
   color: #d67d08;
 }
 
-.Profile-main-body .profile-right .prof-head-info .prof-head-interest {
+.Profile-main-body .profile-right-jsk .prof-head-info .prof-head-interest {
   color: #5d78ff;
   font-weight: normal;
   text-transform: uppercase;
@@ -823,10 +835,13 @@ body {
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-.Profile-main-body .profile-right .prof-head-switch {
+.Profile-main-body .profile-right-jsk .prof-head-switch {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: self-start;
+      -ms-flex-align: self-start;
+          align-items: self-start;
   margin-top: 1.2rem;
   font-size: 1.5rem;
   cursor: pointer;
@@ -834,37 +849,44 @@ body {
   border-bottom: 2px solid rgba(153, 153, 153, 0.4);
 }
 
-.Profile-main-body .profile-right .prof-head-switch a {
+.Profile-main-body .profile-right-jsk .prof-head-switch a {
   color: #d67d08;
   text-decoration: none;
 }
 
-.Profile-main-body .profile-right .prof-head-switch a i {
+.Profile-main-body .profile-right-jsk .prof-head-switch a i {
   margin-right: .5rem;
   color: #5d78ff;
 }
 
-.Profile-main-body .profile-right .prof-head-switch a:last-child {
+.Profile-main-body .profile-right-jsk .prof-head-switch a:last-child {
   margin-left: 3rem;
 }
 
-.Profile-main-body .profile-right .prof-body-part-right {
+.Profile-main-body .profile-right-jsk .prof-body-part-right {
   margin-left: 1rem;
-  margin-top: 2rem;
 }
 
-.Profile-main-body .profile-right .prof-body-part-right #timeline-right {
-  margin-left: 1rem;
-  display: none;
-  overflow: auto;
+.Profile-main-body .profile-right-jsk .prof-body-part-right #timeline-right {
+  display: -ms-grid;
+  display: grid;
+  padding: 1.2rem .8rem;
+  overflow-y: auto;
+  -ms-grid-columns: (minmax(400px, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  grid-gap: 1rem;
+  grid-row-gap: 2rem;
+  -ms-flex-line-pack: start;
+      align-content: start;
+  min-height: 44rem;
 }
 
-.Profile-main-body .profile-right .prof-body-part-right #about-right {
+.Profile-main-body .profile-right-jsk .prof-body-part-right #about-right {
   padding: 0 1rem;
   margin-top: 0rem;
 }
 
-.Profile-main-body .profile-right .prof-body-part-right #about-right h1 {
+.Profile-main-body .profile-right-jsk .prof-body-part-right #about-right h1 {
   margin-bottom: 1rem;
   color: #5d78ff;
   font-size: 1.8rem;
@@ -872,11 +894,11 @@ body {
   font-weight: lighter;
 }
 
-.Profile-main-body .profile-right .prof-body-part-right #about-right #ext {
+.Profile-main-body .profile-right-jsk .prof-body-part-right #about-right #ext {
   margin-bottom: 2.2rem;
 }
 
-.Profile-main-body .profile-right .prof-body-part-right #about-right #ext .right-elements {
+.Profile-main-body .profile-right-jsk .prof-body-part-right #about-right #ext .right-elements {
   margin-bottom: 1.5rem;
   font-size: 1.5rem;
   display: -webkit-box;
@@ -884,19 +906,19 @@ body {
   display: flex;
 }
 
-.Profile-main-body .profile-right .prof-body-part-right #about-right #ext .right-elements .heading {
+.Profile-main-body .profile-right-jsk .prof-body-part-right #about-right #ext .right-elements .heading {
   color: #d67d08;
   font-weight: bold;
   width: 20%;
 }
 
-.Profile-main-body .profile-right .prof-body-part-right #about-right #ext .right-elements .heading i {
+.Profile-main-body .profile-right-jsk .prof-body-part-right #about-right #ext .right-elements .heading i {
   margin-right: .6rem;
   color: #5d78ff;
   font-size: 1.5rem;
 }
 
-.Profile-main-body .profile-right .prof-body-part-right #about-right #ext .right-elements .text {
+.Profile-main-body .profile-right-jsk .prof-body-part-right #about-right #ext .right-elements .text {
   width: 70%;
 }
 
@@ -1286,6 +1308,9 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: self-start;
+      -ms-flex-align: self-start;
+          align-items: self-start;
   padding: 3rem;
 }
 
@@ -1304,25 +1329,26 @@ body {
   position: relative;
 }
 
+.Profile-main-body .profile-left .prof-head-img2 > div {
+  width: 100%;
+  margin-top: 1.2rem;
+}
+
 .Profile-main-body .profile-left .prof-head-img2 .message {
-  position: absolute;
-  top: 90%;
-  right: 3rem;
   margin-left: 5rem;
   padding: 0.5rem 1rem;
-  color: #d67d08;
+  color: rgba(214, 125, 8, 0.8);
   background: white;
   font-size: 1.3rem;
   border-radius: .3rem;
   border: 1px solid #5d78ff;
   text-decoration: none;
   text-transform: uppercase;
-  display: inline-block;
   vertical-align: middle;
   -webkit-transition: .2s all;
   transition: .2s all;
   font-size: 1.4rem;
-  font-weight: 500;
+  font-weight: bold;
 }
 
 .Profile-main-body .profile-left .prof-head-img2 .message:hover {
@@ -1355,7 +1381,8 @@ body {
   width: 22rem;
   height: 22rem;
   border-radius: 50%;
-  border: 1px solid black;
+  -webkit-box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.5);
+          box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.5);
 }
 
 .Profile-main-body .profile-left .org-left-body {
@@ -1439,6 +1466,13 @@ body {
 .Profile-main-body .profile-right {
   width: 70%;
   margin-left: 5rem;
+  display: -ms-grid;
+  display: grid;
+  padding: 1.2rem;
+  -ms-grid-columns: (minmax(300px, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 1rem;
+  grid-row-gap: 2rem;
   overflow-y: auto;
 }
 
@@ -2064,13 +2098,67 @@ div.ui-datepicker {
 }
 
 .modal {
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   background: rgba(0, 0, 0, 0.3);
   padding-top: 5rem;
   display: none;
   z-index: 3;
   position: fixed;
+}
+
+.modal .change {
+  text-align: center;
+}
+
+.modal .change .change-body {
+  position: relative;
+  border-radius: 5px;
+  display: inline-block;
+  margin: 11.3rem auto;
+  background: white;
+  -webkit-box-shadow: 1px 1px 20px #000;
+          box-shadow: 1px 1px 20px #000;
+}
+
+.modal .change .change-body .modal-title {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  font-size: 2.5rem;
+  width: 3rem;
+  height: 3rem;
+  cursor: pointer;
+  -webkit-transition: all .2s;
+  transition: all .2s;
+  text-align: center;
+  line-height: 125%;
+  border-radius: 50%;
+  text-decoration: none;
+}
+
+.modal .change .change-body .modal-title:hover {
+  background: #4665fd;
+  color: white;
+}
+
+.modal .change .change-body form a {
+  display: inline-block;
+  font-size: 1.2rem;
+  margin-bottom: -1.2rem;
+}
+
+.modal .change .change-body form button {
+  margin: 1.2rem auto;
+  display: inline-block;
+}
+
+.modal .change .change-body form input {
+  margin: 2rem auto;
+}
+
+.modal .change .change-body form p {
+  margin: 1.2rem auto;
 }
 
 .modal .modal-content {
@@ -3146,10 +3234,61 @@ div.ui-datepicker {
 }
 
 .post-main .post-text .actual-post {
-  margin: 3rem 0;
-  font-size: 2rem;
+  margin: 2rem 0;
+  font-size: 1.6rem;
   color: #333;
   font-family: 'Muli';
+}
+
+.post-main .post-text .actual-post a:visited,
+.post-main .post-text .actual-post a.active {
+  color: blue;
+}
+
+.post-main .post-text .actual-post table,
+.post-main .post-text .actual-post ul,
+.post-main .post-text .actual-post p {
+  margin-left: 1.8rem;
+  padding: 0;
+  display: block;
+}
+
+.post-main .post-text .actual-post p:has(+ strong) a {
+  margin-left: 1.8rem;
+}
+
+.post-main .post-text .actual-post p:not(:first-child) strong {
+  margin-top: 1.3rem;
+  display: inline-block;
+}
+
+.post-main .post-text .actual-post tr td:last-child {
+  padding-left: 1.4rem;
+}
+
+.post-main .post-text .actual-post tr td:first-child {
+  padding-right: 1.4rem;
+}
+
+.post-main .post-text .actual-post hr {
+  color: rgba(119, 119, 119, 0.4);
+  width: 96%;
+  margin: 1.3rem auto;
+}
+
+.post-main .post-text .actual-post ul {
+  margin-left: 3.6rem;
+  list-style: none;
+  margin-bottom: 1.3rem;
+}
+
+.post-main .post-text .actual-post ul li:before {
+  content: "\f0a4";
+  font-family: "Font Awesome 5 Free" !important;
+  display: inline-block;
+  margin-left: -1.3em;
+  width: 1.3em;
+  color: #5d78ff;
 }
 
 .post-main .post-related {
@@ -3665,36 +3804,57 @@ div.ui-datepicker {
 }
 
 .job {
-  margin: 1.3rem;
   background: #999;
-  padding: 1.5rem 3rem;
-  border-radius: .5rem;
+  padding: 1.5rem 1rem;
   background: #fff;
-  -webkit-box-shadow: 1px 1px 8px rgba(153, 153, 153, 0.36);
-          box-shadow: 1px 1px 8px rgba(153, 153, 153, 0.36);
+  -webkit-box-shadow: 1px 1px 4px rgba(153, 153, 153, 0.36);
+          box-shadow: 1px 1px 4px rgba(153, 153, 153, 0.36);
+  height: 12.5rem;
+}
+
+.job .jobPosts {
+  text-decoration: none;
+  font-size: 1.6rem;
+  cursor: pointer;
+  font-family: "Fira Sans";
+}
+
+.job .jobPosts:focus, .job .jobPosts:active, .job .jobPosts:visited {
+  color: #5d78ff;
+}
+
+.job li {
+  list-style: none;
+  font-size: 1.2rem;
+  margin-left: 1.2rem;
 }
 
 .job .head-ele {
-  margin-bottom: 2rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .job .head-ele .job-title {
   display: inline-block;
 }
 
-.job .head-ele .job-title .links {
-  font-size: 2rem;
-}
-
 .job .head-ele .post-buttons {
   margin-top: 1rem;
   display: inline-block;
+  width: 12rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: right;
+      -ms-flex-pack: right;
+          justify-content: right;
 }
 
 .job .head-ele .post-buttons .edit {
@@ -3710,20 +3870,33 @@ div.ui-datepicker {
   display: none;
 }
 
+.job .head-ele .post-buttons a {
+  text-align: center;
+}
+
 .job .head-ele .post-buttons a i {
   margin-left: 1.5rem;
+  width: 3rem;
+  height: 3rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .job .head-ele .post-buttons a .fa-edit,
 .job .head-ele .post-buttons a .fa-trash,
 .job .head-ele .post-buttons a .fa-check {
-  width: 5rem;
-  height: 5rem;
+  font-size: 1.4rem;
   cursor: pointer;
   -webkit-transition: all .2s;
   transition: all .2s;
   text-align: center;
-  padding: 1.5rem;
   border-radius: 50%;
 }
 
@@ -3753,9 +3926,14 @@ div.ui-datepicker {
 }
 
 .job-by {
-  float: right;
   font-size: 1.1rem;
   margin-top: 1.3rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .job-by .job-date {
@@ -3772,9 +3950,9 @@ div.ui-datepicker {
   text-transform: uppercase;
   letter-spacing: .1rem;
   font-size: 1.4rem;
-  margin: .8rem 1.3rem;
+  margin: .8rem 0;
   text-decoration: none;
-  color: #0fe456;
+  color: #d67d08;
 }
 
 .job-by .job-name:hover::after {
@@ -3792,12 +3970,6 @@ div.ui-datepicker {
   width: 0px;
   left: 5%;
   border-top: 3px solid #4665fd;
-}
-
-.job::after {
-  content: '';
-  display: table;
-  clear: both;
 }
 
 .button-primary, .button-primary:link, .button-primary:visited, .button-secondary, .button-secondary:link, .button-secondary:visited, .button-tertiary, .button-tertiary:link, .button-tertiary:visited {

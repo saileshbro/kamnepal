@@ -72,11 +72,11 @@ while ($row = mysqli_fetch_array($res)) {
               <label class="label1" for="gender">Gender</label>
               <div class="radios">
               <div class="radios__item">
-                  <input name="gender" class="input2" id="male" type="radio" name="gender" value="Male" <?php echo ($gender === 'male' || $gender === "Male") ? 'checked' : ''; ?> />
+                  <input name="gender" class="input2" id="male" type="radio" value="Male" <?php echo ($gender === 'male' || $gender === "Male") ? 'checked' : ''; ?> />
                   <label class="label2" for="male">Male</label>
                 </div>
                 <div class="radios__item">
-                  <input name="gender" class="input2" id="female" type="radio" name="gender" <?php echo ($gender === 'female' || $gender === "Female") ? 'checked' : ''; ?> value="Female" />
+                  <input class="input2" id="female" type="radio" name="gender" <?php echo ($gender === 'female' || $gender === "Female") ? 'checked' : ''; ?> value="Female" />
                   <label class="label2" for="female">Female</label>
                   </div>
                 <div class="radios__item">

@@ -27,8 +27,26 @@ if ($type === "Jobseeker") {
   <title>Kam Nepal</title>
 </head>
 <body>
-<?php require '../../includes/modal-education.php'; ?>
-<?php require '../../includes/modal-experience.php';
+<div id='modal' class='modal' >
+  <div class="change">
+    <div class="change-body" style="margin:199px 0;">
+        <a href="javascript:;" class="modal-title" onclick="$('.modal').fadeOut();">&times;</a>
+          <form class='form'id='resetForm' action="">
+              <h1 class="heading-secondary">Change Password</h1>
+              <div class="error">
+                  <h2 id="error"></h2>
+              </div>
+                <input type="password" name="password" placeholder='Current Password' required>
+                <input type="password" name="password2" placeholder='New Password' required>
+                <input type="password" name="password3" placeholder='Confirm Password' required>
+                <a onclick='newPass();' class='button-primary'>Change Password</a>
+              </div>
+          </form>
+      </div>
+  </div>
+</div>
+
+<?php
 include '../../index-nav.php';
 if (!mysqli_num_rows(mysqli_query($con, "SELECT id from user where id='$user_id'")) > 0) {
   header('Location: ?user_id=' . $userId);
@@ -51,7 +69,7 @@ while ($row = mysqli_fetch_array($res)) {
   $v_status = $row['v_status'];
 }
 ?>
-<div id='modal' class='modal' ></div>
+
 <div class='modal-post-form'>
 <div class='create-post'>
   <form id='createPost'>
@@ -60,31 +78,15 @@ while ($row = mysqli_fetch_array($res)) {
     <div class='inp-grp' id="none" style='width:95%;'>
       <input type='text' id='title' placeholder='Title of your post'>
       <select name='category' id='category' >
-        <option value='Jobs Category' disabled>Category
-          <option value=1>Architecture / Interior Designing
-          <option value=2>Construction / Engineering / Architects
-          <option value=3>Commercial / Logistics / Supply Chain
-          <option value=4>Creative / Graphics / Designing
-          <option value=5>Hospitality
-          <option value=6>NGO / INGO / Social work
-          <option value=7>Teaching / Education
-          <option value=8>General Mgmt. / Administration / Operations
-          <option value=9>Healthcare / Pharma / Biotech / Medical / R&amp;D
-          <option value=10>Human Resource /Org. Development
-          <option value=11>Sales / Public Relations
-          <option value=12>Research and Development
-          <option value=13>Production / Maintenance / Quality
-          <option value=14>Marketing / Advertising / Customer Service
-          <option value=15>Legal Services
-          <option value=16>Accounting / Finance
-          <option value=17>Banking / Insurance /Financial Services
-          <option value=18>Fashion / Textile Designing
-          <option value=19>Secretarial / Front Office / Data Entry
-          <option value=20>IT &amp; Telecommunication
-          <option value=21>Protective / Security Services
-          <option value=22>Journalism / Editor / Media
-          <option value=23>Others
-        </select>
+        <option value='Jobs Category' disabled>Category</option>
+        <?php
+        $res = mysqli_query($con, "Select name,id from category order by name asc");
+
+        while ($row = mysqli_fetch_array($res)) {
+          echo "<option value=" . $row['id'] . ">" . $row['name'] . "</option>";
+        }
+        ?>
+      </select>
       </div>
     <div style='margin: 0 20px; margin-bottom:20px; border-radius:5px;'>
     <textarea class='fr-view' name='createpost' id='editor' cols='30' style='display:none;' rows='10' placeholder='Body of your post'></textarea>
@@ -100,11 +102,18 @@ while ($row = mysqli_fetch_array($res)) {
   <div class="profile-left">
     <div class="prof-head-img2">
        <img src=<?php echo "../../" . getColumn("select profile_img from profile where user_id='$user_id'", "profile_img"); ?> alt="profile-pic">
-       <?php
+       <div>
+         <?php
+        if ($user_id === $userId) {
+          echo "<a href='update.php' class='message'><i class='far fa-edit'></i></i>Edit Profile</a>";
+        }
+        ?>
+      <?php
       if ($user_id === $userId) {
-        echo "<a href='update.php' class='message'><i class='far fa-edit'></i></i>Edit Profile</a>";
+        echo "<a href='javascript:;' class='message' onclick='changePass();'><i class='fas fa-key'></i>Change Password</a>";
       }
       ?>
+       </div>
     </div>
     <div class="org-left-body">
       <div class="org-head-info">
@@ -139,18 +148,20 @@ while ($row = mysqli_fetch_array($res)) {
   while ($row = mysqli_fetch_array($res)) {
     echo '<div class="job" id = "job' . $row['id'] . '">
                   <div class="head-ele">
-                  <div class="job-title"><a href="javascript:;" id="' . $row['id'] . '"class="links jobPosts">' . $row['title'] . '</a></div>
-                  ';
+                  <div class="job-title"><a href="../../posts/?id=' . $row['id'] . '" id="' . $row['id'] . '"class="jobPosts">' . $row['title'] . '</a></div>';
     if ($userId === $user_id) {
       echo ('<div class="post-buttons">
-                              <a id= "edit' . $row['id'] . '" class="edit" onclick="editPost(this.id);"><i class="fas fa-edit fa-2x"></i></a>
-                              <a id= "delete' . $row['id'] . '"  onclick="displayedit(this.id);" class="delete"><i class="fas fa-trash fa-2x"></i></a>
-                              <a id= "check' . $row['id'] . '"  onclick="removePost(this.id);" class="check"><i class="fas fa-check fa-2x"></i></a>
+                              <a id= "edit' . $row['id'] . '" class="edit" onclick="editPost(this.id);"><i class="fas fa-edit"></i></a>
+                              <a id= "delete' . $row['id'] . '"  onclick="displayedit(this.id);" class="delete"><i class="fas fa-trash"></i></a>
+                              <a id= "check' . $row['id'] . '"  onclick="removePost(this.id);" class="check"><i class="fas fa-check"></i></a>
                           </div>');
     }
     echo '
-              </div>
-              <div class="job-body">' . html_entity_decode(htmlspecialchars_decode($row['body'])) . '</div>
+              </div>';
+    if ($row['category'] != 0) {
+      echo '<li>' . getColumn("select name from category where id ='" . $row['category'] . "'", 'name') . '</li>';
+    }
+    echo '
               <div class="job-by">
               <span class="job-name"><a href="javascript:;">' . $fname . '</a></span>
               <span class="job-date">' . $row['updated_at'] . '</span>

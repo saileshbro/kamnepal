@@ -9,7 +9,6 @@
     width: 65%;
     background: white;
     padding: 3rem;
-    // border: 1px solid red;
 
     .post-title {
       font-size: 3.5rem;
@@ -74,11 +73,69 @@
 
     .actual-post {
 
-      margin: 3rem 0;
-      font-size: 2rem;
+      margin: 2rem 0;
+      font-size: 1.6rem;
       color: $color-grey-dark-3;
       font-family: 'Muli';
 
+      a:visited,
+      a.active,
+        {
+        color: blue;
+      }
+
+      table,
+      ul,
+      p {
+        margin-left: 1.8rem;
+        padding: 0;
+        display: block;
+      }
+
+      p {
+        &:has(+ strong) {
+          a {
+            margin-left: 1.8rem;
+          }
+        }
+      }
+
+      p:not(:first-child) {
+        strong {
+          margin-top: 1.3rem;
+          display: inline-block;
+        }
+      }
+
+      tr td:last-child {
+        padding-left: 1.4rem;
+      }
+
+      tr td:first-child {
+        padding-right: 1.4rem;
+      }
+
+
+      hr {
+        color: rgba($color-grey-dark, .4);
+        width: 96%;
+        margin: 1.3rem auto;
+      }
+
+      ul {
+        margin-left: 3.6rem;
+        list-style: none;
+        margin-bottom: 1.3rem;
+
+        li:before {
+          content: "\f0a4";
+          font-family: "Font Awesome 5 Free" !important;
+          display: inline-block;
+          margin-left: -1.3em;
+          width: 1.3em;
+          color: $color-primary;
+        }
+      }
     }
   }
 
