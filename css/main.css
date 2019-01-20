@@ -286,6 +286,9 @@ body {
 }
 
 .navbar--center .dashboard-search .searches {
+  position: absolute;
+  z-index: 999;
+  width: 100%;
   max-height: 50rem;
   margin: 0 auto;
   background: white;
@@ -2196,6 +2199,57 @@ div.ui-datepicker {
   padding: 0;
   overflow-y: auto;
   text-align: left;
+}
+
+.dashboard-body .dashboard-right .dashboard-comp .company-list .company-name {
+  -webkit-box-shadow: 1px 1px 8px rgba(153, 153, 153, 0.36);
+          box-shadow: 1px 1px 8px rgba(153, 153, 153, 0.36);
+  padding: 1.2rem 2.7rem;
+  border-radius: .5rem;
+  margin: 1.3rem 0;
+  text-align: left;
+}
+
+.dashboard-body .dashboard-right .dashboard-comp .company-list .company-name .company-bio {
+  margin: .9rem 0;
+  font-size: 1.1rem;
+  font-weight: 100;
+  font-family: 'Fira Sans', sans-serif;
+  text-align: justify;
+}
+
+.dashboard-body .dashboard-right .dashboard-comp .company-list .company-name a {
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: .1rem;
+  font-size: 1.4rem;
+  margin-left: .4rem;
+  color: #4665fd;
+  font-family: Helvetica, sans-serif;
+  -webkit-transition: all .2s;
+  transition: all .2s;
+  position: relative;
+}
+
+.dashboard-body .dashboard-right .dashboard-comp .company-list .company-name a:hover {
+  font-size: 1.6rem;
+}
+
+.dashboard-body .dashboard-right .dashboard-comp .company-list .company-name a:hover::after {
+  -webkit-animation: underlineToRight 1s ease-in-out normal;
+          animation: underlineToRight 1s ease-in-out normal;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+.dashboard-body .dashboard-right .dashboard-comp .company-list .company-name a::after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 115%;
+  width: 0;
+  left: -5%;
+  border-top: 3px solid #ff7730;
 }
 
 .dashboard-body .dashboard-right .dashboard-comp .company-list h2 {

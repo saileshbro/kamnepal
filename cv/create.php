@@ -30,7 +30,7 @@ if (file_exists('../uploads/cv.jpeg')) {
     <body>
         <?php require('../includes/navbar-landing.php'); ?>
         <div class="navbar-center">
-            <a href="/index.php"><img class='brand-logo' src="../img/logo/kamnepal.svg" alt="" width='90rem' height='90rem' href='./index.php'></a>
+            <a href="/index.php"><img class='brand-logo'  src="../img/logo/kamnepal.svg" alt="" width='90rem' height='90rem' href='./index.php'></a>
         </div>
         <div class="containerProfile">
           <div class="profileUpdate">
@@ -41,10 +41,10 @@ if (file_exists('../uploads/cv.jpeg')) {
               <div class="infopart">
                 <form class="form1" action="display.php" method='post'>
                   <div class="list2">
-                    <img id="avatar" class="list2__image" src='../uploads/default.png' alt="Avatar"/>
+                    <img id="avatar" style="cursor:pointer;" onclick="$('.file-upload').click();" class="list2__image" src='../uploads/default.png' alt="Avatar"/>
                         <div id='edit-a'>
                             <i class="fas fa-pencil-alt fa-2x upload-button"></i>
-                            <input class="file-upload" type="file" accept="image/*" style="display:none;" onchange="changeAvatar(this)"/>
+                            <input class="file-upload"  type="file" accept="image/*" style="display:none;" onchange="changeAvatar(this)"/>
                         </div>
                     </div>
                   <div class="list1">

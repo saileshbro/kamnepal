@@ -6,24 +6,30 @@ var email;
 var fcode;
 
 function changePass() {
-  $('#modal').fadeIn();
+  $("#modal").fadeIn();
 }
 
 function newPass() {
-  var formData = $('#resetForm').serialize();
+  var formData = $("#resetForm").serialize();
   formData = formData + "&user_id=" + user_id;
-  $('#error').html('<img src="/img/gif/loading.gif" alt="" srcset="" style="width:72px;">');
+  $("#error").html(
+    '<img src="/img/gif/loading.gif" alt="" srcset="" style="width:72px;">'
+  );
   console.log(user_id);
   $.ajax({
     url: "../../login/posts/password-reset.php",
     data: formData,
-    type: 'POST',
-    success: (data) => {
-      $('#error').html(data);
+    type: "POST",
+    success: data => {
+      $("#error").html(data);
       if (data === "Password changed sucessfully.") {
-        $('input').removeAttr('required');
-        $('input').delay(200).val("");
-        $('.modal').delay(700).fadeOut();
+        $("input").removeAttr("required");
+        $("input")
+          .delay(200)
+          .val("");
+        $(".modal")
+          .delay(700)
+          .fadeOut();
       }
     }
   });
@@ -31,24 +37,17 @@ function newPass() {
 
 function searchLanding(data) {
   if (data === "") {
-    $('.searches').hide();
+    $(".searches").hide();
   } else {
-    $('.searches').show();
+    $(".searches").show();
     $.ajax({
       url: "/search.php",
-      type: 'POST',
+      type: "POST",
       data: {
         data: data
       },
-      success: (data) => {
-
-
-        $('#search-list').html(data);
-        // console.log($('#search-list').children());
-        // var doc = [];
-        // doc = document.createElement(data);
-        console.log((data));
-
+      success: data => {
+        $("#search-list").html(data);
       }
     });
   }
@@ -234,7 +233,7 @@ $("#updateJsk").click(() => {
     url: "../jsk/posts/processUpdate.php",
     type: "POST",
     data: dataSet,
-    success: (data) => {
+    success: data => {
       $("#error").html(data);
       location.href = "display.php?user_id=" + data;
     }
@@ -249,7 +248,7 @@ $("#updateEmp").click(() => {
     url: "../emp/posts/processUpdate.php",
     type: "POST",
     data: dataSet,
-    success: (data) => {
+    success: data => {
       $("#error").html(data);
       location.href = "display.php?user_id=" + data;
     }
@@ -377,7 +376,7 @@ $(document).ready(() => {
   $(document).mouseup(function (e) {
     var container = $(".search-elements");
     if (!container.is(e.target) && container.has(e.target).length === 0) {
-      container.css('height', "");
+      container.css("height", "");
     }
   });
   $("#dob").datepicker({
@@ -390,14 +389,16 @@ $(document).ready(() => {
       $(".modal-title").click();
       $("#edu-modal-head").click();
       $("#exp-modal-head").click();
-      $('.modal').fadeOut();
+      $(".modal").fadeOut();
       // $('.modal-forgot').fadeOut();
     }
   });
   $(".search-elements input").focus(() => {
     $(".search-elements").animate({
-      "height": "600px"
-    }, 500);
+        height: "600px"
+      },
+      500
+    );
   });
   $("#mod-title").click(function () {
     $("#modal").fadeOut();
