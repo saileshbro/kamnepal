@@ -53,27 +53,29 @@
             color: $color-primary-dark;
             font-family: Helvetica, sans-serif;
             transition: all .2s;
-            position: relative;
+            // // position: relative;
+            // z-index: -1;
 
-            &:hover {
-                font-size: 1.6rem;
+            // &:hover {
+            //     font-size: 1.6rem;
 
-                &::after {
-                    animation: underlineToRight 1s ease-in-out normal;
-                    animation-fill-mode: forwards;
+            //     &::after {
+            //         animation: underlineToRight 1s ease-in-out normal;
+            //         animation-fill-mode: forwards;
 
-                }
-            }
+            //     }
+            // }
 
-            &::after {
-                content: '';
-                display: block;
-                position: absolute;
-                top: 115%;
-                width: 0;
-                left: -5%;
-                border-top: 3px solid $color-secondary-dark;
-            }
+            // &::after {
+            //     content: '';
+            //     display: block;
+            //     position: absolute;
+            //     top: 115%;
+            //     width: 0;
+            //     left: -5%;
+            //     border-top: 3px solid $color-secondary-dark;
+            //     z-index: -2;
+            // }
         }
     }
 }

@@ -136,7 +136,7 @@ if ($type == 'Jobseeker') {
               echo '<div class="comp-card">
                       <div class="company-name">
                         <span class="badge">0' . $i . '</span>
-                        <a href="/profile/jsk/display.php?user_id=' . $row['id'] . '">' . $row['fname'] . '</a>
+                        <a style="z-index:0" href="/profile/jsk/display.php?user_id=' . $row['id'] . '">' . $row['fname'] . '</a>
                         <p class="company-bio">' . $row['bio'] . '</p>
                       </div>
                     </div>';

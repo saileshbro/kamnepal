@@ -16,8 +16,14 @@ $disp = (strlen($fullBio) <= 95) ? $fullBio : substr($fullBio, 0, 100) . ' . . .
     </div>
     <div class="navbar--center">
         <div class="dashboard-search">
-            <input type="text" class="dashboard-search-input" placeholder="Type here to search...">
-            <a href=""><i class="fas fa-search fa-3x"></i></a>
+            <div class="dash-search">
+                <input type="text" oninput="searchDash(this.value);" class="dashboard-search-input" placeholder="Type here to search...">
+                <i class="fas fa-search fa-3x"></i>
+            </div>
+            <div class="searches">
+                <ul id="search-list">
+                </ul>
+            </div>
         </div>
     </div>
     <div class="navbar--right">
@@ -52,3 +58,22 @@ $disp = (strlen($fullBio) <= 95) ? $fullBio : substr($fullBio, 0, 100) . ' . . .
         </div>
     </div>
 </nav>
+<script>
+    function searchDash(data) {
+  if (data === "") {
+    $('.searches').hide();
+  } else {
+    $('.searches').show();
+    $.ajax({
+      url: "/search.php",
+      type: 'POST',
+      data: {
+        data: data
+      },
+      success: (data) => {
+        $('#search-list').html(data);
+      }
+    });
+  }
+}
+</script>

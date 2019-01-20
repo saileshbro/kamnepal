@@ -61,7 +61,10 @@ $user_type = $row2['type'];
   
   <div class="post-main">
   <div class="post-text">
-      <h1 class="post-title"><?php echo $row1['title']; ?></h1>
+      <div class="title-head">
+        <h1 class="post-title"><?php echo $row1['title']; ?></h1>
+        <a href="#" onclick='interested();'><i class="fas fa-star"></i>Interested</a>
+      </div>
       <div class="post-head">
           <span class="post-by">By<a href="../profile/jsk/display.php?user_id=<?php echo $user_id; ?>"><?php echo $row2['fname']; ?></a></span>
           <span class="posted-on">
@@ -136,6 +139,13 @@ $user_type = $row2['type'];
   src = "../."+src;
   $('#nav-pro-img').attr("src",src);
   $('.dropdown-profile-mid img').attr("src",src);
+  function interested(){
+    $('.fa-star').animate({
+      'color': '#ffd300'
+
+      
+    },200);
+  }
   </script>
 </body>
 </html>

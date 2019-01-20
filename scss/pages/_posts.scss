@@ -10,12 +10,48 @@
     background: white;
     padding: 3rem;
 
-    .post-title {
-      font-size: 3.5rem;
-      line-height: 3.5rem;
-      color: $color-primary-dark;
-      margin-bottom: 2rem;
+    .title-head {
+      color: black;
+      display: flex;
+      justify-content: space-between;
+      align-content: center;
 
+      a {
+        margin-right: 4rem;
+        font-size: 1.6rem;
+        text-decoration: none;
+        text-transform: uppercase;
+        color: $color-white;
+        padding: 0;
+        border: 1px solid rgba($color-grey-dark, .4);
+        height: 3rem;
+        padding-right: .8rem;
+        border-radius: .5rem;
+        background: black;
+        transition: .3s all;
+
+        &:focus,
+        &:active,
+        &:visited {
+          color: $color-white;
+        }
+
+        i {
+          padding: .6rem;
+          color: white;
+
+          margin-right: .4rem;
+          text-shadow: 1px 1px 4px 20px rgba($color-black, .4)
+        }
+      }
+
+      .post-title {
+        font-size: 3.5rem;
+        line-height: 3.5rem;
+        color: $color-primary-dark;
+        margin-bottom: 2rem;
+
+      }
     }
 
     .post-head {

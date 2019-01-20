@@ -33,9 +33,15 @@ $res1 = mysqli_query($con, $sql1);
         <div class="navbar-center" id='navbar-center'>
             <a href="/index.php"><img class='brand-logo' src="../img/logo/kamnepal.svg" alt="" width='90rem' height='90rem' href='./index.php'></a>
         </div>
-        <div class="landing-search">
-            <input type="text" placeholder='Search here...'>
-            <a href="#"><img src="img/logo/search-solid.svg" width='30px' alt=""></a>
+        <div class="search-elements">
+            <div class="landing-search">
+                <input type="text" id="searchlanding" oninput="searchLanding(this.value);" list="search-list" placeholder='Search here...'>
+            <i class="fas fa-search fa-2x"></i>
+            </div>
+            <div class="searches">
+                <ul id="search-list">
+                </ul>
+            </div>
         </div>
         <div class='scroll' href="#landing-main">
             <div class="scroll-arr">
