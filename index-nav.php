@@ -28,7 +28,7 @@ $disp = (strlen($fullBio) <= 95) ? $fullBio : substr($fullBio, 0, 100) . ' . . .
     </div>
     <div class="navbar--right">
         <ul>
-            <li><a  onclick="toggleNotice();"href="javascript:;"><i class="far notice fa-3x fa-bell"></i></a></li>
+            <li><a  onclick="toggleNotice();getNotice();"href="javascript:;"><i class="far fa-3x fa-bell"></i></a></li>
             <li><a href=""><i class="fas  fa-3x fa-cog"></i></a></li>
             <li><a onclick="toggleDropdownProf();" href="javascript:;"  id='prof-img'><img id="nav-pro-img" src=<?php echo $profileImg ?> alt=""></a></li>
         </ul>
@@ -80,7 +80,7 @@ $disp = (strlen($fullBio) <= 95) ? $fullBio : substr($fullBio, 0, 100) . ' . . .
     });
   }
 }
-function clearNotice(data){
+function openNotice(data){
     $.ajax({
         type:'POST',
         url:"/clearNotice.php",
@@ -90,17 +90,45 @@ function clearNotice(data){
         },
         success: (data)=>{
             $('#'+data).hide("slide", { direction: "left" }, 1000);
+            setTimeout(() => {
+                getNotice();
+            }, 1050);
         }
     });
 }
-// function getNotice(){
-//     $.ajax({
-//         url: "/getNotice.php",
-//         type:'GET',
-//         success: (data)=>{
-//             $('#notice-list').html(data);
-//         }
-//     });
-// }
-// getNotice();
+function clearNotice(){
+    $.ajax({
+        type:'POST',
+        url:"/clearNotice.php",
+        data:{
+            type: 'all',
+            user_id : "<?= $userId ?>"
+        },
+        success: (data)=>{
+            for(let i=1;i<$('#notice-list').children().length;i++){
+                $('#notice-list').children()[i].hide("slide", { direction: "left" }, 1000);
+            }
+            getNotice();
+        }
+    });
+}
+function getNotice(){
+    $.ajax({
+        url:"/getNotice.php",
+        type:'POST',
+        data:{
+            user_id:"<?= $userId ?>"
+        },
+        success:(data)=>{
+            if(data==="null"){
+                $('#notice-list').html('<li class="post emptyNotice">No notifications</li>');
+                $('i.far.fa-bell').removeClass('notice');
+            }
+            else{
+                $('i.far.fa-bell').addClass('notice');
+                $('#notice-list').html(data);
+            }
+        }
+    });
+}
 </script>

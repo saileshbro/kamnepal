@@ -463,4 +463,5 @@ $(document).ready(() => {
   $(".upload-button").on("click", function () {
     $(".file-upload").click();
   });
+  getNotice();
 });
