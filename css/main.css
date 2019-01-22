@@ -2256,6 +2256,19 @@ div.ui-datepicker {
   color: #5d78ff;
 }
 
+#No {
+  padding: 1rem 0;
+  font-size: 1.5rem;
+  color: #ea545e;
+}
+
+#No span {
+  color: #4665fd;
+  font-weight: bold;
+  font-size: 2rem;
+  margin-right: 0.5rem;
+}
+
 .modal {
   width: 100vw;
   height: 100vh;
@@ -3690,6 +3703,20 @@ div.ui-datepicker {
   color: #ffd300 !important;
 }
 
+.No {
+  padding: 0.5rem 0;
+  font-size: 1.5rem;
+  color: #ea545e;
+  text-align: center;
+}
+
+.No span {
+  color: #4665fd;
+  font-weight: bold;
+  font-size: 2rem;
+  margin-right: 0.5rem;
+}
+
 .card {
   display: inline-block;
   -webkit-box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
@@ -3963,7 +3990,7 @@ div.ui-datepicker {
   background: white;
   max-height: 42rem;
   overflow-y: auto;
-  border-radius: .5rem;
+  border-radius: 0.5rem;
   -webkit-box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.7);
           box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.7);
   display: none;
@@ -3973,13 +4000,29 @@ div.ui-datepicker {
   list-style: none;
 }
 
+.dropped-navbar #noticeDrop #notice-list .clear {
+  padding: 1.2rem 0;
+}
+
 .dropped-navbar #noticeDrop #notice-list li {
   display: block;
   background: linear-gradient(-55deg, #1e40b8, #08b1ffd0);
   margin: 0;
+  text-align: right;
 }
 
-.dropped-navbar #noticeDrop #notice-list li a {
+.dropped-navbar #noticeDrop #notice-list li > a {
+  font-size: 1.7rem;
+  text-decoration: none;
+  margin: .7rem;
+  margin-right: 1.3rem;
+}
+
+.dropped-navbar #noticeDrop #notice-list li > a i {
+  margin-right: .4rem;
+}
+
+.dropped-navbar #noticeDrop #notice-list li .post-link {
   padding-right: 1rem;
   padding: 1.2rem 0;
   text-decoration: none;
@@ -3993,37 +4036,54 @@ div.ui-datepicker {
       -ms-flex-align: center;
           align-items: center;
   padding-left: 1.7rem;
-  -webkit-transition: .2s all;
-  transition: .2s all;
+  padding-right: 1.2rem;
+  text-align: left;
+  -webkit-transition: 0.2s all;
+  transition: 0.2s all;
 }
 
-.dropped-navbar #noticeDrop #notice-list li a i {
+.dropped-navbar #noticeDrop #notice-list li .post-link i {
   font-size: 2.3rem;
   padding: 1.2rem;
   background: white;
   color: #0269df;
-  margin-right: .8rem;
+  margin-right: 0.8rem;
   border-radius: 50%;
   -webkit-box-shadow: 0 1px 8px 1px rgba(0, 0, 0, 0.274);
           box-shadow: 0 1px 8px 1px rgba(0, 0, 0, 0.274);
   border: 2px solid transparent;
 }
 
-.dropped-navbar #noticeDrop #notice-list li a p {
+.dropped-navbar #noticeDrop #notice-list li .post-link p {
   color: white;
   font-size: 1.5rem;
   font-weight: 400;
-  font-family: 'Fira Sans';
-  margin-bottom: .9rem;
+  font-family: "Fira Sans";
+  margin-bottom: 0.9rem;
+  display: block;
 }
 
-.dropped-navbar #noticeDrop #notice-list li a:hover {
+.dropped-navbar #noticeDrop #notice-list li .post-link p a,
+.dropped-navbar #noticeDrop #notice-list li .post-link p span {
+  text-decoration: none;
+  color: black;
+  font-size: 1.6rem;
+  font-weight: 600;
+  font-family: 'PT Sans';
+}
+
+.dropped-navbar #noticeDrop #notice-list li .post-link:hover {
   background: #353b48;
-  -webkit-transition: .2s all;
-  transition: .2s all;
+  -webkit-transition: 0.2s all;
+  transition: 0.2s all;
 }
 
-.dropped-navbar #noticeDrop #notice-list li a:hover i {
+.dropped-navbar #noticeDrop #notice-list li .post-link:hover p a,
+.dropped-navbar #noticeDrop #notice-list li .post-link:hover p span {
+  color: white;
+}
+
+.dropped-navbar #noticeDrop #notice-list li .post-link:hover i {
   color: white;
   background: #353b48;
   border: 2px solid white;
@@ -4182,8 +4242,8 @@ div.ui-datepicker {
 .notice::after {
   content: "";
   position: absolute;
-  top: -.2rem;
-  right: -.2rem;
+  top: -0.2rem;
+  right: -0.2rem;
   height: 1rem;
   width: 1rem;
   background: red;

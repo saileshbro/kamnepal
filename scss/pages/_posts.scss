@@ -271,3 +271,17 @@
 .interest {
   color: #ffd300 !important;
 }
+
+.No {
+  padding: 0.5rem 0;
+  font-size: 1.5rem;
+  color: #ea545e;
+  text-align: center;
+
+  span {
+    color: $color-primary-dark;
+    font-weight: bold;
+    font-size: 2rem;
+    margin-right: 0.5rem;
+  }
+}

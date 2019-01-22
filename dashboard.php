@@ -8,13 +8,11 @@ $type = getColumn("select type from user where email='$email'", 'type');
 $fname = getColumn("select fname from profile where user_id ='$user_id'", "fname");
 $interest = getColumn("select interest from profile where user_id ='$user_id'", "interest");
 $bio = getColumn("select bio from profile where user_id ='$user_id'", "bio");
-$jobsql = "select  profile.id, profile.fname, profile.bio from profile,user where profile.user_id= user.id and user.type='Jobseeker' limit 10";
+$category = getColumn("select category from profile where user_id='$user_id'", 'category');
+$jobsql = "select  profile.id, profile.fname, profile.bio from profile,user where profile.user_id= user.id and user.type='Jobseeker'and profile.category='$category' limit 10";
 $jobres = mysqli_query($con, $jobsql);
-$empsql = "select  profile.id, profile.fname, profile.bio from profile,user where profile.user_id= user.id and user.type='Employer' limit 10";
+$empsql = "select  profile.id, profile.fname, profile.bio,from profile,user where profile.user_id= user.id and user.type='Employer' and profile.category='$category' limit 10";
 $empres = mysqli_query($con, $empsql);
-if ($type == 'Jobseeker') {
-  $category = getColumn("select category from profile where user_id='$user_id'", 'category');
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -56,11 +54,9 @@ if ($type == 'Jobseeker') {
         if ($type === 'Jobseeker') {
           echo "<p class='prof-employ'>$interest</p>";
           echo "<hr>";
-          // echo "<p class='prof-bio'>$bio</p>  ";
         } else {
-          echo "<p class='prof-employ'>Employment details</p>";
           echo "<hr>";
-          echo "<p class='prof-bio'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Distinctio, at!</p>  ";
+          echo "<p class='prof-bio'>$bio</p>  ";
         }
         ?>
 			</div>
@@ -101,14 +97,13 @@ if ($type == 'Jobseeker') {
               </form>
             </div>
             <div class="actual-post">
-              <!-- show jobs here -->
-              <?php
-              if ($type === 'Jobseeker') {
-                $sql = "SELECT posts.*,profile.fname FROM posts,user,profile WHERE posts.category='$category' AND user.id=posts.user_id AND user.id=profile.user_id AND user.type='Employer' ORDER BY updated_at DESC";
-                $res = mysqli_query($con, $sql);
-                if ($res) {
-                  while ($row = mysqli_fetch_array($res)) {
-                    echo "<div class='job'>
+            <?php
+            if ($type === 'Jobseeker') {
+              $sql = "SELECT posts.*,profile.fname FROM posts,user,profile WHERE posts.category='$category' AND user.id=posts.user_id AND user.id=profile.user_id AND user.type='Employer' ORDER BY updated_at DESC";
+              $res = mysqli_query($con, $sql);
+              if ($res) {
+                while ($row = mysqli_fetch_array($res)) {
+                  echo "<div class='job'>
                             <div class='job-title'><a href='posts/index.php?id=" . $row['id'] . "' id='" . $row['id'] . "'class='jobPosts'>" . $row['title'] . "</a>
                             </div>
                             <div class='job-by'>
@@ -116,21 +111,40 @@ if ($type == 'Jobseeker') {
                               <span class='job-date'>" . $row['updated_at'] . "</span>
                             </div>
                           </div>";
-                  }
-                } else {
-                  echo "<div class='job'>
+                }
+              } else {
+                echo "<div class='job'>
                           <div class job-body>No Posts Available</div>
                         </div>";
-                }
               }
-              ?>
+            } else if ($type === 'Employer') {
+              $sql = "SELECT posts.*,profile.fname FROM posts,user,profile WHERE posts.category='$category' AND user.id=posts.user_id AND user.id=profile.user_id AND user.type='Jobseeker' ORDER BY updated_at DESC";
+              $res = mysqli_query($con, $sql);
+              if ($res) {
+                while ($row = mysqli_fetch_array($res)) {
+                  echo "<div class='job'>
+                            <div class='job-title'><a href='posts/index.php?id=" . $row['id'] . "' id='" . $row['id'] . "'class='jobPosts'>" . $row['title'] . "</a>
+                            </div>
+                            <div class='job-by'>
+                              <span class='job-name'><a href='profile/emp/display.php?user_id=" . $row['user_id'] . "'>" . $row['fname'] . "</a></span>
+                              <span class='job-date'>" . $row['updated_at'] . "</span>
+                            </div>
+                          </div>";
+                }
+              } else {
+                echo "<div class='job'>
+                          <div class job-body>No Posts Available</div>
+                        </div>";
+              }
+            }
+            ?>
         </section>
         <section class="dashboard-right">
             <div class="dashboard-comp">
 				<div class='company-list'>
-          <?php echo ($type === 'Jobseeker') ? "<h2>Recommended Companies</h2>" : "<h2>Potential Candidates</h2>"; ?>
-          <?php 
-          if ($type === 'Jobseeker') {
+        <?php 
+        if ($type === 'Jobseeker') {
+          if ($empres) {
             $i = 1;
             while ($row = mysqli_fetch_assoc($empres)) {
               echo '<div class="comp-card">
@@ -142,7 +156,11 @@ if ($type == 'Jobseeker') {
                     </div>';
               $i++;
             }
-          } else if ($type === 'Employer') {
+          } else {
+            echo '<p id="No"> <span>! </span>No Recommendations Found</p>';
+          }
+        } else if ($type === 'Employer') {
+          if ($jobres) {
             $i = 1;
             while ($row = mysqli_fetch_assoc($jobres)) {
               echo '<div class="comp-card">
@@ -154,7 +172,10 @@ if ($type == 'Jobseeker') {
                     </div>';
               $i++;
             }
-          } ?>
+          } else {
+            echo '<p id="No"> <span>! </span>No Recommendations Found</p>';
+          }
+        } ?>
 				</div>
 			</div>
         </section>

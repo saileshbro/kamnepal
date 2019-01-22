@@ -111,12 +111,16 @@ $userID = getColumn("select id from user where email='$email'", 'id');
       Related Posts
     </h1>
     <ul class="related-body">
-      <?php
-      $empsql = "select posts.title from posts,user where posts.user_id= user.id and user.type= 'Jobseeker' and posts.category = '$category' limit 10";
-      if ($user_type === 'Employeer') {
-        $empres = mysqli_query($con, $empsql);
+    <?php
+    $empsql = "select posts.title from posts,user where posts.user_id= user.id and user.type= 'Jobseeker' and posts.category = '$category'  and not posts.id = '$postid'limit 10";
+    $jobsql = "select posts.title from posts,user where posts.user_id= user.id and user.type= 'Employer' and posts.category = '$category' and not posts.id = '$postid' limit 10";
+    $empres = mysqli_query($con, $empsql);
+    $jobres = mysqli_query($con, $jobsql);
+
+    if ($viewerType === 'Employer') {
+      if (mysqli_fetch_assoc($empres)) {
         $i = 1;
-        while ($row = mysqli_fetch_array($empres)) {
+        while ($row = mysqli_fetch_assoc($empres)) {
           echo ' 
           <li><span class="badge">0' . $i . '</span>
           <a href="">' . $row['title'] . '</a>
@@ -125,21 +129,26 @@ $userID = getColumn("select id from user where email='$email'", 'id');
         ';
           $i++;
         }
-        $jobsql = "select posts.title from posts,user where posts.user_id= user.id and user.type= 'Employer' and posts.category = '$category' limit 10";
-      } else if ($user_type === 'Jobseeker') {
+      } else {
+        echo '<p class="No"><span>!</span>No Related Posts Found</p>';
+      }
+    } else if ($viewerType === 'Jobseeker') {
+      if (mysqli_fetch_assoc($jobres)) {
         $i = 1;
-        $jobres = mysqli_query($con, $empsql);
-        while ($row = mysqli_fetch_array($jobres)) {
+        while ($row = mysqli_fetch_assoc($jobres)) {
           echo ' 
-        <li><span class="badge">0' . $i . '</span>
-        <a href="">' . $row['title'] . '</a>
-        </li>
-        <hr>  
-      ';
+          <li><span class="badge">0' . $i . '</span>
+          <a href="">' . $row['title'] . '</a>
+          </li>
+          <hr>
+        ';
           $i++;
         }
+      } else {
+        echo '<p class="No"><span>!</span>No Related Posts Found</p>';
       }
-      ?>
+    }
+    ?>
     </ul>
   </div>
   
