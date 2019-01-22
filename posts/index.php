@@ -1,18 +1,26 @@
 <?php
 include '../database/db.php';
+include '../auth/authenticate.php';
 $db = new Database();
 $con = $db->con;
 $postid = cleanse($_GET['id']) ?? '';
 $posts = "select * from posts where id = '$postid'";
 $result1 = mysqli_query($con, $posts);
-
+$viewerType = getColumn("select type from user where email='$email'", 'type');
 $row1 = mysqli_fetch_assoc($result1);
 $user_id = $row1['user_id'];
+$publisherType = getColumn("select type from user where id='$user_id'", 'type');
 $category = $row1['category'];
 $sql2 = "select profile.fname, user.type from profile,user where  user.id=profile.user_id and profile.user_id = '$user_id' ";
 $result2 = mysqli_query($con, $sql2);
 $row2 = mysqli_fetch_assoc($result2);
 $user_type = $row2['type'];
+
+$str = getColumn("select interested from posts where id = '$postid'", "interested");
+$str = substr($str, 0, strlen($str) - 1);
+$userArr = explode(',', $str);
+$userID = getColumn("select id from user where email='$email'", 'id');
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -63,8 +71,26 @@ $user_type = $row2['type'];
   <div class="post-text">
       <div class="title-head">
         <h1 class="post-title"><?php echo $row1['title']; ?></h1>
-        <a href="#" onclick='interested();'><i class="fas fa-star"></i>Interested</a>
+        <?php if ($viewerType === 'Jobseeker' && $publisherType === 'Employer') {
+          ?>
+          <a href="javascript:;" onclick='interested();'><i class="fas fa-star"></i>Interested</a>
+          <?php
+
+        } else if ($viewerType === 'Employer' && $publisherType === 'Jobseeker') {
+          ?>
+          <a class="message" href="../messages/index.php?id=<?php echo $user_id; ?>"><i class="fas fa-envelope"></i>Mssage</a>
+          <?php
+
+        }
+        ?>
       </div>
+      <?php
+      if (in_array($userID, $userArr)) {
+        echo "<script>document.querySelector('i.fas.fa-star').classList.add('interest');</script>";
+      } else {
+
+      }
+      ?>
       <div class="post-head">
           <span class="post-by">By<a href="../profile/jsk/display.php?user_id=<?php echo $user_id; ?>"><?php echo $row2['fname']; ?></a></span>
           <span class="posted-on">
@@ -140,11 +166,21 @@ $user_type = $row2['type'];
   $('#nav-pro-img').attr("src",src);
   $('.dropdown-profile-mid img').attr("src",src);
   function interested(){
-    $('.fa-star').animate({
-      'color': '#ffd300'
-
-      
-    },200);
+    $.ajax({
+      url:"posts/interest.php",
+      type: 'POST',
+      data: {
+        post_id : "<?= $postid ?>"
+      },
+      success:(data)=>{
+        if(data==='add'){
+          $('i.fas.fa-star').addClass('interest');
+        }else{
+          $('i.fas.fa-star').removeClass('interest');
+        }
+      }
+    });
+    
   }
   </script>
 </body>

@@ -58,12 +58,30 @@ $disp = (strlen($fullBio) <= 95) ? $fullBio : substr($fullBio, 0, 100) . ' . . .
         </div>
         <div id="noticeDrop">
             <ul id ="notice-list">
-                <li id="chat"><a href="#"><i class="fas fa-envelope"></i><p>You have a message from.</p></a></li>
+                <!-- <li id="chat"><a href="#"><i class="fas fa-envelope"></i><p>You have a message from.</p></a></li>
                 <li id="post"><a href="#"><i class="fas fa-file-signature"></i><p>Someone viewed a post.</p></a></li>
                 <li id="chat"><a href="#"><i class="fas fa-envelope"></i><p>You have a message from.</p></a></li>
                 <li id="post"><a href="#"><i class="fas fa-file-signature"></i><p>Someone viewed a post.</p></a></li>
                 <li id="chat"><a href="#"><i class="fas fa-envelope"></i><p>You have a message from.</p></a></li>
-                <li id="post"><a href="#"><i class="fas fa-file-signature"></i><p>Someone viewed a post.</p></a></li>
+                <li id="post"><a href="#"><i class="fas fa-file-signature"></i><p>Someone viewed a post.</p></a></li> -->
+                <?php
+                $sql = "select * from notice where reciever_id='$userId' order by id desc";
+                $res = mysqli_query($con, $sql);
+                if (mysqli_num_rows($res) > 0) {
+                    while ($row = mysqli_fetch_array($res)) {
+                        $poster = getColumn("SELECT fname FROM profile where user_id=" . $row['sender_id'] . "", "fname");
+                        ?>
+                        <li id="post"><a href="posts/index.php?id=<?php echo $row['post_id']; ?>"><i class="fas fa-file-signature"></i><p><a href="profile/jsk/display.php?user_id="<?php echo $row['sender_id']; ?>><?php echo $poster; ?></a>viewed a post.</p></a></li>
+                        <?php
+
+                    }
+                } else {
+                    ?>
+                    <li id="post" class="emptyNotice">No notifications</li>
+                    <?php
+
+                }
+                ?>
             </ul>
         </div>
     </div>

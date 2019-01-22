@@ -3473,6 +3473,27 @@ div.ui-datepicker {
   margin-bottom: 2rem;
 }
 
+.post-main .post-text .message {
+  background: white !important;
+  border: 1px solid #4665fd !important;
+  color: #5d78ff !important;
+  -webkit-transition: .2s all;
+  transition: .2s all;
+}
+
+.post-main .post-text .message i {
+  color: #5d78ff !important;
+}
+
+.post-main .post-text .message:hover {
+  background: #5d78ff !important;
+  color: white !important;
+}
+
+.post-main .post-text .message:hover i {
+  color: white !important;
+}
+
 .post-main .post-text .post-head {
   margin-bottom: 1.5rem;
   color: #777;
@@ -3663,6 +3684,10 @@ div.ui-datepicker {
   width: 0;
   left: -5%;
   border-top: 3px solid #ff7730;
+}
+
+.interest {
+  color: #ffd300 !important;
 }
 
 .card {
@@ -3941,7 +3966,6 @@ div.ui-datepicker {
   border-radius: .5rem;
   -webkit-box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.7);
           box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.7);
-  padding-bottom: 2rem;
   display: none;
 }
 
@@ -4003,6 +4027,13 @@ div.ui-datepicker {
   color: white;
   background: #353b48;
   border: 2px solid white;
+}
+
+.dropped-navbar #noticeDrop #notice-list .emptyNotice {
+  display: block;
+  background: linear-gradient(-55deg, #1e40b8, #08b1ffd0);
+  font-size: 1.6rem;
+  padding: 0 !important;
 }
 
 .dropped-navbar #Prof-drop {
