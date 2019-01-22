@@ -28,7 +28,7 @@ $disp = (strlen($fullBio) <= 95) ? $fullBio : substr($fullBio, 0, 100) . ' . . .
     </div>
     <div class="navbar--right">
         <ul>
-            <li><a href=""><i class="far  fa-3x fa-bell"></i></a></li>
+            <li><a  onclick="toggleNotice();"href="javascript:;"><i class="far notice fa-3x fa-bell"></i></a></li>
             <li><a href=""><i class="fas  fa-3x fa-cog"></i></a></li>
             <li><a onclick="toggleDropdownProf();" href="javascript:;"  id='prof-img'><img id="nav-pro-img" src=<?php echo $profileImg ?> alt=""></a></li>
         </ul>
@@ -55,6 +55,16 @@ $disp = (strlen($fullBio) <= 95) ? $fullBio : substr($fullBio, 0, 100) . ' . . .
                     <div class="drop-button"><button onclick="location.href='/login/logout.php';";class="links">Sign Out</button></div>
                 </div>
             </div>
+        </div>
+        <div id="noticeDrop">
+            <ul id ="notice-list">
+                <li id="chat"><a href="#"><i class="fas fa-envelope"></i><p>You have a message from.</p></a></li>
+                <li id="post"><a href="#"><i class="fas fa-file-signature"></i><p>Someone viewed a post.</p></a></li>
+                <li id="chat"><a href="#"><i class="fas fa-envelope"></i><p>You have a message from.</p></a></li>
+                <li id="post"><a href="#"><i class="fas fa-file-signature"></i><p>Someone viewed a post.</p></a></li>
+                <li id="chat"><a href="#"><i class="fas fa-envelope"></i><p>You have a message from.</p></a></li>
+                <li id="post"><a href="#"><i class="fas fa-file-signature"></i><p>Someone viewed a post.</p></a></li>
+            </ul>
         </div>
     </div>
 </nav>

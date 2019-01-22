@@ -61,6 +61,11 @@ function toggleDropdownProf() {
   $("#Prof-drop").slideToggle("show");
 }
 
+function toggleNotice() {
+  $('#noticeDrop').slideToggle('Show');
+  $('i').removeClass('notice');
+}
+
 function toggleRegistration() {
   let element = document.querySelectorAll("#drop-nav");
   let element2 = document.querySelectorAll(".drop-active");
@@ -368,7 +373,7 @@ $(document).ready(() => {
   );
 
   $(document).mouseup(function (e) {
-    var container = $("#Prof-drop,div.dropdown");
+    var container = $("#Prof-drop,div.dropdown,#noticeDrop");
     if (!container.is(e.target) && container.has(e.target).length === 0) {
       container.fadeOut();
     }

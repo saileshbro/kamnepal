@@ -93,6 +93,94 @@
 .dropped-navbar {
     position: relative;
 
+    #noticeDrop {
+        width: 33rem;
+        position: absolute;
+        top: 80%;
+        right: 6%;
+        z-index: 4;
+        background: white;
+        max-height: 42rem;
+        overflow-y: auto;
+        border-radius: .5rem;
+        box-shadow: 1px 1px 8px rgba($color-black, 0.7);
+        padding-bottom: 2rem;
+        display: none;
+
+        #notice-list {
+            list-style: none;
+
+            li {
+                display: block;
+                background: linear-gradient(-55deg, #1e40b8, #08b1ffd0);
+                margin: 0;
+
+                a {
+                    padding-right: 1rem;
+                    padding: 1.2rem 0;
+                    text-decoration: none;
+                    display: flex;
+                    justify-content: start;
+                    align-items: center;
+                    padding-left: 1.7rem;
+
+
+                    i {
+                        font-size: 2.3rem;
+                        padding: 1.2rem;
+                        background: white;
+                        color: #0269df;
+                        margin-right: .8rem;
+                        border-radius: 50%;
+                        box-shadow: 0 1px 8px 1px rgba(0, 0, 0, 0.274);
+                        border: 2px solid transparent;
+                    }
+
+                    p {
+                        color: white;
+                        font-size: 1.5rem;
+                        font-weight: 400;
+                        font-family: 'Fira Sans';
+                        margin-bottom: .9rem;
+                    }
+
+                    transition: .2s all;
+
+                    &:hover {
+                        background: #353b48;
+                        transition: .2s all;
+
+                        i {
+                            color: white;
+                            background: #353b48;
+                            border: 2px solid white;
+                        }
+                    }
+
+                    // &:visited,
+                    // &:active,
+                    // &:hover {
+
+                    //     i {
+                    //         font-size: 2.3rem;
+                    //         padding: 1.2rem;
+                    //         background: red;
+                    //         margin-right: .8rem;
+                    //         border-radius: 50%;
+                    //     }
+
+                    //     p {
+                    //         color: black;
+                    //         font-size: 1.5rem;
+                    //         font-family: 'Fira Sans';
+                    //         margin-bottom: .9rem;
+                    //     }
+                    // }
+                }
+            }
+        }
+    }
+
     #Prof-drop {
         position: absolute;
         top: 80%;
@@ -227,5 +315,20 @@
                 }
             }
         }
+    }
+}
+
+.notice {
+    position: relative;
+
+    &::after {
+        content: "";
+        position: absolute;
+        top: -.2rem;
+        right: -.2rem;
+        height: 1rem;
+        width: 1rem;
+        background: red;
+        border-radius: 50%;
     }
 }
