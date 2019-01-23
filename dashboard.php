@@ -55,7 +55,6 @@ $empres = mysqli_query($con, $empsql);
           echo "<p class='prof-employ'>$interest</p>";
           echo "<hr>";
         } else {
-          echo "<hr>";
           echo "<p class='prof-bio'>$bio</p>  ";
         }
         ?>
@@ -142,6 +141,7 @@ $empres = mysqli_query($con, $empsql);
         <section class="dashboard-right">
             <div class="dashboard-comp">
 				<div class='company-list'>
+        <?php echo ($type === 'Jobseeker') ? "<h2>Recommended Companies</h2>" : "<h2>Potential Candidates</h2>"; ?>
         <?php 
         if ($type === 'Jobseeker') {
           if ($empres) {
@@ -157,7 +157,7 @@ $empres = mysqli_query($con, $empsql);
               $i++;
             }
           } else {
-            echo '<p id="No"> <span>! </span>No Recommendations Found</p>';
+            echo '<p id="No"><span>!</span>No Recommendations Found</p>';
           }
         } else if ($type === 'Employer') {
           if ($jobres) {

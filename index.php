@@ -2,7 +2,7 @@
 include 'database/db.php';
 $db = new Database();
 $con = $db->con;
-$sql = "select * from posts limit 10";
+$sql = "select * from posts order by LENGTH(interested) desc limit 10";
 $res = mysqli_query($con, $sql);
 $sql1 = "select profile.id, profile.fname, profile.bio from profile,user where profile.user_id = user.id and user.type='Employer' limit 10";
 $res1 = mysqli_query($con, $sql1);

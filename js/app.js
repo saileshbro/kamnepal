@@ -395,7 +395,6 @@ $(document).ready(() => {
       $("#edu-modal-head").click();
       $("#exp-modal-head").click();
       $(".modal").fadeOut();
-      // $('.modal-forgot').fadeOut();
     }
   });
   $(".search-elements input").focus(() => {

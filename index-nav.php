@@ -89,10 +89,8 @@ function openNotice(data){
             notice_id : data
         },
         success: (data)=>{
-            $('#'+data).hide("slide", { direction: "left" }, 1000);
-            setTimeout(() => {
-                getNotice();
-            }, 1050);
+            $("#"+data).addClass('seenNotice');
+            getNotice();
         }
     });
 }
@@ -122,10 +120,10 @@ function getNotice(){
         success:(data)=>{
             if(data==="null"){
                 $('#notice-list').html('<li class="post emptyNotice">No notifications</li>');
-                $('i.far.fa-bell').removeClass('notice');
+                // $('i.far.fa-bell').removeClass('notice');
             }
             else{
-                $('i.far.fa-bell').addClass('notice');
+                // $('i.far.fa-bell').addClass('notice');
                 $('#notice-list').html(data);
             }
         }

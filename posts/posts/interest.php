@@ -3,7 +3,7 @@ require '../../auth/authenticate.php';
 require '../../database/db.php';
 $db = new Database();
 $con = $db->con;
-$userID = getColumn("select id from user where email='$email'", 'id');//logged in viewer
+$userID = getColumn("select id from user where email='$email'", 'id');
 $user_id = $userID . ',';
 $post_id = cleanse($_POST['post_id']) ?? "";
 $publisherId = getColumn("Select user_id from posts where id='$post_id'", 'user_id');
@@ -15,8 +15,14 @@ $userArr = explode(',', $str);
 if (in_array($userID, $userArr)) {
     if (($key = array_search($userID, $userArr)) !== false) {
         unset($userArr[$key]);
-        $str = implode(',', $userArr) . ',';
-        $res = mysqli_query($con, "update posts set interested='$str' where id = '$post_id'");
+        if (count($userArr) !== 0) {
+            $str = implode(',', $userArr) . ',';
+            $res = mysqli_query($con, "update posts set interested='$str' where id = '$post_id'");
+        } else {
+            $str = implode(',', $userArr);
+            $res = mysqli_query($con, "update posts set interested='$str' where id = '$post_id'");
+        }
+
     }
     mysqli_query($con, "DELETE FROM notice where post_id='$post_id'");
     echo "remove";

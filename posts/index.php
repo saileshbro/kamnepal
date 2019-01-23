@@ -150,10 +150,9 @@ $userID = getColumn("select id from user where email='$email'", 'id');
     }
     ?>
     </ul>
-  </div>
-  
-  </div>
-  
+  </div>  
+</div>
+
   <?php include "../includes/footer.php" ?>
   <script src="/js/app.js"></script>
   <script>

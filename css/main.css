@@ -802,6 +802,7 @@ body {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  padding-right: 4rem;
 }
 
 .Profile-main-body .profile-left .left-bottom .skill-set div:first-child {
@@ -2657,8 +2658,8 @@ div.ui-datepicker {
 
 .modal-profile-1 .edu-modal .edu-modal-head {
   position: absolute;
-  top: 3rem;
-  right: 3rem;
+  top: 1.2rem;
+  right: 1.2rem;
   font-size: 2.5rem;
   width: 3rem;
   height: 3rem;
@@ -2751,8 +2752,8 @@ div.ui-datepicker {
 
 .modal-profile-2 .exp-modal .exp-modal-head {
   position: absolute;
-  top: 3rem;
-  right: 3rem;
+  top: 1.2rem;
+  right: 1.2rem;
   font-size: 2.5rem;
   width: 3rem;
   height: 3rem;
@@ -3432,6 +3433,7 @@ div.ui-datepicker {
       -ms-flex-pack: justify;
           justify-content: space-between;
   font-family: 'Fira Sans';
+  min-height: 57.8rem;
 }
 
 .post-main .post-text {
@@ -4092,8 +4094,11 @@ div.ui-datepicker {
 .dropped-navbar #noticeDrop #notice-list .emptyNotice {
   display: block;
   background: linear-gradient(-55deg, #1e40b8, #08b1ffd0);
-  font-size: 1.6rem;
-  padding: 0 !important;
+  font-size: 1.9rem;
+  padding: .7rem 0 !important;
+  color: white;
+  text-align: center;
+  font-family: "PT Sans";
 }
 
 .dropped-navbar #Prof-drop {
@@ -4248,6 +4253,23 @@ div.ui-datepicker {
   width: 1rem;
   background: red;
   border-radius: 50%;
+}
+
+.seenNotice {
+  background: ghostwhite !important;
+}
+
+.seenNotice:hover a,
+.seenNotice:hover p {
+  color: white !important;
+}
+
+.seenNotice a {
+  color: black !important;
+}
+
+.seenNotice p {
+  color: black !important;
 }
 
 .job {

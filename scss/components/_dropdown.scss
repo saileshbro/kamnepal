@@ -113,6 +113,8 @@
                 padding: 1.2rem 0;
             }
 
+
+
             li {
                 display: block;
                 background: linear-gradient(-55deg, #1e40b8, #08b1ffd0);
@@ -197,8 +199,12 @@
             .emptyNotice {
                 display: block;
                 background: linear-gradient(-55deg, #1e40b8, #08b1ffd0);
-                font-size: 1.6rem;
-                padding: 0 !important;
+                font-size: 1.9rem;
+                padding: .7rem 0 !important;
+                color: white;
+                text-align: center;
+                font-family: "PT Sans";
+
             }
         }
     }
@@ -352,5 +358,26 @@
         width: 1rem;
         background: red;
         border-radius: 50%;
+    }
+}
+
+.seenNotice {
+    // background-image: linear-gradient(-55deg, #476cf1, #59b3ddd0) !important;
+    background: ghostwhite !important;
+
+    &:hover {
+
+        a,
+        p {
+            color: white !important;
+        }
+    }
+
+    a {
+        color: black !important;
+    }
+
+    p {
+        color: black !important;
     }
 }
