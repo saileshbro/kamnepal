@@ -44,3 +44,5 @@ foreach ($chats as $chat) {
 
     }
 }
+$sql = "UPDATE chat SET seen='1' where reciever_id='$reciever_id' and sender_id='$sender_id'";
+mysqli_query($con, $sql);
