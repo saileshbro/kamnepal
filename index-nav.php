@@ -80,6 +80,8 @@ $disp = (strlen($fullBio) <= 95) ? $fullBio : substr($fullBio, 0, 100) . ' . . .
     });
   }
 }
+//*****************bhabin************** */
+// open specific notification
 function openNotice(data){
     $.ajax({
         type:'POST',
@@ -94,6 +96,7 @@ function openNotice(data){
         }
     });
 }
+// clear all notice******************
 function clearNotice(){
     $.ajax({
         type:'POST',
@@ -110,6 +113,7 @@ function clearNotice(){
         }
     });
 }
+// get notice from database********************
 function getNotice(){
     $.ajax({
         url:"/getNotice.php",
@@ -120,10 +124,8 @@ function getNotice(){
         success:(data)=>{
             if(data==="null"){
                 $('#notice-list').html('<li class="post emptyNotice">No notifications</li>');
-                // $('i.far.fa-bell').removeClass('notice');
             }
             else{
-                // $('i.far.fa-bell').addClass('notice');
                 $('#notice-list').html(data);
             }
         }

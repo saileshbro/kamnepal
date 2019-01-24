@@ -3,8 +3,7 @@ require "database/db.php";
 $db = new Database();
 $con = $db->con;
 $userId = $_POST['user_id'];
-
-$sql = "SELECT * FROM notice where reciever_id='$userId' order by id desc";
+$sql = "SELECT * FROM notice where reciever_id='$userId' order by notice_time desc";
 $res = mysqli_query($con, $sql);
 if (mysqli_num_rows($res) > 0) {
     ?>
@@ -54,7 +53,6 @@ if (mysqli_num_rows($res) > 0) {
             <?php
 
         }
-
     }
 }
 } else {
