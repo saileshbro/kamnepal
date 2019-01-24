@@ -54,8 +54,9 @@ $empres = mysqli_query($con, $empsql);
         if ($type === 'Jobseeker') {
           echo "<p class='prof-employ'>$interest</p>";
           echo "<hr>";
+          echo "<p class='prof-bio'>" . substr($bio, 0, 167) . " . . . .</p>  ";
         } else {
-          echo "<p class='prof-bio'>$bio</p>  ";
+          echo "<p class='prof-bio'>" . substr($bio, 0, 167) . " . . . .</p>  ";
         }
         ?>
 			</div>

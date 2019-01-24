@@ -774,6 +774,8 @@ body {
 
 .Profile-main-body .profile-left .left-elements .left-heading .body .first-line {
   text-transform: uppercase;
+  font-size: 1.3rem;
+  letter-spacing: .1rem;
 }
 
 .Profile-main-body .profile-left .left-elements .left-heading .body .second-line {
@@ -807,6 +809,7 @@ body {
 
 .Profile-main-body .profile-left .left-bottom .skill-set div:first-child {
   margin-right: 1.4rem;
+  color: #d67d08;
 }
 
 .Profile-main-body .profile-left .left-bottom .skill-set div h3,
@@ -820,6 +823,12 @@ body {
 .Profile-main-body .profile-left .left-bottom .skill-set div h3 {
   font-weight: 500;
   text-transform: uppercase;
+  margin-left: .4rem;
+}
+
+.Profile-main-body .profile-left .left-bottom .skill-set div h3 i {
+  color: #4665fd;
+  margin-right: .4rem;
 }
 
 .Profile-main-body .profile-left .left-bottom .skill-set div h4 {
@@ -1415,7 +1424,7 @@ body {
       -ms-flex-align: self-start;
           align-items: self-start;
   padding: 3rem;
-  min-height: 57.8rem;
+  min-height: 61.3rem;
 }
 
 .Profile-main-body .profile-left {
@@ -1968,10 +1977,16 @@ div.ui-datepicker {
 
 .dashboard-body .dashboard-left .dashboard-card .prof-bio {
   margin: 0.5rem 0;
-  font-size: 1.3rem;
-  padding: 1rem 0;
-  padding: 1rem;
-  text-align: center;
+  font-size: 1.2rem;
+  padding: 1rem 3rem;
+  text-align: justify;
+  font-family: 'Muli';
+  color: #1f2022;
+}
+
+.dashboard-body .dashboard-left .dashboard-card .prof-bio::first-letter {
+  font-size: 2.4rem;
+  line-height: .6rem;
 }
 
 .dashboard-body .dashboard-middle {
@@ -4621,4 +4636,3 @@ div.ui-datepicker {
           box-shadow: 2px 2px 20px #0fe456;
   outline: 0 none;
 }
-/*# sourceMappingURL=main.css.map */

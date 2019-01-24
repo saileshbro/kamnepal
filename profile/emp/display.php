@@ -4,9 +4,6 @@ $db = new Database();
 $con = $db->con;
 $user_id = cleanse($_GET['user_id']) ?? '';
 $type = getColumn("select type from user where id='$user_id'", 'type');
-if ($type === "Jobseeker") {
-  header("Location: ../jsk/display.php?user_id=" . $user_id);
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -47,9 +44,24 @@ if ($type === "Jobseeker") {
 </div>
 
 <?php
-include '../../index-nav.php';
+include '../../index-nav.php'; ?>
+<?php
 if (!mysqli_num_rows(mysqli_query($con, "SELECT id from user where id='$user_id'")) > 0) {
-  header('Location: ?user_id=' . $userId);
+  // header("Location: display.php?user_id='$userId'");
+  ?>
+  <script>
+    location.href="display.php?user_id=<?php echo $userId; ?>";
+  </script>
+  <?php
+
+}
+if ($type === "Jobseeker") {
+  ?>
+  <script>
+    location.href="../jsk/display.php?user_id=<?php echo $user_id; ?>";
+  </script>
+  <?php
+
 }
 $sql = "select profile.*,user.v_status,user.email from profile,user where profile.user_id='$user_id' AND user.id=profile.user_id";
 $res = mysqli_query($con, $sql);

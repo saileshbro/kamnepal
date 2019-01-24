@@ -67,6 +67,8 @@
         .body {
           .first-line {
             text-transform: uppercase;
+            font-size: 1.3rem;
+            letter-spacing: .1rem;
           }
 
           .second-line {
@@ -99,6 +101,7 @@
         div {
           &:first-child {
             margin-right: 1.4rem;
+            color: $color-secondary;
           }
 
           h3,
@@ -112,6 +115,12 @@
           h3 {
             font-weight: 500;
             text-transform: uppercase;
+            margin-left: .4rem;
+
+            i {
+              color: $color-primary-dark;
+              margin-right: .4rem;
+            }
           }
 
           h4 {

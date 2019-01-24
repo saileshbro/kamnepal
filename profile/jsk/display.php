@@ -4,9 +4,6 @@ $db = new Database();
 $con = $db->con;
 $user_id = cleanse($_GET['user_id']) ?? '';
 $type = getColumn("select type from user where id='$user_id'", 'type');
-if ($type === "Employer") {
-  header("Location: ../emp/display.php?user_id=" . $user_id);
-}
 $sql = "select profile.*,user.v_status,user.email from profile,user where profile.user_id='$user_id' AND user.id=profile.user_id";
 $res = mysqli_query($con, $sql);
 while ($row = mysqli_fetch_array($res)) {
@@ -85,10 +82,23 @@ while ($row = mysqli_fetch_array($res)) {
 <?php require '../../includes/modal-experience.php'; ?>
 <?php include '../../index-nav.php';
 if (!mysqli_num_rows(mysqli_query($con, "SELECT id from user where id='$user_id'")) > 0) {
-  header('Location: ?user_id=' . $userId);
+  // header("Location: display.php?user_id='$userId'");
+  ?>
+  <script>
+    location.href="display.php?user_id=<?php echo $userId; ?>";
+  </script>
+  <?php
+
+}
+if ($type === "Employer") {
+  ?>
+  <script>
+    location.href="../emp/display.php?user_id=<?php echo $user_id; ?>";
+  </script>
+  <?php
+
 }
 ?>
-
 <div class="Profile-main-body">
   <div class="profile-left">
     <div class="prof-head-img">
@@ -138,7 +148,7 @@ if (!mysqli_num_rows(mysqli_query($con, "SELECT id from user where id='$user_id'
           $sql = "select skill_type from skills where user_id = '$user_id'";
           $res = mysqli_query($con, $sql);
           while ($row = mysqli_fetch_array($res)) {
-            echo "<h3 class='bottom-main'>" . $row['skill_type'] . "</h3>";
+            echo "<h3 class='bottom-main'><i class='fas fa-bolt'></i>" . $row['skill_type'] . "</h3>";
           }
           ?>
           </div>
