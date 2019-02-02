@@ -116,7 +116,7 @@ while ($row = mysqli_fetch_array($res)) {
         } else {
             for ($i = 0; $i < count($empTitle); $i++) {
                 echo "<div class='job-content'>
-                    <div class='job'>
+                    <div class='jobbox'>
                         <p class='job-name'>" . $empTitle[$i] . "</p>
                         <p>" . $empStart[$i] . " - " . $empEnd[$i] . "</p>
                     </div>

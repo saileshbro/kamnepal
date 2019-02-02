@@ -19,7 +19,7 @@ $category = getColumn("select category from profile where user_id='$user_id'", '
 $jobsql = "select  profile.id, profile.fname, profile.bio from profile,user where profile.user_id= user.id and user.type='Jobseeker'and profile.category='$category' limit 10";
 $jobres = mysqli_query($con, $jobsql);
 // get details of employer
-$empsql = "select  profile.id, profile.fname, profile.bio,from profile,user where profile.user_id= user.id and user.type='Employer' and profile.category='$category' limit 10";
+$empsql = "select  profile.id, profile.fname, profile.bio from profile,user where profile.user_id= user.id and user.type='Employer' and profile.category='$category' limit 10";
 $empres = mysqli_query($con, $empsql);
 ?>
 <!DOCTYPE html>

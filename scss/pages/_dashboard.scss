@@ -220,6 +220,8 @@
       border: 1px solid rgba($color-grey-dark-2, 0.36);
       background: white;
       margin: 1rem 0;
+      max-height: 70rem;
+      overflow: auto;
 
       .job {
         margin: 1.2rem .8rem;

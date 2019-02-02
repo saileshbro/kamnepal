@@ -1851,7 +1851,7 @@ body {
   margin: 1.7rem 0 1.8rem 1.4rem;
 }
 
-.cv-experience .job-content .job {
+.cv-experience .job-content .jobbox {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1860,13 +1860,13 @@ body {
           justify-content: space-between;
 }
 
-.cv-experience .job-content .job-name {
+.cv-experience .job-content .jobbox-name {
   font-size: 1.6rem;
   font-weight: bold;
   font-family: "PT Sans";
 }
 
-.cv-experience .job-content .job p:last-child {
+.cv-experience .job-content .jobbox p:last-child {
   margin-right: 2.4rem;
 }
 
@@ -2181,6 +2181,8 @@ div.ui-datepicker {
   border: 1px solid rgba(153, 153, 153, 0.36);
   background: white;
   margin: 1rem 0;
+  max-height: 70rem;
+  overflow: auto;
 }
 
 .dashboard-body .dashboard-middle .actual-post .job {
@@ -4636,3 +4638,4 @@ div.ui-datepicker {
           box-shadow: 2px 2px 20px #0fe456;
   outline: 0 none;
 }
+/*# sourceMappingURL=main.css.map */
