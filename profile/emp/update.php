@@ -1,4 +1,5 @@
 <?php
+// UPDATE EMPLOYER PROFILE
 include_once('../../auth/authenticate.php');
 require('../../database/db.php');
 $db = new Database;

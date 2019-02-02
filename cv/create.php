@@ -1,4 +1,5 @@
 <?php
+// remove files if the previous users
 if (file_exists('../uploads/cv.png')) {
     unlink('../uploads/cv.png');
 }
@@ -109,6 +110,8 @@ if (file_exists('../uploads/cv.jpeg')) {
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
         <script src="../js/cv.js"></script>
         <script>
+//****************REMOVE DYNAMIC FORMS*********/
+// remove the education form
         function removeEduPressed(data) {
             let grandfather = data.parentElement; //education
             data.remove();
@@ -122,7 +125,7 @@ if (file_exists('../uploads/cv.jpeg')) {
                 inputs[4].attributes['name'].nodeValue="course-detail-"+i;
             }
         }
-
+// remove the experience form
         function removeExpPressed(data) {
             let grandfather = data.parentElement;
             data.remove();
@@ -136,7 +139,7 @@ if (file_exists('../uploads/cv.jpeg')) {
                 inputs[4].attributes['name'].nodeValue="emp-detail-"+i;
             }
         }
-
+// remove the skill form
         function removeSkillPressed(data) {
             let grandfather = data.parentElement;
             data.remove();
@@ -150,18 +153,19 @@ if (file_exists('../uploads/cv.jpeg')) {
         }
         </script>
             <script>
+//************FUNCTION TO CHANGE AVATAR*****************/
             function changeAvatar(data){
                 var fileToUpload = $('.file-upload').prop('files')[0];
                 var data = new FormData();
                 data.append('image',fileToUpload);
                 $.ajax({
-                url:"upload.php",
-                data: data,
-                type: 'POST',
-                contentType: false,
-                processData: false,
-                success: (data)=>{
-                }
+                    url:"upload.php",
+                    data: data,
+                    type: 'POST',
+                    contentType: false,
+                    processData: false,
+                    success: (data)=>{
+                    }
                 });
             }
     </script>

@@ -1,13 +1,13 @@
 <?php
 
 require 'auth/authenticate.php';
-$userId = getColumn("SELECT id FROM user WHERE email='$email'", "id");
-$profileImg = "./" . getColumn("SELECT profile_img FROM profile WHERE user_id='$userId'", "profile_img");
-$fullName = getColumn("SELECT fname FROM profile WHERE user_id='$userId'", "fname");
-$fullBio = getColumn("SELECT bio FROM profile WHERE user_id='$userId'", "bio");
-$Type = getColumn("SELECT type FROM user WHERE email='$email'", "type");
+$userId = getColumn("SELECT id FROM user WHERE email='$email'", "id"); //id of the currently logged in user
+$profileImg = "./" . getColumn("SELECT profile_img FROM profile WHERE user_id='$userId'", "profile_img"); //profile img of the currently logged in user
+$fullName = getColumn("SELECT fname FROM profile WHERE user_id='$userId'", "fname"); //name
+$fullBio = getColumn("SELECT bio FROM profile WHERE user_id='$userId'", "bio"); //bio
+$Type = getColumn("SELECT type FROM user WHERE email='$email'", "type"); //type
 // bio limited to 100 chars
-$disp = (strlen($fullBio) <= 95) ? $fullBio : substr($fullBio, 0, 100) . ' . . .';
+$disp = (strlen($fullBio) <= 95) ? $fullBio : substr($fullBio, 0, 100) . ' . . .'; //displaying a portion of bio 
 ?>
 <nav  class="navbar dropped-navbar">
     <div class="navbar--left" onclick="location.href = '../../dashboard.php';">
@@ -44,9 +44,9 @@ $disp = (strlen($fullBio) <= 95) ? $fullBio : substr($fullBio, 0, 100) . ' . . .
                 <div class="dropdown-profile-last">
                     <ul>
                         <?php 
-                        if ($Type == "Employer") {
+                        if ($Type == "Employer") {//if employer go to employer profile
                             echo "<li><a href='/profile/emp/display.php?user_id=" . $userId . "'><i class='far fa-2x fa-user'></i><h3>My Profile</h3></a></li>";
-                        } else {
+                        } else {//else to jobseeker
                             echo "<li><a href='/profile/jsk/display.php?user_id=" . $userId . "'><i class='far fa-2x fa-user'></i><h3>My Profile</h3></a></li>";
                         }
                         ?>
@@ -56,6 +56,7 @@ $disp = (strlen($fullBio) <= 95) ? $fullBio : substr($fullBio, 0, 100) . ' . . .
                 </div>
             </div>
         </div>
+        <!-- display notice here -->
         <div id="noticeDrop">
             <ul id ="notice-list">
             </ul>
@@ -63,11 +64,14 @@ $disp = (strlen($fullBio) <= 95) ? $fullBio : substr($fullBio, 0, 100) . ' . . .
     </div>
 </nav>
 <script>
+    // ******************** SEARCH ****************/
+    // function to search from dashboard
     function searchDash(data) {
-  if (data === "") {
+  if (data === "") { //hide list if input becomes empty
     $('.searches').hide();
   } else {
     $('.searches').show();
+   // send ajax request to server script
     $.ajax({
       url: "/search.php",
       type: 'POST',
@@ -75,19 +79,21 @@ $disp = (strlen($fullBio) <= 95) ? $fullBio : substr($fullBio, 0, 100) . ' . . .
         data: data
       },
       success: (data) => {
+        //   receive response
         $('#search-list').html(data);
       }
     });
   }
 }
-//*****************bhabin************** */
+//**********************GET CLEAR AND OPEN NOTICE***********/
 // open specific notification
 function openNotice(data){
+    // send request to clearNotice.php with the notice id
     $.ajax({
         type:'POST',
         url:"/clearNotice.php",
         data:{
-            type: 'post',
+            type: 'single',
             notice_id : data
         },
         success: (data)=>{
@@ -106,6 +112,7 @@ function clearNotice(){
             user_id : "<?= $userId ?>"
         },
         success: (data)=>{
+            // clear all notice
             for(let i=1;i<$('#notice-list').children().length;i++){
                 $('#notice-list').children()[i].hide("slide", { direction: "left" }, 1000);
             }
@@ -119,10 +126,12 @@ function getNotice(){
         url:"/getNotice.php",
         type:'POST',
         data:{
+            // send user id of the notice reciever
             user_id:"<?= $userId ?>"
         },
         success:(data)=>{
             if(data==="null"){
+                // if no notice returns
                 $('#notice-list').html('<li class="post emptyNotice">No notifications</li>');
             }
             else{

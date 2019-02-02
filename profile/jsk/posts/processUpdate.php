@@ -1,4 +1,5 @@
 <?php
+// update all the fields
 require('../../../auth/authenticate.php');
 require('../../../database/db.php');
 $db = new Database;

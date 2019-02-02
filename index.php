@@ -2,8 +2,10 @@
 include 'database/db.php';
 $db = new Database();
 $con = $db->con;
+// get posts which has more interests
 $sql = "select * from posts order by LENGTH(interested) desc limit 10";
 $res = mysqli_query($con, $sql);
+// get top companies 
 $sql1 = "select profile.id, profile.fname, profile.bio from profile,user where profile.user_id = user.id and user.type='Employer' limit 10";
 $res1 = mysqli_query($con, $sql1);
 
@@ -51,6 +53,7 @@ $res1 = mysqli_query($con, $sql1);
     <div class="container">
        <div class="landing-main" id='landing-main'>
            <div class="landing-left">
+               <!-- top job vacancies -->
         <h2 class="landing-heading"> Top Vacancies</h2>
         <div class='landing-scroll'>
         <?php
@@ -72,6 +75,7 @@ $res1 = mysqli_query($con, $sql1);
         </div>
        </div>
        <div class="landing-right">
+           <!-- top companies list -->
             <h2 class="landing-heading">Top companies</h2>
             <div class='company-list'>
             <?php 

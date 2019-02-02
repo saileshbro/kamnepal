@@ -1,32 +1,35 @@
 <?php
-function cleanse($str){
+// cleanse function to cleanse the inputs
+function cleanse($str)
+{
     global $con;
     return mysqli_real_escape_string($con, strip_tags(stripslashes($str)));
 }
-
-function getColumn($sql, $col){
+// get column value
+function getColumn($sql, $col)
+{
     global $con;
-
     $r = "";
-
     $result = mysqli_query($con, $sql);
-    while($row=mysqli_fetch_array($result)){
+    while ($row = mysqli_fetch_array($result)) {
         $r = $row[$col];
     }
-    
+
     return $r;
 }
-
-class Database {
+// database class
+class Database
+{
     public $con;
-
-    function __construct(){
-        $this->con = mysqli_connect("localhost","root","","kamnepal");
-        if(mysqli_connect_errno()){
+    function __construct()
+    {
+        $this->con = mysqli_connect("localhost", "root", "", "kamnepal");
+        if (mysqli_connect_errno()) {
             die();
         }
     }
-    function __destruct(){
+    function __destruct()
+    {
         mysqli_close($this->con);
     }
 }

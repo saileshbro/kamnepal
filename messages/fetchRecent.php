@@ -1,4 +1,5 @@
 <?php
+// **************FETCH RECENT CONVERSATIONS**************
 include "../database/db.php";
 include "../auth/authenticate.php";
 $db = new Database();
@@ -16,15 +17,11 @@ function searchForId($id, $arrayX)
 $sender_id = getColumn("select id from user where email='$email'", 'id');
 
 $result = mysqli_query($con, "SELECT * FROM chat WHERE sender_id='$sender_id' or reciever_id='$sender_id' GROUP BY sender_id,reciever_id ORDER BY id DESC");
-
-$msgs = array();
-
+$msgs = array(); //array to fetch all the message
 while ($row = mysqli_fetch_assoc($result)) {
     $msgs[] = $row;
 }
-
 $msgs_filtered = array();
-
 foreach ($msgs as $msg) {
     if ($msg['sender_id'] === $sender_id) {
         if (!searchForId($msg['reciever_id'], $msgs_filtered)) {
@@ -36,7 +33,7 @@ foreach ($msgs as $msg) {
         }
     }
 }
-
+// history chat
 $history = array();
 foreach ($msgs_filtered as $sms) {
     if ($sms['sender_id'] === $sender_id) {
@@ -46,7 +43,7 @@ foreach ($msgs_filtered as $sms) {
         $history[] = $sms['sender_id'];
     }
 }
-
+// display history
 foreach ($history as $hist) {
     $name = getColumn("SELECT fname FROM profile WHERE user_id='$hist'", "fname");
     $lastMsg = getColumn("SELECT message FROM chat WHERE (sender_id='$sender_id' AND reciever_id='$hist') OR (sender_id='$hist' AND reciever_id='$sender_id') ORDER BY id DESC LIMIT 1", "message");

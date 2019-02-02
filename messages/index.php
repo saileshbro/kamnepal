@@ -5,6 +5,7 @@ $db = new Database();
 $con = $db->con;
 $sender_id = getColumn("select id from user where email = '$email'", 'id');
 $sender_name = getColumn("select fname from profile where user_id='$sender_id'", 'fname');
+// last person i have sent a message
 $lastConv = getColumn("SELECT reciever_id FROM chat WHERE sender_id='$sender_id' ORDER BY id DESC LIMIT 1", 'reciever_id');
 if (isset($_GET['id'])) {
   $reciever_id = cleanse($_GET['id']) ?? "";
@@ -70,12 +71,21 @@ if (!mysqli_num_rows(mysqli_query($con, "SELECT id from user where id='$reciever
     <?php require('../includes/footer.php'); ?>
     <script src="/js/app.js"></script>
     <script>
-    var id = "<?= $reciever_id ?>";
-    var src = "<?= $profileImg ?>";
+    // iamge src
     src = "../."+src;
     $('#nav-pro-img').attr("src",src);
     $('.dropdown-profile-mid img').attr("src",src);
-
+      // receiver id
+    var id = "<?= $reciever_id ?>";
+    // sender id
+    var src = "<?= $profileImg ?>";
+    getChatHeader();
+    fetchRecent();
+    fetchMessages();
+    // fetch message after 8 s
+    setInterval(fetchMessages,8000);
+// ******************CHAT FUNCTONS**********************
+// gets the chat head, name and total messages
     function getChatHeader(){
       $.ajax({
         type: 'POST',
@@ -88,12 +98,13 @@ if (!mysqli_num_rows(mysqli_query($con, "SELECT id from user where id='$reciever
         }
       });
     }
-    getChatHeader();
+    // changes chat on people from history list click
     function changeChat(chaTiD){
       id=chaTiD;
       fetchMessages();
       getChatHeader();
-    } 
+    }
+    // fetches recent messages that is history
     function fetchRecent(){
       $.ajax({
         type: 'GET',
@@ -106,15 +117,16 @@ if (!mysqli_num_rows(mysqli_query($con, "SELECT id from user where id='$reciever
         }
       });
     }
-    fetchRecent();
+    // send a message from here
     function sendMessage(){
-    if($('#message-to-send').val()!=''){
+      let message = $.trim($('#message-to-send').val());
+    if(message!=''){
       $.ajax({
       type: "POST",
       url : "sendmessage.php",
       data: {
         reciever: id,
-        message: $('#message-to-send').val()
+        message: message
       },
       success: (data)=>{
         fetchMessages();
@@ -122,9 +134,10 @@ if (!mysqli_num_rows(mysqli_query($con, "SELECT id from user where id='$reciever
         getChatHeader();
       }
     });
-    $('#message-to-send').val("");
-    }else{}
   }
+  $('#message-to-send').val($.trim($('#message-to-send').val()));
+  }
+  // fetch all the messages
   function fetchMessages(){
     $.ajax({
       type: 'GET',
@@ -140,13 +153,14 @@ if (!mysqli_num_rows(mysqli_query($con, "SELECT id from user where id='$reciever
     });
   }
   
-  fetchMessages();
-  setInterval(fetchMessages,8000);
+  // Enter key mapping
   $('#message-to-send').on('keypress',function(e) {
     if(e.which == 13) {
       sendMessage();
+      $('#message-to-send').val($.trim($('#message-to-send').val()));
     }
 });
+// CHAT HISTORY SEARCH
 function search(query){
   let people = $("li.clearfix div.about .name");
   query = query.toLowerCase();

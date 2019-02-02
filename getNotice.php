@@ -2,7 +2,9 @@
 require "database/db.php";
 $db = new Database();
 $con = $db->con;
+// user id of the reciever
 $userId = $_POST['user_id'];
+// get all the notices of the notice receiver
 $sql = "SELECT * FROM notice where reciever_id='$userId' order by notice_time desc";
 $res = mysqli_query($con, $sql);
 if (mysqli_num_rows($res) > 0) {
@@ -13,7 +15,9 @@ if (mysqli_num_rows($res) > 0) {
         $poster = getColumn("SELECT fname FROM profile where user_id=" . $row['sender_id'] . "", "fname");
         $postName = getColumn("SELECT title FROM posts where id=" . $row['post_id'] . "", "title");
         if ($row['status'] == '0') {
+            // unseen notices
             if ($row['type'] === 'post') {
+                // if post notice
                 ?>
             <li id="<?php echo $row['id']; ?>" onclick="openNotice(this.id);">
             <div class="post-link">
@@ -27,6 +31,7 @@ if (mysqli_num_rows($res) > 0) {
             <?php
 
         } else {
+            // if message notice
             ?>
             <li id="<?php echo $row['id']; ?>" onclick="openNotice(this.id);">
             <div class="post-link">
@@ -42,6 +47,7 @@ if (mysqli_num_rows($res) > 0) {
 
         }
     } else {
+        // seen notices
         if ($row['type'] === 'post') {
             ?>
         <li class="seenNotice" id="<?php echo $row['id']; ?>" onclick="openNotice(this.id);"><div class="post-link"><i onclick="location.href='/posts/index.php?id=<?php echo $row['post_id']; ?>'" class="fas fa-file-signature" style="cursor:pointer;"></i><p><a href="javascript:;" onclick="location.href='/profile/jsk/display.php?user_id=<?php echo $row['sender_id']; ?>'"><?php echo $poster; ?></a> viewed your post <span style="cursor:pointer;" onclick="location.href='/posts/index.php?id=<?php echo $row['post_id']; ?>'"><?php echo $postName; ?></span></p></div></li>
@@ -56,6 +62,7 @@ if (mysqli_num_rows($res) > 0) {
     }
 }
 } else {
+    // if no notice
     echo "null";
 }
 ?>

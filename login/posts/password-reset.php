@@ -3,7 +3,8 @@ include("../../database/db.php");
 $db = new Database();
 $con = $db->con;
 if (isset($_POST['password3']) && isset($_POST['user_id'])) {
-    $user_id = cleanse($_POST['user_id']) ?? "";
+    // change password here***********
+    $user_id = cleanse($_POST['user_id']) ?? ""; //userid of logged in user
     $email = getColumn("select email from user where id='$user_id'", 'email');
     $dbpass = getColumn("select password from user where id='$user_id'", 'password');
     $pass1 = cleanse($_POST['password']) ?? "";
@@ -28,6 +29,7 @@ if (isset($_POST['password3']) && isset($_POST['user_id'])) {
         echo $e->getMessage();
     }
 } else {
+    // forgot password here*****************
     $email = cleanse($_POST['email']) ?? "";
     $fcode = cleanse($_POST['fcode']) ?? "";
     $sql = "SELECT id FROM user WHERE email='$email' AND fcode='$fcode'";

@@ -1,4 +1,5 @@
 <?php
+// DISPLAY A POST
 include '../database/db.php';
 include '../auth/authenticate.php';
 $db = new Database();

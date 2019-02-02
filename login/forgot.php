@@ -1,14 +1,17 @@
 <?php
+// *******************forgot password reset page here***************
 require('../database/db.php');
 $db = new Database;
 $con = $db->con;
+// if already logged in 
 session_start();
 $email = $_SESSION['email'] ?? "";
-$user_id = getColumn("SELECT id FROM user WHERE email='$email'", "id");
 if (strlen($email) > 0) {
-        // redirect after login
+    // redirect after login
+    $user_id = getColumn("SELECT id FROM user WHERE email='$email'", "id");
     header("Location: ../dashboard.php?user_id=$user_id");
 }
+// get from url
 $email = $_GET['email'];
 $fcode = $_GET['fcode'];
 ?>
@@ -58,7 +61,9 @@ $fcode = $_GET['fcode'];
         <?php include "../includes/footer.php" ?>
 
         <script src="/js/app.js"></script>
-        <script>email = "<?= $email ?>";
+        <script>
+            // change password script
+        email = "<?= $email ?>";
         fcode = "<?= $fcode ?>";
         $('#changePassword').click(() => {
         var passData = $('#resetForm :input').serialize();

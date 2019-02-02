@@ -3,14 +3,22 @@ include "auth/authenticate.php";
 include 'database/db.php';
 $db = new Database();
 $con = $db->con;
+// get userid of logged in user
 $user_id = getColumn("select id from user where email='$email'", 'id');
+// get type of user
 $type = getColumn("select type from user where email='$email'", 'type');
+// get full name
 $fname = getColumn("select fname from profile where user_id ='$user_id'", "fname");
+// get interests
 $interest = getColumn("select interest from profile where user_id ='$user_id'", "interest");
+// get bio
 $bio = getColumn("select bio from profile where user_id ='$user_id'", "bio");
+// get category
 $category = getColumn("select category from profile where user_id='$user_id'", 'category');
+// get details of jobseeker
 $jobsql = "select  profile.id, profile.fname, profile.bio from profile,user where profile.user_id= user.id and user.type='Jobseeker'and profile.category='$category' limit 10";
 $jobres = mysqli_query($con, $jobsql);
+// get details of employer
 $empsql = "select  profile.id, profile.fname, profile.bio,from profile,user where profile.user_id= user.id and user.type='Employer' and profile.category='$category' limit 10";
 $empres = mysqli_query($con, $empsql);
 ?>
@@ -31,6 +39,7 @@ $empres = mysqli_query($con, $empsql);
   <link rel="stylesheet" href="css/main.css">
   <title>Kam Nepal | Dashboard</title>
   <style>
+    /* display hidden by default */
     #cke_editor {
       display: none;
     }
@@ -75,7 +84,7 @@ $empres = mysqli_query($con, $empsql);
                       <?php
                       if ($type === 'Employer') {
                         echo "<select name='category' required</select><option value='Jobs Category' selected='true' disabled='disabled'>Category</option>";
-                        $sql = "select * from category order by name asc";
+                        $sql = "select * from category order by name asc";//get category list from database
                         $res = mysqli_query($con, $sql);
                         if ($res) {
                           while ($row = mysqli_fetch_array($res)) {
@@ -99,10 +108,12 @@ $empres = mysqli_query($con, $empsql);
             <div class="actual-post">
             <?php
             if ($type === 'Jobseeker') {
+              // display employer posts for jobseeker accorging to category
               $sql = "SELECT posts.*,profile.fname FROM posts,user,profile WHERE posts.category='$category' AND user.id=posts.user_id AND user.id=profile.user_id AND user.type='Employer' ORDER BY updated_at DESC";
               $res = mysqli_query($con, $sql);
               if ($res) {
                 while ($row = mysqli_fetch_array($res)) {
+                  // display jobs
                   echo "<div class='job'>
                             <div class='job-title'><a href='posts/index.php?id=" . $row['id'] . "' id='" . $row['id'] . "'class='jobPosts'>" . $row['title'] . "</a>
                             </div>
@@ -113,11 +124,13 @@ $empres = mysqli_query($con, $empsql);
                           </div>";
                 }
               } else {
+                // if no posts
                 echo "<div class='job'>
                           <div class job-body>No Posts Available</div>
                         </div>";
               }
             } else if ($type === 'Employer') {
+              // display jobseekers posts for employer
               $sql = "SELECT posts.*,profile.fname FROM posts,user,profile WHERE posts.category='$category' AND user.id=posts.user_id AND user.id=profile.user_id AND user.type='Jobseeker' ORDER BY updated_at DESC";
               $res = mysqli_query($con, $sql);
               if ($res) {
@@ -144,7 +157,9 @@ $empres = mysqli_query($con, $empsql);
 				<div class='company-list'>
         <?php echo ($type === 'Jobseeker') ? "<h2>Recommended Companies</h2>" : "<h2>Potential Candidates</h2>"; ?>
         <?php 
+        // list of recommendations
         if ($type === 'Jobseeker') {
+          // if jobseeker display recommended companies
           if ($empres) {
             $i = 1;
             while ($row = mysqli_fetch_assoc($empres)) {
@@ -162,6 +177,7 @@ $empres = mysqli_query($con, $empsql);
           }
         } else if ($type === 'Employer') {
           if ($jobres) {
+            // if jobseeker display recommended companies
             $i = 1;
             while ($row = mysqli_fetch_assoc($jobres)) {
               echo '<div class="comp-card">
@@ -174,7 +190,7 @@ $empres = mysqli_query($con, $empsql);
               $i++;
             }
           } else {
-            echo '<p id="No"> <span>! </span>No Recommendations Found</p>';
+            echo '<p id="No"> <span>!</span>No Recommendations Found</p>';
           }
         } ?>
 				</div>
@@ -182,8 +198,10 @@ $empres = mysqli_query($con, $empsql);
         </section>
   </div>
   <?php require('./includes/footer.php') ?>
+  <!-- Include CK EDITOR -->
   <script src="//cdn.ckeditor.com/4.11.1/standard/ckeditor.js"></script>
   <script> user_id = "<?= $user_id ?>";</script>
+  <!--**********************CK EDITOR CONFIGURATION***********************  -->
   <script>
     var createpost = CKEDITOR.replace('createpost', {
       extraAllowedContent: 'div',
@@ -204,11 +222,15 @@ $empres = mysqli_query($con, $empsql);
         });
       }
     });
+    // ********************* CREATE POST HERE********************************/
     $('.create-button .button-primary').click(()=>{
+      // get title
       var title = document.getElementById('title').value;
+      // get category of the post
       var category = $('#createPost select').val();
+      // get the file to be ubloaded
       var fileToUpload = $('#file').prop('files')[0];
-      var form = new FormData();
+      var form = new FormData();//send it as form data
       form.append("user_id",user_id);
       form.append("title",title);
       form.append("body",createpost.getData());
@@ -219,14 +241,15 @@ $empres = mysqli_query($con, $empsql);
         url: 'createpost.php',
         contentType: false,
         processData: false,
-        data: form,
+        data: form,//send form as a form data
         success: (data)=>{
-          document.getElementById('title').value= "";
-          createpost.setData("");
+          document.getElementById('title').value= ""; //clear the title
+          createpost.setData("");//clear the ck editor
           $('#cke_editor').fadeOut();
         }
       });
     });
+    //*********************************PROFILE NAVIGATION */
     function gotoProfile(){
       if("<?= $type ?>"==="Jobseeker"){
         location.href = "profile/jsk/display.php?user_id="+"<?= $user_id ?>";
@@ -234,6 +257,7 @@ $empres = mysqli_query($con, $empsql);
         location.href = "profile/emp/display.php?user_id="+"<?= $user_id ?>";
       }
     }
+    // *****************message navigation*******************/
     function gotoMessage(){
       location.href="./messages";
     }

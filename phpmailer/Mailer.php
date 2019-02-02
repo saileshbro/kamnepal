@@ -1,5 +1,5 @@
 <?php
-
+// MAILER CONFIGURATION USING PHPMailer
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 

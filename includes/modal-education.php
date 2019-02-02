@@ -1,5 +1,5 @@
 <?php
-$user_id = $_GET['user_id'];
+$user_id = $_GET['user_id'];//get user id of the profile
 $sql = "select * from education where user_id='$user_id'";
 $res = mysqli_query($con, $sql);
 

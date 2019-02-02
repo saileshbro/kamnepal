@@ -3,7 +3,7 @@ include("../../database/db.php");
 include_once "../../phpmailer/Mailer.php";
 $db = new Database();
 $con = $db->con;
-
+// get data
 $fname = cleanse($_POST['fname']) ?? "";
 $email = cleanse($_POST['email']) ?? "";
 $password = cleanse($_POST['password']) ?? "";
@@ -11,7 +11,7 @@ $password2 = cleanse($_POST['password2']) ?? "";
 $category = cleanse($_POST['category']) ?? "";
 $phone = cleanse($_POST['phone']) ?? "";
 $type = cleanse($_POST['type']) ?? "Jobseeker";
-
+// handle exceptions
 try {
     if (strlen($fname) < 5 || strpos($fname, " ") === false) {
         throw new Exception("Enter your proper full name.");
@@ -49,6 +49,7 @@ try {
     mysqli_query($con, "INSERT INTO user (email, password, vcode, type) VALUES ('$email', '$password', '$vcode', '$type')");
     $link = "kam.nepal/auth/verify_code.php?email=$email&vcode=$vcode";
     $link = "<a href='$link'>" . $link . "</a>";
+    // send mail to verify
     $mailer = new Mailer();
     $mailer->sendMail($email, "Verify your Kam Nepal account", $link);
 

@@ -1,4 +1,5 @@
 <?php
+// get chat header name and total message
 include "../database/db.php";
 include "../auth/authenticate.php";
 $db = new Database();

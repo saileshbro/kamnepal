@@ -1,4 +1,5 @@
 <?php
+// LOGIN FORM
 require('../database/db.php');
 $db = new Database;
 $con = $db->con;

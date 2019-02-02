@@ -1,4 +1,5 @@
 <?php 
+// get information and displat CV
 include '../database/db.php';
 $db = new Database();
 $con = $db->con;

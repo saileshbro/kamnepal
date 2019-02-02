@@ -1,4 +1,5 @@
 <?php
+// display update page
 include_once('../../auth/authenticate.php');
 require('../../database/db.php');
 $db = new Database;
@@ -19,7 +20,6 @@ while ($row = mysqli_fetch_array($res)) {
   $dob = $row['dob'];
   $address = $row['address'];
   $phone = $row['phone'];
-// $profile_img=$row['profile_img'];
   $employ_status = $row['employ_status'];
   $interest = $row['interest'];
   $bio = $row['bio'];

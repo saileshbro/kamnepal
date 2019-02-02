@@ -1,4 +1,5 @@
 <?php
+// display default image if no image provided
 $profImg = '../uploads/default.png';
 if (file_exists('../uploads/cv.png')) {
     $profImg = '../uploads/cv.png';
@@ -12,10 +13,10 @@ if (file_exists('../uploads/cv.jpeg')) {
 $i = 0;
 $j = 0;
 $k = 0;
-$fname = $_POST['fname'] ?? "";
-$address = $_POST['address'] ?? "";
-$about = $_POST['employ_details'] ?? "";
-$email = $_POST['email'] ?? "";
+$fname = $_POST['fname'] ?? "";//Full Name
+$address = $_POST['address'] ?? "";//Address
+$about = $_POST['employ_details'] ?? "";//about
+$email = $_POST['email'] ?? "";//email
 $phone = $_POST['phone'] ?? "";
 $dob = $_POST['dob'] ?? "";
 $interest = $_POST['interest'] ?? "";

@@ -1,5 +1,5 @@
 <?php
-
+// send password reset link via email***********************/
 include '../../database/db.php';
 include_once '../../phpmailer/Mailer.php';
 $db = new Database();
@@ -8,8 +8,6 @@ $email = cleanse($_POST['email']) ?? '';
 $sql = "SELECT id FROM user WHERE email ='$email'";
 $res = mysqli_query($con, $sql);
 $num = mysqli_num_rows($res);
-
-
 if ($num > 0) {
     $fcode = substr(str_shuffle(md5(microtime())), 0, 7);
     $sql1 = "UPDATE user set fcode='$fcode' WHERE email='$email'";

@@ -1,4 +1,5 @@
 <?php
+// SEND MESSAGE HERE
 include "../auth/authenticate.php";
 include "../database/db.php";
 $db = new Database;
@@ -17,8 +18,6 @@ if (mysqli_num_rows($res) > 0) {
     $sql = "INSERT INTO notice (reciever_id,sender_id,type) values ('$reciver_id','$sender_id','msg')";
     mysqli_query($con, $sql);
 }
-
-// bhabin
+// UPDATE NOTICE AS SEEN WHILE CHATTING
 $sql = "UPDATE notice SET status='1' where reciever_id='$sender_id' and sender_id='$reciever_id'";
 mysqli_query($con, $sql);
-// bhabin

@@ -1,4 +1,5 @@
 <?php
+// add interest to the post
 require '../../auth/authenticate.php';
 require '../../database/db.php';
 $db = new Database();
@@ -9,6 +10,7 @@ $post_id = cleanse($_POST['post_id']) ?? "";
 $publisherId = getColumn("Select user_id from posts where id='$post_id'", 'user_id');
 $sql = "update posts set interested=concat(interested,'$user_id') where id='$post_id'";
 $str = getColumn("select interested from posts where id = '$post_id'", "interested");
+// add user id of those who are interested seperated by comma
 $str = substr($str, 0, strlen($str) - 1);
 $userArr = explode(',', $str);
 

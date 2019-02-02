@@ -1,4 +1,5 @@
 <?php
+// DISPLAY EMPLOYER PROFILE
 require '../../database/db.php';
 $db = new Database();
 $con = $db->con;

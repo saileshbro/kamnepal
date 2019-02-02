@@ -2,7 +2,8 @@
 include "../../../database/db.php";
 $db = new Database();
 $con = $db->con;
-
+// remove a field
+// remove education
 if (substr(array_keys($_POST)[0], 0, 13) == "course-title-") {
     $id = array_keys($_POST)[0];
     $id = substr($id, 13, strlen($id));
@@ -18,6 +19,7 @@ if (substr(array_keys($_POST)[0], 0, 13) == "course-title-") {
         $res = mysqli_query($con, $sql);
     }
 }
+// remove employment
 if (substr(array_keys($_POST)[0], 0, 10) == "emp-title-") {
     $id = array_keys($_POST)[0];
     $id = substr($id, 10, strlen($id));
@@ -33,6 +35,7 @@ if (substr(array_keys($_POST)[0], 0, 10) == "emp-title-") {
         $res = mysqli_query($con, $sql);
     }
 }
+// remove skill
 if (substr(array_keys($_POST)[0], 0, 11) == "skill-type-") {
     $id = array_keys($_POST)[0];
     $id = substr($id, 11, strlen($id));

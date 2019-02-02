@@ -1,4 +1,5 @@
 <?php
+// PROCESS UPDATE EMPLOYER
 require('../../../auth/authenticate.php');
 require('../../../database/db.php');
 $db = new Database;
