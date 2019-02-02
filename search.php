@@ -24,14 +24,14 @@ if (!(mysqli_num_rows($polist) || mysqli_num_rows($prolist))) {
         if ($row['type'] === 'Jobseeker') {
             echo '
      <div class="each-list">
-     <li> <i style="color:#ff1073" class="fas fa-user"></i><a class="name" href="profile/jsk/display.php?user_id=' . $row['id'] . '">' . $row['fname'] . '</a></li>
+     <li> <i style="color:#ff1073" class="fas fa-user"></i><a class="name" href="/profile/jsk/display.php?user_id=' . $row['id'] . '">' . $row['fname'] . '</a></li>
      </div>
      ';
         } else if ($row['type'] === 'Employer') {
             echo '
      <div class="each-list">
      
-     <li> <i style="color:green" class="far fa-building"></i><a class="name" href="profile/emp/display.php?user_id=' . $row['id'] . '">' . $row['fname'] . '</a></li>
+     <li> <i style="color:green" class="far fa-building"></i><a class="name" href="/profile/emp/display.php?user_id=' . $row['id'] . '">' . $row['fname'] . '</a></li>
      </div>
      ';
         }
@@ -41,7 +41,7 @@ if (!(mysqli_num_rows($polist) || mysqli_num_rows($prolist))) {
         // display posts first as result
         echo '
       <div class="each-list">
-      <li><i style="color: black" class="fas fa-file-signature"></i><a class="name" href="posts/index.php?id=' . $row['id'] . '">' . $row['title'] . '</a></li>
+      <li><i style="color: black" class="fas fa-file-signature"></i><a class="name" href="/posts/index.php?id=' . $row['id'] . '">' . $row['title'] . '</a></li>
       </div>
       ';
     }

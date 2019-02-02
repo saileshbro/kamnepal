@@ -5,6 +5,9 @@ $db = new Database();
 $con = $db->con;
 $user_id = cleanse($_GET['user_id']) ?? '';
 $type = getColumn("select type from user where id='$user_id'", 'type');
+if ($type === "Jobseeker") {
+  header("Location: ../jsk/display.php?user_id=" . $user_id);
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -48,7 +51,6 @@ $type = getColumn("select type from user where id='$user_id'", 'type');
 include '../../index-nav.php'; ?>
 <?php
 if (!mysqli_num_rows(mysqli_query($con, "SELECT id from user where id='$user_id'")) > 0) {
-  // header("Location: display.php?user_id='$userId'");
   ?>
   <script>
     location.href="display.php?user_id=<?php echo $userId; ?>";

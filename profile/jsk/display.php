@@ -41,7 +41,24 @@ while ($row = mysqli_fetch_array($res)) {
   <link rel="stylesheet" href="../../css/main.css">
   <title>Kam Nepal</title>
 </head>
+<?php include '../../index-nav.php';
+if (!mysqli_num_rows(mysqli_query($con, "SELECT id from user where id='$user_id'")) > 0) {
+  ?>
+  <script>
+    location.href="display.php?user_id=<?php echo $userId; ?>";
+  </script>
+  <?php
 
+}
+if ($type === "Employer") {
+  ?>
+  <script>
+    location.href="../emp/display.php?user_id=<?php echo $user_id; ?>";
+  </script>
+  <?php
+
+}
+?>
 <body onload="document.getElementById('about').click();$('#about').trigger('click');">
 <div id='modal' class='modal'>
   <div class="change">
@@ -79,27 +96,59 @@ while ($row = mysqli_fetch_array($res)) {
     </form>
   </div>
 </div>
-<?php require '../../includes/modal-education.php'; ?>
-<?php require '../../includes/modal-experience.php'; ?>
-<?php include '../../index-nav.php';
-if (!mysqli_num_rows(mysqli_query($con, "SELECT id from user where id='$user_id'")) > 0) {
-  // header("Location: display.php?user_id='$userId'");
-  ?>
-  <script>
-    location.href="display.php?user_id=<?php echo $userId; ?>";
-  </script>
-  <?php
-
-}
-if ($type === "Employer") {
-  ?>
-  <script>
-    location.href="../emp/display.php?user_id=<?php echo $user_id; ?>";
-  </script>
-  <?php
-
-}
+<?php
+$user_id = $_GET['user_id'];//get user id of the profile
+$sql = "select * from education where user_id='$user_id'";
+$res = mysqli_query($con, $sql);
 ?>
+<div class="modal-profile-1" id="modal-profile-1">
+    <div class="edu-modal">
+      <div class="edu-modal-head">
+        <a href="#modal-profile-1" id='edu-modal-head'><p>&times;</p></a>
+      </div>
+      <div class="edu-modal-body">
+        <h1 class='heading-secondary'>Education</h1>
+        <?php
+        while ($row = mysqli_fetch_array($res)) {
+          echo "<div class='edu-content'>
+                  <div class='degree'>
+                    <p>" . $row['course_title'] . "</p>
+                    <p>" . $row['start_year'] . " - " . $row['end_year'] . "</p>
+                  </div>
+                  <h3 class='name-ins'>" . $row['inst_name'] . "</h3>
+                  <p id='body'>" . $row['details'] . "</p>
+                </div>";
+        } ?>
+      </div>
+    </div>
+</div>
+<?php
+$user_id = $_GET['user_id']; //get user id of the profile
+$sql = "select * from experience where user_id='$user_id'";
+$res = mysqli_query($con, $sql);
+?>
+<div class="modal-profile-2" id="modal-profile-2">
+    <div class="exp-modal">
+      <div class="exp-modal-head">
+        <a href="#modal-profile-2" id='exp-modal-head'><p>&times;</p></a>
+      </div>
+      <div class="exp-modal-body">
+        <h1 class='heading-secondary'>Experiences</h1>
+        <?php
+        while ($row = mysqli_fetch_array($res)) {
+          echo "<div class='edu-content'>
+                  <div class='degree'>
+                    <p>" . $row['emp_title'] . "</p>
+                    <p>" . $row['emp_start'] . " - " . $row['emp_end'] . "</p>
+                  </div>
+                  <h3 class='name-ins'>" . $row['emp_comp'] . "</h3>
+                  <p id='body'>" . $row['emp_details'] . "</p>
+                </div>";
+        } ?>
+      </div>
+    </div>
+</div>
+
 <div class="Profile-main-body">
   <div class="profile-left">
     <div class="prof-head-img">
